@@ -32,6 +32,7 @@ return array(
     'Drupal\\Core\\DependencyInjection\\Container' => $baseDir . '/web/core/lib/Drupal/Core/DependencyInjection/Container.php',
     'Drupal\\Core\\DrupalKernel' => $baseDir . '/web/core/lib/Drupal/Core/DrupalKernel.php',
     'Drupal\\Core\\DrupalKernelInterface' => $baseDir . '/web/core/lib/Drupal/Core/DrupalKernelInterface.php',
+    'Drupal\\Core\\Http\\InputBag' => $baseDir . '/web/core/lib/Drupal/Core/Http/InputBag.php',
     'Drupal\\Core\\Installer\\InstallerRedirectTrait' => $baseDir . '/web/core/lib/Drupal/Core/Installer/InstallerRedirectTrait.php',
     'Drupal\\Core\\Site\\Settings' => $baseDir . '/web/core/lib/Drupal/Core/Site/Settings.php',
     'HTML5_Data' => $vendorDir . '/dompdf/dompdf/lib/html5lib/Data.php',
