@@ -125,7 +125,7 @@ trait AssertContentTrait {
       // DOM can load HTML soup. But, HTML soup can throw warnings, suppress
       // them.
       $html_dom = new \DOMDocument();
-      @$html_dom->loadHTML('<?xml encoding="UTF-8">' . $this->getRawContent());
+      @$html_dom->loadHTML('<?xml encoding="UTF-8">' . $this->getRawContent(), LIBXML_NOBLANKS);
       if ($html_dom) {
         // It's much easier to work with simplexml than DOM, luckily enough
         // we can just simply import our DOM tree.
@@ -143,7 +143,7 @@ trait AssertContentTrait {
    *   The current URL.
    */
   protected function getUrl() {
-    return isset($this->url) ? $this->url : 'no-url';
+    return 'no-url';
   }
 
   /**
@@ -264,9 +264,11 @@ trait AssertContentTrait {
 
     // Search option group children.
     if (isset($element->optgroup)) {
+      $nested_options = [];
       foreach ($element->optgroup as $group) {
-        $options = array_merge($options, $this->getAllOptions($group));
+        $nested_options[] = $this->getAllOptions($group);
       }
+      $options = array_merge($options, ...$nested_options);
     }
     return $options;
   }
@@ -427,11 +429,8 @@ trait AssertContentTrait {
    *   in test output. Use 'Debug' to indicate this is debugging output. Do not
    *   translate this string. Defaults to 'Other'; most tests do not override
    *   this default.
-   *
-   * @return bool
-   *   TRUE on pass, FALSE on fail.
    */
-  protected function assertRaw($raw, $message = '', $group = 'Other') {
+  protected function assertRaw($raw, $message = '', $group = 'Other'): void {
     if (!$message) {
       $message = 'Raw "' . Html::escape($raw) . '" found';
     }
@@ -455,11 +454,8 @@ trait AssertContentTrait {
    *   in test output. Use 'Debug' to indicate this is debugging output. Do not
    *   translate this string. Defaults to 'Other'; most tests do not override
    *   this default.
-   *
-   * @return bool
-   *   TRUE on pass, FALSE on fail.
    */
-  protected function assertNoRaw($raw, $message = '', $group = 'Other') {
+  protected function assertNoRaw($raw, $message = '', $group = 'Other'): void {
     if (!$message) {
       $message = 'Raw "' . Html::escape($raw) . '" not found';
     }
@@ -483,11 +479,8 @@ trait AssertContentTrait {
    *   in test output. Use 'Debug' to indicate this is debugging output. Do not
    *   translate this string. Defaults to 'Other'; most tests do not override
    *   this default.
-   *
-   * @return bool
-   *   TRUE on pass, FALSE on fail.
    */
-  protected function assertEscaped($raw, $message = '', $group = 'Other') {
+  protected function assertEscaped($raw, $message = '', $group = 'Other'): void {
     if (!$message) {
       $message = 'Escaped "' . Html::escape($raw) . '" found';
     }
@@ -512,11 +505,8 @@ trait AssertContentTrait {
    *   in test output. Use 'Debug' to indicate this is debugging output. Do not
    *   translate this string. Defaults to 'Other'; most tests do not override
    *   this default.
-   *
-   * @return bool
-   *   TRUE on pass, FALSE on fail.
    */
-  protected function assertNoEscaped($raw, $message = '', $group = 'Other') {
+  protected function assertNoEscaped($raw, $message = '', $group = 'Other'): void {
     if (!$message) {
       $message = 'Escaped "' . Html::escape($raw) . '" not found';
     }
@@ -542,13 +532,10 @@ trait AssertContentTrait {
    *   translate this string. Defaults to 'Other'; most tests do not override
    *   this default.
    *
-   * @return bool
-   *   TRUE on pass, FALSE on fail.
-   *
    * @see \Drupal\simpletest\AssertContentTrait::assertRaw()
    */
-  protected function assertText($text, $message = '', $group = 'Other') {
-    return $this->assertTextHelper($text, $message, $group, FALSE);
+  protected function assertText($text, $message = '', $group = 'Other'): void {
+    $this->assertTextHelper($text, $message, $group, FALSE);
   }
 
   /**
@@ -570,13 +557,10 @@ trait AssertContentTrait {
    *   translate this string. Defaults to 'Other'; most tests do not override
    *   this default.
    *
-   * @return bool
-   *   TRUE on pass, FALSE on fail.
-   *
    * @see \Drupal\simpletest\AssertContentTrait::assertNoRaw()
    */
-  protected function assertNoText($text, $message = '', $group = 'Other') {
-    return $this->assertTextHelper($text, $message, $group, TRUE);
+  protected function assertNoText($text, $message = '', $group = 'Other'): void {
+    $this->assertTextHelper($text, $message, $group, TRUE);
   }
 
   /**
@@ -599,11 +583,8 @@ trait AssertContentTrait {
    * @param bool $not_exists
    *   (optional) TRUE if this text should not exist, FALSE if it should.
    *   Defaults to TRUE.
-   *
-   * @return bool
-   *   TRUE on pass, FALSE on fail.
    */
-  protected function assertTextHelper($text, $message = '', $group = 'Other', $not_exists = TRUE) {
+  protected function assertTextHelper($text, $message = '', $group = 'Other', $not_exists = TRUE): void {
     if (!$message) {
       $message = !$not_exists ? new FormattableMarkup('"@text" found', ['@text' => $text]) : new FormattableMarkup('"@text" not found', ['@text' => $text]);
     }
@@ -732,7 +713,7 @@ trait AssertContentTrait {
     if (!$message) {
       $message = new FormattableMarkup('Pattern "@pattern" found', ['@pattern' => $pattern]);
     }
-    $this->assertRegExp($pattern, $this->getRawContent(), $message);
+    $this->assertMatchesRegularExpression($pattern, $this->getRawContent(), $message);
     return TRUE;
   }
 
@@ -759,7 +740,7 @@ trait AssertContentTrait {
     if (!$message) {
       $message = new FormattableMarkup('Pattern "@pattern" not found', ['@pattern' => $pattern]);
     }
-    $this->assertNotRegExp($pattern, $this->getRawContent(), $message);
+    $this->assertDoesNotMatchRegularExpression($pattern, $this->getRawContent(), $message);
     return TRUE;
   }
 
@@ -783,7 +764,7 @@ trait AssertContentTrait {
     if (!isset($message)) {
       $message = new FormattableMarkup('Pattern "@pattern" found', ['@pattern' => $pattern]);
     }
-    $this->assertRegExp($pattern, $this->getTextContent(), $message);
+    $this->assertMatchesRegularExpression($pattern, $this->getTextContent(), $message);
     return TRUE;
   }
 
@@ -802,9 +783,6 @@ trait AssertContentTrait {
    *   in test output. Use 'Debug' to indicate this is debugging output. Do not
    *   translate this string. Defaults to 'Other'; most tests do not override
    *   this default.
-   *
-   * @return bool
-   *   TRUE on pass, FALSE on fail.
    */
   protected function assertTitle($title, $message = '', $group = 'Other') {
     // Don't use xpath as it messes with HTML escaping.
@@ -817,9 +795,11 @@ trait AssertContentTrait {
           '@expected' => var_export($title, TRUE),
         ]);
       }
-      return $this->assertEqual($title, $actual, $message, $group);
+      $this->assertEquals($title, $actual, $message);
     }
-    return $this->fail('No title element found on the page.');
+    else {
+      $this->fail('No title element found on the page.');
+    }
   }
 
   /**
@@ -854,7 +834,7 @@ trait AssertContentTrait {
    *
    * @param string $callback
    *   The name of the theme hook to invoke; e.g. 'links' for links.html.twig.
-   * @param string $variables
+   * @param array $variables
    *   An array of variables to pass to the theme function.
    * @param string $expected
    *   The expected themed output string.
@@ -879,11 +859,6 @@ trait AssertContentTrait {
     $output = (string) $renderer->executeInRenderContext(new RenderContext(), function () use ($callback, $variables) {
       return \Drupal::theme()->render($callback, $variables);
     });
-    $this->verbose(
-      '<hr />' . 'Result:' . '<pre>' . Html::escape(var_export($output, TRUE)) . '</pre>'
-      . '<hr />' . 'Expected:' . '<pre>' . Html::escape(var_export($expected, TRUE)) . '</pre>'
-      . '<hr />' . $output
-    );
     if (!$message) {
       $message = '%callback rendered correctly.';
     }
@@ -982,7 +957,7 @@ trait AssertContentTrait {
   /**
    * Get the selected value from a select field.
    *
-   * @param \SimpleXmlElement $element
+   * @param \SimpleXMLElement $element
    *   SimpleXMLElement select element.
    *
    * @return bool

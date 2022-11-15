@@ -49,14 +49,13 @@ TROUBLESHOOTING
 
 - Setup Gin locally that you can compile CSS & JS files.
 
-* `nvm use`
-* `npm install`
+* `nvm use && npm i`
 
 - Run dev env with watcher and debug output (development process)
 
 * `npm run dev`
 
-- Compile & minify assets
+- Compile assets (for dev branch)
 
 * `npm run build`
 

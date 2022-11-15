@@ -25,6 +25,11 @@ class LanguageLocaleListTest extends BrowserTestBase {
   protected $defaultTheme = 'stark';
 
   /**
+   * @var \Drupal\locale\StringStorageInterface
+   */
+  protected $storage;
+
+  /**
    * {@inheritdoc}
    */
   protected function setUp(): void {
@@ -48,8 +53,9 @@ class LanguageLocaleListTest extends BrowserTestBase {
     $edit = [
       'predefined_langcode' => 'fr',
     ];
-    $this->drupalPostForm('admin/config/regional/language/add', $edit, 'Add language');
-    $this->assertText('The language French has been created and can now be used');
+    $this->drupalGet('admin/config/regional/language/add');
+    $this->submitForm($edit, 'Add language');
+    $this->assertSession()->statusMessageContains('The language French has been created and can now be used', 'status');
     $this->assertSession()->addressEquals(Url::fromRoute('entity.configurable_language.collection'));
     $this->rebuildContainer();
 
@@ -77,7 +83,7 @@ class LanguageLocaleListTest extends BrowserTestBase {
     natcasesort($options_ordered);
 
     // Check the language list displayed is ordered.
-    $this->assertTrue($options === $options_ordered, 'Language list is ordered.');
+    $this->assertSame($options, $options_ordered, 'Language list is ordered.');
   }
 
 }

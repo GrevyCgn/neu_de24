@@ -18,7 +18,7 @@ use Drupal\workspaces\Entity\Workspace;
 use Drupal\workspaces\WorkspaceAccessException;
 
 /**
- * Tests a complete deployment scenario across different workspaces.
+ * Tests a complete publishing scenario across different workspaces.
  *
  * @group #slow
  * @group workspaces
@@ -110,7 +110,7 @@ class WorkspaceIntegrationTest extends KernelTestBase {
   }
 
   /**
-   * Tests various scenarios for creating and deploying content in workspaces.
+   * Tests various scenarios for creating and publishing content in workspaces.
    */
   public function testWorkspaces() {
     $this->initializeWorkspacesModule();
@@ -280,7 +280,7 @@ class WorkspaceIntegrationTest extends KernelTestBase {
     $test_scenarios['add_published_node_in_stage'] = $revision_state;
     $expected_workspace_association['add_published_node_in_stage'] = ['stage' => [3, 4, 5, 7]];
 
-    // Deploying 'stage' to 'live' should simply make the latest revisions in
+    // Publishing 'stage' to 'live' should simply make the latest revisions in
     // 'stage' the default ones in 'live'.
     $revision_state = array_replace_recursive($revision_state, [
       'live' => [
@@ -337,7 +337,7 @@ class WorkspaceIntegrationTest extends KernelTestBase {
     $this->assertWorkspaceStatus($test_scenarios['add_published_node_in_stage'], 'node');
     $this->assertWorkspaceAssociation($expected_workspace_association['add_published_node_in_stage'], 'node');
 
-    // Deploy 'stage' to 'live'.
+    // Publish 'stage' to 'live'.
     /** @var \Drupal\workspaces\WorkspacePublisher $workspace_publisher */
     $workspace_publisher = \Drupal::service('workspaces.operation_factory')->getPublisher($this->workspaces['stage']);
 
@@ -355,6 +355,13 @@ class WorkspaceIntegrationTest extends KernelTestBase {
     $this->workspaces['stage']->publish();
     $this->assertWorkspaceStatus($test_scenarios['push_stage_to_live'], 'node');
     $this->assertWorkspaceAssociation($expected_workspace_association['push_stage_to_live'], 'node');
+
+    // Check that all the revisions that were published to 'Live' were also
+    // marked as default revisions in their revision metadata field.
+    $published_revisions = $this->entityTypeManager->getStorage('node')->loadMultipleRevisions(array_keys($expected['node']));
+    foreach ($published_revisions as $published_revision) {
+      $this->assertTrue($published_revision->wasDefaultRevision());
+    }
 
     // Check that there are no more revisions to push.
     $this->assertEmpty($workspace_publisher->getDifferringRevisionIdsOnSource());
@@ -753,8 +760,10 @@ class WorkspaceIntegrationTest extends KernelTestBase {
    *   An array of expected values, as defined in ::testWorkspaces().
    * @param string $entity_type_id
    *   The ID of the entity type that is being tested.
+   *
+   * @internal
    */
-  protected function assertWorkspaceStatus(array $expected, $entity_type_id) {
+  protected function assertWorkspaceStatus(array $expected, string $entity_type_id): void {
     $expected = $this->flattenExpectedValues($expected, $entity_type_id);
 
     $entity_keys = $this->entityTypeManager->getDefinition($entity_type_id)->getKeys();
@@ -823,8 +832,10 @@ class WorkspaceIntegrationTest extends KernelTestBase {
    *   An array of expected values, as defined in ::testWorkspaces().
    * @param string $entity_type_id
    *   The ID of the entity type to check.
+   *
+   * @internal
    */
-  protected function assertEntityLoad(array $expected_values, $entity_type_id) {
+  protected function assertEntityLoad(array $expected_values, string $entity_type_id): void {
     // Filter the expected values so we can check only the default revisions.
     $expected_default_revisions = array_filter($expected_values, function ($expected_value) {
       return $expected_value['default_revision'] === TRUE;
@@ -875,8 +886,10 @@ class WorkspaceIntegrationTest extends KernelTestBase {
    *   An array of expected values, as defined in ::testWorkspaces().
    * @param string $entity_type_id
    *   The ID of the entity type to check.
+   *
+   * @internal
    */
-  protected function assertEntityRevisionLoad(array $expected_values, $entity_type_id) {
+  protected function assertEntityRevisionLoad(array $expected_values, string $entity_type_id): void {
     $entity_keys = $this->entityTypeManager->getDefinition($entity_type_id)->getKeys();
     $id_key = $entity_keys['id'];
     $revision_key = $entity_keys['revision'];
@@ -901,8 +914,10 @@ class WorkspaceIntegrationTest extends KernelTestBase {
    *   An array of expected values, as defined in ::testWorkspaces().
    * @param string $entity_type_id
    *   The ID of the entity type to check.
+   *
+   * @internal
    */
-  protected function assertEntityQuery(array $expected_values, $entity_type_id) {
+  protected function assertEntityQuery(array $expected_values, string $entity_type_id): void {
     $storage = $this->entityTypeManager->getStorage($entity_type_id);
     $entity_keys = $this->entityTypeManager->getDefinition($entity_type_id)->getKeys();
     $id_key = $entity_keys['id'];
@@ -919,7 +934,7 @@ class WorkspaceIntegrationTest extends KernelTestBase {
     $result = (int) $storage->getQuery()->accessCheck(FALSE)->count()->execute();
     $this->assertSame(count($expected_default_revisions), $result);
 
-    $result = (int) $storage->getAggregateQuery()->count()->execute();
+    $result = (int) $storage->getAggregateQuery()->accessCheck(FALSE)->count()->execute();
     $this->assertSame(count($expected_default_revisions), $result);
 
     // Check entity queries with no conditions.
@@ -1005,7 +1020,7 @@ class WorkspaceIntegrationTest extends KernelTestBase {
   }
 
   /**
-   * Test a deployment with fields in dedicated table storage.
+   * Tests publishing with fields in dedicated table storage.
    */
   public function testPublishWorkspaceDedicatedTableStorage() {
     $this->initializeWorkspacesModule();

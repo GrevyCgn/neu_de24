@@ -3,19 +3,14 @@
 namespace Drupal\Tests\aggregator\Kernel\Migrate\d7;
 
 use Drupal\aggregator\Entity\Feed;
-use Drupal\Tests\migrate_drupal\Kernel\d7\MigrateDrupal7TestBase;
 
 /**
  * Test migration to aggregator_feed entities.
  *
- * @group migrate_drupal_7
+ * @group aggregator
+ * @group legacy
  */
 class MigrateAggregatorFeedTest extends MigrateDrupal7TestBase {
-
-  /**
-   * {@inheritdoc}
-   */
-  protected static $modules = ['aggregator'];
 
   /**
    * {@inheritdoc}
@@ -47,7 +42,7 @@ class MigrateAggregatorFeedTest extends MigrateDrupal7TestBase {
     $this->assertNull($feed->getImage());
     // As with getLastCheckedTime(), the etag can change as the fixture is
     // updated normally, so assert that its format is correct.
-    $this->assertRegExp('/^"[a-z0-9]{32}"$/', $feed->getEtag());
+    $this->assertMatchesRegularExpression('/^"[a-z0-9]{32}"$/', $feed->getEtag());
     $this->assertSame('0', $feed->getLastModified());
   }
 
