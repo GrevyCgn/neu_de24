@@ -1130,7 +1130,11 @@ function twig_striptags($string, $allowable_tags = null)
 function twig_title_string_filter(Environment $env, $string)
 {
     if (null !== $charset = $env->getCharset()) {
+<<<<<<< HEAD
         return mb_convert_case($string ?? '', \MB_CASE_TITLE, $charset);
+=======
+        return mb_convert_case($string, \MB_CASE_TITLE, $charset);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     }
 
     return ucwords(strtolower($string ?? ''));

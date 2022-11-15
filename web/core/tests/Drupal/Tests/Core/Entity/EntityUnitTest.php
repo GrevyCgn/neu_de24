@@ -406,10 +406,17 @@ class EntityUnitTest extends UnitTestCase {
       ],
       [
         [
+<<<<<<< HEAD
           // List cache tag.
           $this->entityTypeId . '_list',
           // Own cache tag.
           $this->entityTypeId . ':' . $this->values['id'],
+=======
+          // Own cache tag.
+          $this->entityTypeId . ':' . $this->values['id'],
+          // List cache tag.
+          $this->entityTypeId . '_list',
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         ],
       ]);
 
@@ -438,11 +445,19 @@ class EntityUnitTest extends UnitTestCase {
       ],
       [
         [
+<<<<<<< HEAD
           // List cache tag.
           $this->entityTypeId . '_list',
           $this->entityTypeId . '_list:' . $this->entity->bundle(),
           // Own cache tag.
           $this->entityTypeId . ':' . $this->values['id'],
+=======
+          // Own cache tag.
+          $this->entityTypeId . ':' . $this->values['id'],
+          // List cache tag.
+          $this->entityTypeId . '_list',
+          $this->entityTypeId . '_list:' . $this->entity->bundle(),
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         ],
       ]);
 

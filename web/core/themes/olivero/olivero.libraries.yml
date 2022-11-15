@@ -40,6 +40,13 @@ global-styling:
       css/components/links.css: {}
       css/components/messages.css: {}
       css/components/navigation/nav-button-mobile.css: {}
+<<<<<<< HEAD
+=======
+      css/components/navigation/nav-primary-button.css: {}
+      css/components/navigation/nav-primary.css: {}
+      css/components/navigation/nav-primary-wide.css: {}
+      css/components/navigation/nav-secondary.css: {}
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       css/components/node.css: {}
       css/components/node-teaser.css: {}
       css/components/page-title.css: {}
@@ -53,8 +60,14 @@ global-styling:
 
   js:
     js/checkbox.js: {}
+<<<<<<< HEAD
     js/navigation-utils.js: {}
 
+=======
+    js/scripts.js: {}
+    js/navigation.js: {}
+    js/second-level-navigation.js: {}
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   dependencies:
     - core/drupal.element.closest
     - core/drupal.element.matches
@@ -166,6 +179,7 @@ layout_builder_threecol_section:
   dependencies:
     - olivero/layout_discovery_section
 
+<<<<<<< HEAD
 layout_builder_twocol_section:
   version: VERSION
   css:
@@ -272,6 +286,14 @@ search-wide:
 
 sidebar:
   version: VERSION
+=======
+menu-sidebar:
+  css:
+    component:
+      css/components/navigation/menu-sidebar.css: {}
+
+sidebar:
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   css:
     layout:
       css/layout/layout-sidebar.css: {}

@@ -341,7 +341,11 @@ class BigPipeTest extends BrowserTestBase {
    *
    * @internal
    */
+<<<<<<< HEAD
   protected function assertBigPipeNoJsPlaceholders(array $expected_big_pipe_nojs_placeholders): void {
+=======
+  protected function assertBigPipeNoJsPlaceholders(array $expected_big_pipe_nojs_placeholders) {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSetsEqual(array_keys($expected_big_pipe_nojs_placeholders), array_map('rawurldecode', explode(' ', $this->getSession()->getResponseHeader('BigPipe-Test-No-Js-Placeholders'))));
     foreach ($expected_big_pipe_nojs_placeholders as $big_pipe_nojs_placeholder => $expected_replacement) {
       // Checking whether the replacement for the BigPipe no-JS placeholder
@@ -364,7 +368,11 @@ class BigPipeTest extends BrowserTestBase {
    *
    * @internal
    */
+<<<<<<< HEAD
   protected function assertBigPipePlaceholders(array $expected_big_pipe_placeholders, array $expected_big_pipe_placeholder_stream_order): void {
+=======
+  protected function assertBigPipePlaceholders(array $expected_big_pipe_placeholders, array $expected_big_pipe_placeholder_stream_order) {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSetsEqual(array_keys($expected_big_pipe_placeholders), explode(' ', $this->getSession()->getResponseHeader('BigPipe-Test-Placeholders')));
     $placeholder_positions = [];
     $placeholder_replacement_positions = [];
@@ -382,8 +390,13 @@ class BigPipeTest extends BrowserTestBase {
         $this->assertSession()->responseNotContains($expected_placeholder_replacement);
         continue;
       }
+<<<<<<< HEAD
       $this->assertSession()->elementTextContains('xpath', $xpath, $expected_ajax_response);
       $this->assertSession()->responseContains($expected_placeholder_replacement);
+=======
+      $this->assertEquals($expected_ajax_response, trim($result[0]->getText()));
+      $this->assertRaw($expected_placeholder_replacement);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       $pos = strpos($this->getSession()->getPage()->getContent(), $expected_placeholder_replacement);
       $placeholder_replacement_positions[$pos] = $big_pipe_placeholder_id;
     }
@@ -472,7 +485,11 @@ class BigPipeTest extends BrowserTestBase {
    *
    * @internal
    */
+<<<<<<< HEAD
   protected function assertCookieExists(string $cookie_name, string $expected, string $cookie_label): void {
+=======
+  protected function assertCookieExists($cookie_name, $expected, $cookie_label) {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertEquals($expected, !empty($this->getSession()->getCookie($cookie_name)), $expected ? "$cookie_label cookie exists." : "$cookie_label cookie does not exist.");
   }
 
@@ -501,6 +518,7 @@ class BigPipeTest extends BrowserTestBase {
     $this->assertEquals(302, $statuses[0], 'The first response was a 302 (redirect).');
     $this->assertStringStartsWith('big_pipe_nojs=1', $headers[0]['Set-Cookie'][0], 'The first response sets the big_pipe_nojs cookie.');
     $this->assertEquals($original_url, $headers[0]['Location'][0], 'The first response redirected back to the original page.');
+<<<<<<< HEAD
     $this->assertEmpty(
       array_diff([
         'cookies:big_pipe_nojs',
@@ -508,10 +526,14 @@ class BigPipeTest extends BrowserTestBase {
       ], explode(' ', $headers[0]['X-Drupal-Cache-Contexts'][0])),
       'The first response varies by the "cookies:big_pipe_nojs" and "session.exists" cache contexts.'
     );
+=======
+    $this->assertTrue(empty(array_diff(['cookies:big_pipe_nojs', 'session.exists'], explode(' ', $headers[0]['X-Drupal-Cache-Contexts'][0]))), 'The first response varies by the "cookies:big_pipe_nojs" and "session.exists" cache contexts.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertFalse(isset($headers[0]['Surrogate-Control']), 'The first response has no "Surrogate-Control" header.');
 
     // Second response: redirect followed.
     $this->assertEquals(200, $statuses[1], 'The second response was a 200.');
+<<<<<<< HEAD
     $this->assertEmpty(
       array_diff([
         'cookies:big_pipe_nojs',
@@ -520,6 +542,9 @@ class BigPipeTest extends BrowserTestBase {
       'The second response varies by the "cookies:big_pipe_nojs" and "session.exists" cache contexts.'
     );
 
+=======
+    $this->assertTrue(empty(array_diff(['cookies:big_pipe_nojs', 'session.exists'], explode(' ', $headers[0]['X-Drupal-Cache-Contexts'][0]))), 'The first response varies by the "cookies:big_pipe_nojs" and "session.exists" cache contexts.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertEquals('no-store, content="BigPipe/1.0"', $headers[1]['Surrogate-Control'][0], 'The second response has a "Surrogate-Control" header.');
 
     // Check that the <meta> refresh is absent, only one redirect ever happens.

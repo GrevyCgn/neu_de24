@@ -347,7 +347,11 @@ class ForumTest extends BrowserTestBase {
     // Save forum overview.
     $this->drupalGet('admin/structure/forum/');
     $this->submitForm([], 'Save');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains('The configuration options have been saved.');
+=======
+    $this->assertRaw(t('The configuration options have been saved.'));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     // Delete this second forum.
     $this->deleteForum($delete_forum['tid']);
     // Create forum at the top (root) level.
@@ -489,10 +493,17 @@ class ForumTest extends BrowserTestBase {
   public function deleteForum($tid) {
     // Delete the forum.
     $this->drupalGet('admin/structure/forum/edit/forum/' . $tid);
+<<<<<<< HEAD
     $this->clickLink('Delete');
     $this->assertSession()->pageTextContains('Are you sure you want to delete the forum');
     $this->assertSession()->pageTextNotContains('Add forum');
     $this->assertSession()->pageTextNotContains('Add forum container');
+=======
+    $this->clickLink(t('Delete'));
+    $this->assertSession()->pageTextContains('Are you sure you want to delete the forum');
+    $this->assertNoText('Add forum');
+    $this->assertNoText('Add forum container');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->submitForm([], 'Delete');
 
     // Assert that the forum no longer exists.
@@ -589,8 +600,13 @@ class ForumTest extends BrowserTestBase {
       return;
     }
     else {
+<<<<<<< HEAD
       $this->assertSession()->pageTextContains("Forum topic $title has been created.");
       $this->assertSession()->pageTextNotContains("The item {$forum['name']} is a forum container, not a forum.");
+=======
+      $this->assertSession()->pageTextContains($type . ' ' . $title . ' has been created.');
+      $this->assertNoRaw(t('The item %title is a forum container, not a forum.', ['%title' => $forum['name']]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
       // Verify that the creation message contains a link to a node.
       $this->assertSession()->elementExists('xpath', '//div[@data-drupal-messages]//a[contains(@href, "node/")]');

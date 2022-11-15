@@ -519,6 +519,7 @@ class Email extends Message
                 if (isset($relatedParts[$name])) {
                     continue 2;
                 }
+<<<<<<< HEAD
                 $part->setDisposition('inline');
                 $html = str_replace('cid:'.$name, 'cid:'.$part->getContentId(), $html, $count);
                 if ($count) {
@@ -533,6 +534,13 @@ class Email extends Message
                 $relatedParts[$attachment['name']] = $part;
             } else {
                 $otherParts[] = $part;
+=======
+                $attachment['inline'] = true;
+                $inlineParts[$name] = $part = $this->createDataPart($attachment);
+                $html = str_replace('cid:'.$name, 'cid:'.$part->getContentId(), $html);
+                $part->setName($part->getContentId());
+                continue 2;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
             }
         }
         if (null !== $htmlPart) {

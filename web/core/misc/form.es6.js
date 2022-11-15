@@ -214,12 +214,20 @@
       const $context = $(context);
       const contextIsForm = $context.is('form');
       if (trigger === 'unload') {
+<<<<<<< HEAD
         once
           .remove(
             'form-updated',
             contextIsForm ? $context : $context.find('form'),
           )
           .forEach((form) => {
+=======
+        const $forms = (
+          contextIsForm ? $context : $context.find('form')
+        ).removeOnce('form-updated');
+        if ($forms.length) {
+          $.makeArray($forms).forEach((form) => {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
             form.removeAttribute('data-drupal-form-fields');
             $(form).off('.formUpdated');
           });

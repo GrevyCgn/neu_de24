@@ -117,10 +117,18 @@ class JqueryUiLibraryAssetsTest extends BrowserTestBase {
       [
         'core/assets/vendor/jquery.ui/ui/data-min.js',
         'core/assets/vendor/jquery.ui/ui/disable-selection-min.js',
+<<<<<<< HEAD
         'core/assets/vendor/jquery.ui/ui/focusable-min.js',
         'core/assets/vendor/jquery.ui/ui/form-min.js',
         'core/assets/vendor/jquery.ui/ui/ie-min.js',
         'core/assets/vendor/jquery.ui/ui/jquery-patch-min.js',
+=======
+        'core/assets/vendor/jquery.ui/ui/escape-selector-min.js',
+        'core/assets/vendor/jquery.ui/ui/focusable-min.js',
+        'core/assets/vendor/jquery.ui/ui/form-min.js',
+        'core/assets/vendor/jquery.ui/ui/ie-min.js',
+        'core/assets/vendor/jquery.ui/ui/jquery-1-7-min.js',
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         'core/assets/vendor/jquery.ui/ui/keycode-min.js',
         'core/assets/vendor/jquery.ui/ui/plugin-min.js',
         'core/assets/vendor/jquery.ui/ui/safe-active-element-min.js',
@@ -366,10 +374,18 @@ class JqueryUiLibraryAssetsTest extends BrowserTestBase {
           'core/assets/vendor/jquery.ui/ui/disable-selection-min.js',
           'core/assets/vendor/jquery.ui/ui/form-min.js',
           'core/assets/vendor/jquery.ui/ui/labels-min.js',
+<<<<<<< HEAD
           'core/assets/vendor/jquery.ui/ui/jquery-patch-min.js',
           'core/assets/vendor/jquery.ui/ui/scroll-parent-min.js',
           'core/assets/vendor/jquery.ui/ui/unique-id-min.js',
           'core/assets/vendor/jquery.ui/ui/version-min.js',
+=======
+          'core/assets/vendor/jquery.ui/ui/jquery-1-7-min.js',
+          'core/assets/vendor/jquery.ui/ui/scroll-parent-min.js',
+          'core/assets/vendor/jquery.ui/ui/unique-id-min.js',
+          'core/assets/vendor/jquery.ui/ui/version-min.js',
+          'core/assets/vendor/jquery.ui/ui/escape-selector-min.js',
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
           'core/assets/vendor/jquery.ui/ui/focusable-min.js',
           'core/assets/vendor/jquery.ui/ui/ie-min.js',
           'core/assets/vendor/jquery.ui/ui/keycode-min.js',
@@ -397,10 +413,18 @@ class JqueryUiLibraryAssetsTest extends BrowserTestBase {
           'core/assets/vendor/jquery.ui/ui/disable-selection-min.js',
           'core/assets/vendor/jquery.ui/ui/form-min.js',
           'core/assets/vendor/jquery.ui/ui/labels-min.js',
+<<<<<<< HEAD
           'core/assets/vendor/jquery.ui/ui/jquery-patch-min.js',
           'core/assets/vendor/jquery.ui/ui/scroll-parent-min.js',
           'core/assets/vendor/jquery.ui/ui/unique-id-min.js',
           'core/assets/vendor/jquery.ui/ui/version-min.js',
+=======
+          'core/assets/vendor/jquery.ui/ui/jquery-1-7-min.js',
+          'core/assets/vendor/jquery.ui/ui/scroll-parent-min.js',
+          'core/assets/vendor/jquery.ui/ui/unique-id-min.js',
+          'core/assets/vendor/jquery.ui/ui/version-min.js',
+          'core/assets/vendor/jquery.ui/ui/escape-selector-min.js',
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
           'core/assets/vendor/jquery.ui/ui/focusable-min.js',
           'core/assets/vendor/jquery.ui/ui/keycode-min.js',
           'core/assets/vendor/jquery.ui/ui/plugin-min.js',
@@ -429,10 +453,18 @@ class JqueryUiLibraryAssetsTest extends BrowserTestBase {
           'core/assets/vendor/jquery.ui/ui/disable-selection-min.js',
           'core/assets/vendor/jquery.ui/ui/form-min.js',
           'core/assets/vendor/jquery.ui/ui/labels-min.js',
+<<<<<<< HEAD
           'core/assets/vendor/jquery.ui/ui/jquery-patch-min.js',
           'core/assets/vendor/jquery.ui/ui/scroll-parent-min.js',
           'core/assets/vendor/jquery.ui/ui/unique-id-min.js',
           'core/assets/vendor/jquery.ui/ui/version-min.js',
+=======
+          'core/assets/vendor/jquery.ui/ui/jquery-1-7-min.js',
+          'core/assets/vendor/jquery.ui/ui/scroll-parent-min.js',
+          'core/assets/vendor/jquery.ui/ui/unique-id-min.js',
+          'core/assets/vendor/jquery.ui/ui/version-min.js',
+          'core/assets/vendor/jquery.ui/ui/escape-selector-min.js',
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
           'core/assets/vendor/jquery.ui/ui/focusable-min.js',
           'core/assets/vendor/jquery.ui/ui/ie-min.js',
           'core/assets/vendor/jquery.ui/ui/keycode-min.js',
@@ -454,10 +486,18 @@ class JqueryUiLibraryAssetsTest extends BrowserTestBase {
           'core/assets/vendor/jquery.ui/ui/disable-selection-min.js',
           'core/assets/vendor/jquery.ui/ui/form-min.js',
           'core/assets/vendor/jquery.ui/ui/labels-min.js',
+<<<<<<< HEAD
           'core/assets/vendor/jquery.ui/ui/jquery-patch-min.js',
           'core/assets/vendor/jquery.ui/ui/scroll-parent-min.js',
           'core/assets/vendor/jquery.ui/ui/unique-id-min.js',
           'core/assets/vendor/jquery.ui/ui/version-min.js',
+=======
+          'core/assets/vendor/jquery.ui/ui/jquery-1-7-min.js',
+          'core/assets/vendor/jquery.ui/ui/scroll-parent-min.js',
+          'core/assets/vendor/jquery.ui/ui/unique-id-min.js',
+          'core/assets/vendor/jquery.ui/ui/version-min.js',
+          'core/assets/vendor/jquery.ui/ui/escape-selector-min.js',
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
           'core/assets/vendor/jquery.ui/ui/focusable-min.js',
           'core/assets/vendor/jquery.ui/ui/ie-min.js',
           'core/assets/vendor/jquery.ui/ui/keycode-min.js',
@@ -483,10 +523,18 @@ class JqueryUiLibraryAssetsTest extends BrowserTestBase {
           'core/assets/vendor/jquery.ui/ui/disable-selection-min.js',
           'core/assets/vendor/jquery.ui/ui/form-min.js',
           'core/assets/vendor/jquery.ui/ui/labels-min.js',
+<<<<<<< HEAD
           'core/assets/vendor/jquery.ui/ui/jquery-patch-min.js',
           'core/assets/vendor/jquery.ui/ui/scroll-parent-min.js',
           'core/assets/vendor/jquery.ui/ui/unique-id-min.js',
           'core/assets/vendor/jquery.ui/ui/version-min.js',
+=======
+          'core/assets/vendor/jquery.ui/ui/jquery-1-7-min.js',
+          'core/assets/vendor/jquery.ui/ui/scroll-parent-min.js',
+          'core/assets/vendor/jquery.ui/ui/unique-id-min.js',
+          'core/assets/vendor/jquery.ui/ui/version-min.js',
+          'core/assets/vendor/jquery.ui/ui/escape-selector-min.js',
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
           'core/assets/vendor/jquery.ui/ui/focusable-min.js',
           'core/assets/vendor/jquery.ui/ui/ie-min.js',
           'core/assets/vendor/jquery.ui/ui/keycode-min.js',
@@ -515,10 +563,18 @@ class JqueryUiLibraryAssetsTest extends BrowserTestBase {
           'core/assets/vendor/jquery.ui/ui/disable-selection-min.js',
           'core/assets/vendor/jquery.ui/ui/form-min.js',
           'core/assets/vendor/jquery.ui/ui/labels-min.js',
+<<<<<<< HEAD
           'core/assets/vendor/jquery.ui/ui/jquery-patch-min.js',
           'core/assets/vendor/jquery.ui/ui/scroll-parent-min.js',
           'core/assets/vendor/jquery.ui/ui/unique-id-min.js',
           'core/assets/vendor/jquery.ui/ui/version-min.js',
+=======
+          'core/assets/vendor/jquery.ui/ui/jquery-1-7-min.js',
+          'core/assets/vendor/jquery.ui/ui/scroll-parent-min.js',
+          'core/assets/vendor/jquery.ui/ui/unique-id-min.js',
+          'core/assets/vendor/jquery.ui/ui/version-min.js',
+          'core/assets/vendor/jquery.ui/ui/escape-selector-min.js',
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
           'core/assets/vendor/jquery.ui/ui/focusable-min.js',
           'core/assets/vendor/jquery.ui/ui/keycode-min.js',
           'core/assets/vendor/jquery.ui/ui/plugin-min.js',
@@ -548,10 +604,18 @@ class JqueryUiLibraryAssetsTest extends BrowserTestBase {
           'core/assets/vendor/jquery.ui/ui/disable-selection-min.js',
           'core/assets/vendor/jquery.ui/ui/form-min.js',
           'core/assets/vendor/jquery.ui/ui/labels-min.js',
+<<<<<<< HEAD
           'core/assets/vendor/jquery.ui/ui/jquery-patch-min.js',
           'core/assets/vendor/jquery.ui/ui/scroll-parent-min.js',
           'core/assets/vendor/jquery.ui/ui/unique-id-min.js',
           'core/assets/vendor/jquery.ui/ui/version-min.js',
+=======
+          'core/assets/vendor/jquery.ui/ui/jquery-1-7-min.js',
+          'core/assets/vendor/jquery.ui/ui/scroll-parent-min.js',
+          'core/assets/vendor/jquery.ui/ui/unique-id-min.js',
+          'core/assets/vendor/jquery.ui/ui/version-min.js',
+          'core/assets/vendor/jquery.ui/ui/escape-selector-min.js',
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
           'core/assets/vendor/jquery.ui/ui/focusable-min.js',
           'core/assets/vendor/jquery.ui/ui/ie-min.js',
           'core/assets/vendor/jquery.ui/ui/keycode-min.js',
@@ -573,10 +637,18 @@ class JqueryUiLibraryAssetsTest extends BrowserTestBase {
           'core/assets/vendor/jquery.ui/ui/disable-selection-min.js',
           'core/assets/vendor/jquery.ui/ui/form-min.js',
           'core/assets/vendor/jquery.ui/ui/labels-min.js',
+<<<<<<< HEAD
           'core/assets/vendor/jquery.ui/ui/jquery-patch-min.js',
           'core/assets/vendor/jquery.ui/ui/scroll-parent-min.js',
           'core/assets/vendor/jquery.ui/ui/unique-id-min.js',
           'core/assets/vendor/jquery.ui/ui/version-min.js',
+=======
+          'core/assets/vendor/jquery.ui/ui/jquery-1-7-min.js',
+          'core/assets/vendor/jquery.ui/ui/scroll-parent-min.js',
+          'core/assets/vendor/jquery.ui/ui/unique-id-min.js',
+          'core/assets/vendor/jquery.ui/ui/version-min.js',
+          'core/assets/vendor/jquery.ui/ui/escape-selector-min.js',
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
           'core/assets/vendor/jquery.ui/ui/focusable-min.js',
           'core/assets/vendor/jquery.ui/ui/keycode-min.js',
           'core/assets/vendor/jquery.ui/ui/plugin-min.js',
@@ -599,10 +671,18 @@ class JqueryUiLibraryAssetsTest extends BrowserTestBase {
           'core/assets/vendor/jquery.ui/ui/disable-selection-min.js',
           'core/assets/vendor/jquery.ui/ui/form-min.js',
           'core/assets/vendor/jquery.ui/ui/labels-min.js',
+<<<<<<< HEAD
           'core/assets/vendor/jquery.ui/ui/jquery-patch-min.js',
           'core/assets/vendor/jquery.ui/ui/scroll-parent-min.js',
           'core/assets/vendor/jquery.ui/ui/unique-id-min.js',
           'core/assets/vendor/jquery.ui/ui/version-min.js',
+=======
+          'core/assets/vendor/jquery.ui/ui/jquery-1-7-min.js',
+          'core/assets/vendor/jquery.ui/ui/scroll-parent-min.js',
+          'core/assets/vendor/jquery.ui/ui/unique-id-min.js',
+          'core/assets/vendor/jquery.ui/ui/version-min.js',
+          'core/assets/vendor/jquery.ui/ui/escape-selector-min.js',
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
           'core/assets/vendor/jquery.ui/ui/focusable-min.js',
           'core/assets/vendor/jquery.ui/ui/keycode-min.js',
           'core/assets/vendor/jquery.ui/ui/plugin-min.js',
@@ -625,10 +705,18 @@ class JqueryUiLibraryAssetsTest extends BrowserTestBase {
           'core/assets/vendor/jquery.ui/ui/disable-selection-min.js',
           'core/assets/vendor/jquery.ui/ui/form-min.js',
           'core/assets/vendor/jquery.ui/ui/labels-min.js',
+<<<<<<< HEAD
           'core/assets/vendor/jquery.ui/ui/jquery-patch-min.js',
           'core/assets/vendor/jquery.ui/ui/scroll-parent-min.js',
           'core/assets/vendor/jquery.ui/ui/unique-id-min.js',
           'core/assets/vendor/jquery.ui/ui/version-min.js',
+=======
+          'core/assets/vendor/jquery.ui/ui/jquery-1-7-min.js',
+          'core/assets/vendor/jquery.ui/ui/scroll-parent-min.js',
+          'core/assets/vendor/jquery.ui/ui/unique-id-min.js',
+          'core/assets/vendor/jquery.ui/ui/version-min.js',
+          'core/assets/vendor/jquery.ui/ui/escape-selector-min.js',
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
           'core/assets/vendor/jquery.ui/ui/focusable-min.js',
           'core/assets/vendor/jquery.ui/ui/ie-min.js',
           'core/assets/vendor/jquery.ui/ui/keycode-min.js',
@@ -652,10 +740,18 @@ class JqueryUiLibraryAssetsTest extends BrowserTestBase {
           'core/assets/vendor/jquery.ui/ui/disable-selection-min.js',
           'core/assets/vendor/jquery.ui/ui/form-min.js',
           'core/assets/vendor/jquery.ui/ui/labels-min.js',
+<<<<<<< HEAD
           'core/assets/vendor/jquery.ui/ui/jquery-patch-min.js',
           'core/assets/vendor/jquery.ui/ui/scroll-parent-min.js',
           'core/assets/vendor/jquery.ui/ui/unique-id-min.js',
           'core/assets/vendor/jquery.ui/ui/version-min.js',
+=======
+          'core/assets/vendor/jquery.ui/ui/jquery-1-7-min.js',
+          'core/assets/vendor/jquery.ui/ui/scroll-parent-min.js',
+          'core/assets/vendor/jquery.ui/ui/unique-id-min.js',
+          'core/assets/vendor/jquery.ui/ui/version-min.js',
+          'core/assets/vendor/jquery.ui/ui/escape-selector-min.js',
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
           'core/assets/vendor/jquery.ui/ui/focusable-min.js',
           'core/assets/vendor/jquery.ui/ui/ie-min.js',
           'core/assets/vendor/jquery.ui/ui/keycode-min.js',
@@ -683,10 +779,18 @@ class JqueryUiLibraryAssetsTest extends BrowserTestBase {
           'core/assets/vendor/jquery.ui/ui/disable-selection-min.js',
           'core/assets/vendor/jquery.ui/ui/form-min.js',
           'core/assets/vendor/jquery.ui/ui/labels-min.js',
+<<<<<<< HEAD
           'core/assets/vendor/jquery.ui/ui/jquery-patch-min.js',
           'core/assets/vendor/jquery.ui/ui/scroll-parent-min.js',
           'core/assets/vendor/jquery.ui/ui/unique-id-min.js',
           'core/assets/vendor/jquery.ui/ui/version-min.js',
+=======
+          'core/assets/vendor/jquery.ui/ui/jquery-1-7-min.js',
+          'core/assets/vendor/jquery.ui/ui/scroll-parent-min.js',
+          'core/assets/vendor/jquery.ui/ui/unique-id-min.js',
+          'core/assets/vendor/jquery.ui/ui/version-min.js',
+          'core/assets/vendor/jquery.ui/ui/escape-selector-min.js',
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
           'core/assets/vendor/jquery.ui/ui/focusable-min.js',
           'core/assets/vendor/jquery.ui/ui/keycode-min.js',
           'core/assets/vendor/jquery.ui/ui/plugin-min.js',
@@ -724,10 +828,18 @@ class JqueryUiLibraryAssetsTest extends BrowserTestBase {
           'core/assets/vendor/jquery.ui/ui/disable-selection-min.js',
           'core/assets/vendor/jquery.ui/ui/form-min.js',
           'core/assets/vendor/jquery.ui/ui/labels-min.js',
+<<<<<<< HEAD
           'core/assets/vendor/jquery.ui/ui/jquery-patch-min.js',
           'core/assets/vendor/jquery.ui/ui/scroll-parent-min.js',
           'core/assets/vendor/jquery.ui/ui/unique-id-min.js',
           'core/assets/vendor/jquery.ui/ui/version-min.js',
+=======
+          'core/assets/vendor/jquery.ui/ui/jquery-1-7-min.js',
+          'core/assets/vendor/jquery.ui/ui/scroll-parent-min.js',
+          'core/assets/vendor/jquery.ui/ui/unique-id-min.js',
+          'core/assets/vendor/jquery.ui/ui/version-min.js',
+          'core/assets/vendor/jquery.ui/ui/escape-selector-min.js',
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
           'core/assets/vendor/jquery.ui/ui/focusable-min.js',
           'core/assets/vendor/jquery.ui/ui/keycode-min.js',
           'core/assets/vendor/jquery.ui/ui/plugin-min.js',

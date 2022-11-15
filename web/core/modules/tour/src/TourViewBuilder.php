@@ -70,6 +70,7 @@ class TourViewBuilder extends EntityViewBuilder {
           // TourTipPluginInterface. This means the tour tip must be constructed
           // with the deprecated getOutput() method. The resulting tour tip
           // should be largely identical, with the following exceptions:
+<<<<<<< HEAD
           // - If the tour tip `attributes` property included anything other
           //   than `data-class` or `data-id`, these additional attributes
           //   will not be available in the resulting tour tip. Note that such
@@ -79,6 +80,17 @@ class TourViewBuilder extends EntityViewBuilder {
           //   Joyride. Themes extending Stable or Stable 9 will not experience
           //   these changes as a script is provided that reconstructs each tip
           //   to match Joyride's markup structure.
+=======
+          // 1 - If the tour tip `attributes` property included anything other
+          //     than `data-class` or `data-id`, these additional attributes
+          //     will not be available in the resulting tour tip. Note that such
+          //     uses are uncommon.
+          // 2 - Although the tour tip content is identical, the markup
+          //     structure will be different due to being rendered by Shepherd
+          //     instead of Joyride. Themes extending Stable or Stable 9 will
+          //     not experience these changes as a script is provided that
+          //     reconstructs each tip to match Joyride's markup structure.
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
           $attributes = (array) $tip->get('attributes');
           if (array_diff(['data-class', 'data-id'], array_keys($attributes + ['data-class', 'data-id']))) {
             trigger_error('The tour tips only support data-class and data-id attributes and they will have to be upgraded manually. See https://www.drupal.org/node/3204093', E_USER_WARNING);

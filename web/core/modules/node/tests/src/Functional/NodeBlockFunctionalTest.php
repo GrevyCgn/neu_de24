@@ -114,7 +114,11 @@ class NodeBlockFunctionalTest extends NodeTestBase {
 
     // Test that only the 2 latest nodes are shown.
     $this->drupalLogin($this->webUser);
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains($node1->label());
+=======
+    $this->assertNoText($node1->label());
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains($node2->label());
     $this->assertSession()->pageTextContains($node3->label());
 
@@ -150,6 +154,11 @@ class NodeBlockFunctionalTest extends NodeTestBase {
       'region' => 'sidebar_first',
       'visibility[entity_bundle:node][bundles][article]' => 'article',
     ];
+<<<<<<< HEAD
+=======
+    $theme = \Drupal::service('theme_handler')->getDefault();
+    $this->drupalGet("admin/structure/block/add/system_powered_by_block/{$theme}");
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->submitForm($edit, 'Save block');
 
     $block = Block::load($edit['id']);

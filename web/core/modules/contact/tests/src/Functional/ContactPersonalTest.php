@@ -92,9 +92,20 @@ class ContactPersonalTest extends BrowserTestBase {
     $this->assertEquals($this->config('system.site')->get('mail'), $mail['from']);
     $this->assertEquals($this->webUser->getEmail(), $mail['reply-to']);
     $this->assertEquals('user_mail', $mail['key']);
+<<<<<<< HEAD
     $subject = '[' . $this->config('system.site')->get('name') . '] ' . $message['subject[0][value]'];
     $this->assertEquals($subject, $mail['subject'], 'Subject is in sent message.');
     $this->assertStringContainsString('Hello ' . $this->contactUser->getDisplayName(), $mail['body'], 'Recipient name is in sent message.');
+=======
+    $variables = [
+      '@site-name' => $this->config('system.site')->get('name'),
+      '@subject' => $message['subject[0][value]'],
+      '@recipient-name' => $this->contactUser->getDisplayName(),
+    ];
+    $subject = PlainTextOutput::renderFromHtml(t('[@site-name] @subject', $variables));
+    $this->assertEquals($subject, $mail['subject'], 'Subject is in sent message.');
+    $this->assertStringContainsString('Hello ' . $variables['@recipient-name'], $mail['body'], 'Recipient name is in sent message.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertStringContainsString($this->webUser->getDisplayName(), $mail['body'], 'Sender name is in sent message.');
     $this->assertStringContainsString($message['message[0][value]'], $mail['body'], 'Message body is in sent message.');
 

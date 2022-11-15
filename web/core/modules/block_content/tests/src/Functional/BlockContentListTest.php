@@ -65,10 +65,18 @@ class BlockContentListTest extends BlockContentTestBase {
     $this->assertSession()->elementTextContains('xpath', '//td', $label);
 
     // Check the number of table row cells.
+<<<<<<< HEAD
     $this->assertSession()->elementsCount('xpath', '//div[@class="layout-content"]//table/tbody/tr[1]/td', 2);
     // Check the contents of the row. The first cell contains the label,
     // and the second contains the operations list.
     $this->assertSession()->elementTextEquals('xpath', '//div[@class="layout-content"]//table/tbody/tr[1]/td[1]', $label);
+=======
+    $this->assertSession()->elementsCount('xpath', '//div[@class="layout-content"]//table/tbody/tr[@class="odd"]/td', 2);
+    // Check the contents of each row cell. The first cell contains the label,
+    // the second contains the machine name, and the third contains the
+    // operations list.
+    $this->assertSession()->elementTextEquals('xpath', '//div[@class="layout-content"]//table/tbody/tr[@class="odd"]/td[1]', $label);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Edit the entity using the operations link.
     $blocks = $this->container

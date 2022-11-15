@@ -744,6 +744,18 @@ class Reader implements ReaderImportInterface
                 ),
                 E_USER_NOTICE
             );
+
+        // Added in development; check for it conditionally
+        static::hasExtension('PodcastIndex')
+            ? static::registerExtension('PodcastIndex')
+            : trigger_error(
+                sprintf(
+                    'Please update your %1$s\ExtensionManagerInterface implementation to add entries for'
+                    . ' %1$s\Extension\PodcastIndex\Entry and %1$s\Extension\PodcastIndex\Feed.',
+                    __NAMESPACE__
+                ),
+                \E_USER_NOTICE
+            );
     }
 
     /**

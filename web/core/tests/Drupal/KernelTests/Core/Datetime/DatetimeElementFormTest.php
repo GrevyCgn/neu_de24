@@ -136,6 +136,7 @@ class DatetimeElementFormTest extends KernelTestBase implements FormInterface, T
     $form = \Drupal::formBuilder()->buildForm($this, $form_state);
     $this->render($form);
 
+<<<<<<< HEAD
     $this->assertTrue($form['datetime_element']['datetimeDateCallbackExecuted']['#value']);
     $this->assertTrue($form['datetime_element']['timeCallbackExecuted']['#value']);
     $this->assertTrue($form_state->get('datetimeDateCallbackExecuted'));
@@ -186,6 +187,9 @@ class DatetimeElementFormTest extends KernelTestBase implements FormInterface, T
         sprintf('DateTime element #date_time_callbacks callbacks must be methods of a class that implements \Drupal\Core\Security\TrustedCallbackInterface or be an anonymous function. The callback was %s. Support for this callback implementation is deprecated in drupal:9.3.0 and will be removed in drupal:10.0.0. See https://www.drupal.org/node/3217966', Variable::callableToString([$this, 'datetimeTimeCallback'])),
       ],
     ];
+=======
+    $this->assertEquals(t('Date time callback called.'), $this->flag);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**

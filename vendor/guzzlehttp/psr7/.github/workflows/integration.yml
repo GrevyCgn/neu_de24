@@ -26,7 +26,11 @@ jobs:
       - name: Download dependencies
         uses: ramsey/composer-install@v1
         with:
+<<<<<<< HEAD
           composer-options: --no-interaction --optimize-autoloader
+=======
+          composer-options: --no-interaction --prefer-dist --optimize-autoloader
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
       - name: Start server
         run: php -S 127.0.0.1:10002 tests/Integration/server.php &

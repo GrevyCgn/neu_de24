@@ -9,6 +9,11 @@ addedline
 addtogroup
 adminforms
 adminlabel
+<<<<<<< HEAD
+=======
+aewesome
+aflopend
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 afterclose
 aftercreate
 ahah
@@ -18,6 +23,12 @@ ajaxcallback
 ajaxify
 ajaxing
 akiko
+<<<<<<< HEAD
+=======
+aliasable
+aliquet
+allowtransparency
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 allwords
 alphadecimal
 alterjs
@@ -33,6 +44,11 @@ anonyme
 anothermodule
 antilop
 anyall
+<<<<<<< HEAD
+=======
+api's
+apng
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 applix
 archiver
 archivers
@@ -55,6 +71,10 @@ atomrendererfeed
 atsign
 attrval
 attrvals
+<<<<<<< HEAD
+=======
+auth's
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 authless
 authz
 autocompletefocus
@@ -122,6 +142,10 @@ bgred
 bigpipe
 bikeshed
 bikesheds
+<<<<<<< HEAD
+=======
+bistromathic
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 bitmask
 bkmgtpezy
 bkslshv
@@ -164,6 +188,10 @@ buttonpane
 buttonset
 buttontext
 buytaert
+<<<<<<< HEAD
+=======
+bzzzzzzzt
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 cacheability
 cacheable
 cachebackend
@@ -174,6 +202,11 @@ cachetag
 cachetags
 cafr
 cagatio
+<<<<<<< HEAD
+=======
+calendarsignup
+callable's
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 callables
 callout
 camelcase
@@ -252,6 +285,10 @@ contentblock
 contententry
 contentrendererentry
 contextuals
+<<<<<<< HEAD
+=======
+contrained
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 controlgroup
 corefake
 coretest
@@ -375,11 +412,14 @@ drudbal
 drup
 drupalci
 drupaldatetime
+<<<<<<< HEAD
 drupaldevdays
 drupalelementstyle
 drupalelementstylecommand
 drupalelementstyleediting
 drupalelementstyleui
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 drupalget
 drupalhtmlbuilder
 drupalimage
@@ -454,6 +494,10 @@ extlink
 extraday
 extrasmall
 extraspace
+<<<<<<< HEAD
+=======
+fabpot
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 faible
 failonerror
 fakepath
@@ -495,6 +539,11 @@ filtertypes
 findwith
 firstcolumn
 fixnull
+<<<<<<< HEAD
+=======
+flexbox
+flexslider
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 flickr
 flipfit
 floatingspace
@@ -574,6 +623,10 @@ hateoas
 hbox
 heartz
 heke
+<<<<<<< HEAD
+=======
+hellip
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 heroless
 herpderp
 herro
@@ -638,6 +691,11 @@ iopt
 isam
 isdst
 isinstallable
+<<<<<<< HEAD
+=======
+items's
+iteratable
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 itoa
 itok
 itunesentry
@@ -706,6 +764,10 @@ libmysqlclient
 libyaml
 licious
 lified
+<<<<<<< HEAD
+=======
+lightdiamond
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 lightninggreen
 linebreak
 linebreaks
@@ -741,6 +803,10 @@ lowercased
 lowlevel
 lowline
 lrdd
+<<<<<<< HEAD
+=======
+lspeak
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 lstitle
 ltitle
 ltlanguage
@@ -786,7 +852,7 @@ metapackage
 metapackages
 metatag
 metatags
-meφω
+meΦΩ
 miaus
 middlewares
 midgardmvc
@@ -866,6 +932,10 @@ narf
 navs
 nbaz
 nbchoices
+<<<<<<< HEAD
+=======
+ndash
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 ndelay
 ndocs
 nearbykeyword
@@ -900,6 +970,10 @@ nodo
 noemptytag
 noevent
 nofields
+<<<<<<< HEAD
+=======
+noindex
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 nojs
 nolink
 nomask
@@ -919,6 +993,10 @@ notnull
 notsimpletest
 nourriture
 nplurals
+<<<<<<< HEAD
+=======
+nresponse
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 ntfs
 nyan
 nyancat
@@ -943,6 +1021,10 @@ optimizable
 optin
 optionchecker
 orgchart
+<<<<<<< HEAD
+=======
+oring
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 ossp
 otsikko
 outdata
@@ -956,7 +1038,10 @@ overriders
 overridetest
 overwritable
 owasp
+<<<<<<< HEAD
 oypa
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 pageable
 pagecache
 pagetop
@@ -1099,6 +1184,10 @@ rasterizes
 rawurlencoded
 rdfa
 rdfs
+<<<<<<< HEAD
+=======
+rdftype
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 readmore
 readonlydir
 readystate
@@ -1188,6 +1277,11 @@ sebe
 secondcolumn
 seld
 selectbox
+<<<<<<< HEAD
+=======
+sendmail
+serializer's
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 serviceform
 sess
 settingstray
@@ -1195,6 +1289,10 @@ sharedspace
 shatner
 shorterthan
 shortlink
+<<<<<<< HEAD
+=======
+shortnames
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 showblocks
 sidebarborders
 siema
@@ -1249,6 +1347,10 @@ ssid
 stardivision
 starrrrr
 starterkit
+<<<<<<< HEAD
+=======
+startpunt
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 starzzzz
 statuscode
 stdclass
@@ -1280,6 +1382,10 @@ subjectkeyword
 subkey
 subkeys
 subparse
+<<<<<<< HEAD
+=======
+subpatterns
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 subplugins
 subproject
 subprojects
@@ -1313,7 +1419,11 @@ svenska
 svgz
 svibanj
 swcf
+<<<<<<< HEAD
 sxto
+=======
+symfony's
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 symlinking
 synchronizable
 syrop
@@ -1557,12 +1667,20 @@ upcasted
 upcasting
 updateprogress
 updatetype
+<<<<<<< HEAD
+=======
+upload's
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 uploaders
 uploadprogress
 uppercased
 upscaling
 upsert
 urandom
+<<<<<<< HEAD
+=======
+url's
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 urlalias
 urldecoding
 usecase
@@ -1572,6 +1690,11 @@ userref
 userreference
 userspace
 usuario
+<<<<<<< HEAD
+=======
+uuid's
+validatable
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 vals
 vampirize
 varchar
@@ -1620,6 +1743,11 @@ wimoids
 windir
 wmet
 wmlscript
+<<<<<<< HEAD
+=======
+wonkiness
+wontmatter
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 wordprocessingml
 wordsafe
 wordword
@@ -1660,8 +1788,11 @@ yottabytes
 yourbackend
 yourmodule
 yowser
+<<<<<<< HEAD
 yqpr
 yuqk
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 yygroup
 zartan
 zendframework
@@ -1678,7 +1809,11 @@ zwei
 zwjhek
 zxvf
 zzgroup
+<<<<<<< HEAD
 åwesome
 èxample
 über
 ȅchȏ
+=======
+Übersetzung
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b

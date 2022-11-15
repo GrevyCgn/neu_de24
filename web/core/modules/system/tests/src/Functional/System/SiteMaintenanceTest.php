@@ -132,7 +132,11 @@ class SiteMaintenanceTest extends BrowserTestBase {
     $this->drupalLogout();
     $this->drupalGet('');
     $this->assertEquals('Site under maintenance', $this->cssSelect('main h1')[0]->getText());
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains($offline_message);
+=======
+    $this->assertRaw($offline_message);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Verify that custom site offline message is not displayed on user/password.
     $this->drupalGet('user/password');

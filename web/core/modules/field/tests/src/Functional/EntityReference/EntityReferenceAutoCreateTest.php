@@ -193,8 +193,11 @@ class EntityReferenceAutoCreateTest extends BrowserTestBase {
 
     $this->drupalGet('node/add/' . $this->referencingType);
     $this->submitForm($edit, 'Save');
+<<<<<<< HEAD
 
     $term_storage = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     /** @var \Drupal\taxonomy\Entity\Term $term */
     $term = $term_storage->loadByProperties(['name' => $term_name]);
     $term = reset($term);

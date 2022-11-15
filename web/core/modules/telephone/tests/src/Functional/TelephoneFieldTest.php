@@ -108,7 +108,11 @@ class TelephoneFieldTest extends BrowserTestBase {
 
     $this->drupalGet('node/add/article');
     $this->submitForm($edit, 'Save');
+<<<<<<< HEAD
     $this->assertSession()->responseContains('<a href="tel:' . $expected . '">');
+=======
+    $this->assertRaw('<a href="tel:' . $expected . '">');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**

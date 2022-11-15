@@ -15,6 +15,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 /**
  * Defines the Migration plugin.
  *
+<<<<<<< HEAD
  * A migration plugin instance that represents one single migration and acts
  * like a container for the information about a single migration such as the
  * source, process and destination plugins.
@@ -94,6 +95,11 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * @see \Drupal\Core\Plugin\PluginBase
  *
  * @link https://www.drupal.org/docs/8/api/migrate-api Migrate API handbook. @endlink
+=======
+ * The migration plugin represents one single migration and acts like a
+ * container for the information about a single migration such as the source,
+ * process and destination plugins.
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
  */
 class Migration extends PluginBase implements MigrationInterface, RequirementsInterface, ContainerFactoryPluginInterface {
 

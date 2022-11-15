@@ -90,7 +90,11 @@ class TaxonomyGlossaryTest extends ViewTestBase {
 
     // Go the taxonomy glossary page for the first term.
     $this->drupalGet('test_taxonomy_glossary/' . substr($this->taxonomyTerms[0]->getName(), 0, 1));
+<<<<<<< HEAD
     $assert_session->pageTextContains($this->taxonomyTerms[0]->getName());
+=======
+    $this->assertSession()->pageTextContains($this->taxonomyTerms[0]->getName());
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
 }

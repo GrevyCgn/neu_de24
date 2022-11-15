@@ -111,8 +111,13 @@ class QueryGroupByTest extends ViewsKernelTestBase {
     foreach ($view->result as $item) {
       $results[$item->entity_test_name] = $item->id;
     }
+<<<<<<< HEAD
     $this->assertEquals($values[0], $results['name1'], new FormattableMarkup('Aggregation with @aggregation_function and groupby name: name1 returned the expected amount of results', ['@aggregation_function' => $aggregation_function ?? 'NULL']));
     $this->assertEquals($values[1], $results['name2'], new FormattableMarkup('Aggregation with @aggregation_function and groupby name: name2 returned the expected amount of results', ['@aggregation_function' => $aggregation_function ?? 'NULL']));
+=======
+    $this->assertEquals($values[0], $results['name1'], new FormattableMarkup('Aggregation with @aggregation_function and groupby name: name1 returned the expected amount of results', ['@aggregation_function' => $aggregation_function]));
+    $this->assertEquals($values[1], $results['name2'], new FormattableMarkup('Aggregation with @aggregation_function and groupby name: name2 returned the expected amount of results', ['@aggregation_function' => $aggregation_function]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**

@@ -118,7 +118,11 @@ class ThemeTest extends BrowserTestBase {
       ];
       $this->drupalGet('admin/appearance/settings');
       $this->submitForm($edit, 'Save configuration');
+<<<<<<< HEAD
       $this->assertSession()->pageTextNotContains('The custom logo path is invalid.');
+=======
+      $this->assertNoText('The custom logo path is invalid.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       $this->assertSession()->fieldValueEquals('logo_path', $expected['form']);
 
       // Verify logo path examples.
@@ -151,7 +155,15 @@ class ThemeTest extends BrowserTestBase {
       // branding block.
       $this->drupalPlaceBlock('system_branding_block', ['region' => 'header']);
       $this->drupalGet('');
+<<<<<<< HEAD
       $this->assertSession()->elementAttributeContains('xpath', '//header//a[@rel="home"]/img', 'src', $expected['src']);
+=======
+      $elements = $this->xpath('//header//a[@rel=:rel]/img', [
+          ':rel' => 'home',
+        ]
+      );
+      $this->assertEquals($expected['src'], $elements[0]->getAttribute('src'));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     }
     $unsupported_paths = [
       // Stream wrapper URI to non-existing file.
@@ -199,7 +211,15 @@ class ThemeTest extends BrowserTestBase {
 
     $this->drupalPlaceBlock('system_branding_block', ['region' => 'header']);
     $this->drupalGet('');
+<<<<<<< HEAD
     $this->assertSession()->elementAttributeContains('xpath', '//header//a[@rel="home"]/img', 'src', $file_url_generator->generateString($uploaded_filename));
+=======
+    $elements = $this->xpath('//header//a[@rel=:rel]/img', [
+        ':rel' => 'home',
+      ]
+    );
+    $this->assertEquals(file_url_transform_relative(file_create_url($uploaded_filename)), $elements[0]->getAttribute('src'));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $this->container->get('theme_installer')->install(['bartik']);
 
@@ -230,8 +250,13 @@ class ThemeTest extends BrowserTestBase {
     ];
     $this->drupalGet('admin/appearance/settings');
     $this->submitForm($edit, 'Save configuration');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('The custom logo path is invalid.');
     $this->assertSession()->pageTextNotContains('The custom favicon path is invalid.');
+=======
+    $this->assertNoText('The custom logo path is invalid.');
+    $this->assertNoText('The custom favicon path is invalid.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**
@@ -294,6 +319,7 @@ class ThemeTest extends BrowserTestBase {
     ];
     $this->drupalGet('admin/appearance');
     $this->submitForm($edit, 'Save configuration');
+<<<<<<< HEAD
 
     // Check the display of non stable themes.
     $themes = \Drupal::service('theme_handler')->rebuildThemeData();
@@ -303,6 +329,8 @@ class ThemeTest extends BrowserTestBase {
     $this->assertSession()->pageTextContains('Experimental test ' . $experimental_version . ' (experimental theme)');
     $this->assertSession()->pageTextContains('Test deprecated theme ' . $deprecated_version . ' (Deprecated)');
     $this->assertSession()->elementExists('xpath', "//a[contains(@href, 'http://example.com/deprecated_theme')]");
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Check that the administration theme is used on an administration page.
     $this->drupalGet('admin/config');
@@ -326,10 +354,13 @@ class ThemeTest extends BrowserTestBase {
     ];
     $this->drupalGet('admin/appearance');
     $this->submitForm($edit, 'Save configuration');
+<<<<<<< HEAD
 
     // Check that obsolete themes are not displayed.
     $this->drupalGet('admin/appearance');
     $this->assertSession()->pageTextNotContains('Obsolete test theme');
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Check that the administration theme is used on an administration page.
     $this->drupalGet('admin/config');
@@ -379,7 +410,11 @@ class ThemeTest extends BrowserTestBase {
     // Install Bartik and set it as the default theme.
     $theme_installer->install(['bartik']);
     $this->drupalGet('admin/appearance');
+<<<<<<< HEAD
     $this->clickLink('Set as default');
+=======
+    $this->clickLink(t('Set as default'));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertEquals('bartik', $this->config('system.theme')->get('default'));
 
     // Test the default theme on the secondary links (blocks admin page).
@@ -428,6 +463,11 @@ class ThemeTest extends BrowserTestBase {
       'admin_theme' => 'seven',
       'use_admin_theme' => TRUE,
     ];
+<<<<<<< HEAD
+=======
+    $this->drupalGet('admin/appearance');
+    $this->submitForm($edit, 'Save configuration');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->drupalGet('admin/appearance');
     $this->submitForm($edit, 'Save configuration');
     $this->drupalGet('admin/appearance');

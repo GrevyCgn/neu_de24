@@ -3,11 +3,16 @@
 namespace Drupal\Tests\migrate_drupal_ui\Functional\d7;
 
 use Drupal\Core\File\FileSystemInterface;
+<<<<<<< HEAD
 use Drupal\Tests\ExtensionListTestTrait;
 use Drupal\Tests\migrate_drupal_ui\Functional\MigrateUpgradeTestBase;
 
 // cspell:ignore terok
 
+=======
+use Drupal\Tests\migrate_drupal_ui\Functional\MigrateUpgradeTestBase;
+
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 /**
  * Tests the Drupal 7 public and private file migrations.
  *
@@ -20,8 +25,11 @@ use Drupal\Tests\migrate_drupal_ui\Functional\MigrateUpgradeTestBase;
  */
 class FilePathTest extends MigrateUpgradeTestBase {
 
+<<<<<<< HEAD
   use ExtensionListTestTrait;
 
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   /**
    * {@inheritdoc}
    */
@@ -72,7 +80,11 @@ class FilePathTest extends MigrateUpgradeTestBase {
   protected function setUp(): void {
     parent::setUp();
     $this->fs = \Drupal::service('file_system');
+<<<<<<< HEAD
     $this->loadFixture($this->getModulePath('migrate_drupal') . '/tests/fixtures/drupal7.php');
+=======
+    $this->loadFixture(drupal_get_path('module', 'migrate_drupal') . '/tests/fixtures/drupal7.php');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**
@@ -121,6 +133,10 @@ class FilePathTest extends MigrateUpgradeTestBase {
 
     $connection_options = $this->sourceDatabase->getConnectionOptions();
     $driver = $connection_options['driver'];
+<<<<<<< HEAD
+=======
+    $connection_options['prefix'] = $connection_options['prefix']['default'];
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Use the driver connection form to get the correct options out of the
     // database settings. This supports all of the databases we test against.
@@ -287,35 +303,50 @@ class FilePathTest extends MigrateUpgradeTestBase {
    * {@inheritdoc}
    */
   protected function getEntityCounts() {
+<<<<<<< HEAD
     return [];
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**
    * {@inheritdoc}
    */
   protected function getEntityCountsIncremental() {
+<<<<<<< HEAD
     return [];
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**
    * {@inheritdoc}
    */
   protected function getAvailablePaths() {
+<<<<<<< HEAD
     return [];
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**
    * {@inheritdoc}
    */
   protected function getMissingPaths() {
+<<<<<<< HEAD
     return [];
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**
    * {@inheritdoc}
    */
   protected function getSourceBasePath() {
+<<<<<<< HEAD
     return '';
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
 }

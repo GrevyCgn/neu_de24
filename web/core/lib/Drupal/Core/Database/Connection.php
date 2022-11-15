@@ -414,6 +414,10 @@ abstract class Connection {
   protected function defaultOptions() {
     return [
       'fetch' => \PDO::FETCH_OBJ,
+<<<<<<< HEAD
+=======
+      'return' => Database::RETURN_STATEMENT,
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       'allow_delimiter_in_query' => FALSE,
       'allow_square_brackets' => FALSE,
       'pdo' => [],
@@ -614,18 +618,26 @@ abstract class Connection {
    *   not allowed in the query.
    * @throws \Drupal\Core\Database\DatabaseExceptionWrapper
    */
+<<<<<<< HEAD
   public function prepareStatement(string $query, array $options, bool $allow_row_count = FALSE): StatementInterface {
     if (isset($options['return'])) {
       @trigger_error('Passing "return" option to ' . __METHOD__ . '() is deprecated in drupal:9.4.0 and is removed in drupal:11.0.0. For data manipulation operations, use dynamic queries instead. See https://www.drupal.org/node/3185520', E_USER_DEPRECATED);
     }
 
+=======
+  public function prepareStatement(string $query, array $options): StatementInterface {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     try {
       $query = $this->preprocessStatement($query, $options);
 
       // @todo in Drupal 10, only return the StatementWrapper.
       // @see https://www.drupal.org/node/3177490
       $statement = $this->statementWrapperClass ?
+<<<<<<< HEAD
         new $this->statementWrapperClass($this, $this->connection, $query, $options['pdo'] ?? [], $allow_row_count) :
+=======
+        new $this->statementWrapperClass($this, $this->connection, $query, $options['pdo'] ?? []) :
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         $this->connection->prepare($query, $options['pdo'] ?? []);
     }
     catch (\Exception $e) {
@@ -2185,6 +2197,7 @@ abstract class Connection {
     return \Drupal::service('pager.manager');
   }
 
+<<<<<<< HEAD
   /**
    * Runs a simple query to validate json datatype support.
    *
@@ -2200,4 +2213,6 @@ abstract class Connection {
     }
   }
 
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 }

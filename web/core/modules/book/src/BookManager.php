@@ -4,7 +4,10 @@ namespace Drupal\book;
 
 use Drupal\Component\Utility\Unicode;
 use Drupal\Core\Cache\Cache;
+<<<<<<< HEAD
 use Drupal\Core\Cache\CacheBackendInterface;
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 use Drupal\Core\Entity\EntityRepositoryInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormStateInterface;
@@ -87,6 +90,7 @@ class BookManager implements BookManagerInterface {
   protected $languageManager;
 
   /**
+<<<<<<< HEAD
    * The book chained backend cache service.
    *
    * @var \Drupal\Core\Cache\CacheBackendInterface
@@ -101,6 +105,8 @@ class BookManager implements BookManagerInterface {
   protected $memoryCache;
 
   /**
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    * Constructs a BookManager object.
    *
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
@@ -117,12 +123,17 @@ class BookManager implements BookManagerInterface {
    *   The language manager.
    * @param \Drupal\Core\Entity\EntityRepositoryInterface|null $entity_repository
    *   The entity repository service.
+<<<<<<< HEAD
    * @param \Drupal\Core\Cache\CacheBackendInterface $backend_chained_cache
    *   The book chained backend cache service.
    * @param \Drupal\Core\Cache\CacheBackendInterface $memory_cache
    *   The book memory cache service.
    */
   public function __construct(EntityTypeManagerInterface $entity_type_manager, TranslationInterface $translation, ConfigFactoryInterface $config_factory, BookOutlineStorageInterface $book_outline_storage, RendererInterface $renderer, LanguageManagerInterface $language_manager = NULL, EntityRepositoryInterface $entity_repository = NULL, CacheBackendInterface $backend_chained_cache = NULL, CacheBackendInterface $memory_cache = NULL) {
+=======
+   */
+  public function __construct(EntityTypeManagerInterface $entity_type_manager, TranslationInterface $translation, ConfigFactoryInterface $config_factory, BookOutlineStorageInterface $book_outline_storage, RendererInterface $renderer, LanguageManagerInterface $language_manager = NULL, EntityRepositoryInterface $entity_repository = NULL) {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->entityTypeManager = $entity_type_manager;
     $this->stringTranslation = $translation;
     $this->configFactory = $config_factory;
@@ -138,6 +149,7 @@ class BookManager implements BookManagerInterface {
       $entity_repository = \Drupal::service('entity.repository');
     }
     $this->entityRepository = $entity_repository;
+<<<<<<< HEAD
     if (!$backend_chained_cache) {
       @trigger_error('Calling BookManager::__construct() without the $backend_chained_cache argument is deprecated in drupal:9.3.0 and the $backend_chained_cache argument will be required in drupal:10.0.0. See https://www.drupal.org/node/3039439', E_USER_DEPRECATED);
       $backend_chained_cache = \Drupal::service('book.backend_chained_cache');
@@ -148,6 +160,8 @@ class BookManager implements BookManagerInterface {
       $memory_cache = \Drupal::service('book.memory_cache');
     }
     $this->memoryCache = $memory_cache;
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**
@@ -539,12 +553,24 @@ class BookManager implements BookManagerInterface {
    * {@inheritdoc}
    */
   public function bookTreeAllData($bid, $link = NULL, $max_depth = NULL) {
+<<<<<<< HEAD
     // Use $nid as flag for whether the data being loaded is for the whole tree.
     $nid = $link['nid'] ?? 0;
     $langcode = $this->languageManager->getCurrentLanguage(LanguageInterface::TYPE_CONTENT)->getId();
 
     // Create a cache ID for the given $nid, $link, $langcode and $max_depth.
     $cid = implode(':', ['book-links', $bid, $nid, $langcode, (int) $max_depth]);
+=======
+    $tree = &drupal_static(__METHOD__, []);
+
+    // Use $nid as a flag for whether the data being loaded is for the whole
+    // tree.
+    $nid = isset($link['nid']) ? $link['nid'] : 0;
+    // Generate a cache ID (cid) specific for this $bid, $link, language, and
+    // depth.
+    $langcode = $this->languageManager->getCurrentLanguage(LanguageInterface::TYPE_CONTENT)->getId();
+    $cid = implode(':', ['book-links', $bid, 'all', $nid, $langcode, (int) $max_depth]);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Get it from cache, if available.
     if ($cache = $this->memoryCache->get($cid)) {
@@ -734,13 +760,23 @@ class BookManager implements BookManagerInterface {
    * @see \Drupal\book\BookOutlineStorageInterface::getBookMenuTree()
    */
   protected function doBookTreeBuild($bid, array $parameters = []) {
+<<<<<<< HEAD
+=======
+    // Static cache of already built menu trees.
+    $trees = &drupal_static(__METHOD__, []);
+
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     // Build the cache id; sort parents to prevent duplicate storage and remove
     // default parameter values.
     if (isset($parameters['expanded'])) {
       sort($parameters['expanded']);
     }
     $langcode = $this->languageManager->getCurrentLanguage(LanguageInterface::TYPE_CONTENT)->getId();
+<<<<<<< HEAD
     $cid = implode(':', ['book-links', $bid, 'tree-data', $langcode, hash('sha256', serialize($parameters))]);
+=======
+    $tree_cid = implode(':', ['book-links', $bid, 'tree-data', $langcode, hash('sha256', serialize($parameters))]);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Get it from cache, if available.
     if ($cache = $this->backendChainedCache->get($cid)) {
@@ -1160,10 +1196,51 @@ class BookManager implements BookManagerInterface {
    */
   public function bookSubtreeData($link) {
     // Generate a cache ID (cid) specific for this $link.
+<<<<<<< HEAD
     $cid = "book-links:subtree-data:{$link['nid']}";
     // Get it from cache, if available.
     if ($cache = $this->backendChainedCache->get($cid)) {
       return $cache->data;
+=======
+    $cid = 'book-links:subtree-cid:' . $link['nid'];
+
+    if (!isset($tree[$cid])) {
+      $tree_cid_cache = \Drupal::cache('data')->get($cid);
+
+      if ($tree_cid_cache && $tree_cid_cache->data) {
+        // If the cache entry exists, it will just be the cid for the actual
+        // data. This avoids duplication of large amounts of data.
+        $cache = \Drupal::cache('data')->get($tree_cid_cache->data);
+
+        if ($cache && isset($cache->data)) {
+          $data = $cache->data;
+        }
+      }
+
+      // If the subtree data was not in the cache, $data will be NULL.
+      if (!isset($data)) {
+        $result = $this->bookOutlineStorage->getBookSubtree($link, static::BOOK_MAX_DEPTH);
+        $links = [];
+        foreach ($result as $item) {
+          $links[] = $item;
+        }
+        $data['tree'] = $this->buildBookOutlineData($links, [], $link['depth']);
+        $data['node_links'] = [];
+        $this->bookTreeCollectNodeLinks($data['tree'], $data['node_links']);
+        // Compute the real cid for book subtree data.
+        $tree_cid = 'book-links:subtree-data:' . hash('sha256', serialize($data));
+        // Cache the data, if it is not already in the cache.
+        if (!\Drupal::cache('data')->get($tree_cid)) {
+          \Drupal::cache('data')->set($tree_cid, $data, Cache::PERMANENT, ['bid:' . $link['bid']]);
+        }
+        // Cache the cid of the (shared) data using the book and item-specific
+        // cid.
+        \Drupal::cache('data')->set($cid, $tree_cid, Cache::PERMANENT, ['bid:' . $link['bid']]);
+      }
+      // Check access for the current user to each item in the tree.
+      $this->bookTreeCheckAccess($data['tree'], $data['node_links']);
+      $tree[$cid] = $data['tree'];
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     }
 
     $result = $this->bookOutlineStorage->getBookSubtree($link, static::BOOK_MAX_DEPTH);

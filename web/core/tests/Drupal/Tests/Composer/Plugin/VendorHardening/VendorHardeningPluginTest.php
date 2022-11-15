@@ -48,7 +48,11 @@ class VendorHardeningPluginTest extends TestCase {
       ->willReturn(['tests']);
 
     $plugin = $this->getMockBuilder(VendorHardeningPlugin::class)
+<<<<<<< HEAD
       ->onlyMethods(['getInstallPathForPackage'])
+=======
+      ->setMethods(['getInstallPathForPackage'])
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       ->getMock();
     $plugin->expects($this->once())
       ->method('getInstallPathForPackage')
@@ -78,7 +82,11 @@ class VendorHardeningPluginTest extends TestCase {
    */
   public function testCleanPathsForPackage() {
     $plugin = $this->getMockBuilder(VendorHardeningPlugin::class)
+<<<<<<< HEAD
       ->onlyMethods(['getInstallPathForPackage'])
+=======
+      ->setMethods(['getInstallPathForPackage'])
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       ->getMock();
     $plugin->expects($this->once())
       ->method('getInstallPathForPackage')
@@ -119,7 +127,11 @@ class VendorHardeningPluginTest extends TestCase {
       ->willReturn('drupal/package');
 
     $plugin = $this->getMockBuilder(VendorHardeningPlugin::class)
+<<<<<<< HEAD
       ->onlyMethods(['getInstalledPackages', 'getInstallPathForPackage'])
+=======
+      ->setMethods(['getInstalledPackages', 'getInstallPathForPackage'])
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       ->getMock();
     $plugin->expects($this->once())
       ->method('getInstalledPackages')

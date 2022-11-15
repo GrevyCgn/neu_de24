@@ -41,9 +41,14 @@ class DisplayTest extends UITestBase {
     $this->assertSession()->pageTextMatchesCount(0, '/Block name:/');
 
     $this->submitForm([], 'Add Block');
+<<<<<<< HEAD
     $this->assertSession()->elementTextContains('xpath', '//li[@data-drupal-selector="edit-displays-top-tabs-block-1"]', 'Block*');
     $this->assertSession()->elementNotExists('xpath', '//li[@data-drupal-selector="edit-displays-top-tabs-block-2"]');
     $this->assertSession()->pageTextMatchesCount(1, '/Block name:/');
+=======
+    $this->assertSession()->pageTextContains('Block');
+    $this->assertNoText('Block 2');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**
@@ -161,7 +166,12 @@ class DisplayTest extends UITestBase {
 
     // Test the link text displays 'None' and not 'Block 1'
     $this->drupalGet($path);
+<<<<<<< HEAD
     $this->assertSession()->elementTextEquals('xpath', "//a[contains(@href, '{$link_display_path}')]", 'None');
+=======
+    $result = $this->xpath("//a[contains(@href, :path)]", [':path' => $link_display_path]);
+    $this->assertEquals(t('None'), $result[0]->getHtml(), 'Make sure that the link option summary shows "None" by default.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $this->drupalGet($link_display_path);
     $this->assertSession()->checkboxChecked('edit-link-display-0');
@@ -172,8 +182,13 @@ class DisplayTest extends UITestBase {
     // The form redirects to the default display.
     $this->drupalGet($path);
 
+<<<<<<< HEAD
     // Test that the link option summary shows the right linked display.
     $this->assertSession()->elementTextEquals('xpath', "//a[contains(@href, '{$link_display_path}')]", 'Page');
+=======
+    $result = $this->xpath("//a[contains(@href, :path)]", [':path' => $link_display_path]);
+    $this->assertEquals('Page', $result[0]->getHtml(), 'Make sure that the link option summary shows the right linked display.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $this->drupalGet($link_display_path);
     $this->submitForm([

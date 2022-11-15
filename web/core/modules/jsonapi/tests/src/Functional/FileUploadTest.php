@@ -630,6 +630,10 @@ class FileUploadTest extends ResourceTestBase {
     // Add .php and .txt as allowed extensions. Since 'allow_insecure_uploads'
     // is FALSE, .php files should be renamed to have a .txt extension.
     $this->field->setSetting('file_extensions', 'php txt')->save();
+<<<<<<< HEAD
+=======
+    $this->rebuildAll();
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $response = $this->fileRequest($uri, $php_string, ['Content-Disposition' => 'filename="example_2.php"']);
     $expected = $this->getExpectedDocument(2, 'example_2.php_.txt', TRUE);
@@ -695,6 +699,11 @@ class FileUploadTest extends ResourceTestBase {
     // Add .php as an allowed extension without .txt. Since insecure uploads are
     // are not allowed, .php files will be rejected.
     $this->field->setSetting('file_extensions', 'php')->save();
+<<<<<<< HEAD
+=======
+    $this->rebuildAll();
+
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $response = $this->fileRequest($uri, $php_string, ['Content-Disposition' => 'filename="example_7.php"']);
     $this->assertResourceErrorResponse(422, "Unprocessable Entity: file validation failed.\nFor security reasons, your upload has been rejected.", $uri, $response);
 

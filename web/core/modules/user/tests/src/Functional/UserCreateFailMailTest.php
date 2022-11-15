@@ -45,7 +45,11 @@ class UserCreateFailMailTest extends BrowserTestBase {
     $this->submitForm($edit, 'Create new account');
 
     $this->assertSession()->pageTextContains('Unable to send email. Contact the site administrator if the problem persists.');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('A welcome message with further instructions has been emailed to the new user ' . $edit['name'] . '.');
+=======
+    $this->assertNoText('A welcome message with further instructions has been emailed to the new user ' . $edit['name'] . '.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
 }

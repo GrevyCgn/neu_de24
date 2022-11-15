@@ -1,5 +1,9 @@
 ﻿/*
+<<<<<<< HEAD
  Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+=======
+ Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
  For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang("a11yhelp","id",{title:"Instruksi Accessibility",contents:"Bantuan. Tekan ESC untuk menutup dialog ini.",legend:[{name:"Umum",items:[{name:"Toolbar Editor",legend:"Tekan ${toolbarFocus} untuk berpindah ke toolbar. Untuk berpindah ke group toolbar selanjutnya dan sebelumnya gunakan TAB dan SHIFT+TAB. Untuk berpindah ke tombol toolbar selanjutnya dan sebelumnya gunakan RIGHT ARROW atau LEFT ARROW. Tekan SPASI atau ENTER untuk mengaktifkan tombol toolbar."},{name:"Dialog Editor",

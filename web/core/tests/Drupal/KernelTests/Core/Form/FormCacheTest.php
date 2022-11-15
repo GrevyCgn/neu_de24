@@ -94,7 +94,11 @@ class FormCacheTest extends KernelTestBase {
     $cached_form_state = new FormState();
     $cached_form = \Drupal::formBuilder()->getCache($this->formBuildId, $cached_form_state);
     $this->assertEquals($this->form['#property'], $cached_form['#property']);
+<<<<<<< HEAD
     $this->assertArrayNotHasKey('#cache_token', $cached_form, 'Form has no cache token');
+=======
+    $this->assertTrue(empty($cached_form['#cache_token']), 'Form has no cache token');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertEquals($this->formState->get('example'), $cached_form_state->get('example'));
 
     // Restore user account.

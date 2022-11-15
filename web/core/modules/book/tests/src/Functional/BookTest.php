@@ -256,7 +256,11 @@ class BookTest extends BrowserTestBase {
     // Make sure each part of the book is there.
     foreach ($nodes as $node) {
       $this->assertSession()->pageTextContains($node->label());
+<<<<<<< HEAD
       $this->assertSession()->responseContains($node->body->processed);
+=======
+      $this->assertRaw($node->body->processed);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     }
 
     // Make sure we can't export an unsupported format.
@@ -635,11 +639,17 @@ class BookTest extends BrowserTestBase {
     $this->drupalGet('admin/structure/book/' . $this->book->id());
     $this->assertSession()->pageTextContains($this->book->label());
 
+<<<<<<< HEAD
     // Test that the view link is found from the list.
     $this->assertSession()->elementTextEquals('xpath', '//table//ul[@class="dropbutton"]/li/a', 'View');
 
     // Test that all the book pages are displayed on the book outline page.
     $this->assertSession()->elementsCount('xpath', '//table//ul[@class="dropbutton"]/li/a', count($nodes));
+=======
+    $elements = $this->xpath('//table//ul[@class="dropbutton"]/li/a');
+    $this->assertEquals('View', $elements[0]->getText(), 'View link is found from the list.');
+    $this->assertSameSize($nodes, $elements, 'All the book pages are displayed on the book outline page.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Unpublish a book in the hierarchy.
     $nodes[0]->setUnPublished();
@@ -647,7 +657,12 @@ class BookTest extends BrowserTestBase {
 
     // Node should still appear on the outline for admins.
     $this->drupalGet('admin/structure/book/' . $this->book->id());
+<<<<<<< HEAD
     $this->assertSession()->elementsCount('xpath', '//table//ul[@class="dropbutton"]/li/a', count($nodes));
+=======
+    $elements = $this->xpath('//table//ul[@class="dropbutton"]/li/a');
+    $this->assertSameSize($nodes, $elements, 'All the book pages are displayed on the book outline page.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Saving a book page not as the current version shouldn't effect the book.
     $old_title = $nodes[1]->getTitle();
@@ -657,7 +672,12 @@ class BookTest extends BrowserTestBase {
     $nodes[1]->setTitle($new_title);
     $nodes[1]->save();
     $this->drupalGet('admin/structure/book/' . $this->book->id());
+<<<<<<< HEAD
     $this->assertSession()->elementsCount('xpath', '//table//ul[@class="dropbutton"]/li/a', count($nodes));
+=======
+    $elements = $this->xpath('//table//ul[@class="dropbutton"]/li/a');
+    $this->assertSameSize($nodes, $elements, 'All the book pages are displayed on the book outline page.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->responseNotContains($new_title);
     $this->assertSession()->responseContains($old_title);
   }
@@ -681,7 +701,11 @@ class BookTest extends BrowserTestBase {
     // @see node_access_test_node_grants().
     $this->drupalLogin($this->webUserWithoutNodeAccess);
     $book_node = $node_storage->load($this->book->id());
+<<<<<<< HEAD
     $this->assertNotEmpty($book_node->book);
+=======
+    $this->assertTrue(!empty($book_node->book));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertEquals($this->book->id(), $book_node->book['bid']);
 
     // Reset the internal cache to retrigger the hook_node_load() call.
@@ -689,7 +713,11 @@ class BookTest extends BrowserTestBase {
 
     $this->drupalLogin($this->webUser);
     $book_node = $node_storage->load($this->book->id());
+<<<<<<< HEAD
     $this->assertNotEmpty($book_node->book);
+=======
+    $this->assertTrue(!empty($book_node->book));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertEquals($this->book->id(), $book_node->book['bid']);
   }
 

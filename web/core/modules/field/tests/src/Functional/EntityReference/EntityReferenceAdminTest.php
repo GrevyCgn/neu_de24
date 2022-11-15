@@ -109,7 +109,11 @@ class EntityReferenceAdminTest extends BrowserTestBase {
 
     $this->drupalGet('admin/structure/views/view/node_test_view/edit/entity_reference_1');
     $this->submitForm([], 'Save');
+<<<<<<< HEAD
     $this->clickLink('Settings');
+=======
+    $this->clickLink(t('Settings'));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Create a test entity reference field.
     $field_name = 'test_entity_ref_field';

@@ -41,17 +41,33 @@ class StyleTableTest extends ViewTestBase {
   public function testAccessibilitySettings() {
     $this->drupalGet('test-table');
 
+<<<<<<< HEAD
     $this->assertSession()->elementExists('xpath', '//caption/child::text()');
     $this->assertSession()->elementTextEquals('xpath', '//caption/child::text()', 'caption-text');
 
     $this->assertSession()->elementExists('xpath', '//summary/child::text()');
     $this->assertSession()->elementTextEquals('xpath', '//summary/child::text()', 'summary-text');
+=======
+    $result = $this->xpath('//caption/child::text()');
+    $this->assertNotEmpty($result, 'The caption appears on the table.');
+    $this->assertEquals('caption-text', trim($result[0]->getText()));
+
+    $result = $this->xpath('//summary/child::text()');
+    $this->assertNotEmpty($result, 'The summary appears on the table.');
+    $this->assertEquals('summary-text', trim($result[0]->getText()));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     // Check that the summary has the right accessibility settings.
     $this->assertSession()->elementAttributeExists('xpath', '//summary', 'role');
     $this->assertSession()->elementAttributeExists('xpath', '//summary', 'aria-expanded');
 
+<<<<<<< HEAD
     $this->assertSession()->elementExists('xpath', '//caption/details/child::text()[normalize-space()]');
     $this->assertSession()->elementTextEquals('xpath', '//caption/details/child::text()[normalize-space()]', 'description-text');
+=======
+    $result = $this->xpath('//caption/details/child::text()[normalize-space()]');
+    $this->assertNotEmpty($result, 'The table description appears on the table.');
+    $this->assertEquals('description-text', trim($result[0]->getText()));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Remove the caption and ensure the caption is not displayed anymore.
     $view = View::load('test_table');

@@ -20,6 +20,11 @@ use Symfony\Component\DependencyInjection\Definition;
  */
 class ServiceConfigurator extends AbstractServiceConfigurator
 {
+<<<<<<< HEAD
+=======
+    public const FACTORY = 'services';
+
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     use Traits\AbstractTrait;
     use Traits\ArgumentTrait;
     use Traits\AutoconfigureTrait;

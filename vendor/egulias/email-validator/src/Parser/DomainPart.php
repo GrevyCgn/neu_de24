@@ -24,7 +24,11 @@ use Egulias\EmailValidator\Parser\DomainLiteral as DomainLiteralParser;
 
 class DomainPart extends PartParser
 {
+<<<<<<< HEAD
     const DOMAIN_MAX_LENGTH = 253;
+=======
+    const DOMAIN_MAX_LENGTH = 254;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     const LABEL_MAX_LENGTH = 63;
 
     /**
@@ -147,6 +151,11 @@ class DomainPart extends PartParser
         $tldMissing = true;
         $hasComments = false;
         $domain = '';
+<<<<<<< HEAD
+=======
+        $label = '';
+        $openedParenthesis = 0;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         do {
             $prev = $this->lexer->getPrevious();
 
@@ -171,8 +180,17 @@ class DomainPart extends PartParser
                 return $dotsResult;
             }
 
+<<<<<<< HEAD
             if ($this->lexer->token['type'] === EmailLexer::S_OPENBRACKET) {
                 $literalResult = $this->parseDomainLiteral();
+=======
+            if ($this->lexer->token['type'] === EmailLexer::S_DOT) {
+                $this->checkLabelLength($label);
+                $label = '';
+            } else {
+                $label .= $this->lexer->token['value'];
+            }
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
                 $this->addTLDWarnings($tldMissing);
                 return $literalResult;
@@ -202,6 +220,7 @@ class DomainPart extends PartParser
 
         } while (null !== $this->lexer->token['type']);
 
+<<<<<<< HEAD
         $labelCheck = $this->checkLabelLength(true);
         if ($labelCheck->isInvalid()) {
             return $labelCheck;
@@ -210,6 +229,11 @@ class DomainPart extends PartParser
 
         $this->domainPart = $domain;
         return new ValidEmail();
+=======
+        $this->checkLabelLength($label);
+
+        return $domain;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     }
 
     private function checkNotAllowedChars(array $token) : Result
@@ -240,8 +264,129 @@ class DomainPart extends PartParser
 
     protected function checkDomainPartExceptions(array $prev, bool $hasComments) : Result
     {
+<<<<<<< HEAD
         if ($this->lexer->token['type'] === EmailLexer::S_OPENBRACKET && $prev['type'] !== EmailLexer::S_AT) {
             return new InvalidEmail(new ExpectingATEXT('OPENBRACKET not after AT'), $this->lexer->token['value']);
+=======
+        $IPv6TAG = false;
+        $addressLiteral = '';
+        do {
+            if ($this->lexer->token['type'] === EmailLexer::C_NUL) {
+                throw new ExpectingDTEXT();
+            }
+
+            if ($this->lexer->token['type'] === EmailLexer::INVALID ||
+                $this->lexer->token['type'] === EmailLexer::C_DEL   ||
+                $this->lexer->token['type'] === EmailLexer::S_LF
+            ) {
+                $this->warnings[ObsoleteDTEXT::CODE] = new ObsoleteDTEXT();
+            }
+
+            if ($this->lexer->isNextTokenAny(array(EmailLexer::S_OPENQBRACKET, EmailLexer::S_OPENBRACKET))) {
+                throw new ExpectingDTEXT();
+            }
+
+            if ($this->lexer->isNextTokenAny(
+                array(EmailLexer::S_HTAB, EmailLexer::S_SP, $this->lexer->token['type'] === EmailLexer::CRLF)
+            )) {
+                $this->warnings[CFWSWithFWS::CODE] = new CFWSWithFWS();
+                $this->parseFWS();
+            }
+
+            if ($this->lexer->isNextToken(EmailLexer::S_CR)) {
+                throw new CRNoLF();
+            }
+
+            if ($this->lexer->token['type'] === EmailLexer::S_BACKSLASH) {
+                $this->warnings[ObsoleteDTEXT::CODE] = new ObsoleteDTEXT();
+                $addressLiteral .= $this->lexer->token['value'];
+                $this->lexer->moveNext();
+                $this->validateQuotedPair();
+            }
+            if ($this->lexer->token['type'] === EmailLexer::S_IPV6TAG) {
+                $IPv6TAG = true;
+            }
+            if ($this->lexer->token['type'] === EmailLexer::S_CLOSEQBRACKET) {
+                break;
+            }
+
+            $addressLiteral .= $this->lexer->token['value'];
+
+        } while ($this->lexer->moveNext());
+
+        $addressLiteral = str_replace('[', '', $addressLiteral);
+        $addressLiteral = $this->checkIPV4Tag($addressLiteral);
+
+        if (false === $addressLiteral) {
+            return $addressLiteral;
+        }
+
+        if (!$IPv6TAG) {
+            $this->warnings[DomainLiteral::CODE] = new DomainLiteral();
+            return $addressLiteral;
+        }
+
+        $this->warnings[AddressLiteral::CODE] = new AddressLiteral();
+
+        $this->checkIPV6Tag($addressLiteral);
+
+        return $addressLiteral;
+    }
+
+    /**
+     * @param string $addressLiteral
+     *
+     * @return string|false
+     */
+    protected function checkIPV4Tag($addressLiteral)
+    {
+        $matchesIP  = array();
+
+        // Extract IPv4 part from the end of the address-literal (if there is one)
+        if (preg_match(
+            '/\\b(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/',
+            $addressLiteral,
+            $matchesIP
+        ) > 0
+        ) {
+            $index = strrpos($addressLiteral, $matchesIP[0]);
+            if ($index === 0) {
+                $this->warnings[AddressLiteral::CODE] = new AddressLiteral();
+                return false;
+            }
+            // Convert IPv4 part to IPv6 format for further testing
+            $addressLiteral = substr($addressLiteral, 0, (int) $index) . '0:0';
+        }
+
+        return $addressLiteral;
+    }
+
+    protected function checkDomainPartExceptions(array $prev)
+    {
+        $invalidDomainTokens = array(
+            EmailLexer::S_DQUOTE => true,
+            EmailLexer::S_SQUOTE => true,
+            EmailLexer::S_BACKTICK => true,
+            EmailLexer::S_SEMICOLON => true,
+            EmailLexer::S_GREATERTHAN => true,
+            EmailLexer::S_LOWERTHAN => true,
+        );
+
+        if (isset($invalidDomainTokens[$this->lexer->token['type']])) {
+            throw new ExpectingATEXT();
+        }
+
+        if ($this->lexer->token['type'] === EmailLexer::S_COMMA) {
+            throw new CommaInDomain();
+        }
+
+        if ($this->lexer->token['type'] === EmailLexer::S_AT) {
+            throw new ConsecutiveAt();
+        }
+
+        if ($this->lexer->token['type'] === EmailLexer::S_OPENQBRACKET && $prev['type'] !== EmailLexer::S_AT) {
+            throw new ExpectingATEXT();
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         }
 
         if ($this->lexer->token['type'] === EmailLexer::S_HYPHEN && $this->lexer->isNextToken(EmailLexer::S_DOT)) {
@@ -276,6 +421,7 @@ class DomainPart extends PartParser
         return new ValidEmail();
     }
 
+<<<<<<< HEAD
     private function checkLabelLength(bool $isEndOfDomain = false) : Result
     {
         if ($this->lexer->token['type'] === EmailLexer::S_DOT || $isEndOfDomain) {
@@ -283,11 +429,45 @@ class DomainPart extends PartParser
                 return new InvalidEmail(new LabelTooLong(), $this->lexer->token['value']);
             }
             $this->label = '';
+=======
+    /**
+     * @param string $label
+     */
+    protected function checkLabelLength($label)
+    {
+        if ($this->isLabelTooLong($label)) {
+            $this->warnings[LabelTooLong::CODE] = new LabelTooLong();
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         }
         $this->label .= $this->lexer->token['value'];
         return new ValidEmail();
     }
 
+<<<<<<< HEAD
+=======
+    /**
+     * @param string $label
+     * @return bool
+     */
+    private function isLabelTooLong($label)
+    {
+        if (preg_match('/[^\x00-\x7F]/', $label)) {
+            idn_to_ascii($label, IDNA_DEFAULT, INTL_IDNA_VARIANT_UTS46, $idnaInfo);
+
+            return (bool) ($idnaInfo['errors'] & IDNA_ERROR_LABEL_TOO_LONG);
+        }
+
+        return strlen($label) > self::LABEL_MAX_LENGTH;
+    }
+
+    protected function parseDomainComments()
+    {
+        $this->isUnclosedComment();
+        while (!$this->lexer->isNextToken(EmailLexer::S_CLOSEPARENTHESIS)) {
+            $this->warnEscaping();
+            $this->lexer->moveNext();
+        }
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     private function isLabelTooLong(string $label) : bool
     {

@@ -100,6 +100,7 @@ final class Php80
 
     public static function str_ends_with(string $haystack, string $needle): bool
     {
+<<<<<<< HEAD
         if ('' === $needle || $needle === $haystack) {
             return true;
         }
@@ -111,5 +112,8 @@ final class Php80
         $needleLength = \strlen($needle);
 
         return $needleLength <= \strlen($haystack) && 0 === substr_compare($haystack, $needle, -$needleLength);
+=======
+        return '' === $needle || ('' !== $haystack && 0 === substr_compare($haystack, $needle, -\strlen($needle)));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     }
 }

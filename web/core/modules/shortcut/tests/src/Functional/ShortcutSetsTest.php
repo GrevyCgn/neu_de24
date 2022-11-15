@@ -183,6 +183,7 @@ class ShortcutSetsTest extends ShortcutTestBase {
     $current_set = shortcut_current_displayed_set($this->shortcutUser);
     $default_set = shortcut_default_set($this->shortcutUser);
     $this->assertSame($default_set->id(), $current_set->id(), "Successfully unassigned another user's shortcut set.");
+<<<<<<< HEAD
   }
 
   /**
@@ -197,6 +198,8 @@ class ShortcutSetsTest extends ShortcutTestBase {
     $current_set = shortcut_current_displayed_set($this->shortcutUser);
     $default_set = shortcut_default_set($this->shortcutUser);
     $this->assertSame($default_set->id(), $current_set->id(), "Successfully cleared assigned shortcut set for removed user.");
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**

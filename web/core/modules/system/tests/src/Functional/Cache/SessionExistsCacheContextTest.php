@@ -63,7 +63,11 @@ class SessionExistsCacheContextTest extends BrowserTestBase {
    *
    * @internal
    */
+<<<<<<< HEAD
   public function assertSessionCookieOnClient(bool $expected_present): void {
+=======
+  public function assertSessionCookieOnClient($expected_present) {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertEquals($expected_present, (bool) $this->getSession()->getCookie($this->getSessionName()), 'Session cookie exists.');
   }
 

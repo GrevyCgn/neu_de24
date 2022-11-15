@@ -123,7 +123,11 @@ class ContentTranslationSyncImageTest extends ContentTranslationTestBase {
     ];
     $this->drupalGet('admin/config/regional/content-language');
     $this->submitForm($edit, 'Save configuration');
+<<<<<<< HEAD
     $this->assertSession()->statusMessageNotExists('error');
+=======
+    $this->assertSession()->elementNotExists('xpath', '//div[contains(@class, "messages--error")]');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->checkboxChecked('edit-settings-entity-test-mul-entity-test-mul-columns-field-test-et-ui-image-alt');
     $this->assertSession()->checkboxChecked('edit-settings-entity-test-mul-entity-test-mul-columns-field-test-et-ui-image-title');
     $this->drupalLogin($this->translator);

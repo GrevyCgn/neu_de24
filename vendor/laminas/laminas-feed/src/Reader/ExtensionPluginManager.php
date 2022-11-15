@@ -64,6 +64,7 @@ class ExtensionPluginManager extends AbstractPluginManager implements ExtensionM
         'googlePlayPodcastFeed'   => Extension\GooglePlayPodcast\Feed::class,
         'GooglePlayPodcastFeed'   => Extension\GooglePlayPodcast\Feed::class,
         'GooglePlayPodcast\Feed'  => Extension\GooglePlayPodcast\Feed::class,
+<<<<<<< HEAD
         'podcastentry'            => Extension\Podcast\Entry::class,
         'podcastEntry'            => Extension\Podcast\Entry::class,
         'PodcastEntry'            => Extension\Podcast\Entry::class,
@@ -96,6 +97,40 @@ class ExtensionPluginManager extends AbstractPluginManager implements ExtensionM
         'wellFormedWebEntry'      => Extension\WellFormedWeb\Entry::class,
         'WellFormedWebEntry'      => Extension\WellFormedWeb\Entry::class,
         'WellFormedWeb\Entry'     => Extension\WellFormedWeb\Entry::class,
+=======
+        'podcastentry'         => Extension\Podcast\Entry::class,
+        'podcastEntry'         => Extension\Podcast\Entry::class,
+        'PodcastEntry'         => Extension\Podcast\Entry::class,
+        'Podcast\Entry'        => Extension\Podcast\Entry::class,
+        'podcastfeed'          => Extension\Podcast\Feed::class,
+        'podcastFeed'          => Extension\Podcast\Feed::class,
+        'PodcastFeed'          => Extension\Podcast\Feed::class,
+        'Podcast\Feed'         => Extension\Podcast\Feed::class,
+        'podcastindexentry'    => Extension\PodcastIndex\Entry::class,
+        'podcastIndexEntry'    => Extension\PodcastIndex\Entry::class,
+        'PodcastIndexEntry'    => Extension\PodcastIndex\Entry::class,
+        'PodcastIndex\Entry'   => Extension\PodcastIndex\Entry::class,
+        'podcastindexfeed'     => Extension\PodcastIndex\Feed::class,
+        'podcastIndexFeed'     => Extension\PodcastIndex\Feed::class,
+        'PodcastIndexFeed'     => Extension\PodcastIndex\Feed::class,
+        'PodcastIndex\Feed'    => Extension\PodcastIndex\Feed::class,
+        'slashentry'           => Extension\Slash\Entry::class,
+        'slashEntry'           => Extension\Slash\Entry::class,
+        'SlashEntry'           => Extension\Slash\Entry::class,
+        'Slash\Entry'          => Extension\Slash\Entry::class,
+        'syndicationfeed'      => Extension\Syndication\Feed::class,
+        'syndicationFeed'      => Extension\Syndication\Feed::class,
+        'SyndicationFeed'      => Extension\Syndication\Feed::class,
+        'Syndication\Feed'     => Extension\Syndication\Feed::class,
+        'threadentry'          => Extension\Thread\Entry::class,
+        'threadEntry'          => Extension\Thread\Entry::class,
+        'ThreadEntry'          => Extension\Thread\Entry::class,
+        'Thread\Entry'         => Extension\Thread\Entry::class,
+        'wellformedwebentry'   => Extension\WellFormedWeb\Entry::class,
+        'wellFormedWebEntry'   => Extension\WellFormedWeb\Entry::class,
+        'WellFormedWebEntry'   => Extension\WellFormedWeb\Entry::class,
+        'WellFormedWeb\Entry'  => Extension\WellFormedWeb\Entry::class,
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
         // Legacy Zend Framework aliases
         Entry::class                                               => Extension\Atom\Entry::class,
@@ -147,6 +182,7 @@ class ExtensionPluginManager extends AbstractPluginManager implements ExtensionM
         Extension\DublinCore\Feed::class         => InvokableFactory::class,
         Extension\GooglePlayPodcast\Entry::class => InvokableFactory::class,
         Extension\GooglePlayPodcast\Feed::class  => InvokableFactory::class,
+<<<<<<< HEAD
         Extension\Podcast\Entry::class           => InvokableFactory::class,
         Extension\Podcast\Feed::class            => InvokableFactory::class,
         Extension\PodcastIndex\Entry::class      => InvokableFactory::class,
@@ -155,6 +191,16 @@ class ExtensionPluginManager extends AbstractPluginManager implements ExtensionM
         Extension\Syndication\Feed::class        => InvokableFactory::class,
         Extension\Thread\Entry::class            => InvokableFactory::class,
         Extension\WellFormedWeb\Entry::class     => InvokableFactory::class,
+=======
+        Extension\Podcast\Entry::class         => InvokableFactory::class,
+        Extension\Podcast\Feed::class          => InvokableFactory::class,
+        Extension\PodcastIndex\Entry::class    => InvokableFactory::class,
+        Extension\PodcastIndex\Feed::class     => InvokableFactory::class,
+        Extension\Slash\Entry::class           => InvokableFactory::class,
+        Extension\Syndication\Feed::class      => InvokableFactory::class,
+        Extension\Thread\Entry::class          => InvokableFactory::class,
+        Extension\WellFormedWeb\Entry::class   => InvokableFactory::class,
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         // Legacy (v2) due to alias resolution; canonical form of resolved
         // alias is used to look up the factory, while the non-normalized
         // resolved alias is used as the requested name passed to the factory.
@@ -167,6 +213,7 @@ class ExtensionPluginManager extends AbstractPluginManager implements ExtensionM
         'laminasfeedreaderextensiondublincorefeed'         => InvokableFactory::class,
         'laminasfeedreaderextensiongoogleplaypodcastentry' => InvokableFactory::class,
         'laminasfeedreaderextensiongoogleplaypodcastfeed'  => InvokableFactory::class,
+<<<<<<< HEAD
         'laminasfeedreaderextensionpodcastentry'           => InvokableFactory::class,
         'laminasfeedreaderextensionpodcastfeed'            => InvokableFactory::class,
         'laminasfeedreaderextensionpodcastindexentry'      => InvokableFactory::class,
@@ -175,6 +222,16 @@ class ExtensionPluginManager extends AbstractPluginManager implements ExtensionM
         'laminasfeedreaderextensionsyndicationfeed'        => InvokableFactory::class,
         'laminasfeedreaderextensionthreadentry'            => InvokableFactory::class,
         'laminasfeedreaderextensionwellformedwebentry'     => InvokableFactory::class,
+=======
+        'laminasfeedreaderextensionpodcastentry'         => InvokableFactory::class,
+        'laminasfeedreaderextensionpodcastfeed'          => InvokableFactory::class,
+        'laminasfeedreaderextensionpodcastindexentry'    => InvokableFactory::class,
+        'laminasfeedreaderextensionpodcastindexfeed'     => InvokableFactory::class,
+        'laminasfeedreaderextensionslashentry'           => InvokableFactory::class,
+        'laminasfeedreaderextensionsyndicationfeed'      => InvokableFactory::class,
+        'laminasfeedreaderextensionthreadentry'          => InvokableFactory::class,
+        'laminasfeedreaderextensionwellformedwebentry'   => InvokableFactory::class,
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     ];
 
     /**

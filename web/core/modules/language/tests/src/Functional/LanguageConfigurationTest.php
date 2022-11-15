@@ -111,14 +111,22 @@ class LanguageConfigurationTest extends BrowserTestBase {
       'prefix[en]' => '',
     ];
     $this->submitForm($edit, 'Save configuration');
+<<<<<<< HEAD
     $this->assertSession()->statusMessageContains('The prefix may only be left blank for the selected detection fallback language.', 'error');
+=======
+    $this->assertSession()->pageTextContains('The prefix may only be left blank for the selected detection fallback language.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Check that prefix cannot be changed to contain a slash.
     $edit = [
       'prefix[en]' => 'foo/bar',
     ];
     $this->submitForm($edit, 'Save configuration');
+<<<<<<< HEAD
     $this->assertSession()->statusMessageContains('The prefix may not contain a slash.', 'error');
+=======
+    $this->assertSession()->pageTextContains('The prefix may not contain a slash.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Remove English language and add a new Language to check if langcode of
     // Language entity is 'en'.

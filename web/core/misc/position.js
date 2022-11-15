@@ -266,7 +266,11 @@
     var scrollInfo = $.position.getScrollInfo(within);
     var collision = (options.collision || 'flip').split(' ');
     var offsets = {};
+<<<<<<< HEAD
     var target = typeof options.of === 'string' ? $(document).find(options.of) : $(options.of);
+=======
+    var target = $(options.of);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     var dimensions = getDimensions(target);
     var targetWidth = dimensions.width;
     var targetHeight = dimensions.height;

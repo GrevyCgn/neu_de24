@@ -58,7 +58,11 @@ class ServerDumpCommand extends Command
     protected function configure()
     {
         $this
+<<<<<<< HEAD
             ->addOption('format', null, InputOption::VALUE_REQUIRED, sprintf('The output format (%s)', implode(', ', $this->getAvailableFormats())), 'cli')
+=======
+            ->addOption('format', null, InputOption::VALUE_REQUIRED, sprintf('The output format (%s)', $availableFormats), 'cli')
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
             ->setDescription(self::$defaultDescription)
             ->setHelp(<<<'EOF'
 <info>%command.name%</info> starts a dump server that collects and displays
@@ -98,6 +102,7 @@ EOF
         });
 
         return 0;
+<<<<<<< HEAD
     }
 
     public function complete(CompletionInput $input, CompletionSuggestions $suggestions): void
@@ -110,5 +115,7 @@ EOF
     private function getAvailableFormats(): array
     {
         return array_keys($this->descriptors);
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     }
 }

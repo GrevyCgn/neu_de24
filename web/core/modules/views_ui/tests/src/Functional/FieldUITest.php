@@ -44,7 +44,11 @@ class FieldUITest extends UITestBase {
     // Ensure that the expected tokens appear in the UI.
     $edit_handler_url = 'admin/structure/views/nojs/handler/test_view/default/field/age';
     $this->drupalGet($edit_handler_url);
+<<<<<<< HEAD
     $xpath = '//details[@id="edit-options-alter-help"]/ul/li';
+=======
+    $xpath = '//details[@id="edit-options-alter-help"]/div[@class="details-wrapper"]/div[@class="item-list"]/ul/li';
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->elementTextEquals('xpath', $xpath, '{{ age }} == Age');
 
     $edit_handler_url = 'admin/structure/views/nojs/handler/test_view/default/field/id';

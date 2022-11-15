@@ -81,4 +81,64 @@ class Stable9LibraryOverrideTest extends StableLibraryOverrideTestBase {
     }
   }
 
+<<<<<<< HEAD
+=======
+  /**
+   * Removes all vendor libraries and assets from the library definitions.
+   *
+   * @param array[] $all_libraries
+   *   An associative array of libraries keyed by extension, then by library
+   *   name, and so on.
+   *
+   * @return array[]
+   *   The reduced array of libraries.
+   */
+  protected function removeVendorAssets(array $all_libraries) {
+    foreach ($all_libraries as $extension => $libraries) {
+      foreach ($libraries as $library_name => $library) {
+        if (isset($library['remote'])) {
+          unset($all_libraries[$extension][$library_name]);
+        }
+        foreach (['css', 'js'] as $asset_type) {
+          foreach ($library[$asset_type] as $index => $asset) {
+            if (strpos($asset['data'], 'core/assets/vendor') !== FALSE) {
+              unset($all_libraries[$extension][$library_name][$asset_type][$index]);
+              // Re-key the array of assets. This is needed because
+              // libraries-override doesn't always preserve the order.
+              if (!empty($all_libraries[$extension][$library_name][$asset_type])) {
+                $all_libraries[$extension][$library_name][$asset_type] = array_values($all_libraries[$extension][$library_name][$asset_type]);
+              }
+            }
+          }
+        }
+      }
+    }
+    return $all_libraries;
+  }
+
+  /**
+   * Gets all libraries for core and all installed modules.
+   *
+   * @return array[]
+   *   An associative array of libraries keyed by extension, then by library
+   *   name, and so on.
+   */
+  protected function getAllLibraries() {
+    $modules = \Drupal::moduleHandler()->getModuleList();
+    $module_list = array_keys($modules);
+    sort($module_list);
+    $this->assertEquals($this->allModules, $module_list, 'All core modules are installed.');
+
+    $libraries['core'] = $this->libraryDiscovery->getLibrariesByExtension('core');
+
+    foreach ($modules as $module_name => $module) {
+      $library_file = $module->getPath() . '/' . $module_name . '.libraries.yml';
+      if (is_file($this->root . '/' . $library_file)) {
+        $libraries[$module_name] = $this->libraryDiscovery->getLibrariesByExtension($module_name);
+      }
+    }
+    return $libraries;
+  }
+
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 }

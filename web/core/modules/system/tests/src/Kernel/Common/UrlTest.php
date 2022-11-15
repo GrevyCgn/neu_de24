@@ -59,7 +59,11 @@ class UrlTest extends KernelTestBase {
     ];
 
     foreach ($cases as $case) {
+<<<<<<< HEAD
       [$title, $uri, $options, $expected_cacheability, $expected_attachments] = $case;
+=======
+      list($title, $uri, $options, $expected_cacheability, $expected_attachments) = $case;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       $expected_cacheability['contexts'] = Cache::mergeContexts($expected_cacheability['contexts'], ['languages:language_interface', 'theme', 'user.permissions']);
       $link = [
         '#type' => 'link',
@@ -68,7 +72,11 @@ class UrlTest extends KernelTestBase {
         '#url' => Url::fromUri($uri),
       ];
       \Drupal::service('renderer')->renderRoot($link);
+<<<<<<< HEAD
       $this->assertEqualsCanonicalizing($expected_cacheability, $link['#cache']);
+=======
+      $this->assertEquals($expected_cacheability, $link['#cache']);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       $this->assertEquals($expected_attachments, $link['#attached']);
     }
   }
@@ -166,7 +174,10 @@ class UrlTest extends KernelTestBase {
    * Checks for class existence in link.
    *
    * @param $attribute
+<<<<<<< HEAD
    *   Attribute to be checked.
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    * @param $link
    *   URL to search.
    * @param $class

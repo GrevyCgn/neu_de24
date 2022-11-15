@@ -64,7 +64,11 @@ class ResponsiveImageAdminUITest extends BrowserTestBase {
     // Check if the new group is created.
     $this->assertSession()->statusCodeEquals(200);
     $this->drupalGet('admin/config/media/responsive-image-style');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('There are no responsive image styles yet.');
+=======
+    $this->assertNoText('There are no responsive image styles yet.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains('Style One');
 
     // Edit the group.

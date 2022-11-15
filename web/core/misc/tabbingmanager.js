@@ -58,8 +58,12 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       });
       var tabbingContext = new TabbingContext({
         level: this.stack.length,
+<<<<<<< HEAD
         $tabbableElements: $(tabbableElements),
         trapFocus: trapFocus
+=======
+        $tabbableElements: $(tabbableElements)
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       });
       this.stack.push(tabbingContext);
       tabbingContext.activate();

@@ -16,14 +16,21 @@ tips:
     label: 'The first tip'
     weight: 1
     selector: '#tour-test-1'
+<<<<<<< HEAD
     body: 'Is <a href="[site:url]">[site:name]</a> always the best dressed?'
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   tour-test-action:
     id: tour-test-3
     plugin: text
     label: 'The action'
     weight: 2
+<<<<<<< HEAD
     selector: .button-action
     body: 'The action button of awesome'
+=======
+    selector: '.button-action'
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   tour-test-3:
     id: tour-test-3
     plugin: image
@@ -36,4 +43,7 @@ tips:
     label: 'Im a list'
     weight: 6
     selector: '#tour-test-3'
+<<<<<<< HEAD
     body: '<p>Im all these things:</p><ul><li>Modal</li><li>Awesome</li></ul>'
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b

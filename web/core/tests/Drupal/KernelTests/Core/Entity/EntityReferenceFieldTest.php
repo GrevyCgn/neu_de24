@@ -344,7 +344,11 @@ class EntityReferenceFieldTest extends EntityKernelTestBase {
     $entity->save();
     $storage->resetCache();
     $user = User::load($user_id);
+<<<<<<< HEAD
     $this->assertEquals($entity->user_id->target_id, $user->id());
+=======
+    return $this->assertEquals($entity->user_id->target_id, $user->id());
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**
@@ -365,7 +369,11 @@ class EntityReferenceFieldTest extends EntityKernelTestBase {
     $entity->save();
     $storage->resetCache();
     $role = Role::load($role_id);
+<<<<<<< HEAD
     $this->assertEquals($entity->user_role->target_id, $role->id());
+=======
+    return $this->assertEquals($entity->user_role->target_id, $role->id());
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**

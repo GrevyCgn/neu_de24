@@ -43,6 +43,7 @@ class UpdateDeprecationTest extends KernelTestBase {
     $this->assertEquals(8003, \Drupal::keyValue('system.schema')->get('update_test_schema'));
   }
 
+<<<<<<< HEAD
   /**
    * Deprecation testing for drupal_get_schema_versions function.
    *
@@ -66,4 +67,6 @@ class UpdateDeprecationTest extends KernelTestBase {
     drupal_set_installed_schema_version('system', 8001);
   }
 
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 }

@@ -3,8 +3,13 @@
 namespace Drupal\Tests\media\FunctionalJavascript;
 
 use Drupal\Component\Utility\Html;
+<<<<<<< HEAD
 use Drupal\Core\Database\Database;
 use Drupal\Core\Entity\Entity\EntityViewDisplay;
+=======
+use Drupal\Core\Entity\Entity\EntityViewDisplay;
+use Drupal\Core\Url;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 use Drupal\editor\Entity\Editor;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\file\Entity\File;
@@ -1205,6 +1210,29 @@ class CKEditorIntegrationTest extends WebDriverTestBase {
       'bundle' => 'image',
       'mode' => '22222',
     ])->save();
+    EntityViewMode::create([
+      'id' => 'media.view_mode_3',
+      'targetEntityType' => 'media',
+      'status' => TRUE,
+      'enabled' => TRUE,
+      'label' => 'View Mode 3',
+    ])->save();
+
+    // Only enable view mode 1 & 2 for Image.
+    EntityViewDisplay::create([
+      'id' => 'media.image.view_mode_1',
+      'targetEntityType' => 'media',
+      'status' => TRUE,
+      'bundle' => 'image',
+      'mode' => 'view_mode_1',
+    ])->save();
+    EntityViewDisplay::create([
+      'id' => 'media.image.view_mode_2',
+      'targetEntityType' => 'media',
+      'status' => TRUE,
+      'bundle' => 'image',
+      'mode' => 'view_mode_2',
+    ])->save();
 
     $filter_format = FilterFormat::load('test_format');
     $filter_format->setFilterConfig('media_embed', [
@@ -1214,7 +1242,11 @@ class CKEditorIntegrationTest extends WebDriverTestBase {
         'allowed_media_types' => [],
         'allowed_view_modes' => [
           'view_mode_1' => 'view_mode_1',
+<<<<<<< HEAD
           '22222' => '22222',
+=======
+          'view_mode_2' => 'view_mode_2',
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
           'view_mode_3' => 'view_mode_3',
         ],
       ],
@@ -1224,7 +1256,11 @@ class CKEditorIntegrationTest extends WebDriverTestBase {
     // filter's ::getDependencies() method.
     $expected_config_dependencies = [
       'core.entity_view_mode.media.view_mode_1',
+<<<<<<< HEAD
       'core.entity_view_mode.media.22222',
+=======
+      'core.entity_view_mode.media.view_mode_2',
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       'core.entity_view_mode.media.view_mode_3',
     ];
     $dependencies = $filter_format->getDependencies();
@@ -1244,9 +1280,15 @@ class CKEditorIntegrationTest extends WebDriverTestBase {
     $page->pressButton('Edit media');
     $this->waitForMetadataDialog();
     $assert_session->optionExists('attributes[data-view-mode]', 'view_mode_1');
+<<<<<<< HEAD
     $assert_session->optionExists('attributes[data-view-mode]', '22222');
     $assert_session->optionNotExists('attributes[data-view-mode]', 'view_mode_3');
     $assert_session->selectExists('attributes[data-view-mode]')->selectOption('22222');
+=======
+    $assert_session->optionExists('attributes[data-view-mode]', 'view_mode_2');
+    $assert_session->optionNotExists('attributes[data-view-mode]', 'view_mode_3');
+    $assert_session->selectExists('attributes[data-view-mode]')->selectOption('view_mode_2');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->submitDialog();
     $this->getSession()->switchToIFrame('ckeditor');
     $this->assertNotEmpty($assert_session->waitForElementVisible('css', 'article.media--view-mode-_2222'));

@@ -58,7 +58,11 @@ class MiniPagerTest extends ViewTestBase {
     $this->drupalGet('test_mini_pager');
     $this->assertSession()->pageTextContains('›› test');
     $this->assertSession()->pageTextContains('Page 1');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('‹‹ test');
+=======
+    $this->assertNoText('‹‹ test');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains($this->nodes[0]->label());
     $this->assertSession()->pageTextContains($this->nodes[1]->label());
     $this->assertSession()->pageTextContains($this->nodes[2]->label());
@@ -75,7 +79,11 @@ class MiniPagerTest extends ViewTestBase {
     // On last page, current page and previous page link appear, next page link
     // does not.
     $this->drupalGet('test_mini_pager', ['query' => ['page' => 6]]);
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('›› test');
+=======
+    $this->assertNoText('›› test');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains('Page 7');
     $this->assertSession()->pageTextContains('‹‹ test');
     $this->assertSession()->pageTextContains($this->nodes[18]->label());
@@ -106,16 +114,26 @@ class MiniPagerTest extends ViewTestBase {
     $this->assertSession()->pageTextContains($this->nodes[1]->label());
 
     $this->drupalGet('test_mini_pager_one', ['query' => ['page' => 19]]);
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('››');
+=======
+    $this->assertNoText('››');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains('Page 20');
     $this->assertSession()->pageTextContains('‹‹');
     $this->assertSession()->pageTextContains($this->nodes[19]->label());
 
     // Test a mini pager with all items on the page. No pager should display.
     $this->drupalGet('test_mini_pager_all');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('‹‹ test');
     $this->assertSession()->pageTextNotContains('Page 1');
     $this->assertSession()->pageTextNotContains('test ››');
+=======
+    $this->assertNoText('‹‹ test');
+    $this->assertNoText('Page 1');
+    $this->assertNoText('test ››');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     // Verify that all rows appear on the page.
     $this->assertSession()->elementsCount('xpath', "//div[contains(@class, 'views-row')]", count($this->nodes));
 
@@ -125,9 +143,15 @@ class MiniPagerTest extends ViewTestBase {
     }
 
     $this->drupalGet('test_mini_pager');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('‹‹ test');
     $this->assertSession()->pageTextNotContains('Page 1');
     $this->assertSession()->pageTextNotContains('‹‹ test');
+=======
+    $this->assertNoText('‹‹ test');
+    $this->assertNoText('Page 1');
+    $this->assertNoText('‹‹ test');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains($this->nodes[19]->label());
 
     $view = Views::getView('test_mini_pager');

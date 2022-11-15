@@ -136,7 +136,11 @@ class FilterHtmlImageSecureTest extends BrowserTestBase {
     $edit = [
       'comment_body[0][value]' => implode("\n", $comment),
     ];
+<<<<<<< HEAD
     $this->drupalGet('node/' . $node->id());
+=======
+    $this->drupalGet('node/' . $this->node->id());
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->submitForm($edit, 'Save');
     foreach ($images as $image => $converted) {
       $found = FALSE;
@@ -144,8 +148,13 @@ class FilterHtmlImageSecureTest extends BrowserTestBase {
         $found = TRUE;
         if ($converted == $red_x_image) {
           $this->assertEquals($red_x_image, $element->getAttribute('src'));
+<<<<<<< HEAD
           $this->assertEquals('Image removed.', $element->getAttribute('alt'));
           $this->assertEquals('This image has been removed. For security reasons, only images from the local domain are allowed.', $element->getAttribute('title'));
+=======
+          $this->assertEquals($alt_text, $element->getAttribute('alt'));
+          $this->assertEquals($title_text, $element->getAttribute('title'));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
           $this->assertEquals('16', $element->getAttribute('height'));
           $this->assertEquals('16', $element->getAttribute('width'));
         }

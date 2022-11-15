@@ -46,7 +46,11 @@ class NodePostSettingsTest extends NodeTestBase {
 
     // Check that the post information is displayed.
     $node = $this->drupalGetNodeByTitle($edit['title[0][value]']);
+<<<<<<< HEAD
     $this->assertSession()->pageTextContainsOnce('Submitted by');
+=======
+    $this->assertSession()->elementsCount('xpath', '//div[contains(@class, "node__submitted")]', 1);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $node->delete();
 
     // Set "Basic page" content type to display post information.
@@ -63,7 +67,11 @@ class NodePostSettingsTest extends NodeTestBase {
     $this->submitForm($edit, 'Save');
 
     // Check that the post information is not displayed.
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('Submitted by');
+=======
+    $this->assertSession()->elementNotExists('xpath', '//div[contains(@class, "node__submitted")]');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
 }

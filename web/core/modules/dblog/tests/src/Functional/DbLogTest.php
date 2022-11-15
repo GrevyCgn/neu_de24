@@ -367,6 +367,7 @@ class DbLogTest extends BrowserTestBase {
     $query = Database::getConnection()->select('watchdog');
     $query->addExpression('MIN([wid])');
     $wid = $query->execute()->fetchField();
+<<<<<<< HEAD
     $trail = [
       '' => 'Home',
       'admin' => 'Administration',
@@ -374,6 +375,11 @@ class DbLogTest extends BrowserTestBase {
       'admin/reports/dblog' => 'Recent log messages',
     ];
     $this->assertBreadcrumb('admin/reports/dblog/event/' . $wid, $trail);
+=======
+    $this->drupalGet('admin/reports/dblog/event/' . $wid);
+    $xpath = '//nav[@class="breadcrumb"]/ol/li[last()]/a';
+    $this->assertEquals('Recent log messages', current($this->xpath($xpath))->getText(), 'DBLogs link displayed at breadcrumb in event page.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**
@@ -466,7 +472,11 @@ class DbLogTest extends BrowserTestBase {
     // Delete the user created at the start of this test.
     // We need to POST here to invoke batch_process() in the internal browser.
     $this->drupalGet('user/' . $user->id() . '/cancel');
+<<<<<<< HEAD
     $this->submitForm(['user_cancel_method' => 'user_cancel_reassign'], 'Confirm');
+=======
+    $this->submitForm(['user_cancel_method' => 'user_cancel_reassign'], 'Cancel account');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // View the database log report.
     $this->drupalGet('admin/reports/dblog');

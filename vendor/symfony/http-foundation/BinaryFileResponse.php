@@ -261,7 +261,11 @@ class BinaryFileResponse extends Response
             if (!$request->headers->has('If-Range') || $this->hasValidIfRangeHeader($request->headers->get('If-Range'))) {
                 $range = $request->headers->get('Range');
 
+<<<<<<< HEAD
                 if (str_starts_with($range, 'bytes=')) {
+=======
+                if (0 === strpos($range, 'bytes=')) {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
                     [$start, $end] = explode('-', substr($range, 6), 2) + [0];
 
                     $end = ('' === $end) ? $fileSize - 1 : (int) $end;
@@ -327,8 +331,13 @@ class BinaryFileResponse extends Response
                 return $this;
             }
 
+<<<<<<< HEAD
             $out = fopen('php://output', 'w');
             $file = fopen($this->file->getPathname(), 'r');
+=======
+        $out = fopen('php://output', 'w');
+        $file = fopen($this->file->getPathname(), 'r');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
             ignore_user_abort(true);
 

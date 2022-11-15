@@ -1,3 +1,6 @@
 max_bundle_number: 20
 hoverintent_functionality: true
+<<<<<<< HEAD
 show_local_tasks: false
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b

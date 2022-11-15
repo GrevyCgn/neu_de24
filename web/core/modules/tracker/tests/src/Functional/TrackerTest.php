@@ -88,7 +88,11 @@ class TrackerTest extends BrowserTestBase {
     ]);
 
     $this->drupalGet('activity');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains($unpublished->label());
+=======
+    $this->assertNoText($unpublished->label());
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains($published->label());
     $this->assertSession()->linkExists('My recent content', 0, 'User tab shows up on the global tracker page.');
 
@@ -173,9 +177,15 @@ class TrackerTest extends BrowserTestBase {
     $this->submitForm($comment, 'Save');
 
     $this->drupalGet('user/' . $this->user->id() . '/activity');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains($unpublished->label());
     $this->assertSession()->pageTextContains($my_published->label());
     $this->assertSession()->pageTextNotContains($other_published_no_comment->label());
+=======
+    $this->assertNoText($unpublished->label());
+    $this->assertSession()->pageTextContains($my_published->label());
+    $this->assertNoText($other_published_no_comment->label());
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains($other_published_my_comment->label());
 
     // Assert cache contexts.

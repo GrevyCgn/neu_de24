@@ -71,7 +71,11 @@ class AccessDeniedTest extends BrowserTestBase {
     ];
     $this->drupalGet('admin/config/system/site-information');
     $this->submitForm($edit, 'Save configuration');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains("The path '{$edit['site_403']}' has to start with a slash.");
+=======
+    $this->assertRaw(new FormattableMarkup("The path '%path' has to start with a slash.", ['%path' => $edit['site_403']]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Use a custom 403 page.
     $edit = [
@@ -130,7 +134,11 @@ class AccessDeniedTest extends BrowserTestBase {
     $this->config('system.site')->set('page.403', '/system-test/custom-4xx')->save();
 
     $this->drupalGet('/system-test/always-denied');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('Admin-only 4xx response');
+=======
+    $this->assertNoText('Admin-only 4xx response');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains('You are not authorized to access this page.');
     $this->assertSession()->statusCodeEquals(403);
     // Verify the access cacheability metadata for custom 403 is bubbled.

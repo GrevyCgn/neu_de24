@@ -91,8 +91,13 @@ class ConfigExportImportUITest extends BrowserTestBase {
   public function testExportImport() {
     // After installation there is no snapshot and nothing to import.
     $this->drupalGet('admin/config/development/configuration');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('Warning message');
     $this->assertSession()->pageTextContains('There is no staged configuration.');
+=======
+    $this->assertNoText('Warning message');
+    $this->assertSession()->pageTextContains('There are no configuration changes to import.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $this->originalSlogan = $this->config('system.site')->get('slogan');
     $this->newSlogan = $this->randomString(16);
@@ -170,14 +175,24 @@ class ConfigExportImportUITest extends BrowserTestBase {
     $this->drupalGet('admin/config/development/configuration/full/import');
     $this->submitForm(['files[import_tarball]' => $filename], 'Upload');
     // There is no snapshot yet because an import has never run.
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('Warning message');
     $this->assertSession()->pageTextNotContains('There is no staged configuration.');
+=======
+    $this->assertNoText('Warning message');
+    $this->assertNoText('There are no configuration changes to import.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains($this->contentType->label());
 
     $this->submitForm([], 'Import all');
     // After importing the snapshot has been updated and there are no warnings.
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('Warning message');
     $this->assertSession()->pageTextContains('The staged configuration is identical to the active configuration.');
+=======
+    $this->assertNoText('Warning message');
+    $this->assertSession()->pageTextContains('There are no configuration changes to import.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $this->assertEquals($this->newSlogan, $this->config('system.site')->get('slogan'));
 
@@ -197,9 +212,15 @@ class ConfigExportImportUITest extends BrowserTestBase {
     // active and snapshot should no longer exist.
     \Drupal::service('config.storage.sync')->deleteAll();
     $this->drupalGet('admin/config/development/configuration');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('Warning message');
     $this->assertSession()->pageTextNotContains('The following items in your active configuration have changes since the last import that may be lost on the next import.');
     $this->assertSession()->pageTextContains('There is no staged configuration.');
+=======
+    $this->assertNoText('Warning message');
+    $this->assertNoText('The following items in your active configuration have changes since the last import that may be lost on the next import.');
+    $this->assertSession()->pageTextContains('There are no configuration changes to import.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     // Write a file to sync. The warning about differences between the active
     // and snapshot should now exist.
     /** @var \Drupal\Core\Config\StorageInterface $sync */
@@ -282,7 +303,11 @@ class ConfigExportImportUITest extends BrowserTestBase {
     $this->submitForm(['files[import_tarball]' => $filename], 'Upload');
     // Verify that there are configuration differences to import.
     $this->drupalGet('admin/config/development/configuration');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('There is no staged configuration.');
+=======
+    $this->assertNoText('There are no configuration changes to import.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains('collection.test1 configuration collection');
     $this->assertSession()->pageTextContains('collection.test2 configuration collection');
     $this->assertSession()->pageTextContains('config_test.create');
@@ -299,7 +324,11 @@ class ConfigExportImportUITest extends BrowserTestBase {
     $this->assertSession()->linkByHrefExists('admin/config/development/configuration/sync/diff_collection/collection.test2/config_test.another_delete');
 
     $this->submitForm([], 'Import all');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains('The staged configuration is identical to the active configuration.');
+=======
+    $this->assertSession()->pageTextContains('There are no configuration changes to import.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Test data in collections.
     $data = $test1_storage->read('config_test.create');

@@ -1,6 +1,7 @@
 CHANGELOG
 =========
 
+<<<<<<< HEAD
 5.4
 ---
 
@@ -8,6 +9,8 @@ CHANGELOG
  * Add casters for Symfony's UUIDs and ULIDs
  * Add support for `Fiber`
 
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 5.2.0
 -----
 

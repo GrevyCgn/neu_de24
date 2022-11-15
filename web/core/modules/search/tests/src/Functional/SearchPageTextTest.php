@@ -81,9 +81,16 @@ class SearchPageTextTest extends BrowserTestBase {
     $this->submitForm($edit, 'Search');
     $this->assertSession()->pageTextContains('search yielded no results');
     $this->assertSession()->pageTextContains('Search');
+<<<<<<< HEAD
     $this->assertSession()->titleEquals('Search for ' . Unicode::truncate($search_terms, 60, TRUE, TRUE) . ' | Drupal');
     $this->assertSession()->pageTextNotContains('Node');
     $this->assertSession()->pageTextNotContains('Node');
+=======
+    $title_source = 'Search for @keywords | Drupal';
+    $this->assertSession()->titleEquals('Search for ' . Unicode::truncate($search_terms, 60, TRUE, TRUE) . ' | Drupal');
+    $this->assertNoText('Node');
+    $this->assertNoText('Node');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains('Content');
 
     $this->clickLink('About searching');
@@ -103,7 +110,12 @@ class SearchPageTextTest extends BrowserTestBase {
     $edit['keys'] = $search_terms;
     $this->drupalGet('search/node');
     $this->submitForm($edit, 'Search');
+<<<<<<< HEAD
     $this->assertSession()->titleEquals('Search for ' . Unicode::truncate($search_terms, 60, TRUE, TRUE) . ' | Drupal');
+=======
+    $actual_title = $this->xpath('//title')[0]->getText();
+    $this->assertEquals(Html::decodeEntities(t($title_source, ['@keywords' => Unicode::truncate($search_terms, 60, TRUE, TRUE)])), $actual_title, 'Search page title is correct');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $edit['keys'] = $this->searchingUser->getAccountName();
     $this->drupalGet('search/user');
@@ -135,7 +147,11 @@ class SearchPageTextTest extends BrowserTestBase {
     $edit['keys'] = implode(' ', $keys);
     $this->drupalGet('search/node');
     $this->submitForm($edit, 'Search');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains("Your search used too many AND/OR expressions. Only the first {$limit} terms were included in this search.");
+=======
+    $this->assertRaw(t('Your search used too many AND/OR expressions. Only the first @count terms were included in this search.', ['@count' => $limit]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Test that a search on Node or User with no keywords entered generates
     // the "Please enter some keywords" message.
@@ -152,12 +168,20 @@ class SearchPageTextTest extends BrowserTestBase {
     $this->submitForm([
       'or' => $this->randomMachineName() . ' ' . $this->randomMachineName(),
     ], 'edit-submit--2');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('Please enter some keywords');
+=======
+    $this->assertNoText('Please enter some keywords');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->drupalGet('search/node');
     $this->submitForm([
       'phrase' => '"' . $this->randomMachineName() . '" "' . $this->randomMachineName() . '"',
     ], 'edit-submit--2');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('Please enter some keywords');
+=======
+    $this->assertNoText('Please enter some keywords');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Verify that if you search for a too-short keyword, you get the right
     // message, and that if after that you search for a longer keyword, you
@@ -165,7 +189,11 @@ class SearchPageTextTest extends BrowserTestBase {
     $this->drupalGet('search/node');
     $this->submitForm(['keys' => $this->randomMachineName(1)], 'Search');
     $this->assertSession()->pageTextContains('You must include at least one keyword');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('Please enter some keywords');
+=======
+    $this->assertNoText('Please enter some keywords');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->submitForm(['keys' => $this->randomMachineName()], 'Search');
     $this->assertSession()->pageTextNotContains('You must include at least one keyword');
 

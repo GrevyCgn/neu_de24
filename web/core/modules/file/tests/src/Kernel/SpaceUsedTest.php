@@ -64,6 +64,7 @@ class SpaceUsedTest extends FileManagedUnitTestBase {
 
     // Test the status fields
     $this->assertEquals(4, $file->spaceUsed(NULL, 0));
+<<<<<<< HEAD
     $this->assertEquals(370, $file->spaceUsed());
 
     // Test both the user and status.
@@ -73,6 +74,17 @@ class SpaceUsedTest extends FileManagedUnitTestBase {
     $this->assertEquals(70, $file->spaceUsed(2));
     $this->assertEquals(3, $file->spaceUsed(3, 0));
     $this->assertEquals(300, $file->spaceUsed(3));
+=======
+    $this->assertEquals(370, $file->spaceUsed(NULL, FILE_STATUS_PERMANENT));
+
+    // Test both the user and status.
+    $this->assertEquals(0, $file->spaceUsed(1, 0));
+    $this->assertEquals(0, $file->spaceUsed(1, FILE_STATUS_PERMANENT));
+    $this->assertEquals(1, $file->spaceUsed(2, 0));
+    $this->assertEquals(70, $file->spaceUsed(2, FILE_STATUS_PERMANENT));
+    $this->assertEquals(3, $file->spaceUsed(3, 0));
+    $this->assertEquals(300, $file->spaceUsed(3, FILE_STATUS_PERMANENT));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
 }

@@ -109,7 +109,11 @@ class EntityView extends BlockBase implements ContextAwarePluginInterface, Conta
       return $return_as_object ? $parent_access : $parent_access->isAllowed();
     }
 
+<<<<<<< HEAD
     /** @var \Drupal\Core\Entity\EntityInterface $entity */
+=======
+    /** @var $entity \Drupal\Core\Entity\EntityInterface */
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $entity = $this->getContextValue('entity');
     return $entity->access('view', $account, $return_as_object);
   }

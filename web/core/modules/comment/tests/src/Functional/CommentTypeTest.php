@@ -170,7 +170,13 @@ class CommentTypeTest extends CommentTestBase {
     $field_storage->delete();
     // Attempt to delete the comment type, which should now be allowed.
     $this->drupalGet('admin/structure/comment/manage/' . $type->id() . '/delete');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains('Are you sure you want to delete the comment type ' . $type->id() . '?');
+=======
+    $this->assertRaw(
+      t('Are you sure you want to delete the comment type %type?', ['%type' => $type->id()])
+    );
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains('This action cannot be undone.');
 
     // Test exception thrown when re-using an existing comment type.

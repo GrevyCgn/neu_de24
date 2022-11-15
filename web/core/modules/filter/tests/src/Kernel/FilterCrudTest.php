@@ -100,11 +100,14 @@ class FilterCrudTest extends KernelTestBase {
     $this->assertEquals($format->get('weight'), $filter_format->get('weight'), new FormattableMarkup('filter_format_load: Proper weight for text format %format.', $t_args));
     // Check that the filter was created in site default language.
     $this->assertEquals($default_langcode, $format->language()->getId(), new FormattableMarkup('filter_format_load: Proper language code for text format %format.', $t_args));
+<<<<<<< HEAD
 
     // Verify the permission exists and has the correct dependencies.
     $permissions = \Drupal::service('user.permissions')->getPermissions();
     $this->assertTrue(isset($permissions[$format->getPermissionName()]));
     $this->assertEquals(['config' => [$format->getConfigDependencyName()]], $permissions[$format->getPermissionName()]['dependencies']);
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
 }

@@ -210,7 +210,11 @@ class ContactSitewideTest extends BrowserTestBase {
     $this->drupalLogout();
     $this->drupalGet('contact');
     $this->assertSession()->pageTextContains('Your email address');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('Form');
+=======
+    $this->assertNoText('Form');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->drupalLogin($admin_user);
 
     // Add more forms.
@@ -377,7 +381,11 @@ class ContactSitewideTest extends BrowserTestBase {
     ];
     $this->submitForm($edit, 'Send message');
     // Verify that messages are not found.
+<<<<<<< HEAD
     $this->assertSession()->elementNotExists('xpath', '//div[@data-drupal-messages]');
+=======
+    $this->assertSession()->elementNotExists('xpath', '//div[@role="contentinfo"]');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->addressEquals('user/' . $admin_user->id());
 
     // Test preview and visibility of the message field and label. Submit the
@@ -411,6 +419,7 @@ class ContactSitewideTest extends BrowserTestBase {
 
     $this->drupalGet($form->toUrl('canonical'));
     $this->submitForm($edit, 'Preview');
+<<<<<<< HEAD
     // 'Message' should only be displayed once now with the actual message
     // displayed twice.
     $this->assertSession()->pageTextContainsOnce('Message');
@@ -421,6 +430,13 @@ class ContactSitewideTest extends BrowserTestBase {
     // Check for message in preview but no label.
     $this->assertSession()->elementTextNotContains('css', '#edit-preview', 'Message');
     $this->assertSession()->elementTextContains('css', '#edit-preview', $message);
+=======
+    // Message should only be displayed once now.
+    $page_text = $this->getSession()->getPage()->getText();
+    $this->assertEquals(1, substr_count($page_text, t('Message')));
+    $this->assertSession()->responseContains('class="field field--name-message field--type-string-long field--label-hidden field__item">');
+    $this->assertSession()->pageTextContains($edit['message[0][value]']);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Set the preview field to 'hidden' in the view mode and check that the
     // field is hidden.
@@ -611,7 +627,11 @@ class ContactSitewideTest extends BrowserTestBase {
       else {
         $this->drupalGet("admin/structure/contact/manage/{$id}/delete");
         $this->submitForm([], 'Delete');
+<<<<<<< HEAD
         $this->assertSession()->pageTextContains("The contact form {$contact_form->label()} has been deleted.");
+=======
+        $this->assertRaw(t('The contact form %label has been deleted.', ['%label' => $contact_form->label()]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         $this->assertNull(ContactForm::load($id), new FormattableMarkup('Form %contact_form not found', ['%contact_form' => $contact_form->label()]));
       }
     }

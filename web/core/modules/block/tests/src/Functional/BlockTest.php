@@ -44,7 +44,11 @@ class BlockTest extends BlockTestBase {
     $this->assertSession()->checkboxChecked('edit-visibility-request-path-negate-0');
 
     $this->submitForm($edit, 'Save block');
+<<<<<<< HEAD
     $this->assertSession()->statusMessageContains('The block configuration has been saved.', 'status');
+=======
+    $this->assertSession()->pageTextContains('The block configuration has been saved.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $this->clickLink('Configure');
     $this->assertSession()->checkboxChecked('edit-visibility-request-path-negate-1');
@@ -124,7 +128,11 @@ class BlockTest extends BlockTestBase {
     // authenticated users.
     $this->drupalGet('admin/structure/block/add/' . $block_name . '/' . $default_theme);
     $this->submitForm($edit, 'Save block');
+<<<<<<< HEAD
     $this->assertSession()->statusMessageContains('The block configuration has been saved.', 'status');
+=======
+    $this->assertSession()->pageTextContains('The block configuration has been saved.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Confirm that block was not displayed according to block visibility
     // rules.
@@ -162,6 +170,12 @@ class BlockTest extends BlockTestBase {
         'plugin_id' => $block_name,
         'theme' => $default_theme,
       ]);
+<<<<<<< HEAD
+=======
+      $links = $this->xpath('//a[contains(@href, :href)]', [':href' => $add_url->toString()]);
+      $this->assertCount(1, $links, 'Found one matching link.');
+      $this->assertEquals(t('Place block'), $links[0]->getText(), 'Found the expected link text.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
       // Verify that one link is found, with the the expected link text.
       $xpath = $this->assertSession()->buildXPathQuery('//a[contains(@href, :href)]', [':href' => $add_url->toString()]);
@@ -181,7 +195,11 @@ class BlockTest extends BlockTestBase {
         'settings[label]' => $title,
       ];
       // Create the block using the link parsed from the library page.
+<<<<<<< HEAD
       $this->drupalGet($this->getAbsoluteUrl($link->getAttribute('href')));
+=======
+      $this->drupalGet($this->getAbsoluteUrl($links[0]->getAttribute('href')));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       $this->submitForm($edit, 'Save block');
 
       // Ensure that the block was created with the expected weight.
@@ -218,7 +236,11 @@ class BlockTest extends BlockTestBase {
       'id' => $block['id'],
       'region' => $block['region'],
     ], 'Save block');
+<<<<<<< HEAD
     $this->assertSession()->statusMessageContains('The block configuration has been saved.', 'status');
+=======
+    $this->assertSession()->pageTextContains('The block configuration has been saved.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     // Check to see if the block was created by checking its configuration.
     $instance = Block::load($block['id']);
 
@@ -234,7 +256,11 @@ class BlockTest extends BlockTestBase {
     $this->clickLink('Disable');
 
     // Confirm that the block is now listed as disabled.
+<<<<<<< HEAD
     $this->assertSession()->statusMessageContains('The block settings have been updated.', 'status');
+=======
+    $this->assertSession()->pageTextContains('The block settings have been updated.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Confirm that the block instance title and markup are not displayed.
     $this->drupalGet('node');
@@ -287,7 +313,11 @@ class BlockTest extends BlockTestBase {
       $block['region'] = 'content';
       $this->drupalGet('admin/structure/block/add/system_powered_by_block');
       $this->submitForm($block, 'Save block');
+<<<<<<< HEAD
       $this->assertSession()->statusMessageContains('The block configuration has been saved.', 'status');
+=======
+      $this->assertSession()->pageTextContains('The block configuration has been saved.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       $this->assertSession()->addressEquals('admin/structure/block/list/' . $theme . '?block-placement=' . Html::getClass($block['id']));
 
       // Set the default theme and ensure the block is placed.
@@ -331,7 +361,11 @@ class BlockTest extends BlockTestBase {
     ];
     $this->drupalGet('admin/structure/block/add/' . $block_name . '/' . $default_theme);
     $this->submitForm($edit, 'Save block');
+<<<<<<< HEAD
     $this->assertSession()->statusMessageContains('The block configuration has been saved.', 'status');
+=======
+    $this->assertSession()->pageTextContains('The block configuration has been saved.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Confirm that the block is not displayed by default.
     $this->drupalGet('user');
@@ -342,7 +376,11 @@ class BlockTest extends BlockTestBase {
     ];
     $this->drupalGet('admin/structure/block/manage/' . $id);
     $this->submitForm($edit, 'Save block');
+<<<<<<< HEAD
     $this->assertSession()->statusMessageContains('The block configuration has been saved.', 'status');
+=======
+    $this->assertSession()->pageTextContains('The block configuration has been saved.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $this->drupalGet('admin/structure/block/manage/' . $id);
     $this->assertSession()->checkboxChecked('edit-settings-label-display');
@@ -373,11 +411,16 @@ class BlockTest extends BlockTestBase {
     $this->submitForm($edit, 'Save blocks');
 
     // Confirm that the block was moved to the proper region.
+<<<<<<< HEAD
     $this->assertSession()->statusMessageContains('The block settings have been updated.', 'status');
+=======
+    $this->assertSession()->pageTextContains('The block settings have been updated.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Confirm that the block is being displayed.
     $this->drupalGet('');
     $this->assertSession()->pageTextContains($block['settings[label]']);
+<<<<<<< HEAD
 
     $region_xpath = [
       'header' => '//header[@role = "banner"]',
@@ -386,6 +429,8 @@ class BlockTest extends BlockTestBase {
       'sidebar_second' => '//aside[contains(@class, "layout-sidebar-second")]',
       'footer' => '//footer[@role = "contentinfo"]',
     ];
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Confirm that the custom block was found at the proper region.
     $xpath = $this->assertSession()->buildXPathQuery($region_xpath[$region] . '//div[@id=:block-id]/*', [

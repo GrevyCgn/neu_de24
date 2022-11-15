@@ -269,7 +269,11 @@ class Inline
      *
      * @throws ParseException When malformed inline YAML string is parsed
      */
+<<<<<<< HEAD
     public static function parseScalar(string $scalar, int $flags = 0, array $delimiters = null, int &$i = 0, bool $evaluate = true, array &$references = [], bool &$isQuoted = null)
+=======
+    public static function parseScalar(string $scalar, int $flags = 0, array $delimiters = null, int &$i = 0, bool $evaluate = true, array &$references = [])
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     {
         if (\in_array($scalar[$i], ['"', "'"])) {
             // quoted scalar
@@ -389,7 +393,11 @@ class Inline
                         }
                     }
 
+<<<<<<< HEAD
                     if (!$isQuoted && \is_string($value) && '' !== $value && '&' === $value[0] && Parser::preg_match(Parser::REFERENCE_PATTERN, $value, $matches)) {
+=======
+                    if (\is_string($value) && '' !== $value && '&' === $value[0] && Parser::preg_match(Parser::REFERENCE_PATTERN, $value, $matches)) {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
                         $references[$matches['ref']] = $matches['value'];
                         $value = $matches['value'];
                     }
@@ -531,7 +539,11 @@ class Inline
                         if ('<<' === $key) {
                             $output += $value;
                         } elseif ($allowOverwrite || !isset($output[$key])) {
+<<<<<<< HEAD
                             if (!$isValueQuoted && \is_string($value) && '' !== $value && '&' === $value[0] && Parser::preg_match(Parser::REFERENCE_PATTERN, $value, $matches)) {
+=======
+                            if (\is_string($value) && '' !== $value && '&' === $value[0] && Parser::preg_match(Parser::REFERENCE_PATTERN, $value, $matches)) {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
                                 $references[$matches['ref']] = $matches['value'];
                                 $value = $matches['value'];
                             }
@@ -562,7 +574,11 @@ class Inline
      *
      * @throws ParseException when object parsing support was disabled and the parser detected a PHP object or when a reference could not be resolved
      */
+<<<<<<< HEAD
     private static function evaluateScalar(string $scalar, int $flags, array &$references = [], bool &$isQuotedString = null)
+=======
+    private static function evaluateScalar(string $scalar, int $flags, array &$references = [])
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     {
         $isQuotedString = false;
         $scalar = trim($scalar);

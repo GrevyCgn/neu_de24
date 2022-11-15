@@ -95,6 +95,7 @@ abstract class FileManagedTestBase extends BrowserTestBase {
    *   File object to compare.
    */
   public function assertFileUnchanged(FileInterface $before, FileInterface $after) {
+<<<<<<< HEAD
     $this->assertEquals($before->id(), $after->id());
     $this->assertEquals($before->getOwner()->id(), $after->getOwner()->id());
     $this->assertEquals($before->getFilename(), $after->getFilename());
@@ -102,6 +103,15 @@ abstract class FileManagedTestBase extends BrowserTestBase {
     $this->assertEquals($before->getMimeType(), $after->getMimeType());
     $this->assertEquals($before->getSize(), $after->getSize());
     $this->assertEquals($before->isPermanent(), $after->isPermanent());
+=======
+    $this->assertEquals($before->id(), $after->id(), t('File id is the same: %file1 == %file2.', ['%file1' => $before->id(), '%file2' => $after->id()]), 'File unchanged');
+    $this->assertEquals($before->getOwner()->id(), $after->getOwner()->id(), t('File owner is the same: %file1 == %file2.', ['%file1' => $before->getOwner()->id(), '%file2' => $after->getOwner()->id()]), 'File unchanged');
+    $this->assertEquals($before->getFilename(), $after->getFilename(), t('File name is the same: %file1 == %file2.', ['%file1' => $before->getFilename(), '%file2' => $after->getFilename()]), 'File unchanged');
+    $this->assertEquals($before->getFileUri(), $after->getFileUri(), t('File path is the same: %file1 == %file2.', ['%file1' => $before->getFileUri(), '%file2' => $after->getFileUri()]), 'File unchanged');
+    $this->assertEquals($before->getMimeType(), $after->getMimeType(), t('File MIME type is the same: %file1 == %file2.', ['%file1' => $before->getMimeType(), '%file2' => $after->getMimeType()]), 'File unchanged');
+    $this->assertEquals($before->getSize(), $after->getSize(), t('File size is the same: %file1 == %file2.', ['%file1' => $before->getSize(), '%file2' => $after->getSize()]), 'File unchanged');
+    $this->assertEquals($before->isPermanent(), $after->isPermanent(), t('File status is the same: %file1 == %file2.', ['%file1' => $before->isPermanent(), '%file2' => $after->isPermanent()]), 'File unchanged');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**
@@ -126,8 +136,13 @@ abstract class FileManagedTestBase extends BrowserTestBase {
    *   File object to compare.
    */
   public function assertSameFile(FileInterface $file1, FileInterface $file2) {
+<<<<<<< HEAD
     $this->assertEquals($file1->id(), $file2->id());
     $this->assertEquals($file1->getFileUri(), $file2->getFileUri());
+=======
+    $this->assertEquals($file1->id(), $file2->id(), t('Files have the same ids: %file1 == %file2.', ['%file1' => $file1->id(), '%file2-fid' => $file2->id()]), 'Same file');
+    $this->assertEquals($file1->getFileUri(), $file2->getFileUri(), t('Files have the same path: %file1 == %file2.', ['%file1' => $file1->getFileUri(), '%file2' => $file2->getFileUri()]), 'Same file');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**

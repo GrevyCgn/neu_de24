@@ -22,42 +22,61 @@ tips:
     label: 'Translation language'
     weight: 2
     selector: '#edit-langcode'
+<<<<<<< HEAD
     body: 'Choose the language you want to translate.'
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   locale-search:
     id: locale-search
     plugin: text
     label: Search
     weight: 3
     selector: '#edit-string'
+<<<<<<< HEAD
     body: 'Enter the specific word or sentence you want to translate, you can also write just a part of a word.'
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   locale-filter:
     id: locale-filter
     plugin: text
     label: 'Filter the search'
     weight: 4
     selector: '#edit-translation'
+<<<<<<< HEAD
     body: 'You can search for untranslated strings if you want to translate something that isn''t translated yet. If you want to modify an existing translation, you might want to search only for translated strings.'
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   locale-submit:
     id: locale-submit
     plugin: text
     label: 'Apply your search criteria'
     weight: 5
     selector: '#edit-submit'
+<<<<<<< HEAD
     body: 'To apply your search criteria, click on the <em>Filter</em> button.'
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   locale-translate:
     id: locale-translate
     plugin: text
     label: Translate
     weight: 6
+<<<<<<< HEAD
     selector: .js-form-type-textarea
     body: 'You can write your own translation in the text fields of the right column. Try to figure out in which context the text will be used in order to translate it in the appropriate way.'
+=======
+    selector: '.js-form-type-textarea'
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   locale-validate:
     id: locale-validate
     plugin: text
     label: 'Validate the translation'
     weight: 7
     selector: '#edit-submit--2'
+<<<<<<< HEAD
     body: 'When you have finished your translations, click on the <em>Save translations</em> button. You must save your translations, each time before changing the page or making a new search.'
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   locale-continue:
     id: locale-continue
     plugin: text

@@ -7,8 +7,12 @@ use Drupal\user\Plugin\migrate\source\ProfileField;
 /**
  * Drupal 6 i18n strings profile field source from database.
  *
+<<<<<<< HEAD
  * For available configuration keys, refer to the parent classes.
  *
+=======
+ * For available configuration keys, refer to the parent classes:
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
  * @see \Drupal\migrate\Plugin\migrate\source\SqlBase
  * @see \Drupal\migrate\Plugin\migrate\source\SourcePluginBase
  *

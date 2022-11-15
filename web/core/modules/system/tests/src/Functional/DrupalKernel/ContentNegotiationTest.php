@@ -42,7 +42,11 @@ class ContentNegotiationTest extends BrowserTestBase {
     ];
     foreach ($tests as $case => $header) {
       $this->drupalGet('', [], ['Accept: ' . $header]);
+<<<<<<< HEAD
       $this->assertSession()->pageTextNotContains('Unsupported Media Type');
+=======
+      $this->assertNoText('Unsupported Media Type');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       $this->assertSession()->pageTextContains('Log in');
     }
   }

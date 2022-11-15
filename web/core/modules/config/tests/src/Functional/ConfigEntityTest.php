@@ -297,8 +297,13 @@ class ConfigEntityTest extends BrowserTestBase {
     $this->submitForm($edit, 'Save');
     $this->assertSession()->addressEquals('admin/structure/config_test');
     $this->assertSession()->statusCodeEquals(200);
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains($label1);
     $this->assertSession()->pageTextNotContains($label2);
+=======
+    $this->assertNoText($label1);
+    $this->assertNoText($label2);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains($label3);
     $this->assertSession()->linkByHrefNotExists("admin/structure/config_test/manage/$id");
     $id = $edit['id'];

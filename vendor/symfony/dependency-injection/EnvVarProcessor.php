@@ -255,8 +255,15 @@ class EnvVarProcessor implements EnvVarProcessorInterface
                 'fragment' => null,
             ];
 
+<<<<<<< HEAD
             // remove the '/' separator
             $parsedEnv['path'] = '/' === ($parsedEnv['path'] ?? '/') ? '' : substr($parsedEnv['path'], 1);
+=======
+            if (null !== $parsedEnv['path']) {
+                // remove the '/' separator
+                $parsedEnv['path'] = '/' === $parsedEnv['path'] ? null : substr($parsedEnv['path'], 1);
+            }
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
             return $parsedEnv;
         }

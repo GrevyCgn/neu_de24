@@ -20,6 +20,7 @@ class ImageTest extends KernelTestBase {
   protected static $modules = ['system'];
 
   /**
+<<<<<<< HEAD
    * The file URL generator.
    *
    * @var \Drupal\Core\File\FileUrlGeneratorInterface
@@ -27,6 +28,8 @@ class ImageTest extends KernelTestBase {
   protected $fileUrlGenerator;
 
   /**
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    * The images to test with.
    *
    * @var array

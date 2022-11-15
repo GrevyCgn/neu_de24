@@ -48,11 +48,19 @@ class InputOption
     private $description;
 
     /**
+<<<<<<< HEAD
      * @param string                           $name        The option name
      * @param string|array|null                $shortcut    The shortcuts, can be null, a string of shortcuts delimited by | or an array of shortcuts
      * @param int|null                         $mode        The option mode: One of the VALUE_* constants
      * @param string                           $description A description text
      * @param string|bool|int|float|array|null $default     The default value (must be null for self::VALUE_NONE)
+=======
+     * @param string                    $name        The option name
+     * @param string|array|null         $shortcut    The shortcuts, can be null, a string of shortcuts delimited by | or an array of shortcuts
+     * @param int|null                  $mode        The option mode: One of the VALUE_* constants
+     * @param string                    $description A description text
+     * @param string|string[]|bool|null $default     The default value (must be null for self::VALUE_NONE)
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
      *
      * @throws InvalidArgumentException If option mode is invalid or incompatible
      */
@@ -162,7 +170,15 @@ class InputOption
     }
 
     /**
+<<<<<<< HEAD
      * @param string|bool|int|float|array|null $default
+=======
+     * Sets the default value.
+     *
+     * @param string|string[]|bool|null $default The default value
+     *
+     * @throws LogicException When incorrect default value is given
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
      */
     public function setDefault($default = null)
     {
@@ -184,7 +200,11 @@ class InputOption
     /**
      * Returns the default value.
      *
+<<<<<<< HEAD
      * @return string|bool|int|float|array|null
+=======
+     * @return string|string[]|bool|null The default value
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
      */
     public function getDefault()
     {

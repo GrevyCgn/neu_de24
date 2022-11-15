@@ -289,6 +289,14 @@ class KeyValueEntityStorageTest extends UnitTestCase {
       ->will($this->returnValue([['id' => 'foo']]));
     $this->keyValueStore->expects($this->never())
       ->method('delete');
+<<<<<<< HEAD
+=======
+
+    $this->moduleHandler->expects($this->exactly(2))
+      ->method('getImplementations')
+      ->withConsecutive(['entity_load'], ['test_entity_type_load'])
+      ->will($this->returnValue([]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->moduleHandler->expects($this->exactly(4))
       ->method('invokeAll')
       ->withConsecutive(
@@ -352,6 +360,13 @@ class KeyValueEntityStorageTest extends UnitTestCase {
       ->will($this->returnValue(get_class($entity)));
     $this->setUpKeyValueEntityStorage();
 
+<<<<<<< HEAD
+=======
+    $this->moduleHandler->expects($this->exactly(2))
+      ->method('getImplementations')
+      ->withConsecutive(['entity_load'], ['test_entity_type_load'])
+      ->will($this->returnValue([]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $expected = ['id' => 'foo'];
     $entity->expects($this->once())
       ->method('toArray')
@@ -471,6 +486,13 @@ class KeyValueEntityStorageTest extends UnitTestCase {
       ->method('getMultiple')
       ->with(['foo'])
       ->will($this->returnValue([['id' => 'foo']]));
+<<<<<<< HEAD
+=======
+    $this->moduleHandler->expects($this->exactly(2))
+      ->method('getImplementations')
+      ->withConsecutive(['entity_load'], ['test_entity_type_load'])
+      ->will($this->returnValue([]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $entity = $this->entityStorage->load('foo');
     $this->assertInstanceOf('Drupal\Core\Entity\EntityInterface', $entity);
     $this->assertSame('foo', $entity->id());
@@ -507,6 +529,13 @@ class KeyValueEntityStorageTest extends UnitTestCase {
     $this->keyValueStore->expects($this->once())
       ->method('getAll')
       ->will($this->returnValue([['id' => 'foo'], ['id' => 'bar']]));
+<<<<<<< HEAD
+=======
+    $this->moduleHandler->expects($this->exactly(2))
+      ->method('getImplementations')
+      ->withConsecutive(['entity_load'], ['test_entity_type_load'])
+      ->will($this->returnValue([]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $entities = $this->entityStorage->loadMultiple();
     foreach ($entities as $id => $entity) {
       $this->assertInstanceOf('Drupal\Core\Entity\EntityInterface', $entity);
@@ -533,6 +562,13 @@ class KeyValueEntityStorageTest extends UnitTestCase {
       ->method('getMultiple')
       ->with(['foo'])
       ->will($this->returnValue([['id' => 'foo']]));
+<<<<<<< HEAD
+=======
+    $this->moduleHandler->expects($this->exactly(2))
+      ->method('getImplementations')
+      ->withConsecutive(['entity_load'], ['test_entity_type_load'])
+      ->will($this->returnValue([]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $entities = $this->entityStorage->loadMultiple(['foo']);
     foreach ($entities as $id => $entity) {
       $this->assertInstanceOf('Drupal\Core\Entity\EntityInterface', $entity);

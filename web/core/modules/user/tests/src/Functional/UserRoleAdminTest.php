@@ -61,7 +61,11 @@ class UserRoleAdminTest extends BrowserTestBase {
     $edit = ['label' => $role_name, 'id' => $role_name];
     $this->drupalGet('admin/people/roles/add');
     $this->submitForm($edit, 'Save');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains("Role 123 has been added.");
+=======
+    $this->assertRaw(t('Role %label has been added.', ['%label' => 123]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $role = Role::load($role_name);
     $this->assertIsObject($role);
 
@@ -71,14 +75,22 @@ class UserRoleAdminTest extends BrowserTestBase {
     // Try adding a duplicate role.
     $this->drupalGet('admin/people/roles/add');
     $this->submitForm($edit, 'Save');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains("The machine-readable name is already in use. It must be unique.");
+=======
+    $this->assertRaw(t('The machine-readable name is already in use. It must be unique.'));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Test renaming a role.
     $role_name = '456';
     $edit = ['label' => $role_name];
     $this->drupalGet("admin/people/roles/manage/{$role->id()}");
     $this->submitForm($edit, 'Save');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains("Role {$role_name} has been updated.");
+=======
+    $this->assertRaw(t('Role %label has been updated.', ['%label' => $role_name]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     \Drupal::entityTypeManager()->getStorage('user_role')->resetCache([$role->id()]);
     $new_role = Role::load($role->id());
     $this->assertEquals($role_name, $new_role->label(), 'The role name has been successfully changed.');

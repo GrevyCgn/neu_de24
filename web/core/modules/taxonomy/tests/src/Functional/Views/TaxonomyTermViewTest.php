@@ -120,11 +120,19 @@ class TaxonomyTermViewTest extends TaxonomyTestBase {
     $this->drupalGet('taxonomy/term/' . $term->id());
     $this->assertSession()->pageTextContains($term->label());
     $this->assertSession()->pageTextContains($original_title);
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains($translated_title);
 
     $this->drupalGet('ur/taxonomy/term/' . $term->id());
     $this->assertSession()->pageTextContains($term->label());
     $this->assertSession()->pageTextNotContains($original_title);
+=======
+    $this->assertNoText($translated_title);
+
+    $this->drupalGet('ur/taxonomy/term/' . $term->id());
+    $this->assertSession()->pageTextContains($term->label());
+    $this->assertNoText($original_title);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains($translated_title);
 
     // Uninstall language module and ensure that the language is not part of the

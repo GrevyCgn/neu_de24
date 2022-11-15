@@ -798,7 +798,11 @@ abstract class ResourceTestBase extends BrowserTestBase {
     }
     foreach ($expected_document as $member_name => $expected_member) {
       $actual_member = $actual_document[$member_name];
+<<<<<<< HEAD
       $this->assertEqualsCanonicalizing($expected_member, $actual_member, "The '$member_name' member was not as expected.");
+=======
+      $this->assertEquals($expected_member, $actual_member, "The '$member_name' member was not as expected.");
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     }
   }
 

@@ -116,7 +116,11 @@ class FileListingTest extends FileFieldTestBase {
     foreach ($nodes as $node) {
       $file = File::load($node->file->target_id);
       $this->assertSession()->pageTextContains($file->getFilename());
+<<<<<<< HEAD
       $this->assertSession()->linkByHrefExists($file->createFileUrl());
+=======
+      $this->assertSession()->linkByHrefExists(file_create_url($file->getFileUri()));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       $this->assertSession()->linkByHrefExists('admin/content/files/usage/' . $file->id());
     }
     $this->assertSession()->elementTextNotContains('css', '.views-element-container table', 'Temporary');

@@ -1,11 +1,21 @@
 <?php
 
+<<<<<<< HEAD
+=======
+/**
+ * @see       https://github.com/laminas/laminas-feed for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-feed/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-feed/blob/master/LICENSE.md New BSD License
+ */
+
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 namespace Laminas\Feed\Writer\Extension\PodcastIndex;
 
 use Laminas\Feed\Writer;
 use Laminas\Stdlib\StringUtils;
 use Laminas\Stdlib\StringWrapper\StringWrapperInterface;
 
+<<<<<<< HEAD
 use function array_key_exists;
 use function is_numeric;
 use function is_string;
@@ -15,6 +25,8 @@ use function strlen;
 use function substr;
 use function ucfirst;
 
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 /**
  * Describes PodcastIndex data of an entry in a RSS Feed
  */
@@ -124,16 +136,24 @@ class Entry
                 . ' keys "startTime" and "duration" and optionally "title"'
             );
         }
+<<<<<<< HEAD
         if (
             ! is_string($value['startTime'])
+=======
+        if (! is_string($value['startTime'])
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
             || (! is_numeric($value['startTime']) && strlen($value['startTime']) > 0)
         ) {
             throw new Writer\Exception\InvalidArgumentException(
                 'invalid parameter: "startTime" of "soundbite" may only contain numeric characters and dots'
             );
         }
+<<<<<<< HEAD
         if (
             ! is_string($value['duration'])
+=======
+        if (! is_string($value['duration'])
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
             || (! is_numeric($value['duration']) && strlen($value['duration']) > 0)
         ) {
             throw new Writer\Exception\InvalidArgumentException(
@@ -156,16 +176,24 @@ class Entry
     public function __call(string $method, array $params)
     {
         $point = lcfirst(substr($method, 15));
+<<<<<<< HEAD
         if (
             ! method_exists($this, 'setPodcastIndex' . ucfirst($point))
+=======
+        if (! method_exists($this, 'setPodcastIndex' . ucfirst($point))
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
             && ! method_exists($this, 'addPodcastIndex' . ucfirst($point))
         ) {
             throw new Writer\Exception\BadMethodCallException(
                 'invalid method: ' . $method
             );
         }
+<<<<<<< HEAD
         if (
             ! array_key_exists($point, $this->data)
+=======
+        if (! array_key_exists($point, $this->data)
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
             || empty($this->data[$point])
         ) {
             return;

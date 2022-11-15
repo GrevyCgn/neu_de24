@@ -19,7 +19,11 @@
       getRules() {
         const currentValue = document.querySelector(
           '#edit-filters-filter-html-settings-allowed-html',
+<<<<<<< HEAD
         ).value;
+=======
+        ).val();
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         const rules =
           Drupal.behaviors.filterFilterHtmlUpdating._parseSetting(currentValue);
 
@@ -202,6 +206,7 @@
               //   https://www.drupal.org/node/2567801 lands.
               filterRule.restrictedTags.allowed.attributes =
                 featureRule.required.attributes.slice(0);
+<<<<<<< HEAD
               if (
                 userAllowedTags[tag] !== undefined &&
                 userAllowedTags[tag].restrictedTags.allowed.classes[0] !== ''
@@ -209,6 +214,10 @@
                 filterRule.restrictedTags.allowed.classes =
                   featureRule.required.classes.slice(0);
               }
+=======
+              filterRule.restrictedTags.allowed.classes =
+                featureRule.required.classes.slice(0);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
               editorRequiredTags[tag] = filterRule;
             }
             // The tag is already allowed, add any additionally allowed

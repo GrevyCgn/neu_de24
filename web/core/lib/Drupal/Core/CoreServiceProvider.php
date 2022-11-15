@@ -8,6 +8,10 @@ use Drupal\Core\DependencyInjection\Compiler\AuthenticationProviderPass;
 use Drupal\Core\DependencyInjection\Compiler\BackendCompilerPass;
 use Drupal\Core\DependencyInjection\Compiler\CorsCompilerPass;
 use Drupal\Core\DependencyInjection\Compiler\DeprecatedServicePass;
+<<<<<<< HEAD
+=======
+use Drupal\Core\DependencyInjection\Compiler\GuzzleMiddlewarePass;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 use Drupal\Core\DependencyInjection\Compiler\ContextProvidersPass;
 use Drupal\Core\DependencyInjection\Compiler\ProxyServicesPass;
 use Drupal\Core\DependencyInjection\Compiler\DependencySerializationTraitPass;

@@ -91,7 +91,11 @@ class UserAdminListingTest extends BrowserTestBase {
 
     $this->assertEmpty(array_keys(array_diff_key($result_accounts, $accounts)), 'Ensure all accounts are listed.');
     foreach ($result_accounts as $name => $values) {
+<<<<<<< HEAD
       $this->assertEquals($accounts[$name]->status->value, $values['status'] == 'active');
+=======
+      $this->assertEquals($accounts[$name]->status->value, $values['status'] == t('active'), 'Ensure the status is displayed properly.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     }
 
     $expected_roles = ['custom_role_1', 'custom_role_2'];

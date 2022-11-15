@@ -70,8 +70,11 @@ class DebugClassLoader
         'self' => 'self',
         'parent' => 'parent',
         'mixed' => 'mixed',
+<<<<<<< HEAD
         'list' => 'array',
         'class-string' => 'string',
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     ] + (\PHP_VERSION_ID >= 80000 ? [
         'static' => 'static',
         '$this' => 'static',
@@ -614,7 +617,11 @@ class DebugClassLoader
                 ;
             }
 
+<<<<<<< HEAD
             if (null !== ($returnType = self::$returnTypes[$class][$method->name] ?? self::MAGIC_METHODS[$method->name] ?? null) && !$method->hasReturnType() && !($doc && preg_match('/\n\s+\* @return +([^\s<(]+)/', $doc))) {
+=======
+            if (null !== ($returnType = self::$returnTypes[$class][$method->name] ?? self::MAGIC_METHODS[$method->name] ?? null) && !$method->hasReturnType() && !($doc && preg_match('/\n\s+\* @return +(\S+)/', $doc))) {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
                 [$normalizedType, $returnType, $declaringClass, $declaringFile] = \is_string($returnType) ? [$returnType, $returnType, '', ''] : $returnType;
 
                 if ('void' === $normalizedType) {

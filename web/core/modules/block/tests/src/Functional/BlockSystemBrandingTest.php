@@ -60,8 +60,13 @@ class BlockSystemBrandingTest extends BlockTestBase {
       ->set('slogan', '<script>alert("Community carpentry");</script>')
       ->save();
     $this->drupalGet('');
+<<<<<<< HEAD
     $this->assertSession()->elementTextEquals('xpath', $site_slogan_xpath, 'alert("Community carpentry");');
     $this->assertSession()->responseNotContains('<script>alert("Community carpentry");</script>');
+=======
+    $site_slogan_element = $this->xpath($site_slogan_xpath);
+    $this->assertEquals('alert("Community carpentry");', $site_slogan_element[0]->getText(), 'The site slogan was XSS-filtered.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Turn just the logo off.
     $this->config('block.block.site-branding')

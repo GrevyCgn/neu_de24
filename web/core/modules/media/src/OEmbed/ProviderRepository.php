@@ -126,6 +126,7 @@ class ProviderRepository implements ProviderRepositoryInterface {
       $response = $this->httpClient->request('GET', $this->providersUrl);
     }
     catch (TransferException $e) {
+<<<<<<< HEAD
       if (isset($stored['data'])) {
         // Use the stale data to fall back gracefully, but warn site
         // administrators that we used stale data.
@@ -135,6 +136,8 @@ class ProviderRepository implements ProviderRepositoryInterface {
         return $stored['data'];
       }
       // We have no previous data and the request failed.
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       throw new ProviderException("Could not retrieve the oEmbed provider database from $this->providersUrl", NULL, $e);
     }
 

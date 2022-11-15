@@ -1,6 +1,7 @@
 CHANGELOG
 =========
 
+<<<<<<< HEAD
 # 2.1.3 (2022-09-05)
 
 * Ignore invalid HTTP headers when creating PSR7 objects
@@ -10,6 +11,8 @@ CHANGELOG
 
 * Allow Symfony 6
 
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 # 2.1.0 (2021-02-17)
 
   * Added a `PsrResponseListener` to automatically convert PSR-7 responses returned by controllers

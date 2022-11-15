@@ -184,18 +184,30 @@ class MigrateFieldInstanceTest extends MigrateDrupal7TestBase {
     $this->assertEntity('node.article.field_node_reference', 'Node Reference', 'entity_reference', FALSE, TRUE);
     $this->assertEntity('node.article.field_user_reference', 'User Reference', 'entity_reference', FALSE, TRUE);
     $expected_handler_settings = [
+<<<<<<< HEAD
       'sort' => [
         'field' => '_none',
         'direction' => 'ASC',
       ],
       'auto_create' => FALSE,
+=======
+      'include_anonymous' => TRUE,
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       'filter' => [
         'type' => 'role',
         'role' => [
           'authenticated user' => 'authenticated user',
         ],
       ],
+<<<<<<< HEAD
       'include_anonymous' => TRUE,
+=======
+      'sort' => [
+        'field' => '_none',
+        'direction' => 'ASC',
+      ],
+      'auto_create' => FALSE,
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     ];
     $field = FieldConfig::load('node.article.field_user_reference');
     $actual = $field->getSetting('handler_settings');

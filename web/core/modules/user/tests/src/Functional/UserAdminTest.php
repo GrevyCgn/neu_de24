@@ -101,9 +101,15 @@ class UserAdminTest extends BrowserTestBase {
     $this->drupalGet('admin/people', ['query' => ['permission' => 'administer taxonomy']]);
 
     // Check if the correct users show up.
+<<<<<<< HEAD
     $this->assertSession()->elementNotExists('xpath', static::getLinkSelectorForUser($user_a));
     $this->assertSession()->elementExists('xpath', static::getLinkSelectorForUser($user_b));
     $this->assertSession()->elementExists('xpath', static::getLinkSelectorForUser($user_c));
+=======
+    $this->assertNoText($user_a->getAccountName());
+    $this->assertSession()->pageTextContains($user_b->getAccountName());
+    $this->assertSession()->pageTextContains($user_c->getAccountName());
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Filter the users by role. Grab the system-generated role name for User C.
     $roles = $user_c->getRoles();
@@ -111,9 +117,15 @@ class UserAdminTest extends BrowserTestBase {
     $this->drupalGet('admin/people', ['query' => ['role' => reset($roles)]]);
 
     // Check if the correct users show up when filtered by role.
+<<<<<<< HEAD
     $this->assertSession()->elementNotExists('xpath', static::getLinkSelectorForUser($user_a));
     $this->assertSession()->elementNotExists('xpath', static::getLinkSelectorForUser($user_b));
     $this->assertSession()->elementExists('xpath', static::getLinkSelectorForUser($user_c));
+=======
+    $this->assertNoText($user_a->getAccountName());
+    $this->assertNoText($user_b->getAccountName());
+    $this->assertSession()->pageTextContains($user_c->getAccountName());
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Test blocking of a user.
     $account = $user_storage->load($user_c->id());
@@ -138,9 +150,15 @@ class UserAdminTest extends BrowserTestBase {
 
     // Test filtering on admin page for blocked users
     $this->drupalGet('admin/people', ['query' => ['status' => 2]]);
+<<<<<<< HEAD
     $this->assertSession()->elementNotExists('xpath', static::getLinkSelectorForUser($user_a));
     $this->assertSession()->elementNotExists('xpath', static::getLinkSelectorForUser($user_b));
     $this->assertSession()->elementExists('xpath', static::getLinkSelectorForUser($user_c));
+=======
+    $this->assertNoText($user_a->getAccountName());
+    $this->assertNoText($user_b->getAccountName());
+    $this->assertSession()->pageTextContains($user_c->getAccountName());
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Test unblocking of a user from /admin/people page and sending of activation mail
     $editunblock = [];

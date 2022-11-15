@@ -266,6 +266,10 @@ class ConfigCRUDTest extends KernelTestBase {
     $storage = new DatabaseStorage($this->container->get('database'), 'config');
     $name = 'config_test.types';
     $config = $this->config($name);
+<<<<<<< HEAD
+=======
+    $original_content = file_get_contents(drupal_get_path('module', 'config_test') . '/' . InstallStorage::CONFIG_INSTALL_DIRECTORY . "/$name.yml");
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Verify variable data types are intact.
     $data = [

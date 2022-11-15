@@ -255,7 +255,11 @@ class ContentTranslationSettingsTest extends BrowserTestBase {
     $this->drupalGet('admin/config/people/accounts');
     $this->submitForm(['anonymous' => 'Save me please!'], 'Save configuration');
     $this->assertSession()->fieldValueEquals('anonymous', 'Save me please!');
+<<<<<<< HEAD
     $this->assertSession()->statusMessageContains('The configuration options have been saved.', 'status');
+=======
+    $this->assertSession()->pageTextContains('The configuration options have been saved.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**
@@ -272,12 +276,20 @@ class ContentTranslationSettingsTest extends BrowserTestBase {
    *
    * @internal
    */
+<<<<<<< HEAD
   protected function assertSettings(string $entity_type, ?string $bundle, bool $enabled, array $edit): void {
+=======
+  protected function assertSettings($entity_type, $bundle, $enabled, $edit) {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->drupalGet('admin/config/regional/content-language');
     $this->submitForm($edit, 'Save configuration');
     $args = ['@entity_type' => $entity_type, '@bundle' => $bundle, '@enabled' => $enabled ? 'enabled' : 'disabled'];
     $message = new FormattableMarkup('Translation for entity @entity_type (@bundle) is @enabled.', $args);
+<<<<<<< HEAD
     $this->assertEquals($enabled, \Drupal::service('content_translation.manager')->isEnabled($entity_type, $bundle), $message);
+=======
+    return $this->assertEquals($enabled, \Drupal::service('content_translation.manager')->isEnabled($entity_type, $bundle), $message);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**

@@ -135,7 +135,11 @@ class UserPictureTest extends BrowserTestBase {
     ];
     $this->drupalGet('comment/reply/node/' . $node->id() . '/comment');
     $this->submitForm($edit, 'Save');
+<<<<<<< HEAD
     $elements = $this->cssSelect('#comment-1 img[alt="' . $alt_text . '"][src="' . $image_url . '"]');
+=======
+    $elements = $this->cssSelect('.comment__meta .field--name-user-picture img[alt="' . $alt_text . '"][src="' . $image_url . '"]');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertCount(1, $elements, 'User picture with alt text found on the comment.');
 
     // Disable user pictures on comments and nodes.

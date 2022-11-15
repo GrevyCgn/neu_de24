@@ -55,6 +55,7 @@ class ModuleInstaller implements ModuleInstallerInterface {
   protected $connection;
 
   /**
+<<<<<<< HEAD
    * The update registry service.
    *
    * @var \Drupal\Core\Update\UpdateHookRegistry
@@ -62,6 +63,8 @@ class ModuleInstaller implements ModuleInstallerInterface {
   protected $updateRegistry;
 
   /**
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    * The uninstall validators.
    *
    * @var \Drupal\Core\Extension\ModuleUninstallValidatorInterface[]
@@ -79,13 +82,20 @@ class ModuleInstaller implements ModuleInstallerInterface {
    *   The drupal kernel.
    * @param \Drupal\Core\Database\Connection $connection
    *   The database connection.
+<<<<<<< HEAD
    * @param \Drupal\Core\Update\UpdateHookRegistry|null $update_registry
    *   (Optional) The update registry service.
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    *
    * @see \Drupal\Core\DrupalKernel
    * @see \Drupal\Core\CoreServiceProvider
    */
+<<<<<<< HEAD
   public function __construct($root, ModuleHandlerInterface $module_handler, DrupalKernelInterface $kernel, Connection $connection = NULL, UpdateHookRegistry $update_registry = NULL) {
+=======
+  public function __construct($root, ModuleHandlerInterface $module_handler, DrupalKernelInterface $kernel, Connection $connection = NULL) {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->root = $root;
     $this->moduleHandler = $module_handler;
     $this->kernel = $kernel;
@@ -94,11 +104,14 @@ class ModuleInstaller implements ModuleInstallerInterface {
       $connection = \Drupal::service('database');
     }
     $this->connection = $connection;
+<<<<<<< HEAD
     if (!$update_registry) {
       @trigger_error('Calling ' . __METHOD__ . '() without the $update_registry argument is deprecated in drupal:9.3.0 and $update_registry argument will be required in drupal:10.0.0. See https://www.drupal.org/node/2124069', E_USER_DEPRECATED);
       $update_registry = \Drupal::service('update.update_hook_registry');
     }
     $this->updateRegistry = $update_registry;
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**
@@ -611,7 +624,10 @@ class ModuleInstaller implements ModuleInstallerInterface {
     $container = $this->kernel->getContainer();
     $this->moduleHandler = $container->get('module_handler');
     $this->connection = $container->get('database');
+<<<<<<< HEAD
     $this->updateRegistry = $container->get('update.update_hook_registry');
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**

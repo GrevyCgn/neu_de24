@@ -26,9 +26,15 @@ class ClaroVerticalTabsTest extends KernelTestBase {
     $this->config('system.theme')->set('default', 'claro')->save();
 
     $form = [
+<<<<<<< HEAD
       '#parents' => ['parent'],
       '#array_parents' => [],
       '#tree' => TRUE,
+=======
+      '#parents' => [],
+      '#array_parents' => [],
+      '#tree' => FALSE,
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     ];
 
     $form['vertical_tabs'] = [
@@ -38,7 +44,11 @@ class ClaroVerticalTabsTest extends KernelTestBase {
     $form['vertical_tabs_details'] = [
       '#type' => 'details',
       '#title' => 'Details',
+<<<<<<< HEAD
       '#group' => 'parent][vertical_tabs',
+=======
+      '#group' => 'vertical_tabs',
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     ];
 
     // Needs to be rendered after the vertical tabs.
@@ -61,9 +71,15 @@ class ClaroVerticalTabsTest extends KernelTestBase {
     // Assert that the vertical tab details has the appropriate class.
     $this->assertCount(1, $this->cssSelect('.vertical-tabs__items details.vertical-tabs__item'));
     // Assert that there is a details element.
+<<<<<<< HEAD
     $this->assertCount(1, $this->cssSelect('#edit-parent-container-details'));
     // Assert that details element doesn't have the vertical tab classes.
     $this->assertCount(0, $this->cssSelect('#edit-parent-container-details.vertical-tabs__item'));
+=======
+    $this->assertCount(1, $this->cssSelect('#edit-container-details'));
+    // Assert that details element doesn't have the vertical tab classes.
+    $this->assertCount(0, $this->cssSelect('#edit-container-details.vertical-tabs__item'));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
 }

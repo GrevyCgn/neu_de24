@@ -212,7 +212,11 @@ class TermTest extends TaxonomyTestBase {
     $this->drupalGet('node/' . $node->id());
     $this->assertSession()->pageTextContains($term1->getName());
 
+<<<<<<< HEAD
     $this->clickLink('Edit');
+=======
+    $this->clickLink(t('Edit'));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains($term1->getName());
     $this->submitForm([], 'Save');
     $this->assertSession()->pageTextContains($term1->getName());
@@ -360,7 +364,11 @@ class TermTest extends TaxonomyTestBase {
     $this->clickLink('Edit', 1);
 
     // Verify that the randomly generated term is present.
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains($edit['name[0][value]']);
+=======
+    $this->assertRaw($edit['name[0][value]']);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains($edit['description[0][value]']);
 
     $edit = [
@@ -559,8 +567,11 @@ class TermTest extends TaxonomyTestBase {
 
   /**
    * Tests taxonomy_term_load_multiple_by_name().
+<<<<<<< HEAD
    *
    * @group legacy
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    */
   public function testTaxonomyGetTermByName() {
     $term = $this->createTerm($this->vocabulary);

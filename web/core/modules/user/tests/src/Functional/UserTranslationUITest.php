@@ -109,7 +109,11 @@ class UserTranslationUITest extends ContentTranslationUITestBase {
       ['language' => $this->container->get('language_manager')->getLanguage('en')]
     );
     $this->drupalGet($url);
+<<<<<<< HEAD
     $this->clickLink('Cancel account');
+=======
+    $this->submitForm([], 'Cancel account');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->statusCodeEquals(200);
   }
 

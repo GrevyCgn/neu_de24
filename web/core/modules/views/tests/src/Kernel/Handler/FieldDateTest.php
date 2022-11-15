@@ -163,7 +163,11 @@ class FieldDateTest extends ViewsKernelTestBase {
         $message = "$date_format format matches.";
       }
       $actual_result = $view->field['created']->advancedRender($view->result[0]);
+<<<<<<< HEAD
       $this->assertEquals($expected_result, strip_tags($actual_result), $message);
+=======
+      $this->assertEquals($expected_result, $actual_result, $message);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     }
   }
 
@@ -181,7 +185,17 @@ class FieldDateTest extends ViewsKernelTestBase {
     foreach ($map as $format => $result) {
       $view->field['destroyed']->options['date_format'] = $format;
       $view_result = $view->field['destroyed']->advancedRender($view->result[0]);
+<<<<<<< HEAD
       $this->assertEquals($result, strip_tags($view_result), "$format format matches.");
+=======
+      $t_args = [
+        '%value' => $result,
+        '%format' => $format,
+        '%actual' => $view_result,
+      ];
+      $message = t('Value %value in %format matches %actual', $t_args);
+      $this->assertEquals($result, $view_result, $message);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     }
   }
 

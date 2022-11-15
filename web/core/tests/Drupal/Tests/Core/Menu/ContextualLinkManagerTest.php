@@ -241,6 +241,18 @@ class ContextualLinkManagerTest extends UnitTestCase {
       ->method('checkNamedRoute')
       ->will($this->returnValue(AccessResult::allowed()));
 
+<<<<<<< HEAD
+=======
+    // Set up mocking of the plugin factory.
+    $map = [];
+    foreach ($definitions as $plugin_id => $definition) {
+      $map[] = [$plugin_id, [], new ContextualLinkDefault([], $plugin_id, $definition)];
+    }
+    $this->factory->expects($this->any())
+      ->method('createInstance')
+      ->will($this->returnValueMap($map));
+
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->moduleHandler->expects($this->exactly(2))
       ->method('alter')
       ->withConsecutive(

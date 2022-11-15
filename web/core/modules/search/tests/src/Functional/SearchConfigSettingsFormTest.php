@@ -111,7 +111,11 @@ class SearchConfigSettingsFormTest extends BrowserTestBase {
     ];
     $this->drupalGet('admin/config/search/pages');
     $this->submitForm($edit, 'Save configuration');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('The configuration options have been saved.');
+=======
+    $this->assertNoText('The configuration options have been saved.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Test logging setting. It should be off by default.
     $text = $this->randomMachineName(5);
@@ -190,7 +194,11 @@ class SearchConfigSettingsFormTest extends BrowserTestBase {
       $info = $plugin_info[$entity_id];
       $this->drupalGet('search/' . $entity->getPath(), ['query' => ['keys' => $info['keys']]]);
       $this->assertSession()->statusCodeEquals(200);
+<<<<<<< HEAD
       $this->assertSession()->pageTextNotContains('no results');
+=======
+      $this->assertNoText('no results');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       $this->assertSession()->pageTextContains($info['text']);
 
       // Verify that other plugin search tab labels are not visible.
@@ -238,7 +246,11 @@ class SearchConfigSettingsFormTest extends BrowserTestBase {
       foreach ($plugins as $entity_id) {
         $path = 'search/' . $entities[$entity_id]->getPath();
         $label = $entities[$entity_id]->label();
+<<<<<<< HEAD
         $this->assertSession()->elementTextContains('xpath', '//ul[@class="tabs primary"]/li/a[@data-drupal-link-system-path="' . $path . '"]', $label);
+=======
+        $this->assertSession()->pageTextContains($label);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       }
     }
   }
@@ -415,7 +427,11 @@ class SearchConfigSettingsFormTest extends BrowserTestBase {
    *
    * @internal
    */
+<<<<<<< HEAD
   protected function assertDefaultSearch($expected, string $message = ''): void {
+=======
+  protected function assertDefaultSearch($expected, $message = '', $group = 'Other') {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     /** @var \Drupal\search\SearchPageRepositoryInterface $search_page_repository */
     $search_page_repository = \Drupal::service('search.search_page_repository');
     $this->assertSame($expected, $search_page_repository->getDefaultSearchPage(), $message);

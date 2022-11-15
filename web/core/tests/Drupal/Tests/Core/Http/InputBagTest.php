@@ -4,7 +4,10 @@ namespace Drupal\Tests\Core\Http;
 
 use Drupal\Core\Http\InputBag;
 use Drupal\Tests\UnitTestCase;
+<<<<<<< HEAD
 use Symfony\Component\HttpFoundation\Request;
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
 /**
  * @coversDefaultClass \Drupal\Core\Http\InputBag
@@ -29,6 +32,7 @@ class InputBagTest extends UnitTestCase {
     $input_bag->all('bad');
   }
 
+<<<<<<< HEAD
   /**
    * @coversNothing
    * @todo Remove this when Symfony 4 is no longer supported.
@@ -38,4 +42,6 @@ class InputBagTest extends UnitTestCase {
     $this->assertInstanceOf(InputBag::class, $request->query);
   }
 
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 }

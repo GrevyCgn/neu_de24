@@ -202,7 +202,11 @@ class TwigTransTest extends BrowserTestBase {
         // Install the language in Drupal.
         $this->drupalGet('admin/config/regional/language/add');
         $this->submitForm($edit, 'Add custom language');
+<<<<<<< HEAD
         $this->assertSession()->responseContains('"edit-languages-' . $langcode . '-weight"');
+=======
+        $this->assertRaw('"edit-languages-' . $langcode . '-weight"');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
         // Import the custom .po contents for the language.
         $filename = $file_system->tempnam('temporary://', "po_") . '.po';

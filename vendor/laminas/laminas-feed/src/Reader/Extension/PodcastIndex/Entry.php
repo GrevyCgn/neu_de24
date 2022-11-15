@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< HEAD
 namespace Laminas\Feed\Reader\Extension\PodcastIndex;
 
 use DOMElement;
@@ -9,6 +10,19 @@ use stdClass;
 
 use function array_key_exists;
 
+=======
+/**
+ * @see       https://github.com/laminas/laminas-feed for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-feed/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-feed/blob/master/LICENSE.md New BSD License
+ */
+
+namespace Laminas\Feed\Reader\Extension\PodcastIndex;
+
+use Laminas\Feed\Reader\Extension;
+use stdClass;
+
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 /**
  * Describes PodcastIndex data of an entry in a RSS Feed
  */
@@ -29,6 +43,7 @@ class Entry extends Extension\AbstractEntry
 
         $nodeList = $this->xpath->query($this->getXpathPrefix() . '/podcast:transcript');
 
+<<<<<<< HEAD
         if ($nodeList instanceof DOMNodeList && $nodeList->length > 0) {
             /** @var DOMElement $node */
             $node                 = $nodeList->item(0);
@@ -37,6 +52,14 @@ class Entry extends Extension\AbstractEntry
             $transcript->type     = $node->getAttribute('type');
             $transcript->language = $node->getAttribute('language');
             $transcript->rel      = $node->getAttribute('rel');
+=======
+        if ($nodeList->length > 0) {
+            $transcript           = new stdClass();
+            $transcript->url      = $nodeList->item(0)->getAttribute('url');
+            $transcript->type     = $nodeList->item(0)->getAttribute('type');
+            $transcript->language = $nodeList->item(0)->getAttribute('language');
+            $transcript->rel      = $nodeList->item(0)->getAttribute('rel');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         }
 
         $this->data['transcript'] = $transcript;
@@ -59,12 +82,19 @@ class Entry extends Extension\AbstractEntry
 
         $nodeList = $this->xpath->query($this->getXpathPrefix() . '/podcast:chapters');
 
+<<<<<<< HEAD
         if ($nodeList instanceof DOMNodeList && $nodeList->length > 0) {
             /** @var DOMElement $node */
             $node           = $nodeList->item(0);
             $chapters       = new stdClass();
             $chapters->url  = $node->getAttribute('url');
             $chapters->type = $node->getAttribute('type');
+=======
+        if ($nodeList->length > 0) {
+            $chapters       = new stdClass();
+            $chapters->url  = $nodeList->item(0)->getAttribute('url');
+            $chapters->type = $nodeList->item(0)->getAttribute('type');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         }
 
         $this->data['chapters'] = $chapters;
@@ -90,7 +120,11 @@ class Entry extends Extension\AbstractEntry
 
         if ($nodeList->length > 0) {
             foreach ($nodeList as $node) {
+<<<<<<< HEAD
                 /** @var DOMElement $node */
+=======
+                /** @var \DOMElement $node */
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
                 $soundbite            = new stdClass();
                 $soundbite->title     = $node->nodeValue;
                 $soundbite->startTime = $node->getAttribute('startTime');

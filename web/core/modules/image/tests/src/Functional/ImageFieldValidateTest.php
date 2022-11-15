@@ -148,15 +148,27 @@ class ImageFieldValidateTest extends ImageFieldTestBase {
     $this->assertSession()->statusMessageContains("The specified file {$image_that_is_too_small->filename} could not be uploaded.", 'error');
     $this->assertSession()->statusMessageContains("The image is too small. The minimum dimensions are 50x50 pixels and the image size is {$image_that_is_too_small_file->getWidth()}x{$image_that_is_too_small_file->getHeight()} pixels.", 'error');
     $this->uploadNodeImage($image_that_is_too_big, $field_names[0], 'article');
+<<<<<<< HEAD
     $this->assertSession()->statusMessageContains('The image was resized to fit within the maximum allowed dimensions of 100x100 pixels.', 'status');
+=======
+    $this->assertSession()->pageTextContains('The image was resized to fit within the maximum allowed dimensions of 100x100 pixels.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->uploadNodeImage($image_that_is_too_small, $field_names[1], 'article');
     $this->assertSession()->statusMessageContains("The specified file {$image_that_is_too_small->filename} could not be uploaded.", 'error');
     $this->uploadNodeImage($image_that_is_too_big, $field_names[1], 'article');
+<<<<<<< HEAD
     $this->assertSession()->statusMessageContains('The image was resized to fit within the maximum allowed width of 100 pixels.', 'status');
+=======
+    $this->assertSession()->pageTextContains('The image was resized to fit within the maximum allowed width of 100 pixels.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->uploadNodeImage($image_that_is_too_small, $field_names[2], 'article');
     $this->assertSession()->statusMessageContains("The specified file {$image_that_is_too_small->filename} could not be uploaded.", 'error');
     $this->uploadNodeImage($image_that_is_too_big, $field_names[2], 'article');
+<<<<<<< HEAD
     $this->assertSession()->statusMessageContains('The image was resized to fit within the maximum allowed height of 100 pixels.', 'status');
+=======
+    $this->assertSession()->pageTextContains('The image was resized to fit within the maximum allowed height of 100 pixels.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**
@@ -180,8 +192,13 @@ class ImageFieldValidateTest extends ImageFieldTestBase {
     // Look for form-required for the alt text.
     $this->assertSession()->elementExists('xpath', '//label[@for="edit-' . $field_name . '-0-alt" and @class="js-form-required form-required"]/following-sibling::input[@id="edit-' . $field_name . '-0-alt"]');
     $this->assertSession()->elementExists('xpath', '//label[@for="edit-' . $field_name . '-0-title" and @class="js-form-required form-required"]/following-sibling::input[@id="edit-' . $field_name . '-0-title"]');
+<<<<<<< HEAD
     $this->assertSession()->statusMessageContains('Alternative text field is required.', 'error');
     $this->assertSession()->statusMessageContains('Title field is required.', 'error');
+=======
+    $this->assertSession()->pageTextContains('Alternative text field is required.');
+    $this->assertSession()->pageTextContains('Title field is required.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $instance->setSetting('alt_field_required', 0);
     $instance->setSetting('title_field_required', 0);

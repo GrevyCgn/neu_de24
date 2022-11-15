@@ -37,7 +37,11 @@ class UpdatePathTestBaseTest extends UpdatePathTestBase {
     /** @var \Drupal\Core\Update\UpdateHookRegistry $update_registry */
     $update_registry = \Drupal::service('update.update_hook_registry');
     foreach (['user' => 8100, 'node' => 8700, 'system' => 8901, 'update_test_schema' => 8000] as $module => $schema) {
+<<<<<<< HEAD
       $this->assertEquals($schema, $update_registry->getInstalledVersion($module), new FormattableMarkup('Module @module schema is @schema', ['@module' => $module, '@schema' => $schema]));
+=======
+      $this->assertEquals($schema, drupal_get_installed_schema_version($module), new FormattableMarkup('Module @module schema is @schema', ['@module' => $module, '@schema' => $schema]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     }
 
     // Ensure that all {router} entries can be unserialized. If they cannot be
@@ -108,10 +112,15 @@ class UpdatePathTestBaseTest extends UpdatePathTestBase {
     $this->assertEquals([], $container_cannot_be_saved_messages);
 
     // Ensure schema has changed.
+<<<<<<< HEAD
     /** @var \Drupal\Core\Update\UpdateHookRegistry $update_registry */
     $update_registry = \Drupal::service('update.update_hook_registry');
     $this->assertEquals(8001, $update_registry->getInstalledVersion('update_test_schema'));
     $this->assertEquals(8001, $update_registry->getInstalledVersion('update_test_semver_update_n'));
+=======
+    $this->assertEquals(8001, drupal_get_installed_schema_version('update_test_schema', TRUE));
+    $this->assertEquals(8001, drupal_get_installed_schema_version('update_test_semver_update_n', TRUE));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     // Ensure the index was added for column a.
     $this->assertTrue($connection->schema()->indexExists('update_test_schema_table', 'test'), 'Version 8001 of the update_test_schema module is installed.');
     // Ensure update_test_semver_update_n_update_8001 was run.

@@ -92,6 +92,7 @@ class AdminToolbarToolsSettingsForm extends ConfigFormBase {
       '#default_value' => $config->get('hoverintent_functionality'),
     ];
 
+<<<<<<< HEAD
     $form['show_local_tasks'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Enable/Disable local tasks display'),
@@ -99,6 +100,8 @@ class AdminToolbarToolsSettingsForm extends ConfigFormBase {
       '#default_value' => $config->get('show_local_tasks'),
     ];
 
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     return parent::buildForm($form, $form_state);
   }
 
@@ -109,7 +112,10 @@ class AdminToolbarToolsSettingsForm extends ConfigFormBase {
     $this->config('admin_toolbar_tools.settings')
       ->set('max_bundle_number', $form_state->getValue('max_bundle_number'))
       ->set('hoverintent_functionality', $form_state->getValue('hoverintent_functionality'))
+<<<<<<< HEAD
       ->set('show_local_tasks', $form_state->getValue('show_local_tasks'))
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       ->save();
     parent::submitForm($form, $form_state);
     $this->cacheMenu->invalidateAll();

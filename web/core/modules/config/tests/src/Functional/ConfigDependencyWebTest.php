@@ -69,7 +69,11 @@ class ConfigDependencyWebTest extends BrowserTestBase {
     $this->assertSession()->pageTextNotContains('Configuration updates');
     $this->assertSession()->pageTextNotContains('Configuration deletions');
     $this->drupalGet($entity1->toUrl('delete-form'));
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('Configuration updates');
+=======
+    $this->assertNoText('Configuration updates');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains('Configuration deletions');
     $this->assertSession()->pageTextContains($entity2->id());
     $this->drupalGet($entity1->toUrl('delete-form'));
@@ -119,10 +123,17 @@ class ConfigDependencyWebTest extends BrowserTestBase {
 
     $this->drupalGet($entity1->toUrl('delete-form'));
     $this->assertSession()->pageTextContains('Configuration updates');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('Configuration deletions');
     $this->assertSession()->pageTextNotContains($entity2->id());
     $this->assertSession()->pageTextContains($entity2->label());
     $this->assertSession()->pageTextNotContains($entity3->id());
+=======
+    $this->assertNoText('Configuration deletions');
+    $this->assertNoText($entity2->id());
+    $this->assertSession()->pageTextContains($entity2->label());
+    $this->assertNoText($entity3->id());
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->drupalGet($entity1->toUrl('delete-form'));
     $this->submitForm([], 'Delete');
     $storage->resetCache();

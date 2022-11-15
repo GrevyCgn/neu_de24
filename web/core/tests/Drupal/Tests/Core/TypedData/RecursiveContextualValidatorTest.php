@@ -189,7 +189,10 @@ class RecursiveContextualValidatorTest extends UnitTestCase {
    * @param array $tree
    *   An array of value, constraints and properties.
    * @param string $name
+<<<<<<< HEAD
    *   The name to use for the object.
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    *
    * @return \Drupal\Core\TypedData\TypedDataInterface|\PHPUnit\Framework\MockObject\MockObject
    */

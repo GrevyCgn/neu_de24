@@ -98,6 +98,7 @@ class ComposerProjectTemplatesTest extends BuildTestBase {
     //   to in the future accidentally commit a dependency that regresses our
     //   actual stability requirement without us explicitly changing this
     //   constant.
+<<<<<<< HEAD
     $root = $this->getDrupalRoot();
     $process = $this->executeCommand("composer --working-dir=$root info --format=json");
     $this->assertCommandSuccessful();
@@ -136,6 +137,9 @@ class ComposerProjectTemplatesTest extends BuildTestBase {
 
     // At least one project should be at the minimum stability.
     $this->assertContains(static::MINIMUM_STABILITY, $project_stabilities);
+=======
+    $this->assertSame($this->getLowestDependencyStability(), static::MINIMUM_STABILITY);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**
@@ -413,6 +417,35 @@ JSON;
   }
 
   /**
+<<<<<<< HEAD
+=======
+   * Returns the stability of the least stable dependency.
+   */
+  protected function getLowestDependencyStability() {
+    $root = $this->getDrupalRoot();
+    $process = $this->executeCommand("composer --working-dir=$root info --format=json");
+    $this->assertCommandSuccessful();
+    $installed = json_decode($process->getOutput(), TRUE);
+
+    $lowest_stability_order_index = count(static::STABILITY_ORDER);
+    foreach ($installed['installed'] as $project) {
+      // Exclude dependencies that are required with "self.version", since
+      // those stabilities will automatically match the corresponding Drupal
+      // release.
+      $exclude = ['drupal/core', 'drupal/core-project-message', 'drupal/core-vendor-hardening'];
+      if (!in_array($project['name'], $exclude, TRUE)) {
+        $stability = VersionParser::parseStability($project['version']);
+        $stability_order_index = array_search($stability, static::STABILITY_ORDER);
+        $lowest_stability_order_index = min($lowest_stability_order_index, $stability_order_index);
+      }
+    }
+    $lowest_stability = static::STABILITY_ORDER[$lowest_stability_order_index];
+
+    return $lowest_stability;
+  }
+
+  /**
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    * Returns the stability of the current core version.
    *
    * If the current core version is a tagged release (not a "-dev" version),

@@ -158,6 +158,7 @@ class VarCloner extends AbstractCloner
                             }
                         }
 
+<<<<<<< HEAD
                         // Copies of $GLOBALS have very strange behavior,
                         // let's detect them with some black magic
                         if (isset($v[$gid])) {
@@ -176,6 +177,25 @@ class VarCloner extends AbstractCloner
                                         $gv = &$hardRefs[spl_object_id($v)];
                                     }
                                     $gv = $v;
+=======
+                        if (Stub::ARRAY_ASSOC === $stub->class) {
+                            // Copies of $GLOBALS have very strange behavior,
+                            // let's detect them with some black magic
+                            if (\PHP_VERSION_ID < 80100 && ($a[$gid] = true) && isset($v[$gid])) {
+                                unset($v[$gid]);
+                                $a = [];
+                                foreach ($v as $gk => &$gv) {
+                                    if ($v === $gv) {
+                                        unset($v);
+                                        $v = new Stub();
+                                        $v->value = [$v->cut = \count($gv), Stub::TYPE_ARRAY => 0];
+                                        $v->handle = -1;
+                                        $gv = &$hardRefs[spl_object_id($v)];
+                                        $gv = $v;
+                                    }
+
+                                    $a[$gk] = &$gv;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
                                 }
 
                                 $a[$gk] = &$gv;

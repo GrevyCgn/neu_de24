@@ -35,8 +35,13 @@ class UrlTest extends BrowserTestBase {
     $edit['url_required'] = ' ';
     $this->drupalGet('form-test/url');
     $this->submitForm($edit, 'Submit');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains("The URL http:// is not valid.");
     $this->assertSession()->pageTextContains("Required URL field is required.");
+=======
+    $this->assertRaw(t('The URL %url is not valid.', ['%url' => 'http://']));
+    $this->assertRaw(t('@name field is required.', ['@name' => 'Required URL']));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $edit = [];
     $edit['url'] = "\n";

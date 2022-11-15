@@ -163,7 +163,11 @@ function _update_fix_missing_schema() {
  */
 function update_set_schema($module, $schema_version) {
   @trigger_error('update_set_schema() is deprecated in drupal:9.2.0 and is removed from drupal:10.0.0. No direct replacement is provided. See https://www.drupal.org/node/3210925', E_USER_DEPRECATED);
+<<<<<<< HEAD
   \Drupal::service('update.update_hook_registry')->setInstalledVersion($module, $schema_version);
+=======
+  \Drupal::keyValue('system.schema')->set($module, $schema_version);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   \Drupal::service('extension.list.profile')->reset();
   \Drupal::service('extension.list.module')->reset();
   \Drupal::service('extension.list.theme_engine')->reset();
@@ -239,7 +243,11 @@ function update_do_one($module, $number, $dependency_map, &$context) {
 
       $variables = Error::decodeException($e);
       unset($variables['backtrace'], $variables['exception'], $variables['severity_level']);
+<<<<<<< HEAD
       $ret['#abort'] = ['success' => FALSE, 'query' => t(Error::DEFAULT_ERROR_MESSAGE, $variables)];
+=======
+      $ret['#abort'] = ['success' => FALSE, 'query' => t('%type: @message in %function (line %line of %file).', $variables)];
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     }
   }
 

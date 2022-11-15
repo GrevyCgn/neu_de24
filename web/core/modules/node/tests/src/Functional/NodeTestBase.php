@@ -80,7 +80,11 @@ abstract class NodeTestBase extends BrowserTestBase {
    *
    * @internal
    */
+<<<<<<< HEAD
   public function assertNodeCreateAccess(string $bundle, bool $result, AccountInterface $account, ?string $langcode = NULL) {
+=======
+  public function assertNodeCreateAccess($bundle, $result, AccountInterface $account, $langcode = NULL) {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertEquals($this->accessHandler->createAccess($bundle, $account, ['langcode' => $langcode]), $result, $this->nodeAccessAssertMessage('create', $result, $langcode));
   }
 

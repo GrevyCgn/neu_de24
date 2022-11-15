@@ -25,7 +25,9 @@ use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Template\Attribute;
 use Drupal\Core\Url;
 use Drupal\file\Entity\File;
+use Drupal\Core\File\Event\FileUploadSanitizeNameEvent;
 use Drupal\file\FileInterface;
+<<<<<<< HEAD
 use Drupal\file\Upload\FileValidationException;
 use Drupal\file\Upload\FormUploadedFile;
 use Symfony\Component\HttpFoundation\File\Exception\FileException as SymfonyFileException;
@@ -33,6 +35,11 @@ use Symfony\Component\HttpFoundation\File\Exception\FormSizeFileException;
 use Symfony\Component\HttpFoundation\File\Exception\IniSizeFileException;
 use Symfony\Component\HttpFoundation\File\Exception\NoFileException;
 use Symfony\Component\HttpFoundation\File\Exception\PartialFileException;
+=======
+use Drupal\Component\Utility\NestedArray;
+use Drupal\Core\Entity\EntityStorageInterface;
+use Drupal\Core\Template\Attribute;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 use Symfony\Component\Mime\MimeTypeGuesserInterface;
 
 // cspell:ignore abiword

@@ -143,8 +143,13 @@ class DNSCheckValidation implements EmailValidation
         $dnsRecords = $dnsRecordsResult->getRecords();
 
         // No MX, A or AAAA DNS records
+<<<<<<< HEAD
         if ($dnsRecords === []) {
             $this->error = new InvalidEmail(new ReasonNoDNSRecord(), '');
+=======
+        if (empty($dnsRecords)) {
+            $this->error = new NoDNSRecord();
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
             return false;
         }
 

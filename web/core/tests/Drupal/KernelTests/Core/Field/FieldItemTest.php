@@ -92,11 +92,20 @@ class FieldItemTest extends EntityKernelTestBase {
     $entity->setNewRevision(TRUE);
     $entity->save();
     $base_field_expected_value = str_replace($this->fieldName, 'field_test_item', $expected_value);
+<<<<<<< HEAD
     $this->assertEquals($base_field_expected_value, $entity->field_test_item->value);
     $this->assertEquals($expected_value, $entity->{$this->fieldName}->value);
     $entity = $this->reloadEntity($entity);
     $this->assertEquals($base_field_expected_value, $entity->field_test_item->value);
     $this->assertEquals($expected_value, $entity->{$this->fieldName}->value);
+=======
+    $result = $this->assertEquals($base_field_expected_value, $entity->field_test_item->value);
+    $result = $result && $this->assertEquals($expected_value, $entity->{$this->fieldName}->value);
+    $entity = $this->reloadEntity($entity);
+    $result = $result && $this->assertEquals($base_field_expected_value, $entity->field_test_item->value);
+    $result = $result && $this->assertEquals($expected_value, $entity->{$this->fieldName}->value);
+    return $result;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
 }

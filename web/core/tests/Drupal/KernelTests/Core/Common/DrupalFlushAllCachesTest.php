@@ -34,6 +34,7 @@ class DrupalFlushAllCachesTest extends KernelTestBase {
     $core_extension->set('module', module_config_sort($module))->save();
     $this->containerBuilds = 0;
     drupal_flush_all_caches();
+<<<<<<< HEAD
     $module_list = ['system_test', 'system'];
     $database_module = \Drupal::database()->getProvider();
     if ($database_module !== 'core') {
@@ -43,12 +44,16 @@ class DrupalFlushAllCachesTest extends KernelTestBase {
     $container_modules = array_keys($this->container->getParameter('container.modules'));
     sort($container_modules);
     $this->assertSame($module_list, $container_modules);
+=======
+    $this->assertSame(['system_test', 'system'], array_keys($this->container->getParameter('container.modules')));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSame(1, $this->containerBuilds);
     $this->assertTrue(function_exists('system_test_help'));
 
     $core_extension->clear('module.system_test')->save();
     $this->containerBuilds = 0;
     drupal_flush_all_caches();
+<<<<<<< HEAD
     $module_list = ['system'];
     if ($database_module !== 'core') {
       $module_list[] = $database_module;
@@ -57,6 +62,9 @@ class DrupalFlushAllCachesTest extends KernelTestBase {
     $container_modules = array_keys($this->container->getParameter('container.modules'));
     sort($container_modules);
     $this->assertSame($module_list, $container_modules);
+=======
+    $this->assertSame(['system'], array_keys($this->container->getParameter('container.modules')));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSame(1, $this->containerBuilds);
   }
 

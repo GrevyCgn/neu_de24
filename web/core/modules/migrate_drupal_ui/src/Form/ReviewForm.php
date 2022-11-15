@@ -242,6 +242,7 @@ class ReviewForm extends MigrateUpgradeFormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $config['source_base_path'] = $this->store->get('source_base_path');
     $config['source_private_file_path'] = $this->store->get('source_private_file_path');
+<<<<<<< HEAD
     $batch_builder = (new BatchBuilder())
       ->setTitle($this->t('Running upgrade'))
       ->setProgressMessage('')
@@ -251,6 +252,22 @@ class ReviewForm extends MigrateUpgradeFormBase {
       ], [array_keys($this->migrations), $config])
       ->setFinishCallback([MigrateUpgradeImportBatch::class, 'finished']);
     batch_set($batch_builder->toArray());
+=======
+    $batch = [
+      'title' => $this->t('Running upgrade'),
+      'progress_message' => '',
+      'operations' => [
+        [
+          [MigrateUpgradeImportBatch::class, 'run'],
+          [array_keys($this->migrations), $config],
+        ],
+      ],
+      'finished' => [
+        MigrateUpgradeImportBatch::class, 'finished',
+      ],
+    ];
+    batch_set($batch);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $form_state->setRedirect('<front>');
     $this->store->set('step', 'overview');
     $this->state->set('migrate_drupal_ui.performed', REQUEST_TIME);

@@ -232,10 +232,14 @@
     }
 
       body:not(.is-always-mobile-nav) .primary-nav__menu-link--level-2:focus:before {
+<<<<<<< HEAD
         top: 0;
         left: -0.5625rem;
         height: 100%;
         transform: none;
+=======
+        height: 100%;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       }
 
       [dir="ltr"] body:not(.is-always-mobile-nav) .primary-nav__menu-link--level-2 .primary-nav__menu-link-inner {

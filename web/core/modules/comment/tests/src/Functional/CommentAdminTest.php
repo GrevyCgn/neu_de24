@@ -279,8 +279,13 @@ class CommentAdminTest extends CommentTestBase {
     ];
     $this->drupalGet('admin/content/comment');
     $this->submitForm($edit, 'Update');
+<<<<<<< HEAD
     $this->assertSession()->responseContains(new FormattableMarkup('@label (Original translation) - <em>The following comment translations will be deleted:</em>', ['@label' => $comment1->label()]));
     $this->assertSession()->responseContains(new FormattableMarkup('@label (Original translation) - <em>The following comment translations will be deleted:</em>', ['@label' => $comment2->label()]));
+=======
+    $this->assertRaw(new FormattableMarkup('@label (Original translation) - <em>The following comment translations will be deleted:</em>', ['@label' => $comment1->label()]));
+    $this->assertRaw(new FormattableMarkup('@label (Original translation) - <em>The following comment translations will be deleted:</em>', ['@label' => $comment2->label()]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains('English');
     $this->assertSession()->pageTextContains('Urdu');
     $this->submitForm([], 'Delete');

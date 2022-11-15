@@ -376,7 +376,11 @@
             </trans-unit>
             <trans-unit id="97">
                 <source>This value should satisfy at least one of the following constraints:</source>
+<<<<<<< HEAD
                 <target>Værdien skal overholde mindst én af følgende krav:</target>
+=======
+                <target>Værdien skal overholde mindst én af følgende krav::</target>
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
             </trans-unit>
             <trans-unit id="98">
                 <source>Each element of this collection should satisfy its own set of constraints.</source>
@@ -386,6 +390,7 @@
                 <source>This value is not a valid International Securities Identification Number (ISIN).</source>
                 <target>Værdien er ikke et gyldig International Securities Identification Number (ISIN).</target>
             </trans-unit>
+<<<<<<< HEAD
             <trans-unit id="100">
                 <source>This value should be a valid expression.</source>
                 <target>Værdien skal være et gyldigt udtryk.</target>
@@ -402,6 +407,8 @@
                 <source>The value of the netmask should be between {{ min }} and {{ max }}.</source>
                 <target>Værdien af netmasken skal være mellem {{ min }} og {{ max }}.</target>
             </trans-unit>
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         </body>
     </file>
 </xliff>

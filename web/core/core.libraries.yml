@@ -32,14 +32,22 @@ internal.backbone:
 
 ckeditor:
   remote: https://github.com/ckeditor/ckeditor4
+<<<<<<< HEAD
   version: "4.18.0"
   license:
     name: GNU-GPL-2.0-or-later
     url: https://raw.githubusercontent.com/ckeditor/ckeditor4/4.18.0/LICENSE.md
+=======
+  version: "4.16.1"
+  license:
+    name: GNU-GPL-2.0-or-later
+    url: https://raw.githubusercontent.com/ckeditor/ckeditor4/4.16.1/LICENSE.md
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     gpl-compatible: true
   js:
     assets/vendor/ckeditor/ckeditor.js: { preprocess: false, minified: true }
 
+<<<<<<< HEAD
 ckeditor5:
   remote: https://github.com/ckeditor/ckeditor5
   version: "35.1.0"
@@ -337,6 +345,8 @@ ckeditor5.translations:
     # are not allowed.
     assets/vendor/ckeditor5/translation.js: {}
 
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 css.escape:
   remote: https://github.com/mathiasbynens/CSS.escape
   version: "1.5.1"
@@ -400,8 +410,12 @@ drupal.ajax:
     - core/drupalSettings
     - core/drupal.nodelist.foreach
     - core/drupal.progress
+<<<<<<< HEAD
     - core/once
     - core/jquery.once.bc
+=======
+    - core/jquery.once
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     - core/tabbable
 
 drupal.announce:
@@ -435,10 +449,18 @@ drupal.autocomplete:
     assets/vendor/jquery.ui/ui/widgets/menu-min.js: { weight: -11.7, minified: true }
     assets/vendor/jquery.ui/ui/data-min.js: { weight: -11.8, minified: true }
     assets/vendor/jquery.ui/ui/disable-selection-min.js: { weight: -11.8, minified: true }
+<<<<<<< HEAD
     assets/vendor/jquery.ui/ui/focusable-min.js: { weight: -11.8, minified: true }
     assets/vendor/jquery.ui/ui/form-min.js: { weight: -11.8, minified: true }
     assets/vendor/jquery.ui/ui/ie-min.js: { weight: -11.8, minified: true }
     assets/vendor/jquery.ui/ui/jquery-patch-min.js: { weight: -11.8, minified: true }
+=======
+    assets/vendor/jquery.ui/ui/escape-selector-min.js: { weight: -11.8, minified: true }
+    assets/vendor/jquery.ui/ui/focusable-min.js: { weight: -11.8, minified: true }
+    assets/vendor/jquery.ui/ui/form-min.js: { weight: -11.8, minified: true }
+    assets/vendor/jquery.ui/ui/ie-min.js: { weight: -11.8, minified: true }
+    assets/vendor/jquery.ui/ui/jquery-1-7-min.js: { weight: -11.8, minified: true }
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     assets/vendor/jquery.ui/ui/keycode-min.js: { weight: -11.8, minified: true }
     assets/vendor/jquery.ui/ui/plugin-min.js: { weight: -11.8, minified: true }
     assets/vendor/jquery.ui/ui/safe-active-element-min.js: { weight: -11.8, minified: true }
@@ -554,9 +576,16 @@ drupal.dialog:
     assets/vendor/jquery.ui/ui/data-min.js: { weight: -11.8, minified: true }
     assets/vendor/jquery.ui/ui/disable-selection-min.js: { weight: -11.8, minified: true }
     assets/vendor/jquery.ui/ui/form-min.js: { weight: -11.8, minified: true }
+<<<<<<< HEAD
     assets/vendor/jquery.ui/ui/jquery-patch-min.js: { weight: -11.8, minified: true }
     assets/vendor/jquery.ui/ui/scroll-parent-min.js: { weight: -11.8, minified: true }
     assets/vendor/jquery.ui/ui/unique-id-min.js: { weight: -11.8, minified: true }
+=======
+    assets/vendor/jquery.ui/ui/jquery-1-7-min.js: { weight: -11.8, minified: true }
+    assets/vendor/jquery.ui/ui/scroll-parent-min.js: { weight: -11.8, minified: true }
+    assets/vendor/jquery.ui/ui/unique-id-min.js: { weight: -11.8, minified: true }
+    assets/vendor/jquery.ui/ui/escape-selector-min.js: { weight: -11.8, minified: true }
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     assets/vendor/jquery.ui/ui/focusable-min.js: { weight: -11.8, minified: true }
     assets/vendor/jquery.ui/ui/ie-min.js: { weight: -11.8, minified: true }
     assets/vendor/jquery.ui/ui/keycode-min.js: { weight: -11.8, minified: true }
@@ -620,6 +649,18 @@ drupal.dropbutton:
     - core/drupalSettings
     - core/once
     - core/jquery.once.bc
+
+drupal.element.closest:
+  version: VERSION
+  js:
+    misc/polyfills/element.closest.js: { weight: -20 }
+  dependencies:
+    - core/drupal.element.matches
+
+drupal.element.matches:
+  version: VERSION
+  js:
+    misc/polyfills/element.matches.js: { weight: -20 }
 
 drupal.element.closest:
   version: VERSION
@@ -846,6 +887,7 @@ jquery.farbtastic:
 jquery.form:
   remote: https://github.com/jquery-form/form
   version: "4.3.0"
+<<<<<<< HEAD
   license:
     name: GNU-GPL-2.0-or-later
     url: https://raw.githubusercontent.com/jquery-form/form/master/LICENSE
@@ -860,6 +902,8 @@ internal.jquery.form:
   # Internal library. Do not depend on it outside core nor add new core usage.
   remote: https://github.com/jquery-form/form
   version: "4.3.0"
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   license:
     name: GNU-GPL-2.0-or-later
     url: https://raw.githubusercontent.com/jquery-form/form/master/LICENSE
@@ -889,10 +933,17 @@ jquery.joyride:
 
 shepherd:
   remote: https://github.com/shipshapecode/shepherd
+<<<<<<< HEAD
   version: "9.1.0"
   license:
     name: MIT
     url: https://raw.githubusercontent.com/shipshapecode/shepherd/v9.1.0/LICENSE
+=======
+  version: "8.3.1"
+  license:
+    name: MIT
+    url: https://raw.githubusercontent.com/shipshapecode/shepherd/v8.3.1/LICENSE
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     gpl-compatible: true
   js:
     assets/vendor/shepherd/shepherd.min.js: { minified: true }
@@ -934,10 +985,18 @@ jquery.ui:
     assets/vendor/jquery.ui/ui/labels-min.js: { weight: -11.7, minified: true }
     assets/vendor/jquery.ui/ui/data-min.js: { weight: -11.8, minified: true }
     assets/vendor/jquery.ui/ui/disable-selection-min.js: { weight: -11.8, minified: true }
+<<<<<<< HEAD
     assets/vendor/jquery.ui/ui/focusable-min.js: { weight: -11.8, minified: true }
     assets/vendor/jquery.ui/ui/form-min.js: { weight: -11.8, minified: true }
     assets/vendor/jquery.ui/ui/ie-min.js: { weight: -11.8, minified: true }
     assets/vendor/jquery.ui/ui/jquery-patch-min.js: { weight: -11.8, minified: true }
+=======
+    assets/vendor/jquery.ui/ui/escape-selector-min.js: { weight: -11.8, minified: true }
+    assets/vendor/jquery.ui/ui/focusable-min.js: { weight: -11.8, minified: true }
+    assets/vendor/jquery.ui/ui/form-min.js: { weight: -11.8, minified: true }
+    assets/vendor/jquery.ui/ui/ie-min.js: { weight: -11.8, minified: true }
+    assets/vendor/jquery.ui/ui/jquery-1-7-min.js: { weight: -11.8, minified: true }
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     assets/vendor/jquery.ui/ui/keycode-min.js: { weight: -11.8, minified: true }
     assets/vendor/jquery.ui/ui/plugin-min.js: { weight: -11.8, minified: true }
     assets/vendor/jquery.ui/ui/safe-active-element-min.js: { weight: -11.8, minified: true }
@@ -1003,10 +1062,18 @@ jquery.ui.dialog:
     assets/vendor/jquery.ui/ui/widgets/mouse-min.js: { weight: -11.7, minified: true }
     assets/vendor/jquery.ui/ui/data-min.js: { weight: -11.8, minified: true }
     assets/vendor/jquery.ui/ui/disable-selection-min.js: { weight: -11.8, minified: true }
+<<<<<<< HEAD
     assets/vendor/jquery.ui/ui/focusable-min.js: { weight: -11.8, minified: true }
     assets/vendor/jquery.ui/ui/form-min.js: { weight: -11.8, minified: true }
     assets/vendor/jquery.ui/ui/ie-min.js: { weight: -11.8, minified: true }
     assets/vendor/jquery.ui/ui/jquery-patch-min.js: { weight: -11.8, minified: true }
+=======
+    assets/vendor/jquery.ui/ui/escape-selector-min.js: { weight: -11.8, minified: true }
+    assets/vendor/jquery.ui/ui/focusable-min.js: { weight: -11.8, minified: true }
+    assets/vendor/jquery.ui/ui/form-min.js: { weight: -11.8, minified: true }
+    assets/vendor/jquery.ui/ui/ie-min.js: { weight: -11.8, minified: true }
+    assets/vendor/jquery.ui/ui/jquery-1-7-min.js: { weight: -11.8, minified: true }
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     assets/vendor/jquery.ui/ui/keycode-min.js: { weight: -11.8, minified: true }
     assets/vendor/jquery.ui/ui/plugin-min.js: { weight: -11.8, minified: true }
     assets/vendor/jquery.ui/ui/safe-active-element-min.js: { weight: -11.8, minified: true }
@@ -1156,10 +1223,17 @@ picturefill:
     assets/vendor/picturefill/picturefill.min.js: { weight: -10, minified: true }
 
 popperjs:
+<<<<<<< HEAD
   version: "2.11.5"
   license:
     name: MIT
     url: https://raw.githubusercontent.com/popperjs/popper-core/v2.11.5/LICENSE.md
+=======
+  version: "2.9.2"
+  license:
+    name: MIT
+    url: https://raw.githubusercontent.com/popperjs/popper-core/v2.9.2/LICENSE.md
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     gpl-compatible: true
   js:
     assets/vendor/popperjs/popper.min.js: { minified: true }
@@ -1170,20 +1244,34 @@ popperjs:
 
 sortable:
   remote: https://github.com/SortableJS/Sortable
+<<<<<<< HEAD
   version: "1.15.0"
   license:
     name: MIT
     url: https://raw.githubusercontent.com/SortableJS/Sortable/1.15.0/LICENSE
+=======
+  version: "1.13.0"
+  license:
+    name: MIT
+    url: https://raw.githubusercontent.com/SortableJS/Sortable/1.13.0/LICENSE
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     gpl-compatible: true
   js:
     assets/vendor/sortable/Sortable.min.js: { minified: true }
 
 tabbable:
   remote: https://github.com/focus-trap/tabbable
+<<<<<<< HEAD
   version: "5.3.2"
   license:
     name: MIT
     url: https://raw.githubusercontent.com/focus-trap/tabbable/v5.3.2/LICENSE
+=======
+  version: "5.2.0"
+  license:
+    name: MIT
+    url: https://raw.githubusercontent.com/focus-trap/tabbable/v5.2.0/LICENSE
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     gpl-compatible: true
   js:
     assets/vendor/tabbable/index.umd.min.js: { weight: -1, minified: true }
@@ -1201,10 +1289,17 @@ tabbable.jquery.shim:
 
 underscore:
   remote: https://github.com/jashkenas/underscore
+<<<<<<< HEAD
   version: "1.13.3"
   license:
     name: MIT
     url: https://raw.githubusercontent.com/jashkenas/underscore/1.13.3/LICENSE
+=======
+  version: "1.13.1"
+  license:
+    name: MIT
+    url: https://raw.githubusercontent.com/jashkenas/underscore/1.13.1/LICENSE
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     gpl-compatible: true
   js:
     assets/vendor/underscore/underscore-min.js: { weight: -20, minified: true }

@@ -35,7 +35,11 @@
     },
     "require-dev": {
         "symfony/phpunit-bridge": "^4.2 || ^5",
+<<<<<<< HEAD
         "phpstan/phpstan": "^1.4"
+=======
+        "phpstan/phpstan": "^0.12.54"
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     },
     "autoload": {
         "psr-4": {
@@ -54,6 +58,10 @@
     },
     "scripts": {
         "test": "SYMFONY_PHPUNIT_REMOVE_RETURN_TYPEHINT=1 vendor/bin/simple-phpunit",
+<<<<<<< HEAD
         "phpstan": "@php vendor/bin/phpstan analyse"
+=======
+        "phpstan": "phpstan analyse"
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     }
 }

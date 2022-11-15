@@ -51,7 +51,11 @@ class FilterHooksTest extends BrowserTestBase {
     $edit['roles[' . RoleInterface::ANONYMOUS_ID . ']'] = 1;
     $this->drupalGet('admin/config/content/formats/add');
     $this->submitForm($edit, 'Save configuration');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains("Added text format {$name}.");
+=======
+    $this->assertRaw(t('Added text format %format.', ['%format' => $name]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains('hook_filter_format_insert invoked.');
 
     $format_id = $edit['format'];
@@ -61,7 +65,11 @@ class FilterHooksTest extends BrowserTestBase {
     $edit['roles[' . RoleInterface::AUTHENTICATED_ID . ']'] = 1;
     $this->drupalGet('admin/config/content/formats/manage/' . $format_id);
     $this->submitForm($edit, 'Save configuration');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains("The text format {$name} has been updated.");
+=======
+    $this->assertRaw(t('The text format %format has been updated.', ['%format' => $name]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains('hook_filter_format_update invoked.');
 
     // Use the format created.
@@ -77,7 +85,11 @@ class FilterHooksTest extends BrowserTestBase {
     // Disable the text format.
     $this->drupalGet('admin/config/content/formats/manage/' . $format_id . '/disable');
     $this->submitForm([], 'Disable');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains("Disabled text format {$name}.");
+=======
+    $this->assertRaw(t('Disabled text format %format.', ['%format' => $name]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains('hook_filter_format_disable invoked.');
   }
 

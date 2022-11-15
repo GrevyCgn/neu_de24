@@ -6,7 +6,10 @@
  */
 
 use Drupal\Core\Extension\ExtensionVersion;
+<<<<<<< HEAD
 use Drupal\update\ProjectRelease;
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 use Drupal\update\UpdateFetcherInterface;
 use Drupal\update\UpdateManagerInterface;
 use Drupal\update\ProjectCoreCompatibility;
@@ -358,6 +361,7 @@ function update_calculate_project_update_status(&$project_data, $available) {
 
   foreach ($available['releases'] as $version => $release_info) {
     try {
+<<<<<<< HEAD
       $release = ProjectRelease::createFromArray($release_info);
     }
     catch (UnexpectedValueException $exception) {
@@ -374,6 +378,9 @@ function update_calculate_project_update_status(&$project_data, $available) {
 
     try {
       $release_module_version = ExtensionVersion::createFromVersionString($release->getVersion());
+=======
+      $release_module_version = ExtensionVersion::createFromVersionString($release['version']);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     }
     catch (UnexpectedValueException $exception) {
       continue;

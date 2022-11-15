@@ -4,11 +4,15 @@ on:
     pull_request:
     push:
         branches:
+<<<<<<< HEAD
             - '2.x'
             - '3.x'
 
 permissions:
   contents: read
+=======
+            - '1.x'
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
 jobs:
     build:
@@ -20,6 +24,7 @@ jobs:
             -   name: "Checkout code"
                 uses: actions/checkout@v2
 
+<<<<<<< HEAD
             -   name: "Set-up PHP"
                 uses: shivammathur/setup-php@v2
                 with:
@@ -46,6 +51,34 @@ jobs:
             -   name: "Build the docs"
                 working-directory: doc/_build
                 run: php build.php --disable-cache
+=======
+            -   name: "Set up Python 3.7"
+                uses: actions/setup-python@v1
+                with:
+                    python-version: '3.7' # Semantic version range syntax or exact version of a Python version
+
+            -   name: "Display Python version"
+                run: python -c "import sys; print(sys.version)"
+
+            -   name: "Install Sphinx dependencies"
+                run: sudo apt-get install python-dev build-essential
+
+            -   name: "Cache pip"
+                uses: actions/cache@v2
+                with:
+                    path: ~/.cache/pip
+                    key: ${{ runner.os }}-pip-${{ hashFiles('_build/.requirements.txt') }}
+                    restore-keys: |
+                        ${{ runner.os }}-pip-
+
+            -   name: "Install Sphinx + requirements via pip"
+                working-directory: "doc"
+                run: pip install -r _build/.requirements.txt
+
+            -   name: "Build documentation"
+                working-directory: "doc"
+                run: make -C _build SPHINXOPTS="-nqW -j auto" html
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     doctor-rst:
         name: "DOCtor-RST"

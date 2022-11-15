@@ -385,10 +385,13 @@
             <trans-unit id="99">
                 <source>This value is not a valid International Securities Identification Number (ISIN).</source>
                 <target>Այս արժեքը արժեթղթերի նույնականացման միջազգային համարը վավեր չէ(ISIN)։</target>
+<<<<<<< HEAD
             </trans-unit>
             <trans-unit id="100">
                 <source>This value should be a valid expression.</source>
                 <target>Այս արժեքը պետք է լինի վավեր արտահայտություն:</target>
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
             </trans-unit>
         </body>
     </file>

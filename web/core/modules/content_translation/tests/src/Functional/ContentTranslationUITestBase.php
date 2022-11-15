@@ -228,10 +228,18 @@ abstract class ContentTranslationUITestBase extends ContentTranslationTestBase {
         $language = new Language(['id' => $langcode]);
         // Test that label is correctly shown for translation.
         $view_url = $entity->toUrl('canonical', ['language' => $language])->toString();
+<<<<<<< HEAD
         $this->assertSession()->elementTextEquals('xpath', "//table//a[@href='{$view_url}']", $entity->getTranslation($langcode)->label() ?? $entity->getTranslation($langcode)->id());
         // Test that edit link is correct for translation.
         $edit_path = $entity->toUrl('edit-form', ['language' => $language])->toString();
         $this->assertSession()->elementTextEquals('xpath', "//table//ul[@class='dropbutton']/li/a[@href='{$edit_path}']", 'Edit');
+=======
+        $elements = $this->xpath('//table//a[@href=:href]', [':href' => $view_url]);
+        $this->assertEquals($entity->getTranslation($langcode)->label(), $elements[0]->getText(), new FormattableMarkup('Label correctly shown for %language translation.', ['%language' => $langcode]));
+        $edit_path = $entity->toUrl('edit-form', ['language' => $language])->toString();
+        $elements = $this->xpath('//table//ul[@class="dropbutton"]/li/a[@href=:href]', [':href' => $edit_path]);
+        $this->assertEquals(t('Edit'), $elements[0]->getText(), new FormattableMarkup('Edit link correct for %language translation.', ['%language' => $langcode]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       }
     }
   }
@@ -359,7 +367,11 @@ abstract class ContentTranslationUITestBase extends ContentTranslationTestBase {
     ];
     $this->drupalGet($entity->toUrl('edit-form'));
     $this->submitForm($edit, $this->getFormSubmitAction($entity, $langcode));
+<<<<<<< HEAD
     $this->assertSession()->statusMessageExists('error');
+=======
+    $this->assertSession()->elementExists('xpath', '//div[contains(@class, "error")]//ul');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $metadata = $this->manager->getTranslationMetadata($entity->getTranslation($langcode));
     $this->assertEquals($values[$langcode]['uid'], $metadata->getAuthor()->id(), 'Translation author correctly kept.');
     $this->assertEquals($values[$langcode]['created'], $metadata->getCreatedTime(), 'Translation date correctly kept.');

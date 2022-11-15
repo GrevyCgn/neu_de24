@@ -38,7 +38,11 @@ select {
     }
   }
 
+<<<<<<< HEAD
   /* Hides default chevron within Internet Explorer. */
+=======
+  /* Disables border of select specifically for ms browser */
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   &::-ms-expand {
     display: none;
   }
@@ -85,11 +89,18 @@ select {
 
   /* Necessary for Internet Explorer to show chevron. */
   @media screen and (-ms-high-contrast: active) {
+<<<<<<< HEAD
     padding-inline-end: 0;
 
     /* Re-enable default chevron for Internet Explorer. */
     &::-ms-expand {
       display: block;
+=======
+    background-image: var(--form-element-select-icon);
+
+    &[multiple] {
+      background-image: none;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     }
   }
 }

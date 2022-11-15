@@ -84,7 +84,12 @@ class DistributionProfileTranslationTest extends InstallerTestBase {
     $this->translations['Save and continue'] = 'Save and continue de';
 
     // Check the language direction.
+<<<<<<< HEAD
     $this->assertSession()->elementTextEquals('xpath', '/@dir', 'ltr');
+=======
+    $direction = current($this->xpath('/@dir'))->getText();
+    $this->assertEquals('ltr', $direction);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Verify that the distribution name appears.
     $this->assertSession()->pageTextContains($this->info['distribution']['name']);
@@ -109,7 +114,11 @@ class DistributionProfileTranslationTest extends InstallerTestBase {
     // Verify German was configured but not English.
     $this->drupalGet('admin/config/regional/language');
     $this->assertSession()->pageTextContains('German');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('English');
+=======
+    $this->assertNoText('English');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**

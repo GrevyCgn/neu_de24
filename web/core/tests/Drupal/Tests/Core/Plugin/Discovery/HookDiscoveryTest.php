@@ -57,12 +57,23 @@ class HookDiscoveryTest extends UnitTestCase {
     $this->moduleHandler->expects($this->atLeastOnce())
       ->method('invokeAllWith')
       ->with('test_plugin')
+<<<<<<< HEAD
       ->willReturnCallback(function (string $hook, callable $callback) {
         $callback(\Closure::fromCallable([$this, 'hookDiscoveryTestTestPlugin']), 'hook_discovery_test');
         $callback(\Closure::fromCallable([$this, 'hookDiscoveryTest2TestPlugin']), 'hook_discovery_test2');
       });
     $this->moduleHandler->expects($this->never())
       ->method('invoke');
+=======
+      ->will($this->returnValue(['hook_discovery_test', 'hook_discovery_test2']));
+
+    $this->moduleHandler->expects($this->exactly(2))
+      ->method('invoke')
+      ->willReturnMap([
+        ['hook_discovery_test', 'test_plugin', [], $this->hookDiscoveryTestTestPlugin()],
+        ['hook_discovery_test2', 'test_plugin', [], $this->hookDiscoveryTest2TestPlugin()],
+      ]);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $definitions = $this->hookDiscovery->getDefinitions();
 

@@ -28,6 +28,10 @@ permissions:
   - 'access content overview'
   - 'access contextual links'
   - 'access files overview'
+<<<<<<< HEAD
+=======
+  - 'access in-place editing'
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   - 'access taxonomy overview'
   - 'access toolbar'
   - 'administer shortcuts'

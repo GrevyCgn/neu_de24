@@ -89,8 +89,13 @@ class SearchExactTest extends BrowserTestBase {
     $edit = ['keys' => 'Druplicon'];
     $this->drupalGet('search/node');
     $this->submitForm($edit, 'Search');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains($user->getAccountName());
     $this->assertSession()->pageTextNotContains($this->container->get('date.formatter')->format($node->getChangedTime(), 'short'));
+=======
+    $this->assertNoText($user->getAccountName());
+    $this->assertNoText($this->container->get('date.formatter')->format($node->getChangedTime(), 'short'));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
   }
 

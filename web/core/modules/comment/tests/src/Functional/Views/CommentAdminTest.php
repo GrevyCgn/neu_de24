@@ -133,7 +133,14 @@ class CommentAdminTest extends CommentBrowserTestBase {
       ':href' => $comments[0]->permalink()->toString(),
       ':title' => Unicode::truncate($comments[0]->get('comment_body')->value, 128),
       ':text' => $comments[0]->getSubject(),
+<<<<<<< HEAD
     ]));
+=======
+    ]);
+    $this->assertTrue(!empty($subject_link), 'Comment listing shows the correct subject link.');
+    // Verify that anonymous author name is displayed correctly.
+    $this->assertSession()->pageTextContains($author_name . ' (not verified)');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Verify that anonymous author name is displayed correctly.
     $this->assertSession()->pageTextContains($author_name . ' (not verified)');

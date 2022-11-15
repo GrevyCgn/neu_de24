@@ -50,12 +50,20 @@ class BlockInvalidRegionTest extends BrowserTestBase {
     // Clearing the cache should disable the test block placed in the invalid region.
     $this->drupalGet('admin/config/development/performance');
     $this->submitForm([], 'Clear all caches');
+<<<<<<< HEAD
     $this->assertSession()->statusMessageContains($warning_message, 'warning');
+=======
+    $this->assertRaw($warning_message);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Clear the cache to check if the warning message is not triggered.
     $this->drupalGet('admin/config/development/performance');
     $this->submitForm([], 'Clear all caches');
+<<<<<<< HEAD
     $this->assertSession()->statusMessageNotContains($warning_message, 'warning');
+=======
+    $this->assertNoRaw($warning_message);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Place disabled test block in the invalid region of the default theme.
     \Drupal::configFactory()->getEditable('block.block.' . $block->id())->set('region', 'invalid_region')->save();
@@ -64,7 +72,11 @@ class BlockInvalidRegionTest extends BrowserTestBase {
     // Clear the cache to check if the warning message is not triggered.
     $this->drupalGet('admin/config/development/performance');
     $this->submitForm([], 'Clear all caches');
+<<<<<<< HEAD
     $this->assertSession()->statusMessageNotContains($warning_message, 'warning');
+=======
+    $this->assertNoRaw($warning_message);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
 }

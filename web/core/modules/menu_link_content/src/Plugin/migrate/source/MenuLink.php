@@ -58,9 +58,12 @@ class MenuLink extends DrupalSqlBase {
       ->condition('ml.customized', 1)
       ->condition($and);
     $query->condition($condition);
+<<<<<<< HEAD
     if (isset($this->configuration['menu_name'])) {
       $query->condition('ml.menu_name', (array) $this->configuration['menu_name'], 'IN');
     }
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $query->leftJoin('menu_links', 'pl', '[ml].[plid] = [pl].[mlid]');
     $query->addField('pl', 'link_path', 'parent_link_path');
     $query->orderBy('ml.depth');

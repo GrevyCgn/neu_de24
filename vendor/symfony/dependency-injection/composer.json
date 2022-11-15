@@ -22,7 +22,11 @@
         "symfony/service-contracts": "^1.1.6|^2"
     },
     "require-dev": {
+<<<<<<< HEAD
         "symfony/yaml": "^4.4.26|^5.0",
+=======
+        "symfony/yaml": "^4.4|^5.0",
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         "symfony/config": "^4.3",
         "symfony/expression-language": "^3.4|^4.0|^5.0"
     },

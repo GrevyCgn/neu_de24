@@ -125,7 +125,11 @@ class ModuleHandlerTest extends KernelTestBase {
 
     // Verify that the modules were enabled in the correct order.
     $module_order = \Drupal::state()->get('module_test.install_order', []);
+<<<<<<< HEAD
     $this->assertEquals(['help', 'config', 'dblog'], $module_order);
+=======
+    $this->assertEquals(['help', 'config', 'color'], $module_order);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Uninstall all three modules explicitly, but in the incorrect order,
     // and make sure that ModuleInstaller::uninstall() uninstalled them in the
@@ -133,6 +137,7 @@ class ModuleHandlerTest extends KernelTestBase {
     $result = $this->moduleInstaller()->uninstall(['config', 'help', 'dblog']);
     $this->assertTrue($result, 'ModuleInstaller::uninstall() returned TRUE.');
 
+<<<<<<< HEAD
     /** @var \Drupal\Core\Update\UpdateHookRegistry $update_registry */
     $update_registry = \Drupal::service('update.update_hook_registry');
     foreach (['dblog', 'config', 'help'] as $module) {
@@ -140,6 +145,13 @@ class ModuleHandlerTest extends KernelTestBase {
     }
     $uninstalled_modules = \Drupal::state()->get('module_test.uninstall_order', []);
     $this->assertEquals(['dblog', 'config', 'help'], $uninstalled_modules, 'Modules were uninstalled in the correct order.');
+=======
+    foreach (['color', 'config', 'help'] as $module) {
+      $this->assertEquals(SCHEMA_UNINSTALLED, drupal_get_installed_schema_version($module), "{$module} module was uninstalled.");
+    }
+    $uninstalled_modules = \Drupal::state()->get('module_test.uninstall_order', []);
+    $this->assertEquals(['color', 'config', 'help'], $uninstalled_modules, 'Modules were uninstalled in the correct order.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Enable dblog module again, which should enable both the Config module and
     // Help module. But, this time do it with Config module declaring a
@@ -193,7 +205,11 @@ class ModuleHandlerTest extends KernelTestBase {
     $result = $this->moduleInstaller()->uninstall([$non_dependency]);
     $this->assertTrue($result, 'ModuleInstaller::uninstall() returns TRUE.');
     $this->assertFalse($this->moduleHandler()->moduleExists($non_dependency));
+<<<<<<< HEAD
     $this->assertEquals($update_registry::SCHEMA_UNINSTALLED, $update_registry->getInstalledVersion($non_dependency), "$non_dependency module was uninstalled.");
+=======
+    $this->assertEquals(SCHEMA_UNINSTALLED, drupal_get_installed_schema_version($non_dependency), "$non_dependency module was uninstalled.");
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Verify that the installation profile itself was not uninstalled.
     $uninstalled_modules = \Drupal::state()->get('module_test.uninstall_order', []);
@@ -291,7 +307,11 @@ class ModuleHandlerTest extends KernelTestBase {
     $update_registry = \Drupal::service('update.update_hook_registry');
     $result = $this->moduleInstaller()->uninstall(['help']);
     $this->assertTrue($result, 'ModuleInstaller::uninstall() returns TRUE.');
+<<<<<<< HEAD
     $this->assertEquals($update_registry::SCHEMA_UNINSTALLED, $update_registry->getInstalledVersion('entity_test'), "entity_test module was uninstalled.");
+=======
+    $this->assertEquals(SCHEMA_UNINSTALLED, drupal_get_installed_schema_version('entity_test'), "entity_test module was uninstalled.");
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**

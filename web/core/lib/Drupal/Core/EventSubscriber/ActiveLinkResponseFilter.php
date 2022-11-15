@@ -181,7 +181,11 @@ class ActiveLinkResponseFilter implements EventSubscriberInterface {
 
       // Get the HTML: this will be the opening part of a single tag, e.g.:
       // <a href="/" data-drupal-link-system-path="&lt;front&gt;">
+<<<<<<< HEAD
       $tag = substr($html_markup, $pos_tag_start ?? 0, $pos_tag_end - $pos_tag_start + 1);
+=======
+      $tag = substr($html_markup, $pos_tag_start, $pos_tag_end - $pos_tag_start + 1);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
       // Parse it into a DOMDocument so we can reliably read and modify
       // attributes.

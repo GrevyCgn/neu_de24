@@ -1,6 +1,7 @@
 CKEditor 4 Changelog
 ====================
 
+<<<<<<< HEAD
 ## CKEditor 4.18.0
 
 **Security Updates:**
@@ -172,6 +173,8 @@ Fixed Issues:
 * [#4555](https://github.com/ckeditor/ckeditor4/issues/4555): Fixed: [Font](https://ckeditor.com/cke4/addon/font) styles with attributes are not applied correctly when used multiple times over the same selection.
 * [#4782](https://github.com/ckeditor/ckeditor4/issues/4782): [Firefox] Fixed: `TypeError` is thrown when switching to Source View and back while [Autocomplete](https://ckeditor.com/cke4/addon/autocomplete) plugin is enabled.
 
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 ## CKEditor 4.16.1
 
 Fixed Issues:
@@ -182,8 +185,12 @@ Fixed Issues:
 * [#4351](https://github.com/ckeditor/ckeditor4/issues/4351): Fixed: Incorrect values for RGBA/HSLA colors in [Color Dialog](https://ckeditor.com/cke4/addon/colordialog).
 * [#4509](https://github.com/ckeditor/ckeditor4/issues/4509): Fixed: Incorrect handling of drag & drop inside [widgets](https://ckeditor.com/cke4/addon/widget) and nested editables.
 * [#4611](https://github.com/ckeditor/ckeditor4/issues/4611): [Android, iOS] Fixed: Incorrect hover styles for buttons in the toolbar on mobile devices.
+<<<<<<< HEAD
 * [#4652](https://github.com/ckeditor/ckeditor4/issues/4652): Fixed: [Event data](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_eventInfo.html) set to `false` is treated as an event cancellation.
 * [#4659](https://github.com/ckeditor/ckeditor4/issues/4659): Fixed: [`CKEDITOR.htmlParser`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_htmlParser.html) does not treat `--!>` as a comment end tag correctly.
+=======
+* [#4652](https://github.com/ckeditor/ckeditor4/issues/4652): Fixed: [Event data](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_eventInfo.html) set to `false` is treated as an event cancelation.
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
 ## CKEditor 4.16
 

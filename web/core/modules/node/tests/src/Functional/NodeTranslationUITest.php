@@ -532,7 +532,11 @@ class NodeTranslationUITest extends ContentTranslationUITestBase {
 
     // Contents should be in English, of correct revision.
     $this->assertSession()->pageTextContains('First rev en title');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('First rev fr title');
+=======
+    $this->assertNoText('First rev fr title');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Get a French view.
     $url_fr = $original_revision->getTranslation('fr')->toUrl('revision')->toString();
@@ -545,7 +549,11 @@ class NodeTranslationUITest extends ContentTranslationUITestBase {
 
     // Contents should be in French, of correct revision.
     $this->assertSession()->pageTextContains('First rev fr title');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('First rev en title');
+=======
+    $this->assertNoText('First rev en title');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**

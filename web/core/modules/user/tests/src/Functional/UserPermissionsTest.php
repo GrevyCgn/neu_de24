@@ -51,7 +51,11 @@ class UserPermissionsTest extends BrowserTestBase {
   }
 
   /**
+<<<<<<< HEAD
    * Tests changing user permissions through the permissions pages.
+=======
+   * Tests changing user permissions through the permissions page.
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    */
   public function testUserPermissionChanges() {
     $permissions_hash_generator = $this->container->get('user_permissions_hash_generator');
@@ -131,7 +135,11 @@ class UserPermissionsTest extends BrowserTestBase {
     // Set the user's role to be the administrator role.
     $edit = [];
     $edit['user_admin_role'] = $this->rid;
+<<<<<<< HEAD
     $this->drupalGet('admin/people/role-settings');
+=======
+    $this->drupalGet('admin/config/people/accounts');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->submitForm($edit, 'Save configuration');
 
     \Drupal::entityTypeManager()->getStorage('user_role')->resetCache();
@@ -146,7 +154,11 @@ class UserPermissionsTest extends BrowserTestBase {
     // Ensure that selecting '- None -' removes the admin role.
     $edit = [];
     $edit['user_admin_role'] = '';
+<<<<<<< HEAD
     $this->drupalGet('admin/people/role-settings');
+=======
+    $this->drupalGet('admin/config/people/accounts');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->submitForm($edit, 'Save configuration');
 
     \Drupal::entityTypeManager()->getStorage('user_role')->resetCache();
@@ -211,6 +223,7 @@ class UserPermissionsTest extends BrowserTestBase {
     $this->drupalGet('admin/people/permissions');
     $next_row = $this->xpath('//tr[@data-drupal-selector=\'edit-permissions-access-content\']/following-sibling::tr[1]');
     $this->assertEquals('edit-permissions-view-own-unpublished-content', $next_row[0]->getAttribute('data-drupal-selector'));
+<<<<<<< HEAD
   }
 
   /**
@@ -289,6 +302,8 @@ class UserPermissionsTest extends BrowserTestBase {
     $this->assertSession()->statusCodeEquals(403);
     $this->drupalGet('admin/structure/block/block-content/manage/test_block_type/permissions');
     $this->assertSession()->statusCodeEquals(403);
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
 }

@@ -41,6 +41,7 @@ use Drupal\migrate\Row;
  *     source: source_field
  * @endcode
  *
+<<<<<<< HEAD
  * An example where the callback accepts no arguments:
  *
  * @code
@@ -52,6 +53,8 @@ use Drupal\migrate\Row;
  *     source: [  ]
  * @endcode
  *
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
  * An example where the callback accepts more than one argument:
  *
  * @code

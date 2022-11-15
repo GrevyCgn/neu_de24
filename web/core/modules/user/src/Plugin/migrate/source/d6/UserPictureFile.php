@@ -12,8 +12,12 @@ use Drupal\migrate\Row;
  * - site_path: (optional) The path to the site directory relative to Drupal
  *   root. Defaults to 'sites/default'.
  *
+<<<<<<< HEAD
  * For additional configuration keys, refer to the parent classes.
  *
+=======
+ * For additional configuration keys, refer to the parent classes:
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
  * @see \Drupal\migrate\Plugin\migrate\source\SqlBase
  * @see \Drupal\migrate\Plugin\migrate\source\SourcePluginBase
  *

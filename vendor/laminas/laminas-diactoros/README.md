@@ -1,5 +1,6 @@
 # laminas-diactoros
 
+<<<<<<< HEAD
 [![Build Status](https://github.com/laminas/laminas-diactoros/workflows/Continuous%20Integration/badge.svg)](https://github.com/laminas/laminas-diactoros/actions/workflows/continuous-integration.yml)
 
 > ## 🇷🇺 Русским гражданам
@@ -17,6 +18,9 @@
 > One team member has a Ukrainian relative who fled her home with her son. The train was delayed due to bombing on the road ahead. We have friends who are hiding in bomb shelters. We anxiously follow up on them after the air raids, which indiscriminately fire at hospitals, schools, kindergartens and houses. We're not taking this from any media. These are our actual experiences.
 > 
 > You trust us enough to use our software. We ask that you trust us to say the truth on this. We need your help. Go out and protest this unnecessary war. Stop the bloodshed. Say "stop the war!"
+=======
+[![Build Status](https://github.com/laminas/laminas-diactoros/workflows/continuous-integration.yml/badge.svg)](https://github.com/laminas/laminas-diactoros/actions/workflows/continuous-integration.yml)
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
 > Diactoros (pronunciation: `/dɪʌktɒrɒs/`): an epithet for Hermes, meaning literally, "the messenger."
 

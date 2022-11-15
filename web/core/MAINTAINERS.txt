@@ -44,6 +44,10 @@ Core JavaScript packages
  - (provisional) Théodore Biadala 'nod_' https://www.drupal.org/u/nod_
  - (provisional) Sally Young 'justafish' https://www.drupal.org/u/justafish
 
+Core JavaScript packages
+ - (provisional) Théodore Biadala 'nod_' https://www.drupal.org/u/nod_
+ - (provisional) Sally Young 'justafish' https://www.drupal.org/u/justafish
+
 Committer team facilitators
 - Pamela Barone 'pameeela' https://www.drupal.org/u/pameeela
 
@@ -529,15 +533,21 @@ their responsibilities. The initiative coordinators are:
 
 Decoupled Menus Initiative
 - Théodore Biadala 'nod_' https://www.drupal.org/u/nod_
+<<<<<<< HEAD
 - Brian Perry 'brianperry' https://www.drupal.org/u/brianperry
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
 Media Initiative
 - Janez Urevc 'slashrsm' https://www.drupal.org/u/slashrsm
 
+<<<<<<< HEAD
 Project Browser Initiative
 - Leslie Glynn 'leslieg' https://www.drupal.org/u/leslieg
 - Chris Wells 'chrisfromredfin' https://www.drupal.org/u/chrisfromredfin
 
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
 Core mentoring coordinators
 ---------------------------

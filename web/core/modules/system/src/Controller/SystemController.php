@@ -4,7 +4,10 @@ namespace Drupal\system\Controller;
 
 use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Controller\ControllerBase;
+<<<<<<< HEAD
 use Drupal\Core\Extension\ExtensionLifecycle;
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 use Drupal\Core\Extension\ModuleDependencyMessageTrait;
 use Drupal\Core\Extension\ModuleExtensionList;
 use Drupal\Core\Extension\ThemeExtensionList;

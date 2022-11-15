@@ -15,6 +15,10 @@ class IdConflictTest extends MigrateUpgradeExecuteTestBase {
    * {@inheritdoc}
    */
   protected static $modules = [
+<<<<<<< HEAD
+=======
+    'aggregator',
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     'book',
     'config_translation',
     'content_translation',
@@ -23,6 +27,11 @@ class IdConflictTest extends MigrateUpgradeExecuteTestBase {
     'migrate_drupal_ui',
     'statistics',
     'telephone',
+<<<<<<< HEAD
+=======
+    // Required for translation migrations.
+    'migrate_drupal_multilingual',
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   ];
 
   /**

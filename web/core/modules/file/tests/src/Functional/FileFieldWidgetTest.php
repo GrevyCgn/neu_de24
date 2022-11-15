@@ -571,7 +571,11 @@ class FileFieldWidgetTest extends FileFieldTestBase {
     $victim_tmp_file = $this->createTemporaryFile('some text', $victim_user);
     $victim_tmp_file = File::load($victim_tmp_file->id());
     $this->assertTrue($victim_tmp_file->isTemporary(), 'New file saved to disk is temporary.');
+<<<<<<< HEAD
     $this->assertNotEmpty($victim_tmp_file->id(), 'New file has an fid.');
+=======
+    $this->assertFalse(empty($victim_tmp_file->id()), 'New file has an fid.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertEquals($victim_user->id(), $victim_tmp_file->getOwnerId(), 'New file belongs to the victim.');
 
     // Have attacker create a new node with a different uploaded file and

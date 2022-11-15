@@ -3,7 +3,11 @@
  * Polyfill for HTML5 date input.
  */
 
+<<<<<<< HEAD
 (function (Modernizr, Drupal, once) {
+=======
+(function ($, Modernizr, Drupal, once) {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   /**
    * Attach datepicker fallback on date elements.
    *
@@ -151,4 +155,8 @@
     `<div class="no-native-datepicker-help">
        <span id="${dateId}">${dateDesc}</span> <span id="${timeId}">${timeDesc}</span>
      </div>`;
+<<<<<<< HEAD
 })(Modernizr, Drupal, once);
+=======
+})(jQuery, Modernizr, Drupal, once);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b

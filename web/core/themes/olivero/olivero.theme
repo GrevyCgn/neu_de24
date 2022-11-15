@@ -359,7 +359,11 @@ function olivero_preprocess_field(&$variables) {
     $variables['attributes']['class'][] = 'text-content';
   }
 
+<<<<<<< HEAD
   if ($variables['field_type'] == 'image' && $variables['element']['#view_mode'] == 'full' && !$variables["element"]["#is_multiple"] && $variables['field_name'] !== 'user_picture') {
+=======
+  if ($variables['field_type'] == 'image' && $variables['element']['#view_mode'] == 'full' && !$variables["element"]["#is_multiple"]) {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $variables['attributes']['class'][] = 'wide-image';
   }
 }
@@ -497,6 +501,24 @@ function olivero_preprocess_filter_caption(&$variables) {
 /**
  * Implements hook_form_FORM_ID_alter().
  */
+<<<<<<< HEAD
+=======
+function olivero_form_comment_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $comment = $form_state->getFormObject()
+    ->getEntity();
+  /** @var \Drupal\comment\Entity\Comment $comment */
+  if ($comment->hasParentComment()) {
+    $form['actions']['submit']['#value'] = t('Reply to comment');
+  }
+  else {
+    $form['actions']['submit']['#value'] = t('Post comment');
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 function olivero_form_node_preview_form_select_alter(&$form, FormStateInterface $form_state, $form_id) {
   $form['backlink']['#options']['attributes']['class'][] = 'button';
   $form['backlink']['#options']['attributes']['class'][] = 'button--small';
@@ -600,6 +622,7 @@ function olivero_preprocess_table(&$variables) {
     }
   }
 }
+<<<<<<< HEAD
 
 /**
  * Implements hook_form_views_exposed_form_alter().
@@ -607,3 +630,5 @@ function olivero_preprocess_table(&$variables) {
 function olivero_form_views_exposed_form_alter(&$form) {
   $form['#attributes']['class'][] = 'form--inline';
 }
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b

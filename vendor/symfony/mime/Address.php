@@ -98,6 +98,7 @@ final class Address
         if ($address instanceof self) {
             return $address;
         }
+<<<<<<< HEAD
 
         if (!\is_string($address)) {
             throw new InvalidArgumentException(sprintf('An address can be an instance of Address or a string ("%s" given).', get_debug_type($address)));
@@ -112,6 +113,21 @@ final class Address
         }
 
         return new self($matches['addrSpec'], trim($matches['displayName'], ' \'"'));
+=======
+        if (\is_string($address)) {
+            if (false === strpos($address, '<')) {
+                return new self($address);
+            }
+
+            if (!preg_match(self::FROM_STRING_PATTERN, $address, $matches)) {
+                throw new InvalidArgumentException(sprintf('Could not parse "%s" to a "%s" instance.', $address, self::class));
+            }
+
+            return new self($matches['addrSpec'], trim($matches['displayName'], ' \'"'));
+        }
+
+        throw new InvalidArgumentException(sprintf('An address can be an instance of Address or a string ("%s" given).', get_debug_type($address)));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     }
 
     /**
@@ -136,7 +152,11 @@ final class Address
     {
         trigger_deprecation('symfony/mime', '5.2', '"%s()" is deprecated, use "%s::create()" instead.', __METHOD__, __CLASS__);
 
+<<<<<<< HEAD
         if (!str_contains($string, '<')) {
+=======
+        if (false === strpos($string, '<')) {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
             return new self($string, '');
         }
 

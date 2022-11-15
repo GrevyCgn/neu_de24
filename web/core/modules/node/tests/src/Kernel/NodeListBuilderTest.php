@@ -33,7 +33,11 @@ class NodeListBuilderTest extends KernelTestBase {
     $build = $list_builder->render();
     $this->container->get('renderer')->renderRoot($build);
 
+<<<<<<< HEAD
     $this->assertEqualsCanonicalizing(['languages:' . LanguageInterface::TYPE_INTERFACE, 'theme', 'url.query_args.pagers:0', 'user.node_grants:view', 'user.permissions'], $build['#cache']['contexts']);
+=======
+    $this->assertEquals(['languages:' . LanguageInterface::TYPE_INTERFACE, 'theme', 'url.query_args.pagers:0', 'user.node_grants:view', 'user.permissions'], $build['#cache']['contexts']);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
 }

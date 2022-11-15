@@ -252,11 +252,14 @@ class FieldDiscoveryTest extends MigrateDrupal7TestBase {
                   'image_nodelink' => 'image',
                   'image_imagelink' => 'image',
                 ],
+<<<<<<< HEAD
                 'datetime' => [
                   'date_default' => 'datetime_default',
                   'format_interval' => 'datetime_time_ago',
                   'date_plain' => 'datetime_plain',
                 ],
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
                 'email' => [
                   'email_formatter_default' => 'email_mailto',
                   'email_formatter_contact' => 'basic_string',
@@ -270,6 +273,14 @@ class FieldDiscoveryTest extends MigrateDrupal7TestBase {
                 'phone' => [
                   'phone' => 'basic_string',
                 ],
+<<<<<<< HEAD
+=======
+                'datetime' => [
+                  'date_default' => 'datetime_default',
+                  'format_interval' => 'datetime_time_ago',
+                  'date_plain' => 'datetime_plain',
+                ],
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
                 'telephone' => [
                   'text_plain' => 'string',
                   'telephone_link' => 'telephone_link',
@@ -301,11 +312,19 @@ class FieldDiscoveryTest extends MigrateDrupal7TestBase {
                 'list' => 'list_default',
                 'file_mfw' => 'file_generic',
                 'filefield_widget' => 'file_generic',
+<<<<<<< HEAD
                 'date' => 'datetime_default',
                 'datetime' => 'datetime_default',
                 'datestamp' => 'datetime_timestamp',
                 'email_textfield' => 'email_default',
                 'phone' => 'phone_default',
+=======
+                'email_textfield' => 'email_default',
+                'phone' => 'phone_default',
+                'date' => 'datetime_default',
+                'datetime' => 'datetime_default',
+                'datestamp' => 'datetime_timestamp',
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
               ],
             ],
           ],

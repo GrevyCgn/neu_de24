@@ -232,7 +232,11 @@ class SelectSubqueryTest extends DatabaseTestBase {
     // Subquery to {test_people}.
     $subquery = $this->connection->select('test_people', 'tp')
       ->fields('tp', ['name'])
+<<<<<<< HEAD
       ->where('[tp].[age] = [t].[age]');
+=======
+      ->where('[tp].[name] = [t].[name]');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $query->exists($subquery);
     $result = $query->execute();
 
@@ -263,7 +267,11 @@ class SelectSubqueryTest extends DatabaseTestBase {
     // Subquery to {test_people}.
     $subquery = $this->connection->select('test_people', 'tp')
       ->fields('tp', ['name'])
+<<<<<<< HEAD
       ->where('[tp].[age] = [t].[age]');
+=======
+      ->where('[tp].[name] = [t].[name]');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $query->notExists($subquery);
 
     // Ensure that we got the right number of records.

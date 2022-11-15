@@ -126,7 +126,11 @@ class SearchNodeUpdateAndDeletionTest extends BrowserTestBase {
     // Search again to verify the node doesn't appear anymore.
     $this->drupalGet('search/node');
     $this->submitForm($edit, 'Search');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains($node->label());
+=======
+    $this->assertNoText($node->label());
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
 }

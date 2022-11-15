@@ -96,6 +96,7 @@ use Drupal\migrate\Row;
  * migrations. Other migrations can use the map tables for lookup purposes when
  * establishing relationships between records.
  *
+<<<<<<< HEAD
  * @subsection sec_high_water_mark High-water mark
  * A High-water mark allows the Migrate API to track changes so that only data
  * that has been created or updated in the source since the migration was
@@ -104,6 +105,16 @@ use Drupal\migrate\Row;
  * can be any property that indicates the highest value migrated so far. For
  * example, a timestamp property that indicates when a row of data was created
  * or last updated would make an excellent high-water property. If the migration
+=======
+ * @subsection sec_highwater_mark Highwater mark
+ * A Highwater mark allows the Migrate API to track changes so that only data
+ * that has been created or updated in the source since the migration was
+ * previously executed is migrated. The only requirement to use the highwater
+ * feature is to declare the row property to use for the highwater mark. This
+ * can be any property that indicates the highest value migrated so far. For
+ * example, a timestamp property that indicates when a row of data was created
+ * or last updated would make an excellent highwater property. If the migration
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
  * is executed again, only those rows that have a higher timestamp than in the
  * previous migration would be included.
  *
@@ -115,8 +126,13 @@ use Drupal\migrate\Row;
  * @endcode
  *
  * In this example, the row property 'changed' is the high_water_property. If
+<<<<<<< HEAD
  * the value of 'changed' is greater than the current high-water mark the row
  * is processed and the value of the high-water mark is updated to the value of
+=======
+ * the value of 'changed' is greater than the current highwater mark the row
+ * is processed and the value of the highwater mark is updated to the value of
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
  * 'changed'.
  *
  * @subsection sec_rollbacks Rollbacks

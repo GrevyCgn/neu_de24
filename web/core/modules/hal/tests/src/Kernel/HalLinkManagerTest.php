@@ -245,6 +245,7 @@ class HalLinkManagerTest extends KernelTestBase {
 
     /** @var \Drupal\hal\LinkManager\LinkManager $link_manager */
     $link_manager = \Drupal::service('hal.link_manager');
+<<<<<<< HEAD
     /** @var \Drupal\hal\LinkManager\TypeLinkManager $type_link_manager */
     $type_link_manager = \Drupal::service('hal.link_manager.type');
     /** @var \Drupal\hal\LinkManager\RelationLinkManager $relation_link_manager */
@@ -266,6 +267,15 @@ class HalLinkManagerTest extends KernelTestBase {
       $relation_ids = $relation_link_manager->getRelationInternalIds($link, $serialization_context);
       $this->assertEquals(['entity_type_id' => 'node', 'bundle' => 'page', 'field_name' => 'field_ref'], $relation_ids);
     }
+=======
+    $link_manager->setLinkDomain('http://example.com/');
+    $link = $link_manager->getTypeUri('node', 'page', $serialization_context);
+    $this->assertEquals('http://example.com/rest/type/node/page', $link);
+    $this->assertEquals($serialization_context[CacheableNormalizerInterface::SERIALIZATION_CONTEXT_CACHEABILITY], new CacheableMetadata());
+    $link = $link_manager->getRelationUri('node', 'page', 'field_ref', $serialization_context);
+    $this->assertEquals('http://example.com/rest/relation/node/page/field_ref', $link);
+    $this->assertEquals($serialization_context[CacheableNormalizerInterface::SERIALIZATION_CONTEXT_CACHEABILITY], new CacheableMetadata());
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
 }

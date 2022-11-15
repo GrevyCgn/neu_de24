@@ -87,7 +87,16 @@ class CommentInterfaceTest extends CommentTestBase {
     $this->drupalGet('node/' . $this->node->id());
     $this->assertSession()->pageTextContains($subject_text);
     $this->assertSession()->pageTextContains($comment_text);
+<<<<<<< HEAD
     $this->assertSession()->elementExists('xpath', '//footer/a[contains(@href,"' . base_path() . 'comment/' . $comment->id() . '#comment-' . $comment->id() . '") and text()="Permalink"]');
+=======
+    $arguments = [
+      ':link' => base_path() . 'comment/' . $comment->id() . '#comment-' . $comment->id(),
+    ];
+    $pattern_permalink = '//footer[contains(@class,"comment__meta")]/a[contains(@href,:link) and text()="Permalink"]';
+    $permalink = $this->xpath($pattern_permalink, $arguments);
+    $this->assertTrue(!empty($permalink), 'Permalink link found.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Set comments to have subject and preview to optional.
     $this->drupalLogout();

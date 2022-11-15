@@ -47,7 +47,10 @@ class DrupalDateTimeTest extends BrowserTestBase {
 
   /**
    * Tests that DrupalDateTime can detect the right timezone to use.
+<<<<<<< HEAD
    *
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    * Test with a variety of less commonly used timezone names to
    * help ensure that the system timezone will be different than the
    * stated timezones.

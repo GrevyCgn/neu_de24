@@ -165,8 +165,14 @@ class DisplayFeedTest extends ViewTestBase {
 
     // Check that the rss header is output on the page display.
     $this->drupalGet('/test-attached-disabled');
+<<<<<<< HEAD
     $this->assertSession()->elementAttributeContains('xpath', '//link[@rel="alternate"]', 'type', 'application/rss+xml');
     $this->assertSession()->elementAttributeContains('xpath', '//link[@rel="alternate"]', 'href', 'test-attached-disabled.xml');
+=======
+    $feed_header = $this->xpath('//link[@rel="alternate"]');
+    $this->assertEquals('application/rss+xml', $feed_header[0]->getAttribute('type'), 'The feed link has the type application/rss+xml.');
+    $this->assertStringContainsString('test-attached-disabled.xml', $feed_header[0]->getAttribute('href'), 'Page display contains the correct feed URL.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Disable the feed display.
     $view->displayHandlers->get('feed_1')->setOption('enabled', FALSE);

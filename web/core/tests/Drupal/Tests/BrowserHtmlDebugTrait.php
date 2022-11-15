@@ -179,6 +179,7 @@ trait BrowserHtmlDebugTrait {
               $html_output = 'Called from ' . $caller['function'] . ' line ' . $caller['line'];
               $html_output .= '<hr />' . $request->getMethod() . ' request to: ' . $request->getUri();
 
+<<<<<<< HEAD
               /** @var \Psr\Http\Message\StreamInterface $stream */
               $stream = $response->getBody();
 
@@ -189,6 +190,13 @@ trait BrowserHtmlDebugTrait {
                 ? (string) $stream
                 : 'Response is not readable.';
 
+=======
+              // Get the response body as a string. Any errors are silenced as
+              // tests should not fail if there is a problem. On PHP 7.4
+              // \Drupal\Tests\migrate\Functional\process\DownloadFunctionalTest
+              // fails without the usage of a silence operator.
+              $body = @(string) $response->getBody();
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
               // On redirect responses (status code starting with '3') we need
               // to remove the meta tag that would do a browser refresh. We
               // don't want to redirect developers away when they look at the

@@ -280,7 +280,11 @@ class LocalePluralFormatTest extends BrowserTestBase {
     $this->assertSession()->pageTextContains('Singular form');
     $this->assertSession()->pageTextContains('First plural form');
     $this->assertSession()->pageTextContains('2. plural form');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('3. plural form');
+=======
+    $this->assertNoText('3. plural form');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Plural values for langcode hr.
     $this->assertSession()->pageTextContains('@count sat');
@@ -309,7 +313,11 @@ class LocalePluralFormatTest extends BrowserTestBase {
     // Plural values for the langcode fr.
     $this->assertSession()->pageTextContains('@count heure');
     $this->assertSession()->pageTextContains('@count heures');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('2. plural form');
+=======
+    $this->assertNoText('2. plural form');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Edit langcode fr translations and see if that took effect.
     $edit = [

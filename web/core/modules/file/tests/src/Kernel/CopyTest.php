@@ -19,6 +19,7 @@ use Drupal\file\FileRepository;
 class CopyTest extends FileManagedUnitTestBase {
 
   /**
+<<<<<<< HEAD
    * The file repository service under test.
    *
    * @var \Drupal\file\FileRepository
@@ -37,6 +38,9 @@ class CopyTest extends FileManagedUnitTestBase {
    * Tests file copying in the normal, base case.
    *
    * @covers ::copy
+=======
+   * Tests file copying in the normal, base case.
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    */
   public function testNormal() {
     $contents = $this->randomMachineName(10);
@@ -66,8 +70,11 @@ class CopyTest extends FileManagedUnitTestBase {
 
   /**
    * Tests renaming when copying over a file that already exists.
+<<<<<<< HEAD
    *
    * @covers ::copy
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    */
   public function testExistingRename() {
     // Setup a file to overwrite.
@@ -108,8 +115,11 @@ class CopyTest extends FileManagedUnitTestBase {
 
   /**
    * Tests replacement when copying over a file that already exists.
+<<<<<<< HEAD
    *
    * @covers ::copy
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    */
   public function testExistingReplace() {
     // Setup a file to overwrite.
@@ -148,8 +158,11 @@ class CopyTest extends FileManagedUnitTestBase {
 
   /**
    * Tests that copying over an existing file fails when instructed to do so.
+<<<<<<< HEAD
    *
    * @covers ::copy
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    */
   public function testExistingError() {
     $contents = $this->randomMachineName(10);
@@ -159,6 +172,7 @@ class CopyTest extends FileManagedUnitTestBase {
 
     // Clone the object so we don't have to worry about the function changing
     // our reference copy.
+<<<<<<< HEAD
     try {
       $result = $this->fileRepository->copy(clone $source, $target->getFileUri(), FileSystemInterface::EXISTS_ERROR);
       $this->fail('expected FileExistsException');
@@ -169,6 +183,12 @@ class CopyTest extends FileManagedUnitTestBase {
       $this->assertStringContainsString("could not be copied because a file by that name already exists in the destination directory", $e->getMessage());
     }
     // Check the contents were not changed.
+=======
+    $result = file_copy(clone $source, $target->getFileUri(), FileSystemInterface::EXISTS_ERROR);
+
+    // Check the return status and that the contents were not changed.
+    $this->assertFalse($result, 'File copy failed.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertEquals($contents, file_get_contents($target->getFileUri()), 'Contents of file were not altered.');
 
     // Check that the correct hooks were called.

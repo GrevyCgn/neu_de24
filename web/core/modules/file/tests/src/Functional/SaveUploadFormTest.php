@@ -452,7 +452,11 @@ class SaveUploadFormTest extends FileManagedTestBase {
   public function testNoUpload() {
     $this->drupalGet('file-test/save_upload_from_form_test');
     $this->submitForm([], 'Submit');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains("Epic upload FAIL!");
+=======
+    $this->assertNoRaw(t('Epic upload FAIL!'));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**
@@ -507,8 +511,13 @@ class SaveUploadFormTest extends FileManagedTestBase {
     // Ensure the expected error message is present and the counts before and
     // after calling _file_save_upload_from_form() are correct.
     $this->assertSession()->pageTextContains($error);
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains('Number of error messages before _file_save_upload_from_form(): 1');
     $this->assertSession()->pageTextContains('Number of error messages after _file_save_upload_from_form(): 1');
+=======
+    $this->assertRaw('Number of error messages before _file_save_upload_from_form(): 1');
+    $this->assertRaw('Number of error messages after _file_save_upload_from_form(): 1');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Test that error messages are preserved when an error occurs.
     $edit = [
@@ -524,8 +533,13 @@ class SaveUploadFormTest extends FileManagedTestBase {
     // Ensure the expected error message is present and the counts before and
     // after calling _file_save_upload_from_form() are correct.
     $this->assertSession()->pageTextContains($error);
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains('Number of error messages before _file_save_upload_from_form(): 1');
     $this->assertSession()->pageTextContains('Number of error messages after _file_save_upload_from_form(): 1');
+=======
+    $this->assertRaw('Number of error messages before _file_save_upload_from_form(): 1');
+    $this->assertRaw('Number of error messages after _file_save_upload_from_form(): 1');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Test a successful upload with no messages.
     $edit = [

@@ -109,7 +109,11 @@ class Container implements ResettableContainerInterface
      *
      * @param string $name The parameter name
      *
+<<<<<<< HEAD
      * @return array|bool|string|int|float|\UnitEnum|null
+=======
+     * @return array|bool|float|int|string|null The parameter value
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
      *
      * @throws InvalidArgumentException if the parameter is not defined
      */

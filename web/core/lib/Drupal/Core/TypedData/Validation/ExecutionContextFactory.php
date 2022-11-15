@@ -40,7 +40,11 @@ class ExecutionContextFactory implements ExecutionContextFactoryInterface {
   /**
    * {@inheritdoc}
    */
+<<<<<<< HEAD
   public function createContext(ValidatorInterface $validator, $root): ExecutionContextInterface {
+=======
+  public function createContext(ValidatorInterface $validator, $root) {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     return new ExecutionContext(
       $validator,
       $root,

@@ -95,8 +95,11 @@
     "minimist": "^1.2.2",
     "mkdirp": "^1.0.4",
     "nightwatch": "^1.6.3",
+<<<<<<< HEAD
     "normalize.css": "8.0.x",
     "picturefill": "3.0.x",
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     "postcss": "^7.0.18",
     "postcss-calc": "^7.0.1",
     "postcss-header": "^2.0.0",
@@ -105,6 +108,7 @@
     "postcss-pxtorem": "^5.1.1",
     "postcss-url": "^8.0.0",
     "prettier": "^2.1.2",
+<<<<<<< HEAD
     "raw-loader": "^4.0.2",
     "shepherd.js": "9.1.x",
     "sortablejs": "1.15.x",
@@ -118,6 +122,13 @@
     "underscore": "1.13.x",
     "webpack": "^5.51.1",
     "webpack-cli": "^4.4.0"
+=======
+    "stylelint": "^13.0.0",
+    "stylelint-checkstyle-formatter": "^0.1.1",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-order": "^4.0.0",
+    "terser": "^5.3.4"
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   },
   "//": "'development is the default environment, and legacy is for transpiling the old jQuery codebase",
   "babel": {

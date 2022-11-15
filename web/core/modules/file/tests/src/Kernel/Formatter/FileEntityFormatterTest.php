@@ -86,7 +86,11 @@ class FileEntityFormatterTest extends KernelTestBase {
 
     $build = $entity_display->buildMultiple($this->files)[0]['filename'][0];
     $this->assertEquals('file.png', $build['#title']);
+<<<<<<< HEAD
     $this->assertEquals($this->fileUrlGenerator->generate('public://file.png'), $build['#url']);
+=======
+    $this->assertEquals(Url::fromUri(file_create_url('public://file.png')), $build['#url']);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**
@@ -104,12 +108,21 @@ class FileEntityFormatterTest extends KernelTestBase {
 
     $entity_display->setComponent('uri', ['type' => 'file_uri', 'settings' => ['file_download_path' => TRUE]]);
     $build = $entity_display->buildMultiple($this->files)[0]['uri'][0];
+<<<<<<< HEAD
     $this->assertEquals($this->fileUrlGenerator->generateString('public://file.png'), $build['#markup']);
 
     $entity_display->setComponent('uri', ['type' => 'file_uri', 'settings' => ['file_download_path' => TRUE, 'link_to_file' => TRUE]]);
     $build = $entity_display->buildMultiple($this->files)[0]['uri'][0];
     $this->assertEquals($this->fileUrlGenerator->generateString('public://file.png'), $build['#title']);
     $this->assertEquals($this->fileUrlGenerator->generate('public://file.png'), $build['#url']);
+=======
+    $this->assertEquals(file_create_url('public://file.png'), $build['#markup']);
+
+    $entity_display->setComponent('uri', ['type' => 'file_uri', 'settings' => ['file_download_path' => TRUE, 'link_to_file' => TRUE]]);
+    $build = $entity_display->buildMultiple($this->files)[0]['uri'][0];
+    $this->assertEquals(file_create_url('public://file.png'), $build['#title']);
+    $this->assertEquals(Url::fromUri(file_create_url('public://file.png')), $build['#url']);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**

@@ -52,7 +52,11 @@ class ContextPluginTest extends KernelTestBase {
     }
 
     // Test the getContextDefinitions() method.
+<<<<<<< HEAD
     $user_context_definition = EntityContextDefinition::fromEntityTypeId('user')->setLabel('User');
+=======
+    $user_context_definition = EntityContextDefinition::fromEntityTypeId('user')->setLabel(t('User'));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertEquals($plugin->getContextDefinitions()['user']->getLabel(), $user_context_definition->getLabel());
 
     // Test the getContextDefinition() method for a valid context.

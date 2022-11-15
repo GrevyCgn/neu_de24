@@ -1026,12 +1026,28 @@
         // it.
         const filterID = nameAttribute.substring(8, nameAttribute.indexOf(']'));
 
+<<<<<<< HEAD
         // Create a Drupal.FilterStatus object to track the state (whether it's
         // active or not and its current settings, if any) of each filter.
         Drupal.filterConfiguration.statuses[filterID] = new Drupal.FilterStatus(
           filterID,
         );
       });
+=======
+          // The filter's checkbox has a name attribute of the form
+          // "filters[<name of filter>][status]", parse "<name of filter>"
+          // from it.
+          const filterID = nameAttribute.substring(
+            8,
+            nameAttribute.indexOf(']'),
+          );
+
+          // Create a Drupal.FilterStatus object to track the state (whether it's
+          // active or not and its current settings, if any) of each filter.
+          Drupal.filterConfiguration.statuses[filterID] =
+            new Drupal.FilterStatus(filterID);
+        });
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     },
   };
 })(jQuery, Drupal, document);

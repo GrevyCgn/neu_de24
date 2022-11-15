@@ -434,11 +434,15 @@
     const collision = (options.collision || 'flip').split(' ');
     const offsets = {};
 
+<<<<<<< HEAD
     // Make sure string options are treated as CSS selectors
     const target =
       typeof options.of === 'string'
         ? $(document).find(options.of)
         : $(options.of);
+=======
+    const target = $(options.of);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     const dimensions = getDimensions(target);
     const targetWidth = dimensions.width;
     const targetHeight = dimensions.height;

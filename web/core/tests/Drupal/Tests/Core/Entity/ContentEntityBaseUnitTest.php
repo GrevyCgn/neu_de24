@@ -445,8 +445,15 @@ class ContentEntityBaseUnitTest extends UnitTestCase {
    */
   public function testRequiredValidation() {
     $validator = $this->createMock(ValidatorInterface::class);
+<<<<<<< HEAD
     /** @var \Symfony\Component\Validator\ConstraintViolationList $empty_violation_list */
     $empty_violation_list = new ConstraintViolationList();
+=======
+    /** @var \Symfony\Component\Validator\ConstraintViolationList|\PHPUnit\Framework\MockObject\MockObject $empty_violation_list */
+    $empty_violation_list = $this->getMockBuilder('\Symfony\Component\Validator\ConstraintViolationList')
+      ->setMethods(NULL)
+      ->getMock();
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $validator->expects($this->once())
       ->method('validate')
       ->with($this->entity->getTypedData())

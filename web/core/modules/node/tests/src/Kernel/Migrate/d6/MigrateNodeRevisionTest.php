@@ -49,7 +49,11 @@ class MigrateNodeRevisionTest extends MigrateNodeTestBase {
    *
    * @internal
    */
+<<<<<<< HEAD
   protected function assertRevision(int $id, string $langcode, string $title, ?string $log, int $timestamp): void {
+=======
+  protected function assertRevision($id, $langcode, $title, $log, $timestamp) {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     /** @var  \Drupal\node\NodeInterface $revision */
     $revision = $this->nodeStorage->loadRevision($id)
       ->getTranslation($langcode);

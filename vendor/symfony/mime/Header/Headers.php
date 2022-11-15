@@ -34,8 +34,13 @@ final class Headers
         'cc' => MailboxListHeader::class,
         'bcc' => MailboxListHeader::class,
         'message-id' => IdentificationHeader::class,
+<<<<<<< HEAD
         'in-reply-to' => UnstructuredHeader::class, // `In-Reply-To` and `References` are less strict than RFC 2822 (3.6.4) to allow users entering the original email's ...
         'references' => UnstructuredHeader::class, // ... `Message-ID`, even if that is no valid `msg-id`
+=======
+        'in-reply-to' => IdentificationHeader::class,
+        'references' => IdentificationHeader::class,
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         'return-path' => PathHeader::class,
     ];
 
@@ -254,10 +259,14 @@ final class Headers
         return $arr;
     }
 
+<<<<<<< HEAD
     /**
      * @internal
      */
     public function getHeaderBody(string $name)
+=======
+    public function getHeaderBody($name)
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     {
         return $this->has($name) ? $this->get($name)->getBody() : null;
     }

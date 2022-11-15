@@ -10,7 +10,10 @@ use Drupal\Core\Link;
 use Drupal\Core\State\StateInterface;
 use Drupal\Core\Url;
 use Drupal\Core\Extension\ExtensionVersion;
+<<<<<<< HEAD
 use Drupal\update\ProjectRelease;
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 use Drupal\update\UpdateFetcherInterface;
 use Drupal\update\UpdateManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -141,7 +144,11 @@ class UpdateManagerUpdate extends FormBase {
 
       $recommended_release = ProjectRelease::createFromArray($project['releases'][$project['recommended']]);
       $recommended_version = '{{ release_version }} (<a href="{{ release_link }}" title="{{ project_title }}">{{ release_notes }}</a>)';
+<<<<<<< HEAD
       $recommended_version_parser = ExtensionVersion::createFromVersionString($recommended_release->getVersion());
+=======
+      $recommended_version_parser = ExtensionVersion::createFromVersionString($recommended_release['version']);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       if ($recommended_version_parser->getMajorVersion() != $project['existing_major']) {
         $recommended_version .= '<div title="{{ major_update_warning_title }}" class="update-major-version-warning">{{ major_update_warning_text }}</div>';
       }

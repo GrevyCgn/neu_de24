@@ -63,46 +63,82 @@ class SearchNodeDiacriticsTest extends BrowserTestBase {
     $edit = ['keys' => 'meklet'];
     $this->drupalGet('search/node');
     $this->submitForm($edit, 'Search');
+<<<<<<< HEAD
     $this->assertSession()->responseContains('<strong>meklēt</strong>');
+=======
+    $this->assertRaw('<strong>meklēt</strong>');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $edit = ['keys' => 'meklēt'];
     $this->drupalGet('search/node');
     $this->submitForm($edit, 'Search');
+<<<<<<< HEAD
     $this->assertSession()->responseContains('<strong>meklēt</strong>');
+=======
+    $this->assertRaw('<strong>meklēt</strong>');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $edit = ['keys' => 'cómmīŦŧęđ BɆĬŇĜ påŔťıçȉpǎǹţș'];
     $this->drupalGet('search/node');
     $this->submitForm($edit, 'Search');
+<<<<<<< HEAD
     $this->assertSession()->responseContains('<strong>cómmīŦŧęđ</strong>');
     $this->assertSession()->responseContains('<strong>BɆĬŇĜ</strong>');
     $this->assertSession()->responseContains('<strong>påŔťıçȉpǎǹţș</strong>');
+=======
+    $this->assertRaw('<strong>cómmīŦŧęđ</strong>');
+    $this->assertRaw('<strong>BɆĬŇĜ</strong>');
+    $this->assertRaw('<strong>påŔťıçȉpǎǹţș</strong>');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $edit = ['keys' => 'committed being participants'];
     $this->drupalGet('search/node');
     $this->submitForm($edit, 'Search');
+<<<<<<< HEAD
     $this->assertSession()->responseContains('<strong>cómmīŦŧęđ</strong>');
     $this->assertSession()->responseContains('<strong>BɆĬŇĜ</strong>');
     $this->assertSession()->responseContains('<strong>påŔťıçȉpǎǹţș</strong>');
+=======
+    $this->assertRaw('<strong>cómmīŦŧęđ</strong>');
+    $this->assertRaw('<strong>BɆĬŇĜ</strong>');
+    $this->assertRaw('<strong>påŔťıçȉpǎǹţș</strong>');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $edit = ['keys' => 'Enricþment'];
     $this->drupalGet('search/node');
     $this->submitForm($edit, 'Search');
+<<<<<<< HEAD
     $this->assertSession()->responseContains('<strong>Enricþment</strong>');
+=======
+    $this->assertRaw('<strong>Enricþment</strong>');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $edit = ['keys' => 'Enritchment'];
     $this->drupalGet('search/node');
     $this->submitForm($edit, 'Search');
+<<<<<<< HEAD
     $this->assertSession()->responseNotContains('<strong>Enricþment</strong>');
+=======
+    $this->assertNoRaw('<strong>Enricþment</strong>');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $edit = ['keys' => 'æll'];
     $this->drupalGet('search/node');
     $this->submitForm($edit, 'Search');
+<<<<<<< HEAD
     $this->assertSession()->responseContains('<strong>æll</strong>');
+=======
+    $this->assertRaw('<strong>æll</strong>');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $edit = ['keys' => 'all'];
     $this->drupalGet('search/node');
     $this->submitForm($edit, 'Search');
+<<<<<<< HEAD
     $this->assertSession()->responseNotContains('<strong>æll</strong>');
+=======
+    $this->assertNoRaw('<strong>æll</strong>');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     // cSpell:enable
   }
 

@@ -1,5 +1,6 @@
 /**
  * @file
+<<<<<<< HEAD
  * Wide viewport search bar interactions.
  */
 
@@ -10,6 +11,18 @@
   const searchWideWrapperSelector =
     '[data-drupal-selector="block-search-wide-wrapper"]';
   const searchWideWrapper = document.querySelector(searchWideWrapperSelector);
+=======
+ * Customization of search.
+ */
+
+((Drupal) => {
+  const searchWideButton = document.querySelector(
+    '[data-drupal-selector="block-search-wide-button"]',
+  );
+  const searchWideWrapper = document.querySelector(
+    '[data-drupal-selector="block-search-wide-wrapper"]',
+  );
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
   /**
    * Determine if search is visible.
@@ -23,6 +36,7 @@
   Drupal.olivero.searchIsVisible = searchIsVisible;
 
   /**
+<<<<<<< HEAD
    * Closes search bar when a click event does not happen at an (x,y) coordinate
    * that does not overlap with either the search wrapper or button.
    *
@@ -80,6 +94,8 @@
   }
 
   /**
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    * Set focus for the search input element.
    */
   function handleFocus() {
@@ -129,6 +145,7 @@
 
   Drupal.olivero.toggleSearchVisibility = toggleSearchVisibility;
 
+<<<<<<< HEAD
   /**
    * Initializes the search wide button.
    *
@@ -152,4 +169,28 @@
       }
     },
   };
+=======
+  document.addEventListener('keyup', (e) => {
+    if (e.key === 'Escape' || e.key === 'Esc') {
+      toggleSearchVisibility(false);
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (
+      e.target.matches(
+        '[data-drupal-selector="block-search-wide-button"], [data-drupal-selector="block-search-wide-button"] *',
+      )
+    ) {
+      toggleSearchVisibility(!searchIsVisible());
+    } else if (
+      searchIsVisible() &&
+      !e.target.matches(
+        '[data-drupal-selector="block-search-wide-wrapper"], [data-drupal-selector="block-search-wide-wrapper"] *',
+      )
+    ) {
+      toggleSearchVisibility(false);
+    }
+  });
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 })(Drupal);

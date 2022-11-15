@@ -117,7 +117,11 @@ class SearchBlockTest extends BrowserTestBase {
     $this->drupalGet('node');
     $this->submitForm(['keys' => $this->randomMachineName(1)], 'Search');
     $this->assertSession()->pageTextContains('You must include at least one keyword to match in the content');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('Please enter some keywords');
+=======
+    $this->assertNoText('Please enter some keywords');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->submitForm(['keys' => $this->randomMachineName()], 'Search', 'search-block-form');
     $this->assertSession()->pageTextNotContains('You must include at least one keyword to match in the content');
 

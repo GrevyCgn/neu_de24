@@ -18,6 +18,11 @@ use Symfony\Component\DependencyInjection\Definition;
  */
 class InstanceofConfigurator extends AbstractServiceConfigurator
 {
+<<<<<<< HEAD
+=======
+    public const FACTORY = 'instanceof';
+
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     use Traits\AutowireTrait;
     use Traits\BindTrait;
     use Traits\CallTrait;

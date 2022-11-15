@@ -93,7 +93,15 @@ class BulkFormAccessTest extends NodeTestBase {
     ];
     $this->drupalGet('test-node-bulk-form');
     $this->submitForm($edit, 'Apply to selected items');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains("No access to execute Unpublish content on the Content {$node->label()}.");
+=======
+    $this->assertRaw(new FormattableMarkup('No access to execute %action on the @entity_type_label %entity_label.', [
+      '%action' => 'Unpublish content',
+      '@entity_type_label' => 'Content',
+      '%entity_label' => $node->label(),
+    ]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Re-load the node and check the status.
     $node = Node::load($node->id());

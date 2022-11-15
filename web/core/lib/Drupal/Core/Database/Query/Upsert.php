@@ -110,6 +110,7 @@ abstract class Upsert extends Query implements \Countable {
       }
     }
 
+<<<<<<< HEAD
     $stmt = $this->connection->prepareStatement((string) $this, $this->queryOptions, TRUE);
     try {
       $stmt->execute($values, $this->queryOptions);
@@ -118,6 +119,9 @@ abstract class Upsert extends Query implements \Countable {
     catch (\Exception $e) {
       $this->connection->exceptionHandler()->handleExecutionException($e, $stmt, $values, $this->queryOptions);
     }
+=======
+    $affected_rows = $this->connection->query((string) $this, $values, $this->queryOptions);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Re-initialize the values array so that we can re-use this query.
     $this->insertValues = [];

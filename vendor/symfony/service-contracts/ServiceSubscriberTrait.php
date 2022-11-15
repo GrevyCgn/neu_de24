@@ -72,6 +72,7 @@ trait ServiceSubscriberTrait
                     continue;
                 }
 
+<<<<<<< HEAD
                 if (!($returnType = $method->getReturnType()) instanceof \ReflectionNamedType) {
                     continue;
                 }
@@ -84,6 +85,9 @@ trait ServiceSubscriberTrait
                     trigger_deprecation('symfony/service-contracts', '2.5', 'Using "%s" in "%s" without using the "%s" attribute on any method is deprecated.', ServiceSubscriberTrait::class, self::class, SubscribedService::class);
                 }
 
+=======
+            if (self::class === $method->getDeclaringClass()->name && ($returnType = $method->getReturnType()) && !$returnType->isBuiltin()) {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
                 $services[self::class.'::'.$method->name] = '?'.($returnType instanceof \ReflectionNamedType ? $returnType->getName() : $returnType);
             }
         }

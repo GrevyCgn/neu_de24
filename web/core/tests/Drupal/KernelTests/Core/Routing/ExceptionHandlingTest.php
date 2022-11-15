@@ -200,7 +200,11 @@ class ExceptionHandlingTest extends KernelTestBase {
     // final exception subscriber, it is printed as partial HTML, and hence
     // escaped.
     $this->assertEquals('text/plain; charset=UTF-8', $response->headers->get('Content-type'));
+<<<<<<< HEAD
     $this->assertStringStartsWith('The website encountered an unexpected error. Please try again later.<br><br><em class="placeholder">Symfony\Component\HttpKernel\Exception\NotAcceptableHttpException</em>: Not acceptable format: json&lt;script&gt;alert(123);&lt;/script&gt; in <em class="placeholder">', $response->getContent());
+=======
+    $this->assertStringStartsWith('The website encountered an unexpected error. Please try again later.</br></br><em class="placeholder">Symfony\Component\HttpKernel\Exception\NotAcceptableHttpException</em>: Not acceptable format: json&lt;script&gt;alert(123);&lt;/script&gt; in <em class="placeholder">', $response->getContent());
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
 }

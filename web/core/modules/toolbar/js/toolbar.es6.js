@@ -150,6 +150,7 @@
             $(document).trigger('drupalToolbarTrayChange', tray);
           });
 
+<<<<<<< HEAD
         // If the toolbar's orientation is horizontal and no active tab is
         // defined then show the tray of the first toolbar tab by default (but
         // not the first 'Home' toolbar tab).
@@ -162,6 +163,53 @@
             activeTab: $(
               '.toolbar-bar .toolbar-tab:not(.home-toolbar-tab) a',
             ).get(0),
+=======
+          Drupal.toolbar.views.toolbarVisualView =
+            new Drupal.toolbar.ToolbarVisualView({
+              el: this,
+              model,
+              strings: options.strings,
+            });
+          Drupal.toolbar.views.toolbarAuralView =
+            new Drupal.toolbar.ToolbarAuralView({
+              el: this,
+              model,
+              strings: options.strings,
+            });
+          Drupal.toolbar.views.bodyVisualView =
+            new Drupal.toolbar.BodyVisualView({
+              el: this,
+              model,
+            });
+
+          // Force layout render to fix mobile view. Only needed on load, not
+          // for every media query match.
+          model.trigger('change:isFixed', model, model.get('isFixed'));
+          model.trigger('change:activeTray', model, model.get('activeTray'));
+
+          // Render collapsible menus.
+          const menuModel = new Drupal.toolbar.MenuModel();
+          Drupal.toolbar.models.menuModel = menuModel;
+          Drupal.toolbar.views.menuVisualView =
+            new Drupal.toolbar.MenuVisualView({
+              el: $(this).find('.toolbar-menu-administration').get(0),
+              model: menuModel,
+              strings: options.strings,
+            });
+
+          // Handle the resolution of Drupal.toolbar.setSubtrees.
+          // This is handled with a deferred so that the function may be invoked
+          // asynchronously.
+          Drupal.toolbar.setSubtrees.done((subtrees) => {
+            menuModel.set('subtrees', subtrees);
+            const theme = drupalSettings.ajaxPageState.theme;
+            localStorage.setItem(
+              `Drupal.toolbar.subtrees.${theme}`,
+              JSON.stringify(subtrees),
+            );
+            // Indicate on the toolbarModel that subtrees are now loaded.
+            model.set('areSubtreesLoaded', true);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
           });
         }
 

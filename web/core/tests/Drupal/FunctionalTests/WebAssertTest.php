@@ -98,6 +98,7 @@ class WebAssertTest extends BrowserTestBase {
     $this->assertSession()->elementTextEquals('xpath', '//h1', 'Foo page');
   }
 
+<<<<<<< HEAD
   /**
    * @covers ::addressEquals
    */
@@ -133,4 +134,6 @@ class WebAssertTest extends BrowserTestBase {
     $this->assertSession()->addressNotEquals('test-page?a=b&c=d');
   }
 
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 }

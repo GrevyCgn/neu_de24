@@ -433,7 +433,11 @@ class KernelTestBaseTest extends KernelTestBase {
 
     // Dump some variables.
     $this->enableModules(['system', 'user']);
+<<<<<<< HEAD
     $role = Role::create(['id' => 'test_role', 'label' => 'Test role']);
+=======
+    $role = Role::create(['id' => 'test_role']);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     dump($role);
     dump($role->id());
 
@@ -441,6 +445,7 @@ class KernelTestBaseTest extends KernelTestBase {
     $this->assertStringContainsString('test_role', StreamCapturer::$cache);
   }
 
+<<<<<<< HEAD
   /**
    * @covers ::bootEnvironment
    */
@@ -451,4 +456,6 @@ class KernelTestBaseTest extends KernelTestBase {
     $this->assertSame(1, \Drupal::service('extension.list.module')->get($module)->status);
   }
 
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 }

@@ -101,7 +101,11 @@ class EmailFieldTest extends BrowserTestBase {
     preg_match('|entity_test/manage/(\d+)|', $this->getUrl(), $match);
     $id = $match[1];
     $this->assertSession()->pageTextContains('entity_test ' . $id . ' has been created.');
+<<<<<<< HEAD
     $this->assertSession()->responseContains($value);
+=======
+    $this->assertRaw($value);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Verify that a mailto link is displayed.
     $entity = EntityTest::load($id);

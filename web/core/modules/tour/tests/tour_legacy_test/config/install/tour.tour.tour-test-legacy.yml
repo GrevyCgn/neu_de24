@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 langcode: en
 id: tour-test-legacy
 label: 'Tour test Legacy'
@@ -5,6 +6,14 @@ module: tour_test
 routes:
   -
     route_name: tour_test.legacy
+=======
+id: tour-test-legacy
+module: tour_test
+label: 'Tour test Legacy'
+langcode: en
+routes:
+  - route_name: tour_test.legacy
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 tips:
   tour-test-legacy-1:
     id: tour-test-legacy-1

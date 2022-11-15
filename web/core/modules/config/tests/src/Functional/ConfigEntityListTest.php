@@ -179,14 +179,24 @@ class ConfigEntityListTest extends BrowserTestBase {
     $this->assertSession()->elementTextEquals('xpath', '//div[@class="layout-content"]//table/thead/tr/th[3]', 'Operations');
 
     // Check the number of table row cells.
+<<<<<<< HEAD
     $this->assertSession()->elementsCount('xpath', '//div[@class="layout-content"]//table/tbody/tr[1]/td', 3);
+=======
+    $this->assertSession()->elementsCount('xpath', '//div[@class="layout-content"]//table/tbody/tr[@class="odd"]/td', 3);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Check the contents of each row cell. The first cell contains the label,
     // the second contains the machine name, and the third contains the
     // operations list.
+<<<<<<< HEAD
     $this->assertSession()->elementTextEquals('xpath', '//div[@class="layout-content"]//table/tbody/tr[1]/td[1]', 'Default');
     $this->assertSession()->elementTextEquals('xpath', '//div[@class="layout-content"]//table/tbody/tr[1]/td[2]', 'dotted.default');
     $this->assertSession()->elementExists('xpath', '//div[@class="layout-content"]//table/tbody/tr[1]/td[3]//ul');
+=======
+    $this->assertSession()->elementTextEquals('xpath', '//div[@class="layout-content"]//table/tbody/tr[@class="odd"]/td[1]', 'Default');
+    $this->assertSession()->elementTextEquals('xpath', '//div[@class="layout-content"]//table/tbody/tr[@class="odd"]/td[2]', 'dotted.default');
+    $this->assertSession()->elementExists('xpath', '//div[@class="layout-content"]//table/tbody/tr[@class="odd"]/td[3]//ul');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Add a new entity using the operations link.
     $this->assertSession()->linkExists('Add test configuration');

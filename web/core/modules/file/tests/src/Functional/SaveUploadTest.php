@@ -512,9 +512,15 @@ class SaveUploadTest extends FileManagedTestBase {
     $this->drupalGet('file-test/upload');
     $this->submitForm($edit, 'Submit');
     $this->assertSession()->statusCodeEquals(200);
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains('For security reasons, your upload has been renamed');
     $this->assertSession()->pageTextContains("File name is image-test.png_.php_.png");
     $this->assertSession()->pageTextContains("You WIN!");
+=======
+    $this->assertRaw(t('For security reasons, your upload has been renamed'));
+    $this->assertRaw(t('File name is @filename', ['@filename' => 'image-test.png_.php_.png']));
+    $this->assertRaw(t('You WIN!'));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Check that the correct hooks were called.
     $this->assertFileHooksCalled(['validate', 'insert']);
@@ -531,9 +537,15 @@ class SaveUploadTest extends FileManagedTestBase {
     $this->drupalGet('file-test/upload');
     $this->submitForm($edit, 'Submit');
     $this->assertSession()->statusCodeEquals(200);
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains('For security reasons, your upload has been renamed');
     $this->assertSession()->pageTextContains("File name is image-test.png_.php__0.png");
     $this->assertSession()->pageTextContains("You WIN!");
+=======
+    $this->assertRaw(t('For security reasons, your upload has been renamed'));
+    $this->assertRaw(t('File name is @filename.', ['@filename' => 'image-test.png_.php__0.png']));
+    $this->assertRaw(t('You WIN!'));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Check that the correct hooks were called.
     $this->assertFileHooksCalled(['validate', 'insert']);
@@ -638,7 +650,11 @@ class SaveUploadTest extends FileManagedTestBase {
   public function testNoUpload() {
     $this->drupalGet('file-test/upload');
     $this->submitForm([], 'Submit');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains("Epic upload FAIL!");
+=======
+    $this->assertNoRaw(t('Epic upload FAIL!'));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**

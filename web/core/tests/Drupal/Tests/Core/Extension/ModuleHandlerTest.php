@@ -321,7 +321,11 @@ class ModuleHandlerTest extends UnitTestCase {
   }
 
   /**
+<<<<<<< HEAD
    * Tests deprecation of the ::getImplementations method.
+=======
+   * Tests getImplementations.
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    *
    * @covers ::getImplementations
    * @covers ::getImplementationInfo
@@ -335,7 +339,11 @@ class ModuleHandlerTest extends UnitTestCase {
   }
 
   /**
+<<<<<<< HEAD
    * Tests deprecation of the ::implementsHook method.
+=======
+   * Tests getImplementations.
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    *
    * @covers ::implementsHook
    *

@@ -255,6 +255,7 @@ function system_theme() {
       'file' => 'system.theme.inc',
       'variables' => ['error_message' => []],
     ],
+<<<<<<< HEAD
     'entity_page_title' => [
       'variables' => [
         'attributes' => [],
@@ -263,6 +264,8 @@ function system_theme() {
         'view_mode' => NULL,
       ],
     ],
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   ]);
 }
 
@@ -1387,6 +1390,7 @@ function system_page_top() {
     }
   }
 }
+<<<<<<< HEAD
 
 /**
  * Implements hook_file_download().
@@ -1405,3 +1409,5 @@ function system_file_download($uri) {
     }
   }
 }
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b

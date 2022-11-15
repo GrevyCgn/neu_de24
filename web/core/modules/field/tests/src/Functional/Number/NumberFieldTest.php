@@ -88,7 +88,11 @@ class NumberFieldTest extends BrowserTestBase {
     preg_match('|entity_test/manage/(\d+)|', $this->getUrl(), $match);
     $id = $match[1];
     $this->assertSession()->pageTextContains('entity_test ' . $id . ' has been created.');
+<<<<<<< HEAD
     $this->assertSession()->responseContains($value);
+=======
+    $this->assertRaw($value);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Try to create entries with more than one decimal separator; assert fail.
     $wrong_entries = [
@@ -252,7 +256,11 @@ class NumberFieldTest extends BrowserTestBase {
       preg_match('|entity_test/manage/(\d+)|', $this->getUrl(), $match);
       $id = $match[1];
       $this->assertSession()->pageTextContains('entity_test ' . $id . ' has been created.');
+<<<<<<< HEAD
       $this->assertSession()->responseContains($valid_entry);
+=======
+      $this->assertRaw($valid_entry);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       // Verify that the "content" attribute is not present since the Prefix is
       // not being displayed.
       $this->assertSession()->elementNotExists('xpath', '//div[@content="' . $valid_entry . '"]');

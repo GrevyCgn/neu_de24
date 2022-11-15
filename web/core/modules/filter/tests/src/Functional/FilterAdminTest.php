@@ -178,7 +178,11 @@ class FilterAdminTest extends BrowserTestBase {
     ];
     $this->drupalGet('admin/config/content/formats/add');
     $this->submitForm($edit, 'Save configuration');
+<<<<<<< HEAD
     $this->assertSession()->statusMessageContains('The machine-readable name is already in use. It must be unique.', 'error');
+=======
+    $this->assertSession()->pageTextContains('The machine-readable name is already in use. It must be unique.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Attempt to create a format of the same human readable name as the
     // disabled format but with a different machine name.
@@ -188,7 +192,13 @@ class FilterAdminTest extends BrowserTestBase {
     ];
     $this->drupalGet('admin/config/content/formats/add');
     $this->submitForm($edit, 'Save configuration');
+<<<<<<< HEAD
     $this->assertSession()->statusMessageContains("Text format names must be unique. A format named $name already exists.", 'error');
+=======
+    $this->assertRaw(t('Text format names must be unique. A format named %name already exists.', [
+      '%name' => $name,
+    ]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**
@@ -306,10 +316,17 @@ class FilterAdminTest extends BrowserTestBase {
     $edit['body[0][format]'] = $basic;
     $this->drupalGet('node/add/page');
     $this->submitForm($edit, 'Save');
+<<<<<<< HEAD
     $this->assertSession()->statusMessageContains('Basic page ' . $edit['title[0][value]'] . ' has been created.', 'status');
 
     // Verify that the creation message contains a link to a node.
     $this->assertSession()->elementExists('xpath', '//div[@aria-label="Status message"]//a[contains(@href, "node/")]');
+=======
+    $this->assertSession()->pageTextContains('Basic page ' . $edit['title[0][value]'] . ' has been created.');
+
+    // Verify that the creation message contains a link to a node.
+    $this->assertSession()->elementExists('xpath', '//div[contains(@class, "messages")]//a[contains(@href, "node/")]');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $node = $this->drupalGetNodeByTitle($edit['title[0][value]']);
     $this->assertNotEmpty($node, 'Node found in database.');
@@ -379,7 +396,11 @@ class FilterAdminTest extends BrowserTestBase {
     ];
     $this->drupalGet('admin/config/content/formats/manage/basic_html');
     $this->submitForm($edit, 'Save configuration');
+<<<<<<< HEAD
     $this->assertSession()->statusMessageNotContains('The text format Basic HTML has been updated.');
+=======
+    $this->assertNoRaw(t('The text format %format has been updated.', ['%format' => 'Basic HTML']));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**

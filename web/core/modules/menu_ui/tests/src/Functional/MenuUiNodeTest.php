@@ -95,7 +95,11 @@ class MenuUiNodeTest extends BrowserTestBase {
     // Verify that no menu settings are displayed and nodes can be created.
     $this->drupalGet('node/add/page');
     $this->assertSession()->pageTextContains('Create Basic page');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('Menu settings');
+=======
+    $this->assertNoText('Menu settings');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $node_title = $this->randomMachineName();
     $edit = [
       'title[0][value]' => $node_title,
@@ -114,7 +118,11 @@ class MenuUiNodeTest extends BrowserTestBase {
     $this->drupalGet('admin/structure/types/manage/page');
     $this->submitForm($edit, 'Save content type');
     $this->assertSession()->pageTextContains('The selected menu link is not under one of the selected menus.');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains("The content type Basic page has been updated.");
+=======
+    $this->assertNoRaw(t('The content type %name has been updated.', ['%name' => 'Basic page']));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Enable Tools menu as available menu.
     $edit = [
@@ -124,7 +132,11 @@ class MenuUiNodeTest extends BrowserTestBase {
     ];
     $this->drupalGet('admin/structure/types/manage/page');
     $this->submitForm($edit, 'Save content type');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains("The content type Basic page has been updated.");
+=======
+    $this->assertRaw(t('The content type %name has been updated.', ['%name' => 'Basic page']));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Test that we can preview a node that will create a menu item.
     $edit = [

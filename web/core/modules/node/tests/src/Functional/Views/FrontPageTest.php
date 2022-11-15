@@ -77,7 +77,11 @@ class FrontPageTest extends ViewTestBase {
     $this->executeView($view);
     $view->preview();
 
+<<<<<<< HEAD
     $this->assertEquals('Welcome!', $view->getTitle(), 'The welcome title is used for the empty view.');
+=======
+    $this->assertEquals(new FormattableMarkup('Welcome to @site_name', ['@site_name' => $site_name]), $view->getTitle(), 'The welcome title is used for the empty view.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $view->destroy();
 
     // Create some nodes on the frontpage view. Add more than 10 nodes in order

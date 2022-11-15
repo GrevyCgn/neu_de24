@@ -81,10 +81,13 @@ class UpsertTest extends DatabaseTestBase {
 
     $result = $upsert->execute();
     $this->assertIsInt($result);
+<<<<<<< HEAD
     // The upsert returns the number of rows affected. For MySQL the return
     // value is 3 because the affected-rows value per row is 1 if the row is
     // inserted as a new row, 2 if an existing row is updated. See
     // https://dev.mysql.com/doc/c-api/8.0/en/mysql-affected-rows.html.
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertGreaterThanOrEqual(2, $result, 'The result of the upsert operation should report that at least two rows were affected.');
 
     $num_records_after = $this->connection->query('SELECT COUNT(*) FROM {select}')->fetchField();

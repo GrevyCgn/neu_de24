@@ -655,6 +655,7 @@ class ConfigImporterTest extends KernelTestBase {
     catch (ConfigImporterException $e) {
       $expected = static::FAIL_MESSAGE . PHP_EOL . 'The core.extension configuration does not exist.';
       $this->assertEquals($expected, $e->getMessage());
+<<<<<<< HEAD
       $error_log = $config_importer->getErrors();
       $this->assertEquals(['The core.extension configuration does not exist.'], $error_log);
     }
@@ -681,6 +682,10 @@ class ConfigImporterTest extends KernelTestBase {
       $this->assertStringContainsString('There were errors validating the config synchronization.', $e->getMessage());
       $error_log = $config_importer->getErrors();
       $this->assertEquals('Unable to uninstall the <em class="placeholder">System</em> module because: The System module is required.', $error_log[0]);
+=======
+      $error_log = $this->configImporter->getErrors();
+      $this->assertEquals(['The core.extension configuration does not exist.'], $error_log);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     }
   }
 

@@ -223,8 +223,13 @@ class ImageFieldDefaultImagesTest extends ImageFieldTestBase {
 
     $non_image = $this->drupalGetTestFiles('text');
     $this->submitForm(['files[settings_default_image_uuid]' => \Drupal::service('file_system')->realpath($non_image[0]->uri)], 'Upload');
+<<<<<<< HEAD
     $this->assertSession()->statusMessageContains('The specified file text-0.txt could not be uploaded.', 'error');
     $this->assertSession()->statusMessageContains('Only files with the following extensions are allowed: png gif jpg jpeg.', 'error');
+=======
+    $this->assertSession()->pageTextContains('The specified file text-0.txt could not be uploaded.');
+    $this->assertSession()->pageTextContains('Only files with the following extensions are allowed: png gif jpg jpeg.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Confirm the default image is shown on the node form.
     $file = File::load($default_images['field_storage_new']->id());

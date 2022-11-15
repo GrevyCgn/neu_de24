@@ -104,7 +104,11 @@ class HandlerFilterUserNameTest extends ViewTestBase {
     ];
     $this->drupalGet($path);
     $this->submitForm($edit, 'Apply');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains('There are no users matching "' . implode(', ', $users) . '".');
+=======
+    $this->assertRaw(t('There are no users matching "%value".', ['%value' => implode(', ', $users)]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Pass in an invalid username and a valid username.
     $random_name = $this->randomMachineName();
@@ -116,7 +120,11 @@ class HandlerFilterUserNameTest extends ViewTestBase {
     $users = [$users[0]];
     $this->drupalGet($path);
     $this->submitForm($edit, 'Apply');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains('There are no users matching "' . implode(', ', $users) . '".');
+=======
+    $this->assertRaw(t('There are no users matching "%value".', ['%value' => implode(', ', $users)]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Pass in just valid usernames.
     $users = $this->names;
@@ -126,7 +134,11 @@ class HandlerFilterUserNameTest extends ViewTestBase {
     ];
     $this->drupalGet($path);
     $this->submitForm($edit, 'Apply');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('There are no users matching "' . implode(', ', $users) . '".');
+=======
+    $this->assertNoRaw(t('There are no users matching "%value".', ['%value' => implode(', ', $users)]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**
@@ -142,7 +154,11 @@ class HandlerFilterUserNameTest extends ViewTestBase {
     $users = array_map('strtolower', $users);
     $options['query']['uid'] = implode(', ', $users);
     $this->drupalGet($path, $options);
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains('There are no users matching "' . implode(', ', $users) . '".');
+=======
+    $this->assertRaw(t('There are no users matching "%value".', ['%value' => implode(', ', $users)]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Pass in an invalid target_id in for the entity_autocomplete value format.
     // There should be no errors, but all results should be returned as the
@@ -162,7 +178,11 @@ class HandlerFilterUserNameTest extends ViewTestBase {
     $users = [$users[0]];
 
     $this->drupalGet($path, $options);
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains('There are no users matching "' . implode(', ', $users) . '".');
+=======
+    $this->assertRaw(t('There are no users matching "%value".', ['%value' => implode(', ', $users)]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Pass in just valid usernames.
     $users = $this->names;

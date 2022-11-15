@@ -131,6 +131,7 @@
                 <target>Qiymat raqam bo'lishi kerak.</target>
             </trans-unit>
             <trans-unit id="36">
+<<<<<<< HEAD
                 <source>This file is not a valid image.</source>
                 <target>Fayl yaroqli rasm formati emas.</target>
             </trans-unit>
@@ -149,6 +150,26 @@
             <trans-unit id="40">
                 <source>This value is not a valid country.</source>
                 <target>Mamlakat qiymati noto'g'ri.</target>
+=======
+                <source>This value is not a valid country.</source>
+                <target>Mamlakat qiymati noto'g'ri.</target>
+            </trans-unit>
+            <trans-unit id="37">
+                <source>This file is not a valid image.</source>
+                <target>Fayl yaroqli rasm formati emas.</target>
+            </trans-unit>
+            <trans-unit id="38">
+                <source>This is not a valid IP address.</source>
+                <target>Ip manzil noto'g'ri.</target>
+            </trans-unit>
+            <trans-unit id="39">
+                <source>This value is not a valid language.</source>
+                <target>Noto'g'ri til.</target>
+            </trans-unit>
+            <trans-unit id="40">
+                <source>This value is not a valid locale.</source>
+                <target>Ushbu qiymat mahalliy qiymat emas.</target>
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
             </trans-unit>
             <trans-unit id="41">
                 <source>This value is already used.</source>
@@ -386,6 +407,7 @@
                 <source>This value is not a valid International Securities Identification Number (ISIN).</source>
                 <target>Qiymat Qimmatli qog'ozlarning xalqaro identifikatsiya raqami (ISIN) ga mos emas.</target>
             </trans-unit>
+<<<<<<< HEAD
             <trans-unit id="100">
                 <source>This value should be a valid expression.</source>
                 <target>Ushbu qiymat to'g'ri ifoda bo'lishi kerak.</target>
@@ -402,6 +424,8 @@
                 <source>The value of the netmask should be between {{ min }} and {{ max }}.</source>
                 <target>Tarmoq niqobining qiymati {{ min }} va {{ max }} oralig'ida bo'lishi kerak.</target>
             </trans-unit>
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         </body>
     </file>
 </xliff>

@@ -76,11 +76,19 @@ abstract class Kernel implements KernelInterface, RebootableInterface, Terminabl
 
     private static $freshCache = [];
 
+<<<<<<< HEAD
     public const VERSION = '4.4.48';
     public const VERSION_ID = 40448;
     public const MAJOR_VERSION = 4;
     public const MINOR_VERSION = 4;
     public const RELEASE_VERSION = 48;
+=======
+    public const VERSION = '4.4.25';
+    public const VERSION_ID = 40425;
+    public const MAJOR_VERSION = 4;
+    public const MINOR_VERSION = 4;
+    public const RELEASE_VERSION = 25;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     public const EXTRA_VERSION = '';
 
     public const END_OF_MAINTENANCE = '11/2022';
@@ -261,7 +269,11 @@ abstract class Kernel implements KernelInterface, RebootableInterface, Terminabl
 
         $bundleName = substr($name, 1);
         $path = '';
+<<<<<<< HEAD
         if (str_contains($bundleName, '/')) {
+=======
+        if (false !== strpos($bundleName, '/')) {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
             [$bundleName, $path] = explode('/', $bundleName, 2);
         }
 

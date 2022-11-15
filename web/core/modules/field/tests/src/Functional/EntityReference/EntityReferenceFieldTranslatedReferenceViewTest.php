@@ -185,10 +185,17 @@ class EntityReferenceFieldTranslatedReferenceViewTest extends BrowserTestBase {
     $this->drupalGet($url);
     $this->assertSession()->pageTextContains($this->labelOfNotTranslatedReference);
     $this->assertSession()->pageTextContains($this->originalLabel);
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains($this->translatedLabel);
     $this->drupalGet($translation_url);
     $this->assertSession()->pageTextContains($this->labelOfNotTranslatedReference);
     $this->assertSession()->pageTextNotContains($this->originalLabel);
+=======
+    $this->assertNoText($this->translatedLabel);
+    $this->drupalGet($translation_url);
+    $this->assertSession()->pageTextContains($this->labelOfNotTranslatedReference);
+    $this->assertNoText($this->originalLabel);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains($this->translatedLabel);
   }
 

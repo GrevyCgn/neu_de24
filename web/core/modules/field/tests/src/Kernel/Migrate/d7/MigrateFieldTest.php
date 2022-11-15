@@ -148,12 +148,15 @@ class MigrateFieldTest extends MigrateDrupal7TestBase {
     $field = FieldStorageConfig::load('node.field_user_reference');
     $this->assertEquals('user', $field->getSetting('target_type'));
 
+<<<<<<< HEAD
     // Make sure a datetime field with a todate is now a daterange type.
     $field = FieldStorageConfig::load('node.field_event');
     $this->assertSame('daterange', $field->getType());
     $this->assertSame('datetime_range', $field->getTypeProvider());
     $this->assertEquals('datetime', $field->getSetting('datetime_type'));
 
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     // Test the migration of text fields with different text processing.
     // All text and text_long field bases that have only plain text instances
     // should be migrated to string and string_long fields.
@@ -185,6 +188,7 @@ class MigrateFieldTest extends MigrateDrupal7TestBase {
     }, iterator_to_array($migration->getIdMap()->getMessages()));
     sort($errors);
     $this->assertCount(4, $errors);
+<<<<<<< HEAD
     $this->assertEquals('d7_field:type: Can\'t migrate source field field_text_long_plain_filtered configured with both plain text and filtered text processing. See https://www.drupal.org/docs/8/upgrade/known-issues-when-upgrading-from-drupal-6-or-7-to-drupal-8#plain-text', $errors[0]);
     $this->assertEquals('d7_field:type: Can\'t migrate source field field_text_plain_filtered configured with both plain text and filtered text processing. See https://www.drupal.org/docs/8/upgrade/known-issues-when-upgrading-from-drupal-6-or-7-to-drupal-8#plain-text', $errors[1]);
     $this->assertEquals('d7_field:type: Can\'t migrate source field field_text_sum_plain of type text_with_summary configured with plain text processing. See https://www.drupal.org/docs/8/upgrade/known-issues-when-upgrading-from-drupal-6-or-7-to-drupal-8#plain-text', $errors[2]);
@@ -209,6 +213,12 @@ class MigrateFieldTest extends MigrateDrupal7TestBase {
     $this->assertCount(5, $messages);
     $msg = "d7_field:type:process_field: Can't migrate field 'field_event' with 'todate' settings. Enable the datetime_range module. See https://www.drupal.org/docs/8/upgrade/known-issues-when-upgrading-from-drupal-6-or-7-to-drupal-8#datetime";
     $this->assertSame($messages[4]->message, $msg);
+=======
+    $this->assertEquals('Can\'t migrate source field field_text_long_plain_filtered configured with both plain text and filtered text processing. See https://www.drupal.org/docs/8/upgrade/known-issues-when-upgrading-from-drupal-6-or-7-to-drupal-8#plain-text', $errors[0]);
+    $this->assertEquals('Can\'t migrate source field field_text_plain_filtered configured with both plain text and filtered text processing. See https://www.drupal.org/docs/8/upgrade/known-issues-when-upgrading-from-drupal-6-or-7-to-drupal-8#plain-text', $errors[1]);
+    $this->assertEquals('Can\'t migrate source field field_text_sum_plain of type text_with_summary configured with plain text processing. See https://www.drupal.org/docs/8/upgrade/known-issues-when-upgrading-from-drupal-6-or-7-to-drupal-8#plain-text', $errors[2]);
+    $this->assertEquals('Can\'t migrate source field field_text_sum_plain_filtered of type text_with_summary configured with plain text processing. See https://www.drupal.org/docs/8/upgrade/known-issues-when-upgrading-from-drupal-6-or-7-to-drupal-8#plain-text', $errors[3]);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
 }

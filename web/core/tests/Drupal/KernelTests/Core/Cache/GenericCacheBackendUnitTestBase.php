@@ -375,7 +375,11 @@ abstract class GenericCacheBackendUnitTestBase extends KernelTestBase {
     $cids = ['key:key' => $long_cid];
     $return = $backend->getMultiple($cids);
     $this->assertEquals(300, $return[$long_cid]->data);
+<<<<<<< HEAD
     $this->assertEmpty($cids);
+=======
+    $this->assertTrue(empty($cids));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**

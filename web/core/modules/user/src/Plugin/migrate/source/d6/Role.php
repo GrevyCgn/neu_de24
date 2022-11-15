@@ -8,8 +8,12 @@ use Drupal\migrate_drupal\Plugin\migrate\source\DrupalSqlBase;
 /**
  * Drupal 6 role source from database.
  *
+<<<<<<< HEAD
  * For available configuration keys, refer to the parent classes.
  *
+=======
+ * For available configuration keys, refer to the parent classes:
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
  * @see \Drupal\migrate\Plugin\migrate\source\SqlBase
  * @see \Drupal\migrate\Plugin\migrate\source\SourcePluginBase
  *

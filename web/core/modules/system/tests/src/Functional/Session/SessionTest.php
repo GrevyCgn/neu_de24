@@ -70,12 +70,21 @@ class SessionTest extends BrowserTestBase {
     $this->drupalGet('user/login');
     $this->submitForm($edit, 'Log in');
     $this->drupalGet('user');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains($user->getAccountName());
+=======
+    $pass = $this->assertSession()->pageTextContains($user->getAccountName());
+    $this->_logged_in = $pass;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $this->drupalGet('session-test/id');
     $matches = [];
     preg_match('/\s*session_id:(.*)\n/', $this->getSession()->getPage()->getContent(), $matches);
+<<<<<<< HEAD
     $this->assertNotEmpty($matches[1], 'Found session ID after logging in.');
+=======
+    $this->assertTrue(!empty($matches[1]), 'Found session ID after logging in.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertNotSame($original_session, $matches[1], 'Session ID changed after login.');
   }
 

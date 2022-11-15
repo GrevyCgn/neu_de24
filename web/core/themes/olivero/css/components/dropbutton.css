@@ -10,6 +10,7 @@
  * Dropbutton styles.
  */
 
+<<<<<<< HEAD
 .dropbutton-wrapper.open {
   position: relative;
   z-index: 100; /* Ensure this appears above all other dropbuttons. */
@@ -52,6 +53,16 @@
 
 [dir="rtl"] .dropbutton {
   margin-right: 0;
+=======
+.dropbutton-widget {
+  overflow: hidden;
+  border: solid 1px #fff;
+  border-radius: 0.1875rem;
+}
+
+.dropbutton {
+  background-color: #0d77b5;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 }
 
 [dir="ltr"] .dropbutton {
@@ -70,6 +81,7 @@
   font-size: 0.875rem;
 }
 
+<<<<<<< HEAD
 [dir="ltr"] .dropbutton-toggle button {
   right: 0;
 }
@@ -96,6 +108,69 @@
 .dropbutton-toggle button:focus {
     outline: solid 2px #0d77b5;
     outline-offset: -2px;
+=======
+[dir="ltr"] .dropbutton-action a {
+    padding-left: 1.125rem;
+}
+
+[dir="rtl"] .dropbutton-action a {
+    padding-right: 1.125rem;
+}
+
+[dir="ltr"] .dropbutton-action a {
+    padding-right: 1.125rem;
+}
+
+[dir="rtl"] .dropbutton-action a {
+    padding-left: 1.125rem;
+}
+
+.dropbutton-action a {
+    padding-top: 0.28125rem;
+    padding-bottom: 0.28125rem;
+    text-decoration: none;
+    color: #fff
+  }
+
+.dropbutton-action a:hover {
+      background-color: #2494db;
+    }
+
+.dropbutton-action a:focus {
+      outline: 2px solid #53b0eb;
+      outline-offset: 2px;
+      background-color: #2494db;
+    }
+
+.open .dropbutton-action:not(:last-child) {
+  border-bottom: solid 1px #fff;
+}
+
+.js .dropbutton-action a:focus {
+  outline: 2px solid #53b0eb;
+}
+
+[dir="ltr"] .dropbutton-toggle {
+  border-left: 1px solid #fff;
+}
+
+[dir="rtl"] .dropbutton-toggle {
+  border-right: 1px solid #fff;
+}
+
+.dropbutton-toggle {
+  background-color: #0d77b5
+}
+
+.dropbutton-toggle:hover {
+    background-color: #2494db;
+  }
+
+.dropbutton-toggle button:focus {
+    outline: solid 2px #53b0eb;
+    outline-offset: 2px;
+    background-color: #2494db;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
 .dropbutton-toggle button:before {

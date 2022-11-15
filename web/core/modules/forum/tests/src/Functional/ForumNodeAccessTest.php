@@ -97,7 +97,11 @@ class ForumNodeAccessTest extends BrowserTestBase {
     $this->drupalGet('');
 
     // Ensure private node is not found but public is found.
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains($private_node->getTitle());
+=======
+    $this->assertNoText($private_node->getTitle());
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains($public_node->getTitle());
   }
 

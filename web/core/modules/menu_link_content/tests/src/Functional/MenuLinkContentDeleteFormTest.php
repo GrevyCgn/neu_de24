@@ -41,7 +41,11 @@ class MenuLinkContentDeleteFormTest extends BrowserTestBase {
     // Add new menu item.
     $this->drupalGet('admin/structure/menu/manage/admin/add');
     $this->submitForm([
+<<<<<<< HEAD
       'title[0][value]' => 'Front page',
+=======
+      'title[0][value]' => t('Front page'),
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       'link[0][uri]' => '<front>',
     ], 'Save');
     $this->assertSession()->pageTextContains('The menu link has been saved.');

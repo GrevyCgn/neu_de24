@@ -166,7 +166,11 @@ class TaggedWithTest extends WizardTestBase {
     $this->assertSession()->statusCodeEquals(200);
     $this->assertSession()->pageTextContains($node_tag1_title);
     $this->assertSession()->pageTextContains($node_tag1_tag2_title);
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains($node_no_tags_title);
+=======
+    $this->assertNoText($node_no_tags_title);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Create a view that filters by taxonomy term "tag2". It should show only
     // the one node from above that is tagged with "tag2".
@@ -185,9 +189,15 @@ class TaggedWithTest extends WizardTestBase {
     $this->submitForm($view2, 'Save and edit');
     $this->assertSession()->statusCodeEquals(200);
     $this->drupalGet($view2['page[path]']);
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains($node_tag1_title);
     $this->assertSession()->pageTextContains($node_tag1_tag2_title);
     $this->assertSession()->pageTextNotContains($node_no_tags_title);
+=======
+    $this->assertNoText($node_tag1_title);
+    $this->assertSession()->pageTextContains($node_tag1_tag2_title);
+    $this->assertNoText($node_no_tags_title);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**

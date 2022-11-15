@@ -109,8 +109,13 @@ class FilterNodeAccessTest extends NodeTestBase {
     ]);
     $this->drupalLogin($administer_nodes_user);
     $this->drupalGet('test_filter_node_access');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('Private Article created by ' . $this->users[0]->getAccountName());
     $this->assertSession()->pageTextNotContains('Private Article created by ' . $this->users[1]->getAccountName());
+=======
+    $this->assertNoText('Private Article created by ' . $this->users[0]->getAccountName());
+    $this->assertNoText('Private Article created by ' . $this->users[1]->getAccountName());
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains('Public Article created by ' . $this->users[0]->getAccountName());
     $this->assertSession()->pageTextContains('Public Article created by ' . $this->users[1]->getAccountName());
 

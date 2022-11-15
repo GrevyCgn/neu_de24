@@ -65,6 +65,10 @@
    */
 
   /* @todo should this be scoped to desktop nav? */
+<<<<<<< HEAD
+=======
+  width: -webkit-max-content;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   width: max-content;
   max-width: 12.5rem
 }

@@ -784,8 +784,13 @@ class EntityQueryTest extends EntityKernelTestBase {
       ->addMetaData('foo', 'bar')
       ->execute();
 
+<<<<<<< HEAD
     $mem = field_test_memorize();
     $this->assertEquals('bar', $mem['field_test_query_efq_metadata_test_alter'][0], 'Tag and metadata propagated to the SQL query object.');
+=======
+    global $efq_test_metadata;
+    $this->assertEquals('bar', $efq_test_metadata, 'Tag and metadata propagated to the SQL query object.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**

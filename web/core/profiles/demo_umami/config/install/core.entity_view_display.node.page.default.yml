@@ -11,8 +11,13 @@ dependencies:
     - user
 third_party_settings:
   layout_builder:
+<<<<<<< HEAD
     enabled: false
     allow_custom: false
+=======
+    allow_custom: false
+    enabled: false
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 id: node.page.default
 targetEntityType: node
 bundle: page

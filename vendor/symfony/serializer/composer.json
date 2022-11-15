@@ -29,7 +29,11 @@
         "symfony/error-handler": "^4.4|^5.0",
         "symfony/http-foundation": "^3.4|^4.0|^5.0",
         "symfony/mime": "^4.4|^5.0",
+<<<<<<< HEAD
         "symfony/property-access": "^4.4.36|^5.3.13",
+=======
+        "symfony/property-access": "^3.4.41|^4.4.9|^5.0.9",
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         "symfony/property-info": "^3.4.13|~4.0|^5.0",
         "symfony/validator": "^3.4|^4.0|^5.0",
         "symfony/yaml": "^3.4|^4.0|^5.0"

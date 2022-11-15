@@ -48,6 +48,12 @@ class ElementsLabelsTest extends BrowserTestBase {
 
     // Exercise various defaults for textboxes and modifications to ensure
     // appropriate override and correct behavior.
+<<<<<<< HEAD
+=======
+
+    // Verify that label precedes textfield, with required marker inside label.
+    $this->assertSession()->elementExists('xpath', '//label[@for="edit-form-textfield-test-title-and-required" and @class="js-form-required form-required"]/following-sibling::input[@id="edit-form-textfield-test-title-and-required"]');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Verify that label precedes textfield, with required marker inside label.
     $this->assertSession()->elementExists('xpath', '//label[@for="edit-form-textfield-test-title-and-required" and @class="js-form-required form-required"]/following-sibling::input[@id="edit-form-textfield-test-title-and-required"]');

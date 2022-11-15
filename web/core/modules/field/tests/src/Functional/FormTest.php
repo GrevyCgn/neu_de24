@@ -128,10 +128,17 @@ class FormTest extends FieldTestBase {
 
     // Check that hook_field_widget_single_element_form_alter() does not believe
     // this is the default value form.
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('From hook_field_widget_single_element_form_alter(): Default form is true.');
     // Check that hook_field_widget_single_element_form_alter() does not believe
     // this is the default value form.
     $this->assertSession()->pageTextNotContains('From hook_field_widget_complete_form_alter(): Default form is true.');
+=======
+    $this->assertNoText('From hook_field_widget_single_element_form_alter(): Default form is true.');
+    // Check that hook_field_widget_single_element_form_alter() does not believe
+    // this is the default value form.
+    $this->assertNoText('From hook_field_widget_complete_form_alter(): Default form is true.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Submit with invalid value (field-level validation).
     $edit = [
@@ -233,7 +240,11 @@ class FormTest extends FieldTestBase {
     $edit = [];
     $this->drupalGet('entity_test/add');
     $this->submitForm($edit, 'Save');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains("{$this->field['label']} field is required.");
+=======
+    $this->assertRaw(t('@name field is required.', ['@name' => $this->field['label']]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Create an entity
     $value = mt_rand(1, 127);
@@ -254,7 +265,11 @@ class FormTest extends FieldTestBase {
     ];
     $this->drupalGet('entity_test/manage/' . $id . '/edit');
     $this->submitForm($edit, 'Save');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains("{$this->field['label']} field is required.");
+=======
+    $this->assertRaw(t('@name field is required.', ['@name' => $this->field['label']]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   public function testFieldFormUnlimited() {

@@ -43,6 +43,7 @@
   <div class="user-form-page__user-form">
     <header class="content-header clearfix">
       <div class="layout-container">
+<<<<<<< HEAD
         {% if icon_default == false and icon_path != '' %}
           <a href="{{ path('<front>') }}" class="toolbar-logo" data-drupal-link-system-path="<front>">
             <img src="{{ file_url(icon_path) }}" alt="{{ site_name }}" class="toolbar-icon-home" />
@@ -52,6 +53,11 @@
             {{ 'Home'|t }}
           </a>
         {% endif %}
+=======
+       <a href="{{ url('<front>') }}" class="toolbar-logo">
+        <img src="{{ logo }}" alt="{{ site_name }}" class="toolbar-icon-home" />
+      </a>
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       </div>
     </header>
 

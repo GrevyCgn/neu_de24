@@ -15,8 +15,13 @@ dependencies:
     - user
 third_party_settings:
   layout_builder:
+<<<<<<< HEAD
     enabled: true
     allow_custom: true
+=======
+    allow_custom: true
+    enabled: true
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     sections:
       -
         layout_id: layout_onecol
@@ -27,26 +32,45 @@ third_party_settings:
             uuid: 439cd644-2346-4467-b296-2c9453bd18c2
             region: content
             configuration:
+<<<<<<< HEAD
               id: 'field_block:node:article:field_tags'
               label_display: '0'
               context_mapping:
                 entity: layout_builder.entity
+=======
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:article:field_tags'
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
               formatter:
                 type: entity_reference_label
                 label: inline
                 settings:
                   link: true
                 third_party_settings: {  }
+<<<<<<< HEAD
             weight: 0
             additional: {  }
+=======
+            additional: {  }
+            weight: 0
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
           02d32417-145b-41a4-8d7a-27e4477b9666:
             uuid: 02d32417-145b-41a4-8d7a-27e4477b9666
             region: content
             configuration:
+<<<<<<< HEAD
               id: 'field_block:node:article:field_media_image'
               label_display: '0'
               context_mapping:
                 entity: layout_builder.entity
+=======
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:article:field_media_image'
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
               formatter:
                 type: entity_reference_entity_view
                 label: hidden
@@ -54,12 +78,18 @@ third_party_settings:
                   view_mode: responsive_3x2
                   link: false
                 third_party_settings: {  }
+<<<<<<< HEAD
             weight: 1
             additional: {  }
+=======
+            additional: {  }
+            weight: 1
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
           f73af85e-15fc-4672-8b72-3ed91353e08c:
             uuid: f73af85e-15fc-4672-8b72-3ed91353e08c
             region: content
             configuration:
+<<<<<<< HEAD
               id: 'field_block:node:article:body'
               label_display: '0'
               context_mapping:
@@ -71,26 +101,57 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 2
             additional: {  }
+=======
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:article:body'
+              formatter:
+                type: text_default
+                settings: {  }
+                third_party_settings: {  }
+                label: hidden
+            additional: {  }
+            weight: 2
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
           957850fc-d5ea-4a6f-b3c9-dd2e4811a5c4:
             uuid: 957850fc-d5ea-4a6f-b3c9-dd2e4811a5c4
             region: content
             configuration:
+<<<<<<< HEAD
               id: 'extra_field_block:node:article:links'
               label_display: '0'
               context_mapping:
                 entity: layout_builder.entity
             weight: 3
             additional: {  }
+=======
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'extra_field_block:node:article:links'
+            additional: {  }
+            weight: 3
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
           937c9738-b63e-409f-897a-c9fc98f6716e:
             uuid: 937c9738-b63e-409f-897a-c9fc98f6716e
             region: content
             configuration:
+<<<<<<< HEAD
               id: 'extra_field_block:node:article:content_moderation_control'
               label_display: '0'
               context_mapping:
                 entity: layout_builder.entity
             weight: 4
             additional: {  }
+=======
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'extra_field_block:node:article:content_moderation_control'
+            additional: {  }
+            weight: 4
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         third_party_settings: {  }
 id: node.article.full
 targetEntityType: node

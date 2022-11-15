@@ -91,7 +91,11 @@ class UpdateUploadTest extends UpdateUploaderTestBase {
     $this->assertSession()->titleEquals('Update manager | Drupal');
     // Check for a success message on the page, and check that the installed
     // module now exists in the expected place in the filesystem.
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains("Added / updated update_test_new_module successfully");
+=======
+    $this->assertRaw(t('Added / updated %project_name successfully', ['%project_name' => 'update_test_new_module']));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertFileExists($installedInfoFilePath);
     // Ensure the links are relative to the site root and not
     // core/authorize.php.
@@ -102,7 +106,11 @@ class UpdateUploadTest extends UpdateUploaderTestBase {
     $this->assertSession()->linkExists('Administration pages');
     $this->assertSession()->linkByHrefExists(Url::fromRoute('system.admin')->toString());
     // Ensure we can reach the "Add another module" link.
+<<<<<<< HEAD
     $this->clickLink('Add another module');
+=======
+    $this->clickLink(t('Add another module'));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->statusCodeEquals(200);
     $this->assertSession()->addressEquals('admin/modules/install');
 
@@ -138,7 +146,11 @@ class UpdateUploadTest extends UpdateUploaderTestBase {
     $this->submitForm(['projects[update_test_new_module]' => TRUE], 'Download these updates');
     $this->submitForm(['maintenance_mode' => FALSE], 'Continue');
     $this->assertSession()->pageTextContains('Update was completed successfully.');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains("Added / updated update_test_new_module successfully");
+=======
+    $this->assertRaw(t('Added / updated %project_name successfully', ['%project_name' => 'update_test_new_module']));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Parse the info file again to check that the module has been updated to
     // 8.x-1.1.

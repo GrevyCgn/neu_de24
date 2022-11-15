@@ -313,7 +313,11 @@ class ManageFieldsFunctionalTest extends BrowserTestBase {
     ];
     $this->drupalGet($field_edit_path);
     $this->submitForm($edit, 'Save field settings');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains("There is 1 entity with 2 or more values in this field.");
+=======
+    $this->assertRaw(t('There is @count entity with @delta or more values in this field.', ['@count' => 1, '@delta' => 2]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Create a second entity with three values.
     $edit = ['title[0][value]' => 'Cardinality 3', 'body[0][value]' => 'Body 1', 'body[1][value]' => 'Body 2', 'body[2][value]' => 'Body 3'];
@@ -339,7 +343,11 @@ class ManageFieldsFunctionalTest extends BrowserTestBase {
     ];
     $this->drupalGet($field_edit_path);
     $this->submitForm($edit, 'Save field settings');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains("There are 2 entities with 2 or more values in this field.");
+=======
+    $this->assertRaw(t('There are @count entities with @delta or more values in this field.', ['@count' => 2, '@delta' => 2]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $edit = [
       'cardinality' => 'number',
@@ -347,7 +355,11 @@ class ManageFieldsFunctionalTest extends BrowserTestBase {
     ];
     $this->drupalGet($field_edit_path);
     $this->submitForm($edit, 'Save field settings');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains("There is 1 entity with 3 or more values in this field.");
+=======
+    $this->assertRaw(t('There is @count entity with @delta or more values in this field.', ['@count' => 1, '@delta' => 3]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $edit = [
       'cardinality' => 'number',
@@ -385,14 +397,22 @@ class ManageFieldsFunctionalTest extends BrowserTestBase {
     ];
     $this->drupalGet($field_edit_path);
     $this->submitForm($edit, 'Save field settings');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains("There are 2 entities with 3 or more values in this field.");
+=======
+    $this->assertRaw(t('There are @count entities with @delta or more values in this field.', ['@count' => 2, '@delta' => 3]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $edit = [
       'cardinality' => 'number',
       'cardinality_number' => 3,
     ];
     $this->drupalGet($field_edit_path);
     $this->submitForm($edit, 'Save field settings');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains("There is 1 entity with 4 or more values in this field.");
+=======
+    $this->assertRaw(t('There is @count entity with @delta or more values in this field.', ['@count' => 1, '@delta' => 4]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $edit = [
       'cardinality' => 'number',
       'cardinality_number' => 4,

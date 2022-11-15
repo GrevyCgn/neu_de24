@@ -36,6 +36,15 @@ class RegisterSerializationClassesCompilerPassTest extends UnitTestCase {
     $encoder_2_definition->setPublic(TRUE);
     $container->setDefinition('encoder_2', $encoder_2_definition);
 
+<<<<<<< HEAD
+=======
+    $encoder_3_definition = new Definition('TestClass');
+    $encoder_3_definition->addTag('encoder', ['format' => 'hal_json']);
+    $encoder_3_definition->addTag('_provider', ['provider' => 'test_provider_b']);
+    $encoder_3_definition->setPublic(TRUE);
+    $container->setDefinition('encoder_3', $encoder_3_definition);
+
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $normalizer_1_definition = new Definition('TestClass');
     $normalizer_1_definition->addTag('normalizer');
     $normalizer_1_definition->setPublic(TRUE);

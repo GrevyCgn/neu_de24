@@ -15,6 +15,10 @@ class MediaEmbedFilterDisabledIntegrationsTest extends MediaEmbedFilterTestBase 
    */
   protected static $modules = [
     'contextual',
+<<<<<<< HEAD
+=======
+    'quickedit',
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     // @see media_test_embed_entity_view_alter()
     'media_test_embed',
   ];

@@ -254,7 +254,11 @@ class UploadedFile extends File
      *
      * @return int|float Returns float if size > PHP_INT_MAX
      */
+<<<<<<< HEAD
     private static function parseFilesize(string $size)
+=======
+    private static function parseFilesize($size)
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     {
         if ('' === $size) {
             return 0;

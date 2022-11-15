@@ -57,7 +57,11 @@ class NodeFieldMultilingualTest extends BrowserTestBase {
     ];
     $this->drupalGet('admin/structure/types/manage/page');
     $this->submitForm($edit, 'Save content type');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains("The content type Basic page has been updated.");
+=======
+    $this->assertRaw(t('The content type %type has been updated.', ['%type' => 'Basic page']));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Make node body translatable.
     $field_storage = FieldStorageConfig::loadByName('node', 'body');
@@ -140,7 +144,11 @@ class NodeFieldMultilingualTest extends BrowserTestBase {
 
     // Check if node body is showed.
     $this->drupalGet('node/' . $node->id());
+<<<<<<< HEAD
     $this->assertSession()->elementTextEquals('xpath', "//article/div//p", $node->body->value);
+=======
+    $this->assertSession()->elementTextEquals('xpath', "//article[contains(concat(' ', normalize-space(@class), ' '), ' node ')]//div[contains(concat(' ', normalize-space(@class), ' '), 'node__content')]/descendant::p", $node->body->value);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
 }

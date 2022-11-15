@@ -11,7 +11,11 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
+<<<<<<< HEAD
 (function (Modernizr, Drupal, once) {
+=======
+(function ($, Modernizr, Drupal, once) {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   Drupal.behaviors.date = {
     attach: function attach(context, settings) {
       if (Modernizr.inputtypes.date === false) {
@@ -91,4 +95,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         timeDesc = _ref2.timeDesc;
     return "<div class=\"no-native-datepicker-help\">\n       <span id=\"".concat(dateId, "\">").concat(dateDesc, "</span> <span id=\"").concat(timeId, "\">").concat(timeDesc, "</span>\n     </div>");
   };
+<<<<<<< HEAD
 })(Modernizr, Drupal, once);
+=======
+})(jQuery, Modernizr, Drupal, once);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b

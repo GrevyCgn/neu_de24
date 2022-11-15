@@ -67,7 +67,36 @@ class TaxonomyIndexTidDepth extends TaxonomyIndexTid {
       $this->tableAlias = $this->query->ensureTable($this->view->storage->get('base_table'));
     }
 
+<<<<<<< HEAD
     $this->addSubQueryJoin($this->value);
+=======
+    // Now build the subqueries.
+    $subquery = Database::getConnection()->select('taxonomy_index', 'tn');
+    $subquery->addField('tn', 'nid');
+    $where = ($this->view->query->getConnection()->condition('OR'))->condition('tn.tid', $this->value, $operator);
+    $last = "tn";
+
+    if ($this->options['depth'] > 0) {
+      $subquery->leftJoin('taxonomy_term__parent', 'th', "[th].[entity_id] = [tn].[tid]");
+      $last = "th";
+      foreach (range(1, abs($this->options['depth'])) as $count) {
+        $subquery->leftJoin('taxonomy_term__parent', "th$count", "[$last].[parent_target_id] = [th$count].[entity_id]");
+        $where->condition("th$count.entity_id", $this->value, $operator);
+        $last = "th$count";
+      }
+    }
+    elseif ($this->options['depth'] < 0) {
+      foreach (range(1, abs($this->options['depth'])) as $count) {
+        $field = $count == 1 ? 'tid' : 'entity_id';
+        $subquery->leftJoin('taxonomy_term__parent', "th$count", "[$last].[$field] = [th$count].[parent_target_id]");
+        $where->condition("th$count.entity_id", $this->value, $operator);
+        $last = "th$count";
+      }
+    }
+
+    $subquery->condition($where);
+    $this->query->addWhere($this->options['group'], "$this->tableAlias.$this->realField", $subquery, 'IN');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
 }

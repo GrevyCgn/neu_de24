@@ -67,7 +67,11 @@ class EntityListBuilderTest extends BrowserTestBase {
     $build = $list_builder->render();
     $this->container->get('renderer')->renderRoot($build);
 
+<<<<<<< HEAD
     $this->assertEqualsCanonicalizing(['entity_test_view_grants', 'languages:' . LanguageInterface::TYPE_INTERFACE, 'theme', 'url.query_args.pagers:0', 'user.permissions'], $build['#cache']['contexts']);
+=======
+    $this->assertEquals(['entity_test_view_grants', 'languages:' . LanguageInterface::TYPE_INTERFACE, 'theme', 'url.query_args.pagers:0', 'user.permissions'], $build['#cache']['contexts']);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**

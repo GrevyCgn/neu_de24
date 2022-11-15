@@ -77,8 +77,12 @@ class LocaleUpdateInterfaceTest extends LocaleUpdateBase {
     // Check if updates are available for German.
     $this->drupalGet('admin/reports/status');
     $this->assertSession()->pageTextContains('Translation update status');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains("Updates available for: German. See the Available translation updates page for more information.");
     $this->assertSession()->linkByHrefExists(Url::fromRoute('locale.translate_status')->toString());
+=======
+    $this->assertRaw(t('Updates available for: @languages. See the <a href=":updates">Available translation updates</a> page for more information.', ['@languages' => t('German'), ':updates' => Url::fromRoute('locale.translate_status')->toString()]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->drupalGet('admin/reports/translations');
     $this->assertSession()->pageTextContains('Updates for: Locale test translate');
 
@@ -92,11 +96,23 @@ class LocaleUpdateInterfaceTest extends LocaleUpdateBase {
     // Check if no updates were found.
     $this->drupalGet('admin/reports/status');
     $this->assertSession()->pageTextContains('Translation update status');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains("Missing translations for: German. See the Available translation updates page for more information.");
     $this->assertSession()->linkByHrefExists(Url::fromRoute('locale.translate_status')->toString());
     $this->drupalGet('admin/reports/translations');
     $this->assertSession()->pageTextContains('Missing translations for one project');
     $this->assertSession()->pageTextContains('Locale test translate (1.3-dev). File not found at core/modules/locale/tests/test.de.po');
+=======
+    $this->assertRaw(t('Missing translations for: @languages. See the <a href=":updates">Available translation updates</a> page for more information.', ['@languages' => t('German'), ':updates' => Url::fromRoute('locale.translate_status')->toString()]));
+    $this->drupalGet('admin/reports/translations');
+    $this->assertSession()->pageTextContains('Missing translations for one project');
+    $release_details = new FormattableMarkup('@module (@version). @info', [
+      '@module' => 'Locale test translate',
+      '@version' => '1.3-dev',
+      '@info' => t('File not found at %local_path', ['%local_path' => 'core/modules/locale/tests/test.de.po']),
+    ]);
+    $this->assertRaw($release_details->__toString());
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Override Drupal core translation status as 'no translations found'.
     $status = locale_translation_get_status();

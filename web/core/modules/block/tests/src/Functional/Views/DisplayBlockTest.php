@@ -271,7 +271,12 @@ class DisplayBlockTest extends ViewTestBase {
       ':id' => 'block-' . $block->id(),
     ]);
     $this->drupalGet('');
+<<<<<<< HEAD
     $this->assertSession()->elementTextEquals('xpath', $block_title_xpath, 'Custom title');
+=======
+
+    $this->assertSession()->elementTextEquals('xpath', '//div[contains(@class, "region-sidebar-first")]/div[contains(@class, "block-views")]/h2', 'Custom title');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Don't override the title anymore.
     $plugin = $block->getPlugin();
@@ -279,14 +284,22 @@ class DisplayBlockTest extends ViewTestBase {
     $block->save();
 
     $this->drupalGet('');
+<<<<<<< HEAD
     $this->assertSession()->elementTextEquals('xpath', $block_title_xpath, 'test_view_block');
+=======
+    $this->assertSession()->elementTextEquals('xpath', '//div[contains(@class, "region-sidebar-first")]/div[contains(@class, "block-views")]/h2', 'test_view_block');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Hide the title.
     $block->getPlugin()->setConfigurationValue('label_display', FALSE);
     $block->save();
 
     $this->drupalGet('');
+<<<<<<< HEAD
     $this->assertSession()->elementNotExists('xpath', $block_title_xpath);
+=======
+    $this->assertSession()->elementNotExists('xpath', '//div[contains(@class, "region-sidebar-first")]/div[contains(@class, "block-views")]/h2');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $this->assertCacheTags(array_merge($block->getCacheTags(), ['block_view', 'config:block_list', 'config:system.site', 'config:views.view.test_view_block', 'http_response', 'rendered']));
   }
@@ -307,14 +320,22 @@ class DisplayBlockTest extends ViewTestBase {
       ':id' => 'block-' . $block->id(),
     ]);
     $this->drupalGet('');
+<<<<<<< HEAD
     $this->assertSession()->elementsCount('xpath', $block_xpath, 1);
+=======
+    $this->assertSession()->elementsCount('xpath', '//div[contains(@class, "block-views-blocktest-view-block-block-1")]', 1);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $display = &$view->getDisplay('block_1');
     $display['display_options']['block_hide_empty'] = TRUE;
     $view->save();
 
     $this->drupalGet($url);
+<<<<<<< HEAD
     $this->assertSession()->elementNotExists('xpath', $block_xpath);
+=======
+    $this->assertSession()->elementNotExists('xpath', '//div[contains(@class, "block-views-blocktest-view-block-block-1")]');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     // Ensure that the view cacheability metadata is propagated even, for an
     // empty block.
     $this->assertCacheTags(array_merge($block->getCacheTags(), ['block_view', 'config:block_list', 'config:views.view.test_view_block', 'http_response', 'rendered']));
@@ -334,7 +355,11 @@ class DisplayBlockTest extends ViewTestBase {
     $view->save();
 
     $this->drupalGet($url);
+<<<<<<< HEAD
     $this->assertSession()->elementsCount('xpath', $block_xpath, 1);
+=======
+    $this->assertSession()->elementsCount('xpath', '//div[contains(@class, "block-views-blocktest-view-block-block-1")]', 1);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertCacheTags(array_merge($block->getCacheTags(), ['block_view', 'config:block_list', 'config:views.view.test_view_block', 'http_response', 'rendered']));
     $this->assertCacheContexts(['url.query_args:_wrapper_format']);
 
@@ -352,7 +377,11 @@ class DisplayBlockTest extends ViewTestBase {
     $view->save();
 
     $this->drupalGet($url);
+<<<<<<< HEAD
     $this->assertSession()->elementNotExists('xpath', $block_xpath);
+=======
+    $this->assertSession()->elementNotExists('xpath', '//div[contains(@class, "block-views-blocktest-view-block-block-1")]');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertCacheTags(array_merge($block->getCacheTags(), ['block_view', 'config:block_list', 'config:views.view.test_view_block', 'http_response', 'rendered']));
     $this->assertCacheContexts(['url.query_args:_wrapper_format']);
 
@@ -369,7 +398,11 @@ class DisplayBlockTest extends ViewTestBase {
     $view->save();
 
     $this->drupalGet($url);
+<<<<<<< HEAD
     $this->assertSession()->elementsCount('xpath', $block_xpath, 1);
+=======
+    $this->assertSession()->elementsCount('xpath', '//div[contains(@class, "block-views-blocktest-view-block-block-1")]', 1);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertCacheTags(array_merge($block->getCacheTags(), ['block_view', 'config:block_list', 'config:views.view.test_view_block', 'http_response', 'rendered']));
     $this->assertCacheContexts(['url.query_args:_wrapper_format']);
   }

@@ -76,9 +76,15 @@ class FilterNumericWebTest extends UITestBase {
     $this->submitForm(['age' => '2'], 'Apply');
     $this->assertSession()->pageTextContains('John');
     $this->assertSession()->pageTextContains('Paul');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('Ringo');
     $this->assertSession()->pageTextContains('George');
     $this->assertSession()->pageTextNotContains('Meredith');
+=======
+    $this->assertNoText('Ringo');
+    $this->assertSession()->pageTextContains('George');
+    $this->assertNoText('Meredith');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Change the filter to a single filter to test the schema when the operator
     // is not exposed.
@@ -94,6 +100,7 @@ class FilterNumericWebTest extends UITestBase {
     // Test that the filter works as expected.
     $this->drupalGet('test_view-path');
     $this->assertSession()->pageTextContains('John');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('Paul');
     $this->assertSession()->pageTextNotContains('Ringo');
     $this->assertSession()->pageTextNotContains('George');
@@ -104,6 +111,18 @@ class FilterNumericWebTest extends UITestBase {
     $this->assertSession()->pageTextNotContains('Ringo');
     $this->assertSession()->pageTextNotContains('George');
     $this->assertSession()->pageTextNotContains('Meredith');
+=======
+    $this->assertNoText('Paul');
+    $this->assertNoText('Ringo');
+    $this->assertNoText('George');
+    $this->assertNoText('Meredith');
+    $this->submitForm(['age' => '26'], 'Apply');
+    $this->assertNoText('John');
+    $this->assertSession()->pageTextContains('Paul');
+    $this->assertNoText('Ringo');
+    $this->assertNoText('George');
+    $this->assertNoText('Meredith');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Change the filter to a 'between' filter to test if the label and
     // description are set for the 'minimum' filter element.
@@ -144,7 +163,12 @@ class FilterNumericWebTest extends UITestBase {
 
     // Make sure the label is visible and that there's no fieldset wrapper.
     $this->assertSession()->elementsCount('xpath', '//label[contains(@for, "edit-age") and contains(text(), "Age greater than")]', 1);
+<<<<<<< HEAD
     $this->assertSession()->elementNotExists('xpath', '//fieldset[contains(@id, "edit-age-wrapper")]');
+=======
+    $fieldset = $this->xpath('//fieldset[contains(@id, "edit-age-wrapper")]');
+    $this->assertEmpty($fieldset);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
 }

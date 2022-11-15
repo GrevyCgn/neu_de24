@@ -101,7 +101,11 @@ class ThemeInfoTest extends BrowserTestBase {
     $this->state->set('theme_test.modify_info_files', TRUE);
     $this->resetAll();
     $active_theme = $this->themeManager->getActiveTheme();
+<<<<<<< HEAD
     $this->assertEquals(['classy/base', 'classy/messages', 'core/normalize', 'test_theme/global-styling', 'core/once'], $active_theme->getLibraries());
+=======
+    $this->assertEquals(['classy/base', 'classy/messages', 'core/normalize', 'test_theme/global-styling', 'core/backbone'], $active_theme->getLibraries());
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
 }

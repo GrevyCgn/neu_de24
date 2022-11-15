@@ -64,7 +64,10 @@ class CommentActionsTest extends EntityKernelTestBase {
     // Create format without filters to prevent filtering.
     FilterFormat::create([
       'format' => 'no_filters',
+<<<<<<< HEAD
       'name' => 'No filters',
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       'filters' => [],
     ])->save();
 

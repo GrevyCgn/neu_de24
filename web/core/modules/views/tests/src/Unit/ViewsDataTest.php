@@ -131,6 +131,7 @@ class ViewsDataTest extends UnitTestCase {
    *
    * @return \Drupal\Core\Extension\ModuleHandlerInterface|\PHPUnit\Framework\MockObject\MockObject
    */
+<<<<<<< HEAD
   protected function setupMockedModuleHandler(): void {
     $this->moduleHandler->expects($this->atLeastOnce())
       ->method('invokeAllWith')
@@ -138,6 +139,18 @@ class ViewsDataTest extends UnitTestCase {
       ->willReturnCallback(function (string $hook, callable $callback) {
         $callback(\Closure::fromCallable([$this, 'viewsData']), 'views_test_data');
       });
+=======
+  protected function setupMockedModuleHandler() {
+    $views_data = $this->viewsData();
+    $this->moduleHandler->expects($this->once())
+      ->method('getImplementations')
+      ->with('views_data')
+      ->willReturn(['views_test_data']);
+    $this->moduleHandler->expects($this->once())
+      ->method('invoke')
+      ->with('views_test_data', 'views_data')
+      ->willReturn($views_data);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**
@@ -210,11 +223,21 @@ class ViewsDataTest extends UnitTestCase {
 
     // Views data should be invoked twice due to the clear call.
     $this->moduleHandler->expects($this->exactly(2))
+<<<<<<< HEAD
       ->method('invokeAllWith')
       ->with('views_data')
       ->willReturnCallback(function ($hook, $callback) {
         $callback(\Closure::fromCallable([$this, 'viewsData']), 'views_test_data');
       });
+=======
+      ->method('getImplementations')
+      ->with('views_data')
+      ->willReturn(['views_test_data']);
+    $this->moduleHandler->expects($this->exactly(2))
+      ->method('invoke')
+      ->with('views_test_data', 'views_data')
+      ->willReturn($this->viewsData());
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->moduleHandler->expects($this->exactly(2))
       ->method('alter')
       ->with('views_data', $expected_views_data);

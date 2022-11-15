@@ -137,8 +137,12 @@ class UpdateComplexTest extends DatabaseTestBase {
     $after_age = $this->connection->query('SELECT [age] FROM {test} WHERE [name] = :name', [':name' => 'Ringo'])->fetchField();
     $expected_age = $select->execute()->fetchField();
     $this->assertEquals($expected_age, $after_age);
+<<<<<<< HEAD
     // Expect 1 row to be updated.
     $this->assertEquals(1, $num_updated);
+=======
+    $this->assertEquals(1, $num_updated, t('Expected 1 row to be updated in subselect update query.'));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
 }

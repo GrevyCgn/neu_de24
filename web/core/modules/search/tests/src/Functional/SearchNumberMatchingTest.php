@@ -98,7 +98,11 @@ class SearchNumberMatchingTest extends BrowserTestBase {
       // with a dummy search.
       $this->drupalGet('search/node');
       $this->submitForm(['keys' => 'foo'], 'Search');
+<<<<<<< HEAD
       $this->assertSession()->pageTextNotContains($node->label());
+=======
+      $this->assertNoText($node->label());
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
       // Now verify that we can find node i by searching for any of the
       // numbers.

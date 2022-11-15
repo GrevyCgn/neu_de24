@@ -216,6 +216,7 @@ final class ProjectSecurityData {
   private function getAdditionalSecurityCoveredMinors($security_covered_version) {
     $security_covered_version_major = ExtensionVersion::createFromVersionString($security_covered_version)->getMajorVersion();
     $security_covered_version_minor = $this->getSemanticMinorVersion($security_covered_version);
+<<<<<<< HEAD
     foreach ($this->releases as $release_info) {
       try {
         $release = ProjectRelease::createFromArray($release_info);
@@ -234,6 +235,11 @@ final class ProjectSecurityData {
       }
       $release_version = ExtensionVersion::createFromVersionString($release->getVersion());
       if ($release_version->getMajorVersion() === $security_covered_version_major && $release->isPublished() && !$release_version->getVersionExtra()) {
+=======
+    foreach ($this->releases as $release) {
+      $release_version = ExtensionVersion::createFromVersionString($release['version']);
+      if ($release_version->getMajorVersion() === $security_covered_version_major && $release['status'] === 'published' && !$release_version->getVersionExtra()) {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         // The releases are ordered with the most recent releases first.
         // Therefore, if we have found a published, official release with the
         // same major version as $security_covered_version, then this release

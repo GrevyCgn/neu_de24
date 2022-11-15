@@ -19,6 +19,11 @@ use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
  */
 class DefaultsConfigurator extends AbstractServiceConfigurator
 {
+<<<<<<< HEAD
+=======
+    public const FACTORY = 'defaults';
+
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     use Traits\AutoconfigureTrait;
     use Traits\AutowireTrait;
     use Traits\BindTrait;

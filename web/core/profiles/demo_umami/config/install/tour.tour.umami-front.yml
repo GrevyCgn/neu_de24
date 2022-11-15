@@ -28,8 +28,12 @@ tips:
     label: Navigation
     weight: 3
     position: right
+<<<<<<< HEAD
     selector: .menu-main__link.is-active
     body: 'This is the main navigation menu for the Umami website. It is simple to create and administer menus and you can create as many menus as your site requires. For example, this site provides this main navigation as well as the user navigation displayed above.'
+=======
+    selector: '.menu-main__link.is-active'
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   umami-theme:
     id: umami-theme
     plugin: text
@@ -37,7 +41,10 @@ tips:
     weight: 4
     position: left
     selector: '.block-type-banner-block .summary'
+<<<<<<< HEAD
     body: 'This website uses the custom Umami theme to style its appearance. This theme has been created using CSS and by customizing Drupal''s HTML templates that are built using the popular Twig templating system. Themes are also available for download and installation.'
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   managing-content:
     id: managing-content
     plugin: text
@@ -45,7 +52,10 @@ tips:
     weight: 5
     position: left
     selector: '.view-promoted-items--single .read-more__link'
+<<<<<<< HEAD
     body: 'This example website provides a collection of articles and recipes that demonstrate how content can easily be managed in a flexible and structured way.'
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   umami-front-views:
     id: umami-front-content
     plugin: text
@@ -53,7 +63,10 @@ tips:
     weight: 6
     position: right
     selector: '.view-promoted-items--double .node:nth-child(1)'
+<<<<<<< HEAD
     body: 'Display modes can be configured to provide different presentations of content. These promoted articles and recipes use the display modes feature to format the images with different ratios.'
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   umami-views:
     id: umami-views
     plugin: text
@@ -61,7 +74,10 @@ tips:
     weight: 7
     position: left
     selector: '.view-frontpage .node:nth-child(1)'
+<<<<<<< HEAD
     body: 'Drupal makes it simple to create lists of filtered content and control how the content is displayed using the Views feature. This latest recipes example uses a view to fetch the most recent four recipes, displays the view as a block that is positioned on the front page with the block system.'
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   front-bookend:
     id: front-bookend
     plugin: text

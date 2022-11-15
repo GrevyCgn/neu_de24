@@ -35,7 +35,11 @@ interface QueryInterface extends AlterableInterface {
    *     ->execute();
    * @endcode
    *
+<<<<<<< HEAD
    * @param string|\Drupal\Core\Entity\Query\ConditionInterface $field
+=======
+   * @param string|\Drupal\Core\Condition\ConditionInterface $field
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    *   Name of the field being queried or an instance of ConditionInterface.
    *   In the case of the name, it must contain a field name, optionally
    *   followed by a column name. The column can be the reference property,

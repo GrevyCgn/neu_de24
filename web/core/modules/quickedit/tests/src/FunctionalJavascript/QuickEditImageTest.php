@@ -67,6 +67,18 @@ class QuickEditImageTest extends QuickEditJavascriptTestBase {
     }
     $this->contentAuthorUser = $this->drupalCreateUser($permissions);
     $this->drupalLogin($this->contentAuthorUser);
+<<<<<<< HEAD:web/core/modules/quickedit/tests/src/FunctionalJavascript/QuickEditImageTest.php
+=======
+  }
+
+  /**
+   * Tests that quick editor works correctly with images.
+   *
+   * @covers ::isCompatible
+   * @covers ::getAttachments
+   */
+  public function testImageInPlaceEditor() {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b:web/core/modules/image/tests/src/FunctionalJavascript/QuickEditImageTest.php
     // Create a field with a basic filetype restriction.
     $field_name = strtolower($this->randomMachineName());
     $field_settings = [

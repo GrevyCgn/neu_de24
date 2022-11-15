@@ -61,7 +61,11 @@ class StandardTest extends BrowserTestBase {
 
     // Verify we have role = complementary on help_block blocks.
     $this->drupalGet('admin/structure/block');
+<<<<<<< HEAD
     $this->assertSession()->elementAttributeContains('xpath', "//div[@id='block-olivero-help']", 'role', 'complementary');
+=======
+    $this->assertSession()->elementAttributeContains('xpath', "//div[@id='block-bartik-help']", 'role', 'complementary');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Verify anonymous user can see the block.
     $this->drupalLogout();
@@ -89,7 +93,11 @@ class StandardTest extends BrowserTestBase {
     // Fetch the feed.
     $this->drupalGet('rss.xml');
     $this->assertSession()->responseContains('Foobar');
+<<<<<<< HEAD
     $this->assertSession()->responseNotContains('Then she picked out two somebodies, Sally and me');
+=======
+    $this->assertNoText('Then she picked out two somebodies, Sally and me');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Ensure block body exists.
     $this->drupalGet('block/add');

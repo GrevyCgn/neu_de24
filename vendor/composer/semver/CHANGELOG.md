@@ -3,6 +3,7 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+<<<<<<< HEAD
 ### [3.3.2] 2022-04-01
 
   * Fixed handling of non-string values (#134)
@@ -33,6 +34,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
   * Fixed: type improvements to parseStability
 
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 ### [3.2.5] 2021-05-24
 
   * Fixed: issue comparing disjunctive MultiConstraints to conjunctive ones (#127)
@@ -175,6 +178,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
     - Namespace: `Composer\Test\Package\LinkConstraint` -> `Composer\Test\Semver\Constraint`
   * Changed: code style using php-cs-fixer.
 
+<<<<<<< HEAD
 [3.3.2]: https://github.com/composer/semver/compare/3.3.1...3.3.2
 [3.3.1]: https://github.com/composer/semver/compare/3.3.0...3.3.1
 [3.3.0]: https://github.com/composer/semver/compare/3.2.9...3.3.0
@@ -182,6 +186,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 [3.2.8]: https://github.com/composer/semver/compare/3.2.7...3.2.8
 [3.2.7]: https://github.com/composer/semver/compare/3.2.6...3.2.7
 [3.2.6]: https://github.com/composer/semver/compare/3.2.5...3.2.6
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 [3.2.5]: https://github.com/composer/semver/compare/3.2.4...3.2.5
 [3.2.4]: https://github.com/composer/semver/compare/3.2.3...3.2.4
 [3.2.3]: https://github.com/composer/semver/compare/3.2.2...3.2.3

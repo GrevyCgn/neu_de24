@@ -53,6 +53,7 @@ class ModulesListFormWebTest extends BrowserTestBase {
     // module is used because its machine name is different than its human
     // readable name.
     $this->assertSession()->pageTextContains('dblog');
+<<<<<<< HEAD
 
     // Check that the deprecated module link was rendered correctly.
     $this->assertSession()->elementExists('xpath', "//a[contains(@aria-label, 'View information on the Deprecated status of the module Deprecated module')]");
@@ -86,6 +87,8 @@ class ModulesListFormWebTest extends BrowserTestBase {
     $this->submitForm([], 'Continue');
     $this->assertSession()->elementTextContains('xpath', "//div[@role='contentinfo' and h2[text()='Status message']]", '2 modules have been enabled: Content Moderation, Workflows.');
     $this->assertSession()->elementExists('xpath', "//div[@role='contentinfo' and h2[text()='Status message']]//a[contains(@href, '/admin/people/permissions/module/content_moderation%2Cworkflows')]");
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**

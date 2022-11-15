@@ -263,12 +263,21 @@ class MigrationLookupTest extends MigrationLookupTestCase {
    */
   public function testMultipleMigrations() {
     $migration_plugin = $this->prophesize(MigrationInterface::class);
+<<<<<<< HEAD
     $this->migrateLookup->lookup('example', [1])->willReturn([[2]]);
     $this->migrateLookup->lookup('example', [2])->willReturn([]);
     $this->migrateLookup->lookup('foobar', [1, 2])->willReturn([]);
     $this->migrateLookup->lookup('foobar', [3, 4])->willReturn([[5]]);
     $configuration = [
       'migration' => ['foobar', 'example'],
+=======
+    $this->migrateLookup->lookup('foobaz', [1])->willReturn([[2]]);
+    $this->migrateLookup->lookup('foobaz', [2])->willReturn([]);
+    $this->migrateLookup->lookup('foobar', [1, 2])->willReturn([]);
+    $this->migrateLookup->lookup('foobar', [3, 4])->willReturn([[5]]);
+    $configuration = [
+      'migration' => ['foobar', 'foobaz'],
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       'source_ids' => [
         'foobar' => ['foo', 'bar'],
       ],

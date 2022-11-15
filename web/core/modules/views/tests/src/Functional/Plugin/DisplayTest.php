@@ -185,7 +185,11 @@ class DisplayTest extends ViewTestBase {
     $view->display_handler->setOption('enabled', FALSE);
     $view->setDisplay('default');
     $errors = $view->validate();
+<<<<<<< HEAD
     $this->assertNotEmpty($errors, 'More link validation has some errors.');
+=======
+    $this->assertTrue(!empty($errors), 'More link validation has some errors.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertEquals('Display "Default" uses a "more" link but there are no displays it can link to. You need to specify a custom URL.', $errors['default'][0], 'More link validation has the right error.');
 
     // Confirm that the view does not validate when the page display does not exist.
@@ -193,7 +197,11 @@ class DisplayTest extends ViewTestBase {
     $view->setDisplay('default');
     $view->display_handler->setOption('use_more', 1);
     $errors = $view->validate();
+<<<<<<< HEAD
     $this->assertNotEmpty($errors, 'More link validation has some errors.');
+=======
+    $this->assertTrue(!empty($errors), 'More link validation has some errors.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertEquals('Display "Default" uses a "more" link but there are no displays it can link to. You need to specify a custom URL.', $errors['default'][0], 'More link validation has the right error.');
   }
 
@@ -444,17 +452,29 @@ class DisplayTest extends ViewTestBase {
 
     $this->drupalGet('admin/structure/views/nojs/display/content/page_1/rendering_language');
     if ($expected_node_translatability) {
+<<<<<<< HEAD
       $this->assertSession()->pageTextNotContains($not_supported_text);
+=======
+      $this->assertNoText($not_supported_text);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       $this->assertSession()->pageTextContains($supported_text);
     }
     else {
       $this->assertSession()->pageTextContains($not_supported_text);
+<<<<<<< HEAD
       $this->assertSession()->pageTextNotContains($supported_text);
+=======
+      $this->assertNoText($supported_text);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     }
 
     $this->drupalGet('admin/structure/views/nojs/display/files/page_1/rendering_language');
     $this->assertSession()->pageTextContains($not_supported_text);
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains($supported_text);
+=======
+    $this->assertNoText($supported_text);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
 }

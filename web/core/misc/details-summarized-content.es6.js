@@ -72,11 +72,21 @@
    */
   Drupal.behaviors.detailsSummary = {
     attach(context) {
+<<<<<<< HEAD
       DetailsSummarizedContent.instances =
         DetailsSummarizedContent.instances.concat(
           once('details', 'details', context).map(
             (details) => new DetailsSummarizedContent(details),
           ),
+=======
+      const $detailsElements = $(context).find('details').once('details');
+
+      DetailsSummarizedContent.instances =
+        DetailsSummarizedContent.instances.concat(
+          $detailsElements
+            .map((index, details) => new DetailsSummarizedContent(details))
+            .get(),
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         );
     },
   };

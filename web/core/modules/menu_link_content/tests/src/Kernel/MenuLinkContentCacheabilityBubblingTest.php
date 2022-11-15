@@ -124,7 +124,11 @@ class MenuLinkContentCacheabilityBubblingTest extends KernelTestBase {
       $renderer->renderRoot($build);
 
       $expected_cacheability = $default_menu_cacheability->merge($expectation['cacheability']);
+<<<<<<< HEAD
       $this->assertEqualsCanonicalizing($expected_cacheability, BubbleableMetadata::createFromRenderArray($build));
+=======
+      $this->assertEquals($expected_cacheability, BubbleableMetadata::createFromRenderArray($build));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
       $menu_link_content->delete();
     }
@@ -146,7 +150,11 @@ class MenuLinkContentCacheabilityBubblingTest extends KernelTestBase {
     $build = $menu_tree->build($tree);
     $renderer->renderRoot($build);
     $expected_cacheability = $expected_cacheability->merge($default_menu_cacheability);
+<<<<<<< HEAD
     $this->assertEqualsCanonicalizing($expected_cacheability, BubbleableMetadata::createFromRenderArray($build));
+=======
+    $this->assertEquals($expected_cacheability, BubbleableMetadata::createFromRenderArray($build));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
 }

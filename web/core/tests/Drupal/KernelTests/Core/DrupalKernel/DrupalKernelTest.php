@@ -145,8 +145,12 @@ class DrupalKernelTest extends KernelTestBase {
 
     // Check that the location of the new module is registered.
     $modules = $container->getParameter('container.modules');
+<<<<<<< HEAD
     $module_extension_list = $container->get('extension.list.module');
     $this->assertEquals(['type' => 'module', 'pathname' => $module_extension_list->getPathname('service_provider_test'), 'filename' => NULL], $modules['service_provider_test']);
+=======
+    $this->assertEquals(['type' => 'module', 'pathname' => drupal_get_filename('module', 'service_provider_test'), 'filename' => NULL], $modules['service_provider_test']);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Check that the container itself is not among the persist IDs because it
     // does not make sense to persist the container itself.

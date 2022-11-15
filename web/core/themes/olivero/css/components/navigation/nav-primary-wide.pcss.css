@@ -155,10 +155,14 @@ body:not(.is-always-mobile-nav) {
       display: block;
 
       &:focus:before {
+<<<<<<< HEAD
         top: 0;
         left: calc(var(--sp0-5) * -1);
         height: 100%;
         transform: none;
+=======
+        height: 100%;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       }
 
       & .primary-nav__menu-link-inner {

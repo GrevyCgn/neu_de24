@@ -53,9 +53,15 @@ class MachineNameTest extends MigrateProcessTestCase {
       ->expects($this->once())
       ->method('transliterate')
       ->with($human_name)
+<<<<<<< HEAD
       ->willReturnCallback(function (string $string): string {
         return str_replace(['á', 'é', 'ő'], ['a', 'e', 'o'], $string);
       });
+=======
+      ->will($this->returnCallback(function (string $string): string {
+        return str_replace(['á', 'é', 'ő'], ['a', 'e', 'o'], $string);
+      }));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $plugin = new MachineName($configuration, 'machine_name', [], $this->transliteration);
     $value = $plugin->transform($human_name, $this->migrateExecutable, $this->row, 'destination_property');

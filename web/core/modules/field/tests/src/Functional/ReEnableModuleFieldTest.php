@@ -127,7 +127,10 @@ class ReEnableModuleFieldTest extends BrowserTestBase {
     $field_storage2->delete();
 
     $this->drupalGet('admin/modules/uninstall');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains('Uninstall');
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains('Fields pending deletion');
     $this->cronRun();
     $this->drupalGet('admin/modules/uninstall');

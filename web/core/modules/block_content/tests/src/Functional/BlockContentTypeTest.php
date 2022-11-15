@@ -182,7 +182,13 @@ class BlockContentTypeTest extends BlockContentTestBase {
     $block->delete();
     // Attempt to delete the block type, which should now be allowed.
     $this->drupalGet('admin/structure/block/block-content/manage/' . $type->id() . '/delete');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains('Are you sure you want to delete the custom block type ' . $type->id() . '?');
+=======
+    $this->assertRaw(
+      t('Are you sure you want to delete the custom block type %type?', ['%type' => $type->id()])
+    );
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains('This action cannot be undone.');
   }
 

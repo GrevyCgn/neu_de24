@@ -45,6 +45,7 @@
     margin-block-end: var(--sp1);
     margin-inline-end: var(--sp1);
 
+<<<<<<< HEAD
     /* Ensure title does not wrap under image until necessary. */
     & + .node__title {
       flex-basis: calc(100% - calc(4.5 * var(--sp)));
@@ -54,6 +55,8 @@
       }
     }
 
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     & a {
       display: block;
     }

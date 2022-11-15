@@ -51,12 +51,21 @@ class MigrateUserPictureD6FileTest extends MigrateDrupal6TestBase {
 
     // Tests the D6 user pictures migration in combination with D6 file.
     $this->setUpMigratedFiles();
+<<<<<<< HEAD
     $this->assertEntity(1, 'image-test.jpg', 1901, 'public://image-test.jpg', 'image/jpeg', 2);
     $this->assertEntity(2, 'image-test.png', 125, 'public://image-test.png', 'image/png', 8);
     $this->assertEntity(3, 'Image1.png', 39325, 'public://image-1.png', 'image/png', 1);
     $this->assertEntity(4, 'Image2.jpg', 1831, 'public://image-2.jpg', 'image/jpeg', 1);
     $this->assertEntity(5, 'Image-test.gif', 183, 'public://image-test.gif', 'image/jpeg', 1);
     $this->assertEntity(6, 'html-1.txt', 24, 'public://html-1.txt', 'text/plain', 1);
+=======
+    $this->assertEntity(1, 'image-test.jpg', '1901', 'public://image-test.jpg', 'image/jpeg', '2');
+    $this->assertEntity(2, 'image-test.png', '125', 'public://image-test.png', 'image/png', '8');
+    $this->assertEntity(3, 'Image1.png', '39325', 'public://image-1.png', 'image/png', '1');
+    $this->assertEntity(4, 'Image2.jpg', '1831', 'public://image-2.jpg', 'image/jpeg', '1');
+    $this->assertEntity(5, 'Image-test.gif', '183', 'public://image-test.gif', 'image/jpeg', '1');
+    $this->assertEntity(6, 'html-1.txt', '24', 'public://html-1.txt', 'text/plain', '1');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**
@@ -85,7 +94,11 @@ class MigrateUserPictureD6FileTest extends MigrateDrupal6TestBase {
     $this->assertSame($size, (int) $file->getSize());
     $this->assertSame($uri, $file->getFileUri());
     $this->assertSame($type, $file->getMimeType());
+<<<<<<< HEAD
     $this->assertSame($uid, (int) $file->getOwnerId());
+=======
+    $this->assertSame($uid, $file->getOwnerId());
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
 }

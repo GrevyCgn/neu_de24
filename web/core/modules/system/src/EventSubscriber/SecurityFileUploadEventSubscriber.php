@@ -63,6 +63,7 @@ class SecurityFileUploadEventSubscriber implements EventSubscriberInterface {
     $filename = array_shift($filename_parts);
     // Remove final extension.
     $final_extension = (string) array_pop($filename_parts);
+<<<<<<< HEAD
     // Check if we're dealing with a dot file that is also an insecure extension
     // e.g. .htaccess. In this scenario there is only one 'part' and the
     // extension becomes the filename. We use the original filename from the
@@ -72,6 +73,8 @@ class SecurityFileUploadEventSubscriber implements EventSubscriberInterface {
       $final_extension = $filename;
       $filename = '';
     }
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $extensions = $event->getAllowedExtensions();
     if (!empty($extensions) && !in_array(strtolower($final_extension), $extensions, TRUE)) {
@@ -85,7 +88,11 @@ class SecurityFileUploadEventSubscriber implements EventSubscriberInterface {
       return;
     }
 
+<<<<<<< HEAD
     if (!$insecure_uploads && in_array(strtolower($final_extension), FileSystemInterface::INSECURE_EXTENSIONS, TRUE)) {
+=======
+    if (!$this->config->get('allow_insecure_uploads') && in_array(strtolower($final_extension), FileSystemInterface::INSECURE_EXTENSIONS, TRUE)) {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       if (empty($extensions) || in_array('txt', $extensions, TRUE)) {
         // Add .txt to potentially executable files prior to munging to help prevent
         // exploits. This results in a filenames like filename.php being changed to

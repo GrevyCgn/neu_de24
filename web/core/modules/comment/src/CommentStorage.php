@@ -319,8 +319,14 @@ class CommentStorage extends SqlContentEntityStorage implements CommentStorageIn
       $query->orderBy('c.cid', 'ASC');
     }
     else {
+<<<<<<< HEAD
       // See comment above. Analysis reveals that this doesn't cost too much. It
       // scales much better than having the whole comment structure.
+=======
+      // See comment above. Analysis reveals that this doesn't cost too
+      // much. It scales much much better than having the whole comment
+      // structure.
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       $query->addExpression('SUBSTRING([c].[thread], 1, (LENGTH([c].[thread]) - 1))', 'torder');
       $query->orderBy('torder', 'ASC');
     }

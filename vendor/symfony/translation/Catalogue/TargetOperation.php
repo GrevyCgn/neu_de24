@@ -49,7 +49,11 @@ class TargetOperation extends AbstractOperation
         foreach ($this->source->all($domain) as $id => $message) {
             if ($this->target->has($id, $domain)) {
                 $this->messages[$domain]['all'][$id] = $message;
+<<<<<<< HEAD
                 $d = $this->source->defines($id, $intlDomain) ? $intlDomain : $domain;
+=======
+                $d = $this->target->defines($id, $intlDomain) ? $intlDomain : $domain;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
                 $this->result->add([$id => $message], $d);
                 if (null !== $keyMetadata = $this->source->getMetadata($id, $d)) {
                     $this->result->setMetadata($id, $keyMetadata, $d);

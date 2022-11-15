@@ -70,7 +70,12 @@ class UserFieldsAccessChangeTest extends UserTestBase {
     // No access, so no link.
     $this->drupalGet('test_user_fields_access');
     $this->assertSession()->pageTextContains($test_user->getAccountName());
+<<<<<<< HEAD
     $this->assertSession()->elementNotExists('xpath', $xpath);
+=======
+    $result = $this->xpath($xpath);
+    $this->assertCount(0, $result, 'User is not a link');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Assign sub-admin role to grant extra access.
     $user = $this->drupalCreateUser(['sub-admin']);

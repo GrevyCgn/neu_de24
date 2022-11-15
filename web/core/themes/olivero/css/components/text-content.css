@@ -42,7 +42,11 @@
       box-shadow: inset 0 -2px 0 0 #2494db
   }
 
+<<<<<<< HEAD
       .text-content a:not(.button):hover, .cke_editable a:not(.button):hover {
+=======
+      .text-content a:hover, .cke_editable a:hover {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         text-decoration: underline;
         color: #000;
 
@@ -225,6 +229,7 @@
       color: #fff;
       box-shadow: none;
     }
+<<<<<<< HEAD
 
 /**
  * Decrease font-size for blockquote placed in sidebar region.
@@ -237,3 +242,5 @@
     line-height: 2.25rem
 }
   }
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b

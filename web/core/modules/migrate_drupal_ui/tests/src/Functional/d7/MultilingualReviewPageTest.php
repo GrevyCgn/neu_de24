@@ -4,7 +4,11 @@ namespace Drupal\Tests\migrate_drupal_ui\Functional\d7;
 
 use Drupal\Tests\migrate_drupal_ui\Functional\MultilingualReviewPageTestBase;
 
+<<<<<<< HEAD
 // cspell:ignore Filefield Flexslider Multiupload Imagefield
+=======
+// cspell:ignore Multiupload Imagefield
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
 /**
  * Tests migrate upgrade review page for Drupal 7.
@@ -170,7 +174,10 @@ class MultilingualReviewPageTest extends MultilingualReviewPageTestBase {
       'Options',
       'Path translation',
       'Picture',
+<<<<<<< HEAD
       'RDF',
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       'References',
       'References UUID',
       'Translation redirect',

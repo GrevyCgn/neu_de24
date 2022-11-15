@@ -3,6 +3,7 @@ type: module
 description: 'Support module for testing the Olivero theme.'
 package: Testing
 version: VERSION
+<<<<<<< HEAD
 dependencies:
   - drupal:comment
   - drupal:contact
@@ -13,3 +14,5 @@ dependencies:
   - drupal:taxonomy
   - drupal:views
   - drupal:js_message_test
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b

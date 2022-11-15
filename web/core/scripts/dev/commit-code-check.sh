@@ -181,7 +181,11 @@ cd "$TOP_LEVEL/core"
 # Ensure JavaScript development dependencies are installed.
 yarn check -s 2>/dev/null
 if [ "$?" -ne "0" ]; then
+<<<<<<< HEAD
   printf "Drupal's JavaScript development dependencies are not installed or cannot be resolved. Run 'yarn install' inside the core directory, or 'yarn check -s' to list other errors.\n"
+=======
+  printf "Drupal's JavaScript development dependencies are not installed. Run 'yarn install' inside the core directory.\n"
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   DEPENDENCIES_NEED_INSTALLING=1;
 fi
 
@@ -190,7 +194,11 @@ if [ $DEPENDENCIES_NEED_INSTALLING -ne 0 ]; then
 fi
 
 # Check all files for spelling in one go for better performance.
+<<<<<<< HEAD
 yarn run -s spellcheck --no-must-find-files -c $TOP_LEVEL/core/.cspell.json $ABS_FILES
+=======
+yarn run -s spellcheck -c $TOP_LEVEL/core/.cspell.json $ABS_FILES
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 if [ "$?" -ne "0" ]; then
   # If there are failures set the status to a number other than 0.
   FINAL_STATUS=1

@@ -127,6 +127,7 @@
        * @param {jQuery|Selector|Element|ElementArray|object|selection} elements
        *   The set of elements to which tabbing should be constrained. Can also
        *   be any jQuery-compatible argument.
+<<<<<<< HEAD
        * @param {object} [options={}]
        *   Constrain options.
        * @param {boolean} [options.trapFocus=false]
@@ -138,6 +139,8 @@
        *   When false, it is possible to tab out of the browser window by
        *   tabbing the final element in the set or shift-tabbing the first
        *   element in the set.
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
        *
        * @return {Drupal~TabbingContext}
        *   The TabbingContext instance.
@@ -168,7 +171,10 @@
           // tabbingContext is pushed on top of the stack.
           level: this.stack.length,
           $tabbableElements: $(tabbableElements),
+<<<<<<< HEAD
           trapFocus,
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         });
 
         this.stack.push(tabbingContext);

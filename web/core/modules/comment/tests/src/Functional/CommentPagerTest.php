@@ -226,7 +226,11 @@ class CommentPagerTest extends CommentTestBase {
     foreach ($comment_anchors as $anchor) {
       $result_order[] = substr($anchor->getAttribute('id'), 8);
     }
+<<<<<<< HEAD
     $this->assertEquals($expected_cids, $result_order, new FormattableMarkup('Comment order: expected @expected, returned @returned.', ['@expected' => implode(',', $expected_cids), '@returned' => implode(',', $result_order)]));
+=======
+    return $this->assertEquals($expected_cids, $result_order, new FormattableMarkup('Comment order: expected @expected, returned @returned.', ['@expected' => implode(',', $expected_cids), '@returned' => implode(',', $result_order)]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**
@@ -346,7 +350,11 @@ class CommentPagerTest extends CommentTestBase {
     $this->drupalLogin($account);
     $this->drupalGet('admin/structure/types/manage/article/display');
     // No summary for standard pager.
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('Pager ID: 0');
+=======
+    $this->assertNoText('Pager ID: 0');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains('Pager ID: 1');
     $this->submitForm([], 'comment_settings_edit');
     // Change default pager to 2.

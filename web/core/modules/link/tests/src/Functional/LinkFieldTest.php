@@ -223,8 +223,13 @@ class LinkFieldTest extends BrowserTestBase {
       $this->submitForm($edit, 'Save');
       preg_match('|entity_test/manage/(\d+)|', $this->getUrl(), $match);
       $id = $match[1];
+<<<<<<< HEAD
       $this->assertSession()->statusMessageContains('entity_test ' . $id . ' has been created.', 'status');
       $this->assertSession()->responseContains('"' . $string . '"');
+=======
+      $this->assertSession()->pageTextContains('entity_test ' . $id . ' has been created.');
+      $this->assertRaw('"' . $string . '"');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     }
   }
 
@@ -316,7 +321,11 @@ class LinkFieldTest extends BrowserTestBase {
             "{$field_name}[0][title]" => 'Example',
           ];
           $this->submitForm($edit, 'Save');
+<<<<<<< HEAD
           $this->assertSession()->statusMessageContains('The URL field is required when the Link text field is specified.', 'error');
+=======
+          $this->assertSession()->pageTextContains('The URL field is required when the Link text field is specified.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         }
         if ($title_setting === DRUPAL_REQUIRED) {
           // Verify that the link text is required, if the URL is non-empty.
@@ -324,7 +333,11 @@ class LinkFieldTest extends BrowserTestBase {
             "{$field_name}[0][uri]" => 'http://www.example.com',
           ];
           $this->submitForm($edit, 'Save');
+<<<<<<< HEAD
           $this->assertSession()->statusMessageContains('Link text field is required if there is URL input.', 'error');
+=======
+          $this->assertSession()->pageTextContains('Link text field is required if there is URL input.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
           // Verify that the link text is not required, if the URL is empty.
           $edit = [
@@ -354,7 +367,11 @@ class LinkFieldTest extends BrowserTestBase {
     $this->submitForm($edit, 'Save');
     preg_match('|entity_test/manage/(\d+)|', $this->getUrl(), $match);
     $id = $match[1];
+<<<<<<< HEAD
     $this->assertSession()->statusMessageContains('entity_test ' . $id . ' has been created.', 'status');
+=======
+    $this->assertSession()->pageTextContains('entity_test ' . $id . ' has been created.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $output = $this->renderTestEntity($id);
     $expected_link = (string) Link::fromTextAndUrl($value, Url::fromUri($value))->toString();
@@ -367,7 +384,11 @@ class LinkFieldTest extends BrowserTestBase {
     ];
     $this->drupalGet("entity_test/manage/{$id}/edit");
     $this->submitForm($edit, 'Save');
+<<<<<<< HEAD
     $this->assertSession()->statusMessageContains('entity_test ' . $id . ' has been updated.', 'status');
+=======
+    $this->assertSession()->pageTextContains('entity_test ' . $id . ' has been updated.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $output = $this->renderTestEntity($id);
     $expected_link = (string) Link::fromTextAndUrl($title, Url::fromUri($value))->toString();
@@ -439,7 +460,11 @@ class LinkFieldTest extends BrowserTestBase {
     $this->submitForm($edit, 'Save');
     preg_match('|entity_test/manage/(\d+)|', $this->getUrl(), $match);
     $id = $match[1];
+<<<<<<< HEAD
     $this->assertSession()->statusMessageContains('entity_test ' . $id . ' has been created.', 'status');
+=======
+    $this->assertSession()->pageTextContains('entity_test ' . $id . ' has been created.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Verify that the link is output according to the formatter settings.
     // Not using generatePermutations(), since that leads to 32 cases, which
@@ -590,7 +615,11 @@ class LinkFieldTest extends BrowserTestBase {
     $this->submitForm($edit, 'Save');
     preg_match('|entity_test/manage/(\d+)|', $this->getUrl(), $match);
     $id = $match[1];
+<<<<<<< HEAD
     $this->assertSession()->statusMessageContains('entity_test ' . $id . ' has been created.', 'status');
+=======
+    $this->assertSession()->pageTextContains('entity_test ' . $id . ' has been created.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Verify that the link is output according to the formatter settings.
     $options = [

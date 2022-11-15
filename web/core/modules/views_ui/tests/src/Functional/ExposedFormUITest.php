@@ -160,6 +160,7 @@ class ExposedFormUITest extends UITestBase {
     // Check that the values were saved.
     $display = View::load($view_id)->getDisplay('default');
     $this->assertTrue($display['display_options']['sorts']['created']['exposed']);
+<<<<<<< HEAD
     $this->assertSame([
       'label' => $edit['options[expose][label]'],
       'field_identifier' => $edit['options[expose][field_identifier]'],
@@ -173,6 +174,10 @@ class ExposedFormUITest extends UITestBase {
       'options[expose][field_identifier]' => $edit['options[expose][field_identifier]'],
     ], 'Apply');
     $this->assertSession()->pageTextContains('This identifier is already used by Content: Authored on sort handler.');
+=======
+    $this->assertEquals(['label' => $edit['options[expose][label]']], $display['display_options']['sorts']['created']['expose']);
+    $this->assertEquals('DESC', $display['display_options']['sorts']['created']['order']);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**

@@ -93,10 +93,17 @@ class DateRangeFieldTest extends DateTestBase {
       preg_match('|entity_test/manage/(\d+)|', $this->getUrl(), $match);
       $id = $match[1];
       $this->assertSession()->pageTextContains('entity_test ' . $id . ' has been created.');
+<<<<<<< HEAD
       $this->assertSession()->responseContains($start_date->format($date_format));
       $this->assertSession()->responseNotContains($start_date->format($time_format));
       $this->assertSession()->responseContains($end_date->format($date_format));
       $this->assertSession()->responseNotContains($end_date->format($time_format));
+=======
+      $this->assertRaw($start_date->format($date_format));
+      $this->assertNoRaw($start_date->format($time_format));
+      $this->assertRaw($end_date->format($date_format));
+      $this->assertNoRaw($end_date->format($time_format));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
       // Verify the date doesn't change when entity is edited through the form.
       $entity = EntityTest::load($id);
@@ -326,10 +333,17 @@ class DateRangeFieldTest extends DateTestBase {
     preg_match('|entity_test/manage/(\d+)|', $this->getUrl(), $match);
     $id = $match[1];
     $this->assertSession()->pageTextContains('entity_test ' . $id . ' has been created.');
+<<<<<<< HEAD
     $this->assertSession()->responseContains($start_date->format($date_format));
     $this->assertSession()->responseContains($start_date->format($time_format));
     $this->assertSession()->responseContains($end_date->format($date_format));
     $this->assertSession()->responseContains($end_date->format($time_format));
+=======
+    $this->assertRaw($start_date->format($date_format));
+    $this->assertRaw($start_date->format($time_format));
+    $this->assertRaw($end_date->format($date_format));
+    $this->assertRaw($end_date->format($time_format));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     /** @var \Drupal\Core\Entity\EntityDisplayRepositoryInterface $display_repository */
     $display_repository = \Drupal::service('entity_display.repository');
@@ -499,10 +513,17 @@ class DateRangeFieldTest extends DateTestBase {
     preg_match('|entity_test/manage/(\d+)|', $this->getUrl(), $match);
     $id = $match[1];
     $this->assertSession()->pageTextContains('entity_test ' . $id . ' has been created.');
+<<<<<<< HEAD
     $this->assertSession()->responseContains($start_date->format($date_format));
     $this->assertSession()->responseNotContains($start_date->format($time_format));
     $this->assertSession()->responseContains($end_date->format($date_format));
     $this->assertSession()->responseNotContains($end_date->format($time_format));
+=======
+    $this->assertRaw($start_date->format($date_format));
+    $this->assertNoRaw($start_date->format($time_format));
+    $this->assertRaw($end_date->format($date_format));
+    $this->assertNoRaw($end_date->format($time_format));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     /** @var \Drupal\Core\Entity\EntityDisplayRepositoryInterface $display_repository */
     $display_repository = \Drupal::service('entity_display.repository');
@@ -1416,7 +1437,12 @@ class DateRangeFieldTest extends DateTestBase {
     $this->drupalGet('node/add/date_content');
     $this->submitForm($edit, 'Save');
     $this->drupalGet('admin/structure/types/manage/date_content/fields/node.date_content.' . $field_name . '/storage');
+<<<<<<< HEAD
     $this->assertSession()->elementsCount('xpath', "//*[@id='edit-settings-datetime-type' and contains(@disabled, 'disabled')]", 1);
+=======
+    $result = $this->xpath("//*[@id='edit-settings-datetime-type' and contains(@disabled, 'disabled')]");
+    $this->assertCount(1, $result, "Changing datetime setting is disabled.");
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains('There is data for this field in the database. The field settings can no longer be changed.');
   }
 

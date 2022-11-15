@@ -132,11 +132,14 @@ abstract class AbstractRecursivePass implements CompilerPassInterface
 
         if ($factory) {
             [$class, $method] = $factory;
+<<<<<<< HEAD
 
             if ('__construct' === $method) {
                 throw new RuntimeException(sprintf('Invalid service "%s": "__construct()" cannot be used as a factory method.', $this->currentId));
             }
 
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
             if ($class instanceof Reference) {
                 $factoryDefinition = $this->container->findDefinition((string) $class);
                 while ((null === $class = $factoryDefinition->getClass()) && $factoryDefinition instanceof ChildDefinition) {

@@ -6,10 +6,16 @@ use Drupal\migrate_drupal\Plugin\migrate\source\DrupalSqlBase;
 use Drupal\migrate\Plugin\migrate\source\DummyQueryTrait;
 
 /**
+<<<<<<< HEAD
  * Drupal 6/7 user picture field instance source from database.
  *
  * For available configuration keys, refer to the parent classes.
  *
+=======
+ * User picture field instance source from database.
+ *
+ * For available configuration keys, refer to the parent classes:
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
  * @see \Drupal\migrate\Plugin\migrate\source\SqlBase
  * @see \Drupal\migrate\Plugin\migrate\source\SourcePluginBase
  *

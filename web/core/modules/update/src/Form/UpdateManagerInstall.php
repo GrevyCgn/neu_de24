@@ -119,12 +119,20 @@ class UpdateManagerInstall extends FormBase {
         '#suffix' => '</strong>',
       ];
 
+<<<<<<< HEAD
       $form['project_upload'] = [
         '#type' => 'file',
         '#title' => $this->t('Upload a module or theme archive'),
         '#description' => $this->t('For example: %filename from your local computer', ['%filename' => 'name.tar.gz']),
       ];
     }
+=======
+    $form['project_upload'] = [
+      '#type' => 'file',
+      '#title' => $this->t('Upload a module or theme archive'),
+      '#description' => $this->t('For example: %filename from your local computer', ['%filename' => 'name.tar.gz']),
+    ];
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $form['actions'] = ['#type' => 'actions'];
     $form['actions']['submit'] = [
@@ -141,6 +149,7 @@ class UpdateManagerInstall extends FormBase {
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
     $all_files = $this->getRequest()->files->get('files', []);
+<<<<<<< HEAD
     if ($this->moduleHandler->moduleExists('file')) {
       if (!($form_state->getValue('project_url') xor !empty($all_files['project_upload']))) {
         $form_state->setErrorByName('project_url', $this->t('You must either provide a URL or upload an archive file.'));
@@ -150,6 +159,10 @@ class UpdateManagerInstall extends FormBase {
       if (!($form_state->getValue('project_url'))) {
         $form_state->setErrorByName('project_url', $this->t('You must provide a URL to install.'));
       }
+=======
+    if (!($form_state->getValue('project_url') xor !empty($all_files['project_upload']))) {
+      $form_state->setErrorByName('project_url', $this->t('You must either provide a URL or upload an archive file.'));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     }
   }
 

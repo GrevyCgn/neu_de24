@@ -29,6 +29,13 @@ display:
         type: default
       row:
         type: fields
+<<<<<<< HEAD
+=======
+    display_plugin: default
+    display_title: Default
+    id: default
+    position: 0
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     cache_metadata:
       max-age: -1
       contexts:

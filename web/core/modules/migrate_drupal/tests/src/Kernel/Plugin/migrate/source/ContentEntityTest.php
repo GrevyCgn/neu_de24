@@ -149,12 +149,20 @@ class ContentEntityTest extends KernelTestBase {
     ]);
     $this->user->save();
 
+<<<<<<< HEAD
     // Add the anonymous user so we can test later that it is not provided in a
     // source row.
     User::create([
       'name' => 'anon',
       'uid' => 0,
     ])->save();
+=======
+    $this->anon = User::create([
+      'name' => 'anon',
+      'uid' => 0,
+    ]);
+    $this->anon->save();
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $term = Term::create([
       'vid' => $this->vocabulary,
@@ -221,9 +229,13 @@ class ContentEntityTest extends KernelTestBase {
     $user_source = $migration->getSourcePlugin();
     $this->assertSame('users', $user_source->__toString());
     if (!$configuration['include_translations']) {
+<<<<<<< HEAD
       // Confirm that the anonymous user is in the source database but not
       // included in the rows returned by the content_entity.
       $this->assertNotNull(User::load(0));
+=======
+      // Confirm that the query does not return a row for the anonymous user.
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       $this->assertEquals(1, $user_source->count());
     }
     $this->assertIds($user_source, $configuration);

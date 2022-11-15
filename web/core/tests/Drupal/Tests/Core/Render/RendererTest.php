@@ -298,7 +298,11 @@ class RendererTest extends RendererTestBase {
           if ($theme == 'container') {
             return '<div' . (string) (new Attribute($vars['#attributes'])) . '>' . $vars['#children'] . "</div>\n";
           }
+<<<<<<< HEAD
           $attributes = new Attribute(['href' => $vars['#url']] + ($vars['#attributes'] ?? []));
+=======
+          $attributes = new Attribute(['href' => $vars['#url']] + (isset($vars['#attributes']) ? $vars['#attributes'] : []));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
           return '<a' . (string) $attributes . '>' . $vars['#title'] . '</a>';
         });
     };

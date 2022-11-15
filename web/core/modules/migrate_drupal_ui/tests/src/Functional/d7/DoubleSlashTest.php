@@ -36,7 +36,11 @@ class DoubleSlashTest extends MigrateUpgradeExecuteTestBase {
   protected function setUp(): void {
     parent::setUp();
 
+<<<<<<< HEAD
     $this->loadFixture(\Drupal::service('extension.list.module')->getPath('migrate_drupal') . '/tests/fixtures/drupal7.php');
+=======
+    $this->loadFixture(drupal_get_path('module', 'migrate_drupal') . '/tests/fixtures/drupal7.php');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**
@@ -61,7 +65,10 @@ class DoubleSlashTest extends MigrateUpgradeExecuteTestBase {
     $this->submitForm([], 'Continue');
     $this->submitForm($edits, 'Review upgrade');
     $this->submitForm([], 'I acknowledge I may lose data. Continue anyway.');
+<<<<<<< HEAD
     $this->useTestMailCollector();
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->submitForm([], 'Perform upgrade');
 
     // Tests the migration log contains an error message.

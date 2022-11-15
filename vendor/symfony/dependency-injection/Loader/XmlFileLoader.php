@@ -622,7 +622,11 @@ class XmlFileLoader extends FileLoader
                     array_shift($parts);
                     $locationstart = 'phar:///';
                 }
+<<<<<<< HEAD
             } elseif ('\\' === \DIRECTORY_SEPARATOR && str_starts_with($location, '\\\\')) {
+=======
+            } elseif ('\\' === \DIRECTORY_SEPARATOR && 0 === strpos($location, '\\\\')) {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
                 $locationstart = '';
             }
             $drive = '\\' === \DIRECTORY_SEPARATOR ? array_shift($parts).'/' : '';
@@ -676,7 +680,11 @@ EOF
             });
             $schema = '<?xml version="1.0" encoding="utf-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<<<<<<< HEAD
   <xsd:include schemaLocation="file:///'.rawurlencode(str_replace('\\', '/', $tmpfile)).'" />
+=======
+  <xsd:include schemaLocation="file:///'.str_replace('\\', '/', $tmpfile).'" />
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 </xsd:schema>';
             file_put_contents($tmpfile, '<?xml version="1.0" encoding="utf-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">

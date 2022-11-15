@@ -99,12 +99,19 @@ class UpdateSemverCoreTest extends UpdateSemverTestBase {
    * - drupal.sec.2.0_9.0.0.xml
    *   - 8.2.0
    *   - 9.0.0
+<<<<<<< HEAD
    * - drupal.sec.9.5.0.xml
    *   - 9.4.0
    *   - 9.5.0
    * - drupal.sec.10.5.0.xml
    *   - 10.4.0
    *   - 10.5.0
+=======
+   * - drupal.sec.9.0.xml
+   *   - 8.9.0
+   * - drupal.sec.9.9.0.xml
+   *   - 9.9.0
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    */
   public function securityCoverageMessageProvider() {
     $release_coverage_message = 'Visit the release cycle overview for more information on supported releases.';
@@ -184,6 +191,7 @@ class UpdateSemverCoreTest extends UpdateSemverTestBase {
       ],
     ];
 
+<<<<<<< HEAD
     // Drupal 9.4.x test cases.
     $test_cases += [
       // Ensure that a message is displayed during 9.4's active support.
@@ -202,10 +210,31 @@ class UpdateSemverCoreTest extends UpdateSemverTestBase {
         'requirements_section_heading' => 'Warnings found',
         'message' => "Covered until 2023-Jun-21 $update_soon_message $release_coverage_message",
         'mock_date' => '2022-12-14',
+=======
+    // Drupal 8.8.x test cases.
+    $test_cases += [
+      // Ensure that a message is displayed during 8.8's active support.
+      '8.8.0, supported' => [
+        'installed_version' => '8.8.0',
+        'fixture' => 'sec.9.0',
+        'requirements_section_heading' => 'Checked',
+        'message' => "Covered until 2020-Dec-02 $release_coverage_message",
+        'mock_date' => '2020-06-01',
+      ],
+      // Ensure a warning is displayed if less than six months remain until the
+      // end of 8.8's security coverage.
+      '8.8.0, supported, 6 months warn' => [
+        'installed_version' => '8.8.0',
+        'fixture' => 'sec.9.0',
+        'requirements_section_heading' => 'Warnings found',
+        'message' => "Covered until 2020-Dec-02 $update_soon_message $release_coverage_message",
+        'mock_date' => '2020-06-02',
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       ],
     ];
     // Ensure that the message does not change, including on the last day of
     // security coverage.
+<<<<<<< HEAD
     $test_cases['9.4.0, supported, last day warn'] = $test_cases['9.4.0, supported, 6 months warn'];
     $test_cases['9.4.0, supported, last day warn']['mock_date'] = '2023-06-20';
 
@@ -249,10 +278,46 @@ class UpdateSemverCoreTest extends UpdateSemverTestBase {
       'requirements_section_heading' => 'Errors found',
       'message' => "$coverage_ended_message $update_asap_message $release_coverage_message",
       'mock_date' => '2023-11-01',
+=======
+    $test_cases['8.8.0, supported, last day warn'] = $test_cases['8.8.0, supported, 6 months warn'];
+    $test_cases['8.8.0, supported, last day warn']['mock_date'] = '2020-12-01';
+
+    // Ensure that if the 8.8 support window is finished a message is
+    // displayed.
+    $test_cases['8.8.0, support over'] = [
+      'installed_version' => '8.8.0',
+      'fixture' => 'sec.9.0',
+      'requirements_section_heading' => 'Errors found',
+      'message' => "$coverage_ended_message $update_asap_message $release_coverage_message",
+      'mock_date' => '2020-12-02',
+    ];
+
+    // Drupal 8.9 LTS test cases.
+    $test_cases['8.9.0, lts supported'] = [
+      'installed_version' => '8.9.0',
+      'fixture' => 'sec.9.0',
+      'requirements_section_heading' => 'Checked',
+      'message' => "Covered until 2021-Nov $release_coverage_message",
+      'mock_date' => '2021-01-01',
+    ];
+    // Ensure that the message does not change, including on the last day of
+    // security coverage.
+    $test_cases['8.9.0, lts supported, last day'] = $test_cases['8.9.0, lts supported'];
+    $test_cases['8.9.0, lts supported, last day']['mock_date'] = '2021-10-31';
+
+    // Ensure that if LTS support window is finished a message is displayed.
+    $test_cases['8.9.0, lts support over'] = [
+      'installed_version' => '8.9.0',
+      'fixture' => 'sec.9.0',
+      'requirements_section_heading' => 'Errors found',
+      'message' => "$coverage_ended_message $update_asap_message $release_coverage_message",
+      'mock_date' => '2021-11-01',
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     ];
 
     // Drupal 9 test cases.
     $test_cases += [
+<<<<<<< HEAD
       // Ensure the end dates for 9.4 and 9.5 only apply to major version 9.
       '10.5.0' => [
         'installed_version' => '10.5.0',
@@ -266,6 +331,21 @@ class UpdateSemverCoreTest extends UpdateSemverTestBase {
         'fixture' => 'sec.10.5.0',
         'requirements_section_heading' => 'Warnings found',
         'message' => "Covered until 10.6.0 Update to 10.5 or higher soon to continue receiving security updates. $release_coverage_message",
+=======
+      // Ensure the end dates for 8.8 and 8.9 only apply to major version 8.
+      '9.9.0' => [
+        'installed_version' => '9.9.0',
+        'fixture' => 'sec.9.9.0',
+        'requirements_section_heading' => 'Checked',
+        'message' => "Covered until 9.11.0 $release_coverage_message",
+        'mock_date' => '',
+      ],
+      '9.8.0' => [
+        'installed_version' => '9.8.0',
+        'fixture' => 'sec.9.9.0',
+        'requirements_section_heading' => 'Warnings found',
+        'message' => "Covered until 9.10.0 Update to 9.9 or higher soon to continue receiving security updates. $release_coverage_message",
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         'mock_date' => '',
       ],
     ];
@@ -290,10 +370,17 @@ class UpdateSemverCoreTest extends UpdateSemverTestBase {
     ];
     $this->config('update_test.settings')->set('system_info', $system_info)->save();
     $this->refreshUpdateStatus(['drupal' => 'dev']);
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('2001-Sep-');
     $this->assertSession()->pageTextContains('Up to date');
     $this->assertSession()->pageTextNotContains('Update available');
     $this->assertSession()->pageTextNotContains('Security update required!');
+=======
+    $this->assertNoText('2001-Sep-');
+    $this->assertSession()->pageTextContains('Up to date');
+    $this->assertNoText('Update available');
+    $this->assertNoText('Security update required!');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**
@@ -310,7 +397,11 @@ class UpdateSemverCoreTest extends UpdateSemverTestBase {
 
     $this->cronRun();
     $this->drupalGet('admin/modules');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('No update information available.');
+=======
+    $this->assertNoText('No update information available.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**
@@ -344,23 +435,35 @@ class UpdateSemverCoreTest extends UpdateSemverTestBase {
       ->save();
 
     $this->drupalGet('admin/reports/updates');
+<<<<<<< HEAD
     $this->clickLink('Check manually');
     $this->checkForMetaRefresh();
     $this->assertSession()->pageTextContains('Checked available update data for one project.');
     $this->drupalGet('admin/modules');
     $this->assertSession()->pageTextNotContains('There are updates available for your version of Drupal.');
     $this->assertSession()->pageTextNotContains('There is a security update available for your version of Drupal.');
+=======
+    $this->clickLink(t('Check manually'));
+    $this->checkForMetaRefresh();
+    $this->assertSession()->pageTextContains('Checked available update data for one project.');
+    $this->drupalGet('admin/modules');
+    $this->assertNoText('There are updates available for your version of Drupal.');
+    $this->assertNoText('There is a security update available for your version of Drupal.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**
    * Checks the messages at admin/modules when an update is missing.
    */
   public function testModulePageRegularUpdate() {
+<<<<<<< HEAD
     $this->drupalLogin($this->drupalCreateUser([
       'administer site configuration',
       'administer modules',
       'view update notifications',
     ]));
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->setProjectInstalledVersion('8.0.0');
     // Instead of using refreshUpdateStatus(), set these manually.
     $this->config('update.settings')
@@ -371,11 +474,16 @@ class UpdateSemverCoreTest extends UpdateSemverTestBase {
       ->save();
 
     $this->drupalGet('admin/reports/updates');
+<<<<<<< HEAD
     $this->clickLink('Check manually');
+=======
+    $this->clickLink(t('Check manually'));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->checkForMetaRefresh();
     $this->assertSession()->pageTextContains('Checked available update data for one project.');
     $this->drupalGet('admin/modules');
     $this->assertSession()->pageTextContains('There are updates available for your version of Drupal.');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('There is a security update available for your version of Drupal.');
 
     // A user without the "view update notifications" permission shouldn't be
@@ -387,18 +495,24 @@ class UpdateSemverCoreTest extends UpdateSemverTestBase {
     $this->drupalGet('admin/modules');
     $this->assertSession()->statusCodeEquals(200);
     $this->assertSession()->pageTextNotContains('There are updates available for your version of Drupal.');
+=======
+    $this->assertNoText('There is a security update available for your version of Drupal.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**
    * Checks the messages at admin/modules when a security update is missing.
    */
   public function testModulePageSecurityUpdate() {
+<<<<<<< HEAD
     $this->drupalLogin($this->drupalCreateUser([
       'administer site configuration',
       'administer modules',
       'administer themes',
       'view update notifications',
     ]));
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->setProjectInstalledVersion('8.0.0');
     // Instead of using refreshUpdateStatus(), set these manually.
     $this->config('update.settings')
@@ -409,16 +523,28 @@ class UpdateSemverCoreTest extends UpdateSemverTestBase {
       ->save();
 
     $this->drupalGet('admin/reports/updates');
+<<<<<<< HEAD
     $this->clickLink('Check manually');
     $this->checkForMetaRefresh();
     $this->assertSession()->pageTextContains('Checked available update data for one project.');
     $this->drupalGet('admin/modules');
     $this->assertSession()->pageTextNotContains('There are updates available for your version of Drupal.');
+=======
+    $this->clickLink(t('Check manually'));
+    $this->checkForMetaRefresh();
+    $this->assertSession()->pageTextContains('Checked available update data for one project.');
+    $this->drupalGet('admin/modules');
+    $this->assertNoText('There are updates available for your version of Drupal.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains('There is a security update available for your version of Drupal.');
 
     // Make sure admin/appearance warns you you're missing a security update.
     $this->drupalGet('admin/appearance');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('There are updates available for your version of Drupal.');
+=======
+    $this->assertNoText('There are updates available for your version of Drupal.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains('There is a security update available for your version of Drupal.');
 
     // Make sure duplicate messages don't appear on Update status pages.
@@ -426,10 +552,17 @@ class UpdateSemverCoreTest extends UpdateSemverTestBase {
     $this->assertSession()->pageTextContainsOnce('There is a security update available for your version of Drupal.');
 
     $this->drupalGet('admin/reports/updates');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('There is a security update available for your version of Drupal.');
 
     $this->drupalGet('admin/reports/updates/settings');
     $this->assertSession()->pageTextNotContains('There is a security update available for your version of Drupal.');
+=======
+    $this->assertNoText('There is a security update available for your version of Drupal.');
+
+    $this->drupalGet('admin/reports/updates/settings');
+    $this->assertNoText('There is a security update available for your version of Drupal.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**
@@ -438,7 +571,11 @@ class UpdateSemverCoreTest extends UpdateSemverTestBase {
   public function testServiceUnavailable() {
     $this->refreshUpdateStatus([], '503-error');
     // Ensure that no "Warning: SimpleXMLElement..." parse errors are found.
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('SimpleXMLElement');
+=======
+    $this->assertNoText('SimpleXMLElement');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContainsOnce('Failed to get available update data for one project.');
   }
 
@@ -498,6 +635,7 @@ class UpdateSemverCoreTest extends UpdateSemverTestBase {
     $this->drupalLogin($admin_user);
 
     $this->drupalGet('admin/modules');
+<<<<<<< HEAD
     $this->clickLink('Add new module');
     $this->assertSession()->addressEquals('admin/modules/install');
 
@@ -507,6 +645,17 @@ class UpdateSemverCoreTest extends UpdateSemverTestBase {
 
     $this->drupalGet('admin/reports/updates');
     $this->clickLink('Add new module or theme');
+=======
+    $this->clickLink(t('Add new module'));
+    $this->assertSession()->addressEquals('admin/modules/install');
+
+    $this->drupalGet('admin/appearance');
+    $this->clickLink(t('Add new theme'));
+    $this->assertSession()->addressEquals('admin/theme/install');
+
+    $this->drupalGet('admin/reports/updates');
+    $this->clickLink(t('Add new module or theme'));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->addressEquals('admin/reports/updates/install');
   }
 
@@ -516,7 +665,10 @@ class UpdateSemverCoreTest extends UpdateSemverTestBase {
   public function testBrokenThenFixedUpdates() {
     $this->drupalLogin($this->drupalCreateUser([
       'administer site configuration',
+<<<<<<< HEAD
       'view update notifications',
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       'access administration pages',
     ]));
     $this->setProjectInstalledVersion('8.0.0');

@@ -40,7 +40,11 @@ class FileManagedFileElementTest extends FileFieldTestBase {
           // Submit without a file.
           $this->drupalGet($path);
           $this->submitForm([], 'Save');
+<<<<<<< HEAD
           $this->assertSession()->pageTextContains("The file ids are .");
+=======
+          $this->assertRaw(t('The file ids are %fids.', ['%fids' => implode(',', [])]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
           // Submit with a file, but with an invalid form token. Ensure the file
           // was not saved.
@@ -68,7 +72,11 @@ class FileManagedFileElementTest extends FileFieldTestBase {
           // Submit no new input, but with a default file.
           $this->drupalGet($path . '/' . $last_fid);
           $this->submitForm([], 'Save');
+<<<<<<< HEAD
           $this->assertSession()->pageTextContains("The file ids are $last_fid.");
+=======
+          $this->assertRaw(t('The file ids are %fids.', ['%fids' => implode(',', [$last_fid])]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
           // Upload, then Submit.
           $last_fid_prior = $this->getLastFileId();
@@ -215,7 +223,11 @@ class FileManagedFileElementTest extends FileFieldTestBase {
     // allowed to reference an unused file.
     $this->drupalGet('file/test/1/0/1/' . $file->id());
     $this->submitForm([], 'Save');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('The file used in the Managed file & butter field may not be referenced.');
+=======
+    $this->assertNoText('The file used in the Managed file &amp; butter field may not be referenced.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains('The file ids are ' . $file->id());
 
     // Enable marking unused files as temporary, unused permanent files must not
@@ -226,7 +238,11 @@ class FileManagedFileElementTest extends FileFieldTestBase {
     $this->drupalGet('file/test/1/0/1/' . $file->id());
     $this->submitForm([], 'Save');
     $this->assertSession()->pageTextContains('The file used in the Managed file & butter field may not be referenced.');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('The file ids are ' . $file->id());
+=======
+    $this->assertNoText('The file ids are ' . $file->id());
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Make the file temporary, now using it is allowed.
     $file->setTemporary();
@@ -234,7 +250,11 @@ class FileManagedFileElementTest extends FileFieldTestBase {
 
     $this->drupalGet('file/test/1/0/1/' . $file->id());
     $this->submitForm([], 'Save');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('The file used in the Managed file & butter field may not be referenced.');
+=======
+    $this->assertNoText('The file used in the Managed file &amp; butter field may not be referenced.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains('The file ids are ' . $file->id());
 
     // Make the file permanent again and add a usage from itself, referencing is
@@ -248,7 +268,11 @@ class FileManagedFileElementTest extends FileFieldTestBase {
 
     $this->drupalGet('file/test/1/0/1/' . $file->id());
     $this->submitForm([], 'Save');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('The file used in the Managed file & butter field may not be referenced.');
+=======
+    $this->assertNoText('The file used in the Managed file &amp; butter field may not be referenced.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains('The file ids are ' . $file->id());
   }
 

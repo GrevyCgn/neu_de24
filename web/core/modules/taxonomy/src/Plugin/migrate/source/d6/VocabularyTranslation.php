@@ -6,7 +6,11 @@ use Drupal\migrate\Row;
 use Drupal\migrate_drupal\Plugin\migrate\source\DrupalSqlBase;
 
 /**
+<<<<<<< HEAD
  * Drupal 6 i18n vocabulary translations source from database.
+=======
+ * Drupal 6 i18n vocabulary translations from source database.
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
  *
  * For available configuration keys, refer to the parent classes.
  *

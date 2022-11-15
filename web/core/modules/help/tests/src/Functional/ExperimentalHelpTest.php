@@ -51,7 +51,11 @@ class ExperimentalHelpTest extends BrowserTestBase {
   public function testExperimentalHelp() {
     $this->drupalLogin($this->adminUser);
     $this->drupalGet('admin/help/experimental_module_test');
+<<<<<<< HEAD
     $this->assertSession()->statusMessageContains('This module is experimental.', 'warning');
+=======
+    $this->assertSession()->pageTextContains('This module is experimental.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Regular modules should not display the message.
     $this->drupalGet('admin/help/help_page_test');

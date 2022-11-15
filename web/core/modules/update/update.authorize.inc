@@ -96,7 +96,17 @@ function update_authorize_run_install($filetransfer, $project, $updater_name, $l
       $updater_name,
       $local_url,
       $filetransfer,
+<<<<<<< HEAD
     ])
+=======
+    ],
+  ];
+
+  // @todo Instantiate our Updater to set the human-readable title?
+  $batch = [
+    'init_message' => t('Preparing to add'),
+    'operations' => $operations,
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     // @todo Use a different finished callback for different messages?
     ->setFinishCallback('update_authorize_install_batch_finished');
   batch_set($batch_builder->toArray());

@@ -389,6 +389,7 @@ class MigrateExecutable implements MigrateExecutableInterface {
    */
   public function processRow(Row $row, array $process = NULL, $value = NULL) {
     foreach ($this->migration->getProcessPlugins($process) as $destination => $plugins) {
+<<<<<<< HEAD
       $this->processPipeline($row, $destination, $plugins, $value);
     }
   }
@@ -422,6 +423,35 @@ class MigrateExecutable implements MigrateExecutableInterface {
         $new_value = [];
         if (!is_array($value)) {
           throw new MigrateException(sprintf('Pipeline failed at %s plugin for destination %s: %s received instead of an array,', $plugin->getPluginId(), $destination, $value));
+=======
+      $multiple = FALSE;
+      /** @var \Drupal\migrate\Plugin\MigrateProcessInterface $plugin */
+      foreach ($plugins as $plugin) {
+        $definition = $plugin->getPluginDefinition();
+        // Many plugins expect a scalar value but the current value of the
+        // pipeline might be multiple scalars (this is set by the previous
+        // plugin) and in this case the current value needs to be iterated
+        // and each scalar separately transformed.
+        if ($multiple && !$definition['handle_multiples']) {
+          $new_value = [];
+          if (!is_array($value)) {
+            throw new MigrateException(sprintf('Pipeline failed at %s plugin for destination %s: %s received instead of an array,', $plugin->getPluginId(), $destination, $value));
+          }
+          $break = FALSE;
+          foreach ($value as $scalar_value) {
+            try {
+              $new_value[] = $plugin->transform($scalar_value, $this, $row, $destination);
+            }
+            catch (MigrateSkipProcessException $e) {
+              $new_value[] = NULL;
+              $break = TRUE;
+            }
+          }
+          $value = $new_value;
+          if ($break) {
+            break;
+          }
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         }
         $break = FALSE;
         foreach ($value as $scalar_value) {

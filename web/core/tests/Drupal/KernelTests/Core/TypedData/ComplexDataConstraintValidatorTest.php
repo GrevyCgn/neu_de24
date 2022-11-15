@@ -53,7 +53,11 @@ class ComplexDataConstraintValidatorTest extends KernelTestBase {
 
     // Make sure the information provided by a violation is correct.
     $violation = $violations[0];
+<<<<<<< HEAD
     $this->assertEquals('The value you selected is not a valid choice.', $violation->getMessage(), 'The message for invalid value is correct.');
+=======
+    $this->assertEquals(t('The value you selected is not a valid choice.'), $violation->getMessage(), 'The message for invalid value is correct.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertEquals($typed_data, $violation->getRoot(), 'Violation root is correct.');
     $this->assertEquals(4, $violation->getInvalidValue(), 'The invalid value is set correctly in the violation.');
 

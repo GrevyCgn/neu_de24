@@ -36,12 +36,22 @@ class ContentTranslationEnableTest extends BrowserTestBase {
     $this->submitForm($edit, 'Install');
 
     // Status messages are shown.
+<<<<<<< HEAD
     $this->assertSession()->statusMessageContains('This site has only a single language enabled. Add at least one more language in order to translate content.', 'warning');
     $this->assertSession()->statusMessageContains('Enable translation for content types, taxonomy vocabularies, accounts, or any other element you wish to translate.', 'warning');
 
     // No pending updates should be available.
     $this->drupalGet('admin/reports/status');
     $this->assertSession()->elementTextEquals('css', "details.system-status-report__entry summary:contains('Entity/field definitions') + div", 'Up to date');
+=======
+    $this->assertSession()->pageTextContains('This site has only a single language enabled. Add at least one more language in order to translate content.');
+    $this->assertSession()->pageTextContains('Enable translation for content types, taxonomy vocabularies, accounts, or any other element you wish to translate.');
+
+    // No pending updates should be available.
+    $this->drupalGet('admin/reports/status');
+    $requirement_value = $this->cssSelect("details.system-status-report__entry summary:contains('Entity/field definitions') + div");
+    $this->assertEquals(t('Up to date'), trim($requirement_value[0]->getText()));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $this->drupalGet('admin/config/regional/content-language');
     // The node entity type should not be an option because it has no bundles.
@@ -58,7 +68,12 @@ class ContentTranslationEnableTest extends BrowserTestBase {
 
     // No pending updates should be available.
     $this->drupalGet('admin/reports/status');
+<<<<<<< HEAD
     $this->assertSession()->elementTextEquals('css', "details.system-status-report__entry summary:contains('Entity/field definitions') + div", 'Up to date');
+=======
+    $requirement_value = $this->cssSelect("details.system-status-report__entry summary:contains('Entity/field definitions') + div");
+    $this->assertEquals(t('Up to date'), trim($requirement_value[0]->getText()));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Create a node type and check the content translation settings are now
     // available for nodes.

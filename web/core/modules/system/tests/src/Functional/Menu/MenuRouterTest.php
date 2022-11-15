@@ -80,7 +80,11 @@ class MenuRouterTest extends BrowserTestBase {
   protected function doTestTitleCallbackFalse() {
     $this->drupalGet('test-page');
     $this->assertSession()->pageTextContains('A title with @placeholder', 'Raw text found on the page');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('A title with some other text', 'Text with placeholder substitutions not found.');
+=======
+    $this->assertNoText('A title with some other text', 'Text with placeholder substitutions not found.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**
@@ -270,7 +274,11 @@ class MenuRouterTest extends BrowserTestBase {
   protected function doTestThemeCallbackAdministrative() {
     $this->drupalGet('menu-test/theme-callback/use-admin-theme');
     $this->assertSession()->pageTextContains('Active theme: seven. Actual theme: seven.');
+<<<<<<< HEAD
     $this->assertSession()->responseContains('seven/css/base/elements.css');
+=======
+    $this->assertRaw('seven/css/base/elements.css');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**

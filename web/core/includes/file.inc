@@ -5,8 +5,14 @@
  * API for handling file uploads and server file management.
  */
 
+<<<<<<< HEAD
 use Drupal\Core\File\Exception\InvalidStreamWrapperException;
 use Drupal\Core\File\FileSystemInterface;
+=======
+use Drupal\Component\Utility\UrlHelper;
+use Drupal\Core\File\FileSystemInterface;
+use Drupal\Core\StreamWrapper\StreamWrapperManager;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
 /**
  * @defgroup file File interface

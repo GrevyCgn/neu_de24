@@ -374,7 +374,11 @@ class ConfigTranslationListUiTest extends BrowserTestBase {
 
     $this->drupalGet('admin/config/media/responsive-image-style/add');
     $this->submitForm($edit, 'Save');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains("Responsive image style {$edit['label']} saved.");
+=======
+    $this->assertRaw(t('Responsive image style %label saved.', ['%label' => $edit['label']]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Get the responsive image style listing.
     $this->drupalGet('admin/config/media/responsive-image-style');

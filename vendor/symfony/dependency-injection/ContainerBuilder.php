@@ -1658,7 +1658,11 @@ class ContainerBuilder extends Container implements TaggedContainerInterface
         $path = realpath($path) ?: $path;
 
         foreach ($this->vendors as $vendor) {
+<<<<<<< HEAD
             if (str_starts_with($path, $vendor) && false !== strpbrk(substr($path, \strlen($vendor), 1), '/'.\DIRECTORY_SEPARATOR)) {
+=======
+            if (0 === strpos($path, $vendor) && false !== strpbrk(substr($path, \strlen($vendor), 1), '/'.\DIRECTORY_SEPARATOR)) {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
                 $this->addResource(new FileResource($vendor.'/composer/installed.json'));
 
                 return true;

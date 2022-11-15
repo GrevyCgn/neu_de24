@@ -1,6 +1,10 @@
 <?xml version="1.0"?>
 <psalm
+<<<<<<< HEAD
     errorLevel="1"
+=======
+    totallyTyped="true"
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns="https://getpsalm.org/schema/config"
     xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
@@ -15,6 +19,7 @@
     </projectFiles>
 
     <issueHandlers>
+<<<<<<< HEAD
         <DeprecatedFunction>
             <errorLevel type="suppress">
                 <referencedFunction name="laminas\diactoros\marshalurifromsapi"/>
@@ -27,11 +32,14 @@
             </errorLevel>
         </InternalClass>
 
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         <InternalMethod>
             <errorLevel type="suppress">
                 <referencedMethod name="PHPUnit\Framework\MockObject\Builder\InvocationMocker::method"/>
                 <referencedMethod name="PHPUnit\Framework\MockObject\Builder\InvocationMocker::willReturn"/>
                 <referencedMethod name="PHPUnit\Framework\MockObject\Builder\InvocationMocker::with"/>
+<<<<<<< HEAD
                 <referencedMethod name="Laminas\Diactoros\ServerRequestFilter\IPRange::matches"/>
                 <referencedMethod name="Laminas\Diactoros\ServerRequestFilter\IPRange::matchesIPv4"/>
                 <referencedMethod name="Laminas\Diactoros\ServerRequestFilter\IPRange::matchesIPv6"/>
@@ -43,6 +51,10 @@
                 <referencedClass name="GdImage" />
             </errorLevel>
         </UndefinedClass>
+=======
+            </errorLevel>
+        </InternalMethod>
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     </issueHandlers>
     <plugins>
         <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>

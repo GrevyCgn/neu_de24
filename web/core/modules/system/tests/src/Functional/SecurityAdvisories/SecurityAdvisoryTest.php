@@ -217,8 +217,11 @@ class SecurityAdvisoryTest extends BrowserTestBase {
    *   The expected links' text.
    * @param int $error_or_warning
    *   Whether the links are a warning or an error. Should be one of the REQUIREMENT_* constants.
+<<<<<<< HEAD
    *
    * @internal
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    */
   private function assertAdminPageLinks(array $expected_link_texts, int $error_or_warning): void {
     $assert = $this->assertSession();
@@ -243,8 +246,11 @@ class SecurityAdvisoryTest extends BrowserTestBase {
    *   The expected links' text.
    * @param int $error_or_warning
    *   Whether the links are a warning or an error. Should be one of the REQUIREMENT_* constants.
+<<<<<<< HEAD
    *
    * @internal
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    */
   private function assertStatusReportLinks(array $expected_link_texts, int $error_or_warning): void {
     $this->drupalGet(Url::fromRoute('system.status'));
@@ -264,8 +270,11 @@ class SecurityAdvisoryTest extends BrowserTestBase {
    *   The advisory links.
    * @param array $routes
    *   The routes to test.
+<<<<<<< HEAD
    *
    * @internal
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    */
   private function assertAdvisoriesNotDisplayed(array $links, array $routes = ['system.status', 'system.admin']): void {
     foreach ($routes as $route) {
@@ -287,8 +296,11 @@ class SecurityAdvisoryTest extends BrowserTestBase {
    *   The expected error messages.
    *
    * @see \Drupal\advisory_feed_test\TestSystemLoggerChannel::log()
+<<<<<<< HEAD
    *
    * @internal
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    */
   protected function assertServiceAdvisoryLoggedErrors(array $expected_messages): void {
     $state = $this->container->get('state');

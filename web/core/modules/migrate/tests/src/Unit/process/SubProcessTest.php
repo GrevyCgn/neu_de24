@@ -8,9 +8,14 @@ use Drupal\migrate\MigrateMessageInterface;
 use Drupal\migrate\Plugin\migrate\process\Get;
 use Drupal\migrate\Plugin\migrate\process\SubProcess;
 use Drupal\migrate\Row;
+<<<<<<< HEAD
 use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 
 // cspell:ignore baaa
+=======
+use Drupal\Tests\migrate\Unit\MigrateTestCase;
+use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
 /**
  * Tests the sub_process process plugin.

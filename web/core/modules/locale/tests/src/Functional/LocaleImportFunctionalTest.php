@@ -185,7 +185,11 @@ class LocaleImportFunctionalTest extends BrowserTestBase {
     ];
     $this->drupalGet('admin/config/regional/translate');
     $this->submitForm($search, 'Filter');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('No strings available.');
+=======
+    $this->assertNoText('No strings available.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     // This import should have changed number of plural forms.
     $locale_plurals = \Drupal::service('locale.plural.formula')->reset()->getNumberOfPlurals('fr');
     $this->assertEquals(3, $locale_plurals, 'Plural numbers changed.');
@@ -246,7 +250,11 @@ class LocaleImportFunctionalTest extends BrowserTestBase {
     ];
     $this->drupalGet('admin/config/regional/translate');
     $this->submitForm($search, 'Filter');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('No strings available.');
+=======
+    $this->assertNoText('No strings available.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
   }
 

@@ -289,8 +289,11 @@ class BookMultilingualTest extends KernelTestBase {
    *   A book tree item.
    * @param string $langcode
    *   The language code for the requested translation.
+<<<<<<< HEAD
    *
    * @internal
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    */
   protected function assertBookItemIsCorrectlyTranslated(array $item, string $langcode): void {
     $this->assertNodeLinkIsCorrectlyTranslated($item['original_link']['nid'], $item['title'], $item['url'], $langcode);
@@ -307,8 +310,11 @@ class BookMultilingualTest extends KernelTestBase {
    *   The URL being tested.
    * @param string $langcode
    *   The language code.
+<<<<<<< HEAD
    *
    * @internal
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    */
   protected function assertNodeLinkIsCorrectlyTranslated(int $nid, string $title, Url $url, string $langcode): void {
     $node = Node::load($nid);
@@ -328,10 +334,15 @@ class BookMultilingualTest extends KernelTestBase {
    *   The node ID.
    * @param string $indent
    *   The indentation before the actual table of contents label.
+<<<<<<< HEAD
    *
    * @internal
    */
   protected function assertToCEntryIsCorrectlyTranslated(array $toc, string $langcode, int $nid, string $indent): void {
+=======
+   */
+  protected function assertToCEntryIsCorrectlyTranslated(array $toc, string $langcode, int $nid, string $indent) {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $node = Node::load($nid);
     $node_label = $node->getTranslation($langcode)->label();
     $this->assertSame($indent . ' ' . $node_label, $toc[$nid]);

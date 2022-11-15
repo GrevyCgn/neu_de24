@@ -40,10 +40,13 @@ class DecoratorServicePass implements CompilerPassInterface
         }
         $decoratingDefinitions = [];
 
+<<<<<<< HEAD
         $tagsToKeep = $container->hasParameter('container.behavior_describing_tags')
             ? $container->getParameter('container.behavior_describing_tags')
             : ['container.do_not_inline', 'container.service_locator', 'container.service_subscriber'];
 
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         foreach ($definitions as [$id, $definition]) {
             $decoratedService = $definition->getDecoratedService();
             [$inner, $renamedId] = $decoratedService;
@@ -93,8 +96,13 @@ class DecoratorServicePass implements CompilerPassInterface
                 $decoratingTags = $decoratingDefinition->getTags();
                 $resetTags = [];
 
+<<<<<<< HEAD
                 // Behavior-describing tags must not be transferred out to decorators
                 foreach ($tagsToKeep as $containerTag) {
+=======
+                // container.service_locator and container.service_subscriber have special logic and they must not be transferred out to decorators
+                foreach (['container.service_locator', 'container.service_subscriber'] as $containerTag) {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
                     if (isset($decoratingTags[$containerTag])) {
                         $resetTags[$containerTag] = $decoratingTags[$containerTag];
                         unset($decoratingTags[$containerTag]);

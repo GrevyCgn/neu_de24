@@ -2,6 +2,10 @@
 
 namespace Drupal\Tests\Core\Test;
 
+<<<<<<< HEAD
+=======
+use Behat\Mink\Driver\GoutteDriver;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 use Drupal\Tests\DrupalTestBrowser;
 use Drupal\Tests\UnitTestCase;
 use Drupal\Tests\BrowserTestBase;
@@ -42,7 +46,10 @@ class BrowserTestBaseTest extends UnitTestCase {
     $expected = new \stdClass();
 
     $browserkit_client = $this->getMockBuilder(DrupalTestBrowser::class)
+<<<<<<< HEAD
       ->onlyMethods(['getClient'])
+=======
+      ->setMethods(['getClient'])
       ->getMockForAbstractClass();
     $browserkit_client->expects($this->once())
       ->method('getClient')
@@ -50,6 +57,38 @@ class BrowserTestBaseTest extends UnitTestCase {
 
     // Because the driver is a BrowserKitDriver, we'll get back a client.
     $driver = new BrowserKitDriver($browserkit_client);
+    $btb = $this->mockBrowserTestBaseWithDriver($driver);
+
+    $ref_gethttpclient = new \ReflectionMethod($btb, 'getHttpClient');
+    $ref_gethttpclient->setAccessible(TRUE);
+
+    $this->assertSame(get_class($expected), get_class($ref_gethttpclient->invoke($btb)));
+  }
+
+  /**
+   * @covers ::getHttpClient
+   *
+   * @group legacy
+   */
+  public function testGetHttpClientGoutte() {
+    // Our stand-in for the Guzzle client object.
+    $expected = new \stdClass();
+
+    $browserkit_client = $this->getMockBuilder(Client::class)
+      ->setMethods(['getClient'])
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
+      ->getMockForAbstractClass();
+    $browserkit_client->expects($this->once())
+      ->method('getClient')
+      ->willReturn($expected);
+
+<<<<<<< HEAD
+    // Because the driver is a BrowserKitDriver, we'll get back a client.
+    $driver = new BrowserKitDriver($browserkit_client);
+=======
+    // Because the driver is a GoutteDriver, we'll get back a client.
+    $driver = new GoutteDriver($browserkit_client);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $btb = $this->mockBrowserTestBaseWithDriver($driver);
 
     $ref_gethttpclient = new \ReflectionMethod($btb, 'getHttpClient');

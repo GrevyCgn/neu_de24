@@ -10,7 +10,11 @@ jobs:
     strategy:
       max-parallel: 10
       matrix:
+<<<<<<< HEAD
         php: ['5.5', '5.6', '7.0', '7.1', '7.2', '7.3', '7.4', '8.0', '8.1']
+=======
+        php: ['5.6', '7.0', '7.1', '7.2', '7.3', '7.4']
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     steps:
       - name: Set up PHP
@@ -23,12 +27,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+<<<<<<< HEAD
       - name: Mimic PHP 8.0
         run: composer config platform.php 8.0.999
         if: matrix.php > 8
 
       - name: Install dependencies
         run: composer update --no-interaction --no-progress
+=======
+      - name: Install dependencies
+        run: composer update --no-interaction --no-progress --prefer-dist
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
       - name: Run tests
         run: make test

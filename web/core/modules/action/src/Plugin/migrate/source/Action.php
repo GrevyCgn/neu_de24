@@ -8,6 +8,14 @@ use Drupal\system\Plugin\migrate\source\Action as SystemAction;
 
 /**
  * Drupal 6/7 action source from database.
+<<<<<<< HEAD
+=======
+ *
+ * For available configuration keys, refer to the parent classes.
+ *
+ * @see \Drupal\migrate\Plugin\migrate\source\SqlBase
+ * @see \Drupal\migrate\Plugin\migrate\source\SourcePluginBase
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
  *
  * For available configuration keys, refer to the parent classes.
  *

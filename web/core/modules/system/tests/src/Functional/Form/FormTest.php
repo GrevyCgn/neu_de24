@@ -351,7 +351,11 @@ class FormTest extends BrowserTestBase {
     $edit = [];
     $this->drupalGet('form-test/validate-required-no-title');
     $this->submitForm($edit, 'Submit');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains("The form_test_validate_required_form_no_title form was submitted successfully.");
+=======
+    $this->assertNoRaw("The form_test_validate_required_form_no_title form was submitted successfully.");
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Check the page for the error class on the textfield.
     $this->assertSession()->elementExists('xpath', '//input[contains(@class, "error")]');
@@ -380,7 +384,11 @@ class FormTest extends BrowserTestBase {
     $edit = [];
     $this->drupalGet('form-test/checkbox');
     $this->submitForm($edit, 'Submit');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains("required_checkbox field is required.");
+=======
+    $this->assertRaw(t('@name field is required.', ['@name' => 'required_checkbox']));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Now try to submit the form correctly.
     $this->submitForm(['required_checkbox' => 1], 'Submit');
@@ -721,7 +729,11 @@ class FormTest extends BrowserTestBase {
       ];
       $this->drupalGet('form-test/color');
       $this->submitForm($edit, 'Submit');
+<<<<<<< HEAD
       $this->assertSession()->pageTextContains("Color must be a valid color.");
+=======
+      $this->assertRaw(t('%name must be a valid color.', ['%name' => 'Color']));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     }
   }
 
@@ -769,7 +781,11 @@ class FormTest extends BrowserTestBase {
     // All the elements should be marked as disabled, including the ones below
     // the disabled container.
     $actual_count = count($disabled_elements);
+<<<<<<< HEAD
     $expected_count = 44;
+=======
+    $expected_count = 42;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertEquals($expected_count, $actual_count, new FormattableMarkup('Found @actual elements with disabled property (expected @expected).', ['@actual' => count($disabled_elements), '@expected' => $expected_count]));
 
     // Mink does not "see" hidden elements, so we need to set the value of the

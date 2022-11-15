@@ -5,7 +5,11 @@ namespace Drupal\Core\KeyValueStore;
 use Drupal\Component\Serialization\SerializationInterface;
 use Drupal\Core\Database\Query\Merge;
 use Drupal\Core\Database\Connection;
+<<<<<<< HEAD
 use Drupal\Core\Database\DatabaseException;
+=======
+use Drupal\Core\Database\SchemaObjectExistsException;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 use Drupal\Core\DependencyInjection\DependencySerializationTrait;
 
 /**

@@ -174,6 +174,7 @@ final class CheckTypeDeclarationsPass extends AbstractRecursivePass
 
             throw new InvalidParameterTypeException($this->currentId, $e->getCode(), $parameter);
         }
+<<<<<<< HEAD
         if ($reflectionType instanceof \ReflectionIntersectionType) {
             foreach ($reflectionType->getTypes() as $t) {
                 $this->checkType($checkedDefinition, $value, $parameter, $envPlaceholderUniquePrefix, $t);
@@ -181,6 +182,8 @@ final class CheckTypeDeclarationsPass extends AbstractRecursivePass
 
             return;
         }
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         if (!$reflectionType instanceof \ReflectionNamedType) {
             return;
         }

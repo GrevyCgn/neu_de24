@@ -56,10 +56,17 @@ class UserBlocksTest extends BrowserTestBase {
     foreach ($paths as $path => $expected_visibility) {
       $this->drupalGet($path);
       if ($expected_visibility) {
+<<<<<<< HEAD
         $this->assertSession()->elementExists('xpath', '//div[@id="block-user-blocks-test-user-login-block" and @role="form"]');
       }
       else {
         $this->assertSession()->elementNotExists('xpath', '//div[@id="block-user-blocks-test-user-login-block" and @role="form"]');
+=======
+        $this->assertSession()->elementExists('xpath', '//div[contains(@class,"block-user-login-block") and @role="form"]');
+      }
+      else {
+        $this->assertSession()->elementNotExists('xpath', '//div[contains(@class,"block-user-login-block") and @role="form"]');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       }
     }
   }
@@ -77,7 +84,11 @@ class UserBlocksTest extends BrowserTestBase {
     $edit['pass'] = $user->passRaw;
     $this->drupalGet('admin/people/permissions');
     $this->submitForm($edit, 'Log in');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('User login');
+=======
+    $this->assertNoText('User login');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Check that we are still on the same page.
     $this->assertSession()->addressEquals(Url::fromRoute('user.admin_permissions'));
@@ -125,6 +136,12 @@ class UserBlocksTest extends BrowserTestBase {
     $edit = [];
     $edit['name'] = 'foo';
     $edit['pass'] = 'invalid password';
+<<<<<<< HEAD
+=======
+    $this->drupalGet('filter/tips');
+    $this->submitForm($edit, 'Log in');
+    $this->assertSession()->pageTextContains('Unrecognized username or password. Forgot your password?');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->drupalGet('filter/tips');
     $this->submitForm($edit, 'Log in');
     $this->assertSession()->pageTextContains('Unrecognized username or password. Forgot your password?');

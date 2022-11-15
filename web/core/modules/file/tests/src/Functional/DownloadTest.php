@@ -58,7 +58,11 @@ class DownloadTest extends FileManagedTestBase {
     // Test generating a URL to a shipped file (i.e. a file that is part of
     // Drupal core, a module or a theme, for example a JavaScript file).
     $filepath = 'core/assets/vendor/jquery/jquery.min.js';
+<<<<<<< HEAD
     $url = $this->fileUrlGenerator->generateAbsoluteString($filepath);
+=======
+    $url = file_create_url($filepath);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertEquals($GLOBALS['base_url'] . '/' . $filepath, $url, 'Correctly generated a URL for a shipped file.');
     $response = $http_client->head($url);
     $this->assertEquals(200, $response->getStatusCode(), 'Confirmed that the generated URL is correct by downloading the shipped file.');
@@ -127,7 +131,11 @@ class DownloadTest extends FileManagedTestBase {
   }
 
   /**
+<<<<<<< HEAD
    * Test FileUrlGeneratorInterface::generateString()
+=======
+   * Tests file_create_url().
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    */
   public function testFileCreateUrl() {
     // "Special" ASCII characters.
@@ -157,7 +165,11 @@ class DownloadTest extends FileManagedTestBase {
       $this->checkUrl('public', '', $basename, $base_path . '/' . $public_directory_path . '/' . $basename_encoded);
       $this->checkUrl('private', '', $basename, $base_path . '/' . $script_path . 'system/files/' . $basename_encoded);
     }
+<<<<<<< HEAD
     $this->assertEquals('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==', $this->fileUrlGenerator->generateString('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==', FALSE));
+=======
+    $this->assertEquals('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==', file_create_url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg=='), t('Generated URL matches expected URL.'));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**
@@ -186,7 +198,11 @@ class DownloadTest extends FileManagedTestBase {
     \Drupal::service('file_system')->prepareDirectory($directory_uri, FileSystemInterface::CREATE_DIRECTORY);
     $file = $this->createFile($filepath, NULL, $scheme);
 
+<<<<<<< HEAD
     $url = $this->fileUrlGenerator->generateAbsoluteString($file->getFileUri());
+=======
+    $url = file_create_url($file->getFileUri());
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertEquals($expected_url, $url);
 
     if ($scheme == 'private') {

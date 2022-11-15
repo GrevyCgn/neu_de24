@@ -269,7 +269,11 @@ class NodeEditFormTest extends NodeTestBase {
     ];
     $this->drupalGet('node/' . $node->id() . '/edit');
     $this->submitForm($edit, 'Save');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains('There are no users matching "invalid-name".');
+=======
+    $this->assertRaw(t('There are no users matching "%name".', ['%name' => 'invalid-name']));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Change the authored by field to an empty string, which should assign
     // authorship to the anonymous user (uid 0).

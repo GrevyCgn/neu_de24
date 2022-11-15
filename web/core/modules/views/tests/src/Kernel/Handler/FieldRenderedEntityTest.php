@@ -145,8 +145,13 @@ class FieldRenderedEntityTest extends ViewsKernelTestBase {
    *
    * @internal
    */
+<<<<<<< HEAD
   protected function assertCacheabilityMetadata(array $build): void {
     $this->assertEqualsCanonicalizing([
+=======
+  protected function assertCacheabilityMetadata($build) {
+    $this->assertEquals([
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       'config:core.entity_view_display.entity_test.entity_test.foobar',
       'config:views.view.test_field_entity_test_rendered',
       'entity_test:1',
@@ -156,7 +161,11 @@ class FieldRenderedEntityTest extends ViewsKernelTestBase {
       'entity_test_view',
     ], $build['#cache']['tags']);
 
+<<<<<<< HEAD
     $this->assertEqualsCanonicalizing([
+=======
+    $this->assertEquals([
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       'entity_test_view_grants',
       'languages:language_interface',
       'theme',

@@ -75,6 +75,7 @@ class FloodTest extends KernelTestBase {
   }
 
   /**
+<<<<<<< HEAD
    * Tests memory backend records events to the nearest microsecond.
    */
   public function testMemoryBackendThreshold() {
@@ -87,6 +88,8 @@ class FloodTest extends KernelTestBase {
   }
 
   /**
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    * Tests flood control database backend.
    */
   public function testDatabaseBackend() {

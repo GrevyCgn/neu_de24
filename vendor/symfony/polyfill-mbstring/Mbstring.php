@@ -69,6 +69,7 @@ final class Mbstring
 {
     public const MB_CASE_FOLD = \PHP_INT_MAX;
 
+<<<<<<< HEAD
     private const CASE_FOLD = [
         ['µ', 'ſ', "\xCD\x85", 'ς', "\xCF\x90", "\xCF\x91", "\xCF\x95", "\xCF\x96", "\xCF\xB0", "\xCF\xB1", "\xCF\xB5", "\xE1\xBA\x9B", "\xE1\xBE\xBE"],
         ['μ', 's', 'ι',        'σ', 'β',        'θ',        'φ',        'π',        'κ',        'ρ',        'ε',        "\xE1\xB9\xA1", 'ι'],
@@ -77,6 +78,15 @@ final class Mbstring
     private static $encodingList = ['ASCII', 'UTF-8'];
     private static $language = 'neutral';
     private static $internalEncoding = 'UTF-8';
+=======
+    private static $encodingList = ['ASCII', 'UTF-8'];
+    private static $language = 'neutral';
+    private static $internalEncoding = 'UTF-8';
+    private static $caseFold = [
+        ['µ', 'ſ', "\xCD\x85", 'ς', "\xCF\x90", "\xCF\x91", "\xCF\x95", "\xCF\x96", "\xCF\xB0", "\xCF\xB1", "\xCF\xB5", "\xE1\xBA\x9B", "\xE1\xBE\xBE"],
+        ['μ', 's', 'ι',        'σ', 'β',        'θ',        'φ',        'π',        'κ',        'ρ',        'ε',        "\xE1\xB9\xA1", 'ι'],
+    ];
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     public static function mb_convert_encoding($s, $toEncoding, $fromEncoding = null)
     {
@@ -602,9 +612,12 @@ final class Mbstring
         if (80000 > \PHP_VERSION_ID) {
             return false;
         }
+<<<<<<< HEAD
         if (\is_int($c) || 'long' === $c || 'entity' === $c) {
             return false;
         }
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
         throw new \ValueError('Argument #1 ($substitute_character) must be "none", "long", "entity" or a valid codepoint');
     }

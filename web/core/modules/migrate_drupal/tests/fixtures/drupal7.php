@@ -4632,6 +4632,7 @@ $connection->insert('field_config')
   'translatable' => '0',
   'deleted' => '0',
 ))
+<<<<<<< HEAD
 ->values(array(
   'id' => '62',
   'field_name' => 'field_event',
@@ -4648,6 +4649,9 @@ $connection->insert('field_config')
   'deleted' => '0',
 ))
   ->execute();
+=======
+->execute();
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 $connection->schema()->createTable('field_config_instance', array(
   'fields' => array(
     'id' => array(
@@ -5516,6 +5520,7 @@ $connection->insert('field_config_instance')
   'data' => 'a:7:{s:5:"label";s:8:"checkbox";s:6:"widget";a:5:{s:6:"weight";s:2:"25";s:4:"type";s:15:"options_buttons";s:6:"module";s:7:"options";s:6:"active";i:1;s:8:"settings";a:0:{}}s:8:"settings";a:2:{s:18:"user_register_form";b:0;s:23:"entity_translation_sync";b:0;}s:7:"display";a:1:{s:7:"default";a:5:{s:5:"label";s:5:"above";s:4:"type";s:12:"list_default";s:8:"settings";a:0:{}s:6:"module";s:4:"list";s:6:"weight";i:25;}}s:8:"required";i:0;s:11:"description";s:0:"";s:13:"default_value";N;}',
   'deleted' => '0',
 ))
+<<<<<<< HEAD
  ->values(array(
   'id' => '94',
   'field_id' => '62',
@@ -5525,6 +5530,8 @@ $connection->insert('field_config_instance')
   'data' => 'a:6:{s:5:"label";s:5:"event";s:6:"widget";a:5:{s:6:"weight";s:1:"2";s:4:"type";s:9:"date_text";s:6:"module";s:4:"date";s:6:"active";i:1;s:8:"settings";a:7:{s:12:"input_format";s:13:"m/d/Y - H:i:s";s:19:"input_format_custom";s:0:"";s:10:"year_range";s:5:"-3:+3";s:9:"increment";i:1;s:14:"label_position";s:5:"above";s:10:"text_parts";a:0:{}s:11:"no_fieldset";i:0;}}s:8:"settings";a:6:{s:13:"default_value";s:3:"now";s:18:"default_value_code";s:0:"";s:14:"default_value2";s:4:"same";s:19:"default_value_code2";s:0:"";s:18:"user_register_form";b:0;s:23:"entity_translation_sync";b:0;}s:7:"display";a:1:{s:7:"default";a:5:{s:5:"label";s:5:"above";s:4:"type";s:12:"date_default";s:8:"settings";a:6:{s:11:"format_type";s:4:"long";s:15:"multiple_number";s:0:"";s:13:"multiple_from";s:0:"";s:11:"multiple_to";s:0:"";s:6:"fromto";s:4:"both";s:19:"show_remaining_days";b:0;}s:6:"module";s:4:"date";s:6:"weight";i:12;}}s:8:"required";i:0;s:11:"description";s:0:"";}',
   'deleted' => '0',
 ))
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 ->execute();
 $connection->schema()->createTable('field_data_body', array(
   'fields' => array(
@@ -8320,7 +8327,11 @@ $connection->insert('field_data_field_node_reference')
   'bundle' => 'article',
   'deleted' => '0',
   'entity_id' => '2',
+<<<<<<< HEAD
   'revision_id' => '11',
+=======
+  'revision_id' => '2',
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   'language' => 'und',
   'delta' => '0',
   'field_node_reference_nid' => '5',
@@ -14986,6 +14997,7 @@ $connection->insert('field_revision_field_node_reference')
   'delta' => '0',
   'field_node_reference_nid' => '5',
 ))
+<<<<<<< HEAD
 ->values(array(
   'entity_type' => 'node',
   'bundle' => 'article',
@@ -14996,6 +15008,8 @@ $connection->insert('field_revision_field_node_reference')
   'delta' => '0',
   'field_node_reference_nid' => '5',
 ))
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 ->execute();
 $connection->schema()->createTable('field_revision_field_phone', array(
   'fields' => array(

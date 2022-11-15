@@ -79,7 +79,11 @@ class TaxonomyRelationshipTest extends TaxonomyTestBase {
     // Check the parent relationship data.
     $this->assertEquals('taxonomy_term_field_data', $views_data['parent_target_id']['relationship']['base']);
     $this->assertEquals('tid', $views_data['parent_target_id']['relationship']['base field']);
+<<<<<<< HEAD
     $this->assertEquals('Parent', $views_data['parent_target_id']['relationship']['label']);
+=======
+    $this->assertEquals(t('Parent'), $views_data['parent_target_id']['relationship']['label']);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertEquals('standard', $views_data['parent_target_id']['relationship']['id']);
     // Check the parent filter and argument data.
     $this->assertEquals('numeric', $views_data['parent_target_id']['filter']['id']);

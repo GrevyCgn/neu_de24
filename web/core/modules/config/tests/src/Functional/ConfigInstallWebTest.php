@@ -140,7 +140,11 @@ class ConfigInstallWebTest extends BrowserTestBase {
       'modules[config_test][enable]' => TRUE,
       'modules[config_install_fail_test][enable]' => TRUE,
     ], 'Install');
+<<<<<<< HEAD
     $this->assertSession()->responseContains('Unable to install Configuration install fail test, <em class="placeholder">config_test.dynamic.dotted.default</em> already exists in active configuration.');
+=======
+    $this->assertRaw('Unable to install Configuration install fail test, <em class="placeholder">config_test.dynamic.dotted.default</em> already exists in active configuration.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Uninstall the config_test module to test the confirm form.
     $this->drupalGet('admin/modules/uninstall');
@@ -168,7 +172,11 @@ class ConfigInstallWebTest extends BrowserTestBase {
 
     $this->drupalGet('admin/modules');
     $this->submitForm(['modules[config_install_fail_test][enable]' => TRUE], 'Install');
+<<<<<<< HEAD
     $this->assertSession()->responseContains('Unable to install Configuration install fail test, <em class="placeholder">config_test.dynamic.dotted.default, language/fr/config_test.dynamic.dotted.default</em> already exist in active configuration.');
+=======
+    $this->assertRaw('Unable to install Configuration install fail test, <em class="placeholder">config_test.dynamic.dotted.default, language/fr/config_test.dynamic.dotted.default</em> already exist in active configuration.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Test installing a theme through the UI that has existing configuration.
     // This relies on the fact the config_test has been installed and created
@@ -202,13 +210,21 @@ class ConfigInstallWebTest extends BrowserTestBase {
     $this->submitForm(['modules[config_test][enable]' => TRUE], 'Install');
     $this->drupalGet('admin/modules');
     $this->submitForm(['modules[config_install_dependency_test][enable]' => TRUE], 'Install');
+<<<<<<< HEAD
     $this->assertSession()->responseContains('Unable to install <em class="placeholder">Config install dependency test</em> due to unmet dependencies: <em class="placeholder">config_test.dynamic.other_module_test_with_dependency (config_other_module_config_test, config_test.dynamic.dotted.english)</em>');
+=======
+    $this->assertRaw('Unable to install <em class="placeholder">Config install dependency test</em> due to unmet dependencies: <em class="placeholder">config_test.dynamic.other_module_test_with_dependency (config_other_module_config_test, config_test.dynamic.dotted.english)</em>');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $this->drupalGet('admin/modules');
     $this->submitForm(['modules[config_test_language][enable]' => TRUE], 'Install');
     $this->drupalGet('admin/modules');
     $this->submitForm(['modules[config_install_dependency_test][enable]' => TRUE], 'Install');
+<<<<<<< HEAD
     $this->assertSession()->responseContains('Unable to install <em class="placeholder">Config install dependency test</em> due to unmet dependencies: <em class="placeholder">config_test.dynamic.other_module_test_with_dependency (config_other_module_config_test)</em>');
+=======
+    $this->assertRaw('Unable to install <em class="placeholder">Config install dependency test</em> due to unmet dependencies: <em class="placeholder">config_test.dynamic.other_module_test_with_dependency (config_other_module_config_test)</em>');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $this->drupalGet('admin/modules');
     $this->submitForm(['modules[config_other_module_config_test][enable]' => TRUE], 'Install');

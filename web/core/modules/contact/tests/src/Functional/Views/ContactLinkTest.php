@@ -98,7 +98,11 @@ class ContactLinkTest extends ViewTestBase {
    *
    * @internal
    */
+<<<<<<< HEAD
   public function assertContactLinks(array $accounts, array $names): void {
+=======
+  public function assertContactLinks(array $accounts, array $names) {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->elementsCount('xpath', '//div[contains(@class, "views-field-contact")]//a', count($names));
     foreach ($names as $name) {
       $account_url = $accounts[$name]->toUrl('contact-form')->toString();

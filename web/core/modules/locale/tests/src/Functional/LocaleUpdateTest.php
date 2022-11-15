@@ -131,7 +131,11 @@ class LocaleUpdateTest extends LocaleUpdateBase {
     $this->drupalGet('admin/reports/translations/check');
 
     // Check the status on the Available translation status page.
+<<<<<<< HEAD
     $this->assertSession()->responseContains('<label for="edit-langcodes-de" class="visually-hidden">Update German</label>');
+=======
+    $this->assertRaw('<label for="edit-langcodes-de" class="visually-hidden">Update German</label>');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains('Updates for: Contributed module one, Contributed module two, Custom module one, Locale test');
     /** @var \Drupal\Core\Datetime\DateFormatterInterface $date_formatter */
     $date_formatter = $this->container->get('date.formatter');
@@ -453,7 +457,11 @@ class LocaleUpdateTest extends LocaleUpdateBase {
     ];
     $this->drupalGet('admin/config/regional/translate');
     $this->submitForm($search, 'Filter');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('No strings available.');
+=======
+    $this->assertNoText('No strings available.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Ensure the multiline string was imported.
     $search = [
@@ -476,7 +484,11 @@ class LocaleUpdateTest extends LocaleUpdateBase {
     $this->drupalGet('admin/config/regional/translate');
     $this->submitForm($search, 'Filter');
     $this->assertSession()->pageTextContains('Allowed HTML source string');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('Another allowed HTML source string');
+=======
+    $this->assertNoText('Another allowed HTML source string');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
 }

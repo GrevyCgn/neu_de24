@@ -455,7 +455,10 @@ class Tables implements TablesInterface {
    * @param string $table
    *   The table name.
    * @param string $entity_type_id
+<<<<<<< HEAD
    *   The entity type ID.
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    *
    * @return array|false
    *   An associative array of table field mapping for the given table, keyed by

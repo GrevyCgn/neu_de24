@@ -8,7 +8,11 @@
 (function ($, Drupal) {
   Drupal.behaviors.claroTableDrag = {
     attach: function attach(context, settings) {
+<<<<<<< HEAD
       var createItemWrapBoundaries = function createItemWrapBoundaries(row) {
+=======
+      var createItemWrapBoundaries = function createItemWrapBoundaries(index, row) {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         var $row = $(row);
         var $firstCell = $row.find('td:first-of-type').eq(0).wrapInner(Drupal.theme('tableDragCellContentWrapper')).wrapInner($(Drupal.theme('tableDragCellItemsWrapper')).addClass('js-tabledrag-cell-content'));
         var $targetElem = $firstCell.find('.js-tabledrag-cell-content');
@@ -16,7 +20,11 @@
       };
 
       Object.keys(settings.tableDrag || {}).forEach(function (base) {
+<<<<<<< HEAD
         once('claroTabledrag', $(context).find("#".concat(base)).find('> tr.draggable, > tbody > tr.draggable')).forEach(createItemWrapBoundaries);
+=======
+        $(context).find("#".concat(base)).find('> tr.draggable, > tbody > tr.draggable').once('claroTabledrag').each(createItemWrapBoundaries);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       });
     }
   };

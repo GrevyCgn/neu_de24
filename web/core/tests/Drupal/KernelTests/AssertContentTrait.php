@@ -795,10 +795,14 @@ trait AssertContentTrait {
           '@expected' => var_export($title, TRUE),
         ]);
       }
+<<<<<<< HEAD
       $this->assertEquals($title, $actual, $message);
     }
     else {
       $this->fail('No title element found on the page.');
+=======
+      return $this->assertEquals($title, $actual, $message);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     }
   }
 

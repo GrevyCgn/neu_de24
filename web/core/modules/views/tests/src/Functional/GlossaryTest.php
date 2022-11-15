@@ -119,7 +119,11 @@ class GlossaryTest extends ViewTestBase {
       $result = $this->assertSession()->elementExists('xpath', "//a[contains(@href, '{$href}') and normalize-space(text())='{$label}']/..");
       // The rendered output looks like "<a href=''>X</a> | (count)" so let's
       // figure out the int.
+<<<<<<< HEAD
       $result_count = explode(' ', trim(str_replace(['|', '(', ')'], '', $result->getText())))[1];
+=======
+      $result_count = explode(' ', trim(str_replace(['|', '(', ')'], '', $result[0]->getText())))[1];
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       $this->assertEquals($count, $result_count, 'The expected number got rendered.');
     }
   }

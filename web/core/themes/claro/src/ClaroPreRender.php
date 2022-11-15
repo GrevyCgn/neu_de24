@@ -77,10 +77,20 @@ class ClaroPreRender implements TrustedCallbackInterface {
       $last_group_with_child_key = NULL;
       $last_group_with_child_key_last_child_key = NULL;
 
+<<<<<<< HEAD
       $group_key = implode('][', $element['#parents']);
       // Only check siblings against groups because we are only looking for
       // group elements.
       if (in_array($group_key, $group_keys)) {
+=======
+      // Only iterate through the parents instead of all the group keys.
+      foreach ($element['#parents'] as $group_key) {
+        // Check parents against groups because we are only looking for group
+        // elements.
+        if (!in_array($group_key, $group_keys)) {
+          continue;
+        }
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         $children_keys = Element::children($element['group']['#groups'][$group_key], TRUE);
 
         foreach ($children_keys as $child_key) {

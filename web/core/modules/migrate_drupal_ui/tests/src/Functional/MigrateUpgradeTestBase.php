@@ -357,6 +357,7 @@ abstract class MigrateUpgradeTestBase extends BrowserTestBase {
     }
   }
 
+<<<<<<< HEAD
   /**
    * Confirm emails were sent.
    */
@@ -367,4 +368,6 @@ abstract class MigrateUpgradeTestBase extends BrowserTestBase {
     $this->assertEquals('user_status_activated', $captured_emails[0]['id']);
   }
 
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 }

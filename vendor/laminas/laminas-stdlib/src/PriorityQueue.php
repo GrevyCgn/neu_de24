@@ -158,7 +158,11 @@ class PriorityQueue implements Countable, IteratorAggregate, Serializable
     {
         $value = $this->getQueue()->extract();
 
+<<<<<<< HEAD
         $keyToRemove     = null;
+=======
+        $keyToRemove = null;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         $highestPriority = null;
         foreach ($this->items as $key => $item) {
             if ($item['data'] !== $value) {
@@ -167,7 +171,11 @@ class PriorityQueue implements Countable, IteratorAggregate, Serializable
 
             if (null === $highestPriority) {
                 $highestPriority = $item['priority'];
+<<<<<<< HEAD
                 $keyToRemove     = $key;
+=======
+                $keyToRemove = $key;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
                 continue;
             }
 
@@ -176,7 +184,11 @@ class PriorityQueue implements Countable, IteratorAggregate, Serializable
             }
 
             $highestPriority = $item['priority'];
+<<<<<<< HEAD
             $keyToRemove     = $key;
+=======
+            $keyToRemove = $key;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         }
 
         if ($keyToRemove !== null) {

@@ -44,6 +44,7 @@ class Logger extends AbstractLogger
 
             if (isset($_ENV['SHELL_VERBOSITY']) || isset($_SERVER['SHELL_VERBOSITY'])) {
                 switch ((int) ($_ENV['SHELL_VERBOSITY'] ?? $_SERVER['SHELL_VERBOSITY'])) {
+<<<<<<< HEAD
                     case -1: $minLevel = LogLevel::ERROR;
                         break;
                     case 1: $minLevel = LogLevel::NOTICE;
@@ -52,6 +53,12 @@ class Logger extends AbstractLogger
                         break;
                     case 3: $minLevel = LogLevel::DEBUG;
                         break;
+=======
+                    case -1: $minLevel = LogLevel::ERROR; break;
+                    case 1: $minLevel = LogLevel::NOTICE; break;
+                    case 2: $minLevel = LogLevel::INFO; break;
+                    case 3: $minLevel = LogLevel::DEBUG; break;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
                 }
             }
         }

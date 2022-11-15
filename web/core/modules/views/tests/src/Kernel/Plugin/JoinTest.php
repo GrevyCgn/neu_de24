@@ -218,6 +218,7 @@ class JoinTest extends RelationshipJoinTestBase {
     $this->assertStringContainsString("views_test_data.status = :views_join_condition_8", $join_info['condition'], 'Make sure the second extra join condition appears in the query.');
     $this->assertStringContainsString("users6.name = views_test_data.name", $join_info['condition'], 'Make sure the third extra join condition appears in the query.');
     $this->assertEquals(['en', 0], array_values($join_info['arguments']), 'Make sure the arguments are in the right order');
+<<<<<<< HEAD
 
     $configuration = [
       'left_table' => 'views_test_data',
@@ -238,6 +239,8 @@ class JoinTest extends RelationshipJoinTestBase {
     $this->assertEquals($configuration['table'], $join_info['table']);
     $this->assertEquals('users_field_data', $join_info['alias']);
     $this->assertEquals('views_test_data.uid <> users_field_data.uid', $join_info['condition']);
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
 }

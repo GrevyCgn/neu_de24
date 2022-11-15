@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< HEAD
 /*
  * This file is part of the Symfony package.
  *
@@ -9,6 +10,8 @@
  * file that was distributed with this source code.
  */
 
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 namespace Symfony\Bridge\PsrHttpMessage\ArgumentValueResolver;
 
 use Psr\Http\Message\MessageInterface;

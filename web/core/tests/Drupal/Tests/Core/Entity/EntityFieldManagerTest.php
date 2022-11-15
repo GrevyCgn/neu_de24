@@ -266,6 +266,14 @@ class EntityFieldManagerTest extends UnitTestCase {
     $base_field_definition->setProvider('example_module')->shouldBeCalled();
     $base_field_definition->setName('base_field')->shouldBeCalled();
     $base_field_definition->setTargetEntityTypeId('test_entity_type')->shouldBeCalled();
+<<<<<<< HEAD
+=======
+
+    $definitions = [
+      'base_field' => $base_field_definition->reveal(),
+      'field_storage' => $field_storage_definition->reveal(),
+    ];
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $definitions = [
       'base_field' => $base_field_definition->reveal(),

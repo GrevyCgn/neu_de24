@@ -68,7 +68,11 @@ abstract class WebDriverTestBase extends BrowserTestBase {
    */
   protected function installModulesFromClassProperty(ContainerInterface $container) {
     self::$modules = [
+<<<<<<< HEAD
       'js_testing_log_test',
+=======
+      'js_deprecation_log_test',
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       'jquery_keyevent_polyfill_test',
     ];
     if ($this->disableCssAnimations) {

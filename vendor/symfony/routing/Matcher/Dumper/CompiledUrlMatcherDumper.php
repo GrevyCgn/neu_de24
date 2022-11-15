@@ -187,7 +187,11 @@ EOF;
                     $url = substr($url, 0, -1);
                 }
                 foreach ($dynamicRegex as [$hostRx, $rx, $prefix]) {
+<<<<<<< HEAD
                     if (('' === $prefix || str_starts_with($url, $prefix)) && (preg_match($rx, $url) || preg_match($rx, $url.'/')) && (!$host || !$hostRx || preg_match($hostRx, $host))) {
+=======
+                    if (('' === $prefix || 0 === strpos($url, $prefix)) && (preg_match($rx, $url) || preg_match($rx, $url.'/')) && (!$host || !$hostRx || preg_match($hostRx, $host))) {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
                         $dynamicRegex[] = [$hostRegex, $regex, $staticPrefix];
                         $dynamicRoutes->add($name, $route);
                         continue 2;

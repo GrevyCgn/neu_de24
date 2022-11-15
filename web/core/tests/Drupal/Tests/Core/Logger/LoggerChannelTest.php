@@ -95,6 +95,7 @@ class LoggerChannelTest extends UnitTestCase {
     $channel->log(rand(0, 7), $this->randomMachineName());
     // Ensure that the logger added in the end fired first.
     $this->assertEquals('3210', $index_order);
+<<<<<<< HEAD
   }
 
   /**
@@ -128,6 +129,8 @@ class LoggerChannelTest extends UnitTestCase {
 
     // Perform the test.
     $channel->log(rand(0, 7), 'Test message');
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**

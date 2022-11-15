@@ -2,7 +2,11 @@ Software License Agreement
 ==========================
 
 CKEditor - The text editor for Internet - https://ckeditor.com/
+<<<<<<< HEAD
 Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+=======
+Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
 Licensed under the terms of any of the following licenses at your
 choice:
@@ -37,7 +41,11 @@ done by developers outside of CKSource with their express permission.
 
 The following libraries are included in CKEditor under the MIT license (see Appendix D):
 
+<<<<<<< HEAD
 * CKSource Samples Framework (included in the samples) - Copyright (c) 2014-2022, CKSource Holding sp. z o.o.
+=======
+* CKSource Samples Framework (included in the samples) - Copyright (c) 2014-2021, CKSource - Frederico Knabben.
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 * PicoModal (included in `samples/js/sf.js`) - Copyright (c) 2012 James Frasca.
 * CodeMirror (included in the samples) - Copyright (C) 2014 by Marijn Haverbeke <marijnh@gmail.com> and others.
 * ES6Promise - Copyright (c) 2014 Yehuda Katz, Tom Dale, Stefan Penner and contributors.

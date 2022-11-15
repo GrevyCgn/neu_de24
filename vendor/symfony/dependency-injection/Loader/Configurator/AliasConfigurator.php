@@ -18,6 +18,11 @@ use Symfony\Component\DependencyInjection\Alias;
  */
 class AliasConfigurator extends AbstractServiceConfigurator
 {
+<<<<<<< HEAD
+=======
+    public const FACTORY = 'alias';
+
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     use Traits\DeprecateTrait;
     use Traits\PublicTrait;
 

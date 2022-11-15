@@ -79,6 +79,7 @@ class HandlerTest extends ViewTestBase {
 
     // Test ors
     $handler = HandlerBase::breakString('word1 word2+word');
+<<<<<<< HEAD
     $this->assertEquals(['word1', 'word2', 'word'], $handler->value);
     $this->assertEquals('or', $handler->operator);
     $handler = HandlerBase::breakString('word1+word2+word');
@@ -92,10 +93,26 @@ class HandlerTest extends ViewTestBase {
     $this->assertEquals('or', $handler->operator);
     $handler = HandlerBase::breakString('wõrd1+wõrd2+wõrd');
     $this->assertEquals(['wõrd1', 'wõrd2', 'wõrd'], $handler->value);
+=======
+    $this->assertEqualValue(['word1', 'word2', 'word'], $handler);
+    $this->assertEquals('or', $handler->operator);
+    $handler = HandlerBase::breakString('word1+word2+word');
+    $this->assertEqualValue(['word1', 'word2', 'word'], $handler);
+    $this->assertEquals('or', $handler->operator);
+    $handler = HandlerBase::breakString('word1 word2 word');
+    $this->assertEqualValue(['word1', 'word2', 'word'], $handler);
+    $this->assertEquals('or', $handler->operator);
+    $handler = HandlerBase::breakString('word-1+word-2+word');
+    $this->assertEqualValue(['word-1', 'word-2', 'word'], $handler);
+    $this->assertEquals('or', $handler->operator);
+    $handler = HandlerBase::breakString('wõrd1+wõrd2+wõrd');
+    $this->assertEqualValue(['wõrd1', 'wõrd2', 'wõrd'], $handler);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertEquals('or', $handler->operator);
 
     // Test ands.
     $handler = HandlerBase::breakString('word1,word2,word');
+<<<<<<< HEAD
     $this->assertEquals(['word1', 'word2', 'word'], $handler->value);
     $this->assertEquals('and', $handler->operator);
     $handler = HandlerBase::breakString('word1 word2,word');
@@ -109,11 +126,30 @@ class HandlerTest extends ViewTestBase {
     $this->assertEquals('and', $handler->operator);
     $handler = HandlerBase::breakString('wõrd1,wõrd2,wõrd');
     $this->assertEquals(['wõrd1', 'wõrd2', 'wõrd'], $handler->value);
+=======
+    $this->assertEqualValue(['word1', 'word2', 'word'], $handler);
+    $this->assertEquals('and', $handler->operator);
+    $handler = HandlerBase::breakString('word1 word2,word');
+    $this->assertEqualValue(['word1 word2', 'word'], $handler);
+    $this->assertEquals('and', $handler->operator);
+    $handler = HandlerBase::breakString('word1,word2 word');
+    $this->assertEqualValue(['word1', 'word2 word'], $handler);
+    $this->assertEquals('and', $handler->operator);
+    $handler = HandlerBase::breakString('word-1,word-2,word');
+    $this->assertEqualValue(['word-1', 'word-2', 'word'], $handler);
+    $this->assertEquals('and', $handler->operator);
+    $handler = HandlerBase::breakString('wõrd1,wõrd2,wõrd');
+    $this->assertEqualValue(['wõrd1', 'wõrd2', 'wõrd'], $handler);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertEquals('and', $handler->operator);
 
     // Test a single word
     $handler = HandlerBase::breakString('word');
+<<<<<<< HEAD
     $this->assertEquals(['word'], $handler->value);
+=======
+    $this->assertEqualValue(['word'], $handler);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertEquals('and', $handler->operator);
 
     $s1 = $this->randomMachineName();
@@ -124,6 +160,7 @@ class HandlerTest extends ViewTestBase {
 
     // Test "or"s.
     $handlerBase = HandlerBase::breakString("$s1 $n2+$n3");
+<<<<<<< HEAD
     $this->assertEquals([$s1, $n2, $n3], $handlerBase->value);
     $this->assertEquals('or', $handlerBase->operator);
 
@@ -137,19 +174,43 @@ class HandlerTest extends ViewTestBase {
 
     $handlerBase = HandlerBase::breakString("$s1 $n2++$n3");
     $this->assertEquals([$s1, $n2, $n3], $handlerBase->value);
+=======
+    $this->assertEqualValue([$s1, $n2, $n3], $handlerBase);
+    $this->assertEquals('or', $handlerBase->operator);
+
+    $handlerBase = HandlerBase::breakString("$s1+$n2+$n3");
+    $this->assertEqualValue([$s1, $n2, $n3], $handlerBase);
+    $this->assertEquals('or', $handlerBase->operator);
+
+    $handlerBase = HandlerBase::breakString("$s1 $n2 $n3");
+    $this->assertEqualValue([$s1, $n2, $n3], $handlerBase);
+    $this->assertEquals('or', $handlerBase->operator);
+
+    $handlerBase = HandlerBase::breakString("$s1 $n2++$n3");
+    $this->assertEqualValue([$s1, $n2, $n3], $handlerBase);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertEquals('or', $handlerBase->operator);
 
     // Test "and"s.
     $handlerBase = HandlerBase::breakString("$s1,$n2,$n3");
+<<<<<<< HEAD
     $this->assertEquals([$s1, $n2, $n3], $handlerBase->value);
     $this->assertEquals('and', $handlerBase->operator);
 
     $handlerBase = HandlerBase::breakString("$s1,,$n2,$n3");
     $this->assertEquals([$s1, $n2, $n3], $handlerBase->value);
+=======
+    $this->assertEqualValue([$s1, $n2, $n3], $handlerBase);
+    $this->assertEquals('and', $handlerBase->operator);
+
+    $handlerBase = HandlerBase::breakString("$s1,,$n2,$n3");
+    $this->assertEqualValue([$s1, $n2, $n3], $handlerBase);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertEquals('and', $handlerBase->operator);
 
     // Enforce int values.
     $handlerBase = HandlerBase::breakString("$n1,$n2,$n3", TRUE);
+<<<<<<< HEAD
     $this->assertEquals([$n1, $n2, $n3], $handlerBase->value);
     $this->assertEquals('and', $handlerBase->operator);
 
@@ -163,6 +224,21 @@ class HandlerTest extends ViewTestBase {
 
     $handlerBase = HandlerBase::breakString("$s1+$n2+$n3", TRUE);
     $this->assertEquals([(int) $s1, $n2, $n3], $handlerBase->value);
+=======
+    $this->assertEqualValue([$n1, $n2, $n3], $handlerBase);
+    $this->assertEquals('and', $handlerBase->operator);
+
+    $handlerBase = HandlerBase::breakString("$n1+$n2+$n3", TRUE);
+    $this->assertEqualValue([$n1, $n2, $n3], $handlerBase);
+    $this->assertEquals('or', $handlerBase->operator);
+
+    $handlerBase = HandlerBase::breakString("$s1,$n2,$n3", TRUE);
+    $this->assertEqualValue([(int) $s1, $n2, $n3], $handlerBase);
+    $this->assertEquals('and', $handlerBase->operator);
+
+    $handlerBase = HandlerBase::breakString("$s1+$n2+$n3", TRUE);
+    $this->assertEqualValue([(int) $s1, $n2, $n3], $handlerBase);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertEquals('or', $handlerBase->operator);
 
     // Generate three random decimals which can be used below;
@@ -172,6 +248,7 @@ class HandlerTest extends ViewTestBase {
 
     // Test "or"s.
     $handlerBase = HandlerBase::breakString("$s1 $d1+$d2");
+<<<<<<< HEAD
     $this->assertEquals([$s1, $d1, $d2], $handlerBase->value);
     $this->assertEquals('or', $handlerBase->operator);
 
@@ -185,15 +262,38 @@ class HandlerTest extends ViewTestBase {
 
     $handlerBase = HandlerBase::breakString("$s1 $d2++$d3");
     $this->assertEquals([$s1, $d2, $d3], $handlerBase->value);
+=======
+    $this->assertEqualValue([$s1, $d1, $d2], $handlerBase);
+    $this->assertEquals('or', $handlerBase->operator);
+
+    $handlerBase = HandlerBase::breakString("$s1+$d1+$d3");
+    $this->assertEqualValue([$s1, $d1, $d3], $handlerBase);
+    $this->assertEquals('or', $handlerBase->operator);
+
+    $handlerBase = HandlerBase::breakString("$s1 $d2 $d3");
+    $this->assertEqualValue([$s1, $d2, $d3], $handlerBase);
+    $this->assertEquals('or', $handlerBase->operator);
+
+    $handlerBase = HandlerBase::breakString("$s1 $d2++$d3");
+    $this->assertEqualValue([$s1, $d2, $d3], $handlerBase);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertEquals('or', $handlerBase->operator);
 
     // Test "and"s.
     $handlerBase = HandlerBase::breakString("$s1,$d2,$d3");
+<<<<<<< HEAD
     $this->assertEquals([$s1, $d2, $d3], $handlerBase->value);
     $this->assertEquals('and', $handlerBase->operator);
 
     $handlerBase = HandlerBase::breakString("$s1,,$d2,$d3");
     $this->assertEquals([$s1, $d2, $d3], $handlerBase->value);
+=======
+    $this->assertEqualValue([$s1, $d2, $d3], $handlerBase);
+    $this->assertEquals('and', $handlerBase->operator);
+
+    $handlerBase = HandlerBase::breakString("$s1,,$d2,$d3");
+    $this->assertEqualValue([$s1, $d2, $d3], $handlerBase);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertEquals('and', $handlerBase->operator);
   }
 

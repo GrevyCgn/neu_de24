@@ -3,7 +3,11 @@
 namespace Drupal\Tests\migrate\Kernel;
 
 use Drupal\Core\Cache\MemoryCounterBackendFactory;
+<<<<<<< HEAD
 use Drupal\sqlite\Driver\Database\sqlite\Connection;
+=======
+use Drupal\Core\Database\Driver\sqlite\Connection;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 use Drupal\Core\DependencyInjection\ContainerBuilder;
 
 /**

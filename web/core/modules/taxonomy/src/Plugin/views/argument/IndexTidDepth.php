@@ -108,7 +108,30 @@ class IndexTidDepth extends ArgumentPluginBase implements ContainerFactoryPlugin
       $tids = $this->argument;
     }
 
+<<<<<<< HEAD
     $this->addSubQueryJoin($tids);
+=======
+    if ($this->options['depth'] > 0) {
+      $subquery->leftJoin('taxonomy_term__parent', 'th', "[th].[entity_id] = [tn].[tid]");
+      $last = "th";
+      foreach (range(1, abs($this->options['depth'])) as $count) {
+        $subquery->leftJoin('taxonomy_term__parent', "th$count", "[$last].[parent_target_id] = [th$count].[entity_id]");
+        $where->condition("th$count.entity_id", $tids, $operator);
+        $last = "th$count";
+      }
+    }
+    elseif ($this->options['depth'] < 0) {
+      foreach (range(1, abs($this->options['depth'])) as $count) {
+        $field = $count == 1 ? 'tid' : 'entity_id';
+        $subquery->leftJoin('taxonomy_term__parent', "th$count", "[$last].[$field] = [th$count].[parent_target_id]");
+        $where->condition("th$count.entity_id", $tids, $operator);
+        $last = "th$count";
+      }
+    }
+
+    $subquery->condition($where);
+    $this->query->addWhere(0, "$this->tableAlias.$this->realField", $subquery, 'IN');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   public function title() {

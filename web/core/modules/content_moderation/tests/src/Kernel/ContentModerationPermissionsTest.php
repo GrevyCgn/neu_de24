@@ -110,29 +110,38 @@ class ContentModerationPermissionsTest extends KernelTestBase {
           'use simple_workflow transition publish' => [
             'title' => '<em class="placeholder">Simple Workflow</em> workflow: Use <em class="placeholder">Publish</em> transition.',
             'description' => 'Move content from <em class="placeholder">Draft, Published</em> states to <em class="placeholder">Published</em> state.',
+<<<<<<< HEAD
             'dependencies' => [
               'config' => [
                 'workflows.workflow.simple_workflow',
               ],
             ],
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
           ],
           'use simple_workflow transition create_new_draft' => [
             'title' => '<em class="placeholder">Simple Workflow</em> workflow: Use <em class="placeholder">Create New Draft</em> transition.',
             'description' => 'Move content from <em class="placeholder">Draft, Published</em> states to <em class="placeholder">Draft</em> state.',
+<<<<<<< HEAD
             'dependencies' => [
               'config' => [
                 'workflows.workflow.simple_workflow',
               ],
             ],
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
           ],
           'use simple_workflow transition archive' => [
             'title' => '<em class="placeholder">Simple Workflow</em> workflow: Use <em class="placeholder">Archive</em> transition.',
             'description' => 'Move content from <em class="placeholder">Published</em> state to <em class="placeholder">Archived</em> state.',
+<<<<<<< HEAD
             'dependencies' => [
               'config' => [
                 'workflows.workflow.simple_workflow',
               ],
             ],
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
           ],
         ],
       ],

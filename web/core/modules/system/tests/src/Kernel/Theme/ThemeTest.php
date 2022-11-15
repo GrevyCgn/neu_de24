@@ -151,6 +151,7 @@ class ThemeTest extends KernelTestBase {
    */
   public function testFindThemeTemplates() {
     $registry = $this->container->get('theme.registry')->get();
+<<<<<<< HEAD
     $templates = drupal_find_theme_templates($registry, '.html.twig', $this->getThemePath('test_theme'));
     $this->assertEquals('node--1', $templates['node__1']['template'], 'Template node--1.html.twig was found in test_theme.');
   }
@@ -206,6 +207,10 @@ class ThemeTest extends KernelTestBase {
     // Ensure the removed post update function has been removed from the list of
     // existing updates.
     $this->assertNotContains('test_theme_depending_on_modules_post_update_foo', \Drupal::service('keyvalue')->get('post_update')->get('existing_updates'));
+=======
+    $templates = drupal_find_theme_templates($registry, '.html.twig', drupal_get_path('theme', 'test_theme'));
+    $this->assertEquals('node--1', $templates['node__1']['template'], 'Template node--1.html.twig was found in test_theme.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
 }

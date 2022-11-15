@@ -134,7 +134,11 @@ class ContentModerationWorkflowConfigTest extends KernelTestBase {
       $this->fail('ConfigImporterException not thrown, invalid import was not stopped due to deleted workflow.');
     }
     catch (ConfigImporterException $e) {
+<<<<<<< HEAD
       $this->assertEquals('There were errors validating the config synchronization.' . PHP_EOL . 'The workflow Editorial is being used, and cannot be deleted.', $e->getMessage());
+=======
+      $this->assertEquals('There were errors validating the config synchronization.' . PHP_EOL . 'The moderation state Test two is being used, but is not in the source storage.' . PHP_EOL . 'The workflow Editorial is being used, and cannot be deleted.', $e->getMessage());
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       $error_log = $this->configImporter->getErrors();
       $expected = [
         'The workflow Editorial is being used, and cannot be deleted.',

@@ -70,6 +70,12 @@ trait ViewResultAssertionTrait {
    *   'assertNotIdentical').
    * @param string $message
    *   (optional) The message to display with the assertion.
+<<<<<<< HEAD
+=======
+   *
+   * @return bool
+   *   TRUE if the assertion succeeded.
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    */
   protected function assertIdenticalResultsetHelper($view, $expected_result, $column_map, $assert_method, $message = NULL): void {
     // Convert $view->result to an array of arrays.
@@ -133,11 +139,19 @@ trait ViewResultAssertionTrait {
     switch ($assert_method) {
       case 'assertIdentical':
         $this->assertSame($expected_result, $result, $message);
+<<<<<<< HEAD
         break;
 
       case 'assertNotIdentical':
         $this->assertNotSame($expected_result, $result, $message);
         break;
+=======
+        return TRUE;
+
+      case 'assertNotIdentical':
+        $this->assertNotSame($expected_result, $result, $message);
+        return TRUE;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     }
   }

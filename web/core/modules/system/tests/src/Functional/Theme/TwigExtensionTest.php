@@ -63,7 +63,11 @@ class TwigExtensionTest extends BrowserTestBase {
     $this->drupalGet('twig-extension-test/function');
     $this->assertSession()->pageTextContains('THE QUICK BROWN BOX JUMPS OVER THE LAZY DOG 123.');
     $this->assertSession()->pageTextContains('the quick brown box jumps over the lazy dog 123.');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('The Quick Brown Fox Jumps Over The Lazy Dog 123.');
+=======
+    $this->assertNoText('The Quick Brown Fox Jumps Over The Lazy Dog 123.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**

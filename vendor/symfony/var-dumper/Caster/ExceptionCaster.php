@@ -214,6 +214,7 @@ class ExceptionCaster
 
                 if (is_file($f['file']) && 0 <= self::$srcContext) {
                     if (!empty($f['class']) && (is_subclass_of($f['class'], 'Twig\Template') || is_subclass_of($f['class'], 'Twig_Template')) && method_exists($f['class'], 'getDebugInfo')) {
+<<<<<<< HEAD
                         $template = null;
                         if (isset($f['object'])) {
                             $template = $f['object'];
@@ -232,6 +233,20 @@ class ExceptionCaster
                                     $src = self::extractSource($templateSrc, $templateInfo[$f['line']], self::$srcContext, 'twig', $templatePath, $f);
                                     $srcKey = ($templatePath ?: $template->getTemplateName()).':'.$templateInfo[$f['line']];
                                 }
+=======
+                        $template = $f['object'] ?? unserialize(sprintf('O:%d:"%s":0:{}', \strlen($f['class']), $f['class']));
+
+                        $ellipsis = 0;
+                        $templateSrc = method_exists($template, 'getSourceContext') ? $template->getSourceContext()->getCode() : (method_exists($template, 'getSource') ? $template->getSource() : '');
+                        $templateInfo = $template->getDebugInfo();
+                        if (isset($templateInfo[$f['line']])) {
+                            if (!method_exists($template, 'getSourceContext') || !is_file($templatePath = $template->getSourceContext()->getPath())) {
+                                $templatePath = null;
+                            }
+                            if ($templateSrc) {
+                                $src = self::extractSource($templateSrc, $templateInfo[$f['line']], self::$srcContext, 'twig', $templatePath, $f);
+                                $srcKey = ($templatePath ?: $template->getTemplateName()).':'.$templateInfo[$f['line']];
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
                             }
                         }
                     }

@@ -61,7 +61,11 @@ class ContactStorageTest extends ContactSitewideTest {
     $this->drupalLogout();
     $this->drupalGet('contact');
     $this->assertSession()->pageTextContains('Your email address');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('Form');
+=======
+    $this->assertNoText('Form');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->submitContact($name = $this->randomMachineName(16), $mail, $subject = $this->randomMachineName(16), $id, $message = $this->randomMachineName(64));
     $this->assertSession()->pageTextContains('Your message has been sent.');
 

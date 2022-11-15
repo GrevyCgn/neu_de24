@@ -158,8 +158,11 @@
   & .form-type--boolean {
     margin-left: 0;
   }
+<<<<<<< HEAD
   & .form-item .form-item__description {
     color: var(--color-gray-050);
     font-size: 0.75rem;
   }
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 }

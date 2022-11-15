@@ -41,6 +41,10 @@
 .node__author-image img {
   width: 2.8125rem;
   height: 2.8125rem;
+<<<<<<< HEAD
+=======
+  -o-object-fit: cover;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   object-fit: cover;
   border-radius: 50%;
 }

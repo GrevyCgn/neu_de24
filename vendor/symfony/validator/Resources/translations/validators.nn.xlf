@@ -385,6 +385,7 @@
             <trans-unit id="99">
                 <source>This value is not a valid International Securities Identification Number (ISIN).</source>
                 <target>Verdien er ikkje eit gyldig International Securities Identification Number (ISIN).</target>
+<<<<<<< HEAD
             </trans-unit>
              <trans-unit id="100">
                 <source>This value should be a valid expression.</source>
@@ -401,6 +402,8 @@
             <trans-unit id="103">
                 <source>The value of the netmask should be between {{ min }} and {{ max }}.</source>
                 <target>Verdien av nettmasken skal være mellom {{ min }} og {{ max }}.</target>
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
             </trans-unit>
         </body>
     </file>

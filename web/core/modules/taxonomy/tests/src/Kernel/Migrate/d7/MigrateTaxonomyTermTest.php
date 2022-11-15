@@ -230,7 +230,11 @@ class MigrateTaxonomyTermTest extends MigrateDrupal7TestBase {
    * @param array $parent_ids
    *   The expected parent term IDs.
    */
+<<<<<<< HEAD
   protected function assertHierarchy(string $vid, int $tid, array $parent_ids): void {
+=======
+  protected function assertHierarchy($vid, $tid, array $parent_ids) {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     if (!isset($this->treeData[$vid])) {
       $tree = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid);
       $this->treeData[$vid] = [];

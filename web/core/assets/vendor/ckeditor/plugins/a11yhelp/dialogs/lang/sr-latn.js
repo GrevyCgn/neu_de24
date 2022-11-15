@@ -1,5 +1,9 @@
 ﻿/*
+<<<<<<< HEAD
  Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+=======
+ Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
  For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang("a11yhelp","sr-latn",{title:"Uputstva za pomoć",contents:"Sadržaji za pomoć. Da bi ste zatvorili diјalog pritisnite ESC.",legend:[{name:"Opšte",items:[{name:"Alatke za uređivanje",legend:"Pritisnite ${toolbarFocus} da bi označili alatke. Do sledeće i prethodne grupe alatki možete doći sa tasterom  TAB i SHIFT+TAB. Do tastera sledeće i predthodne grupe alatki možete doći sa tasterima STRELICA LEVO i STRELICA DESNO. Pritisnite  SPACE ili ENTER da bi aktivirali taster alatki."},

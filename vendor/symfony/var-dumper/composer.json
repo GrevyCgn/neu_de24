@@ -22,9 +22,14 @@
     },
     "require-dev": {
         "ext-iconv": "*",
+<<<<<<< HEAD
         "symfony/console": "^4.4|^5.0|^6.0",
         "symfony/process": "^4.4|^5.0|^6.0",
         "symfony/uid": "^5.1|^6.0",
+=======
+        "symfony/console": "^4.4|^5.0",
+        "symfony/process": "^4.4|^5.0",
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         "twig/twig": "^2.13|^3.0.4"
     },
     "conflict": {

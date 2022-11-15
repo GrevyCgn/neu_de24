@@ -18,8 +18,11 @@ use Drupal\Core\Entity\Sql\SqlContentEntityStorageSchema;
 use Drupal\Core\Extension\ExtensionLifecycle;
 use Drupal\Core\File\FileSystemInterface;
 use Drupal\Core\Link;
+<<<<<<< HEAD
 use Drupal\Core\Utility\PhpRequirements;
 use Drupal\Core\Render\Markup;
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 use Drupal\Core\Site\Settings;
 use Drupal\Core\StreamWrapper\PrivateStream;
 use Drupal\Core\StreamWrapper\PublicStream;
@@ -150,6 +153,7 @@ function system_requirements($phase) {
         'severity' => REQUIREMENT_WARNING,
       ];
     }
+<<<<<<< HEAD
 
     // Warn if any deprecated themes are enabled.
     if (!empty($deprecated_themes)) {
@@ -179,6 +183,8 @@ function system_requirements($phase) {
         'severity' => REQUIREMENT_WARNING,
       ];
     }
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     _system_advisories_requirements($requirements);
   }
 
@@ -1280,6 +1286,7 @@ function system_requirements($phase) {
     if ($provider !== 'core' && !\Drupal::moduleHandler()->moduleExists($provider)) {
       $autoload = $connection->getConnectionOptions()['autoload'] ?? '';
       if (($pos = strpos($autoload, 'src/Driver/Database/')) !== FALSE) {
+<<<<<<< HEAD
         $post_update_registry = \Drupal::service('update.post_update_registry');
         $pending_updates = $post_update_registry->getPendingUpdateInformation();
         if (!in_array('enable_provider_database_driver', array_keys($pending_updates['system']['pending'] ?? []), TRUE)) {
@@ -1292,6 +1299,14 @@ function system_requirements($phase) {
             'severity' => REQUIREMENT_ERROR,
           ];
         }
+=======
+        $requirements['database_driver_provided_by_module'] = [
+          'title' => t('Database driver provided by module'),
+          'value' => t('Not enabled'),
+          'description' => t('The current database driver is provided by the module: %module. The module is currently not enabled. You should immediately <a href=":enable">enable</a> the module.', ['%module' => $provider, ':enable' => Url::fromRoute('system.modules_list')->toString()]),
+          'severity' => REQUIREMENT_ERROR,
+        ];
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       }
     }
   }
@@ -1657,6 +1672,7 @@ function _system_advisories_requirements(array &$requirements): void {
     }
   }
 }
+<<<<<<< HEAD
 
 /**
  * Checks if there are 'prefix' entries in array format for tables.
@@ -1671,3 +1687,5 @@ function _system_check_array_table_prefixes() {
   }
   return FALSE;
 }
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b

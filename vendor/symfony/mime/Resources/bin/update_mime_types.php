@@ -10,7 +10,11 @@
  */
 
 // load new map
+<<<<<<< HEAD
 $data = json_decode(file_get_contents('https://cdn.jsdelivr.net/gh/jshttp/mime-db@v1.49.0/db.json'), true);
+=======
+$data = json_decode(file_get_contents('https://cdn.jsdelivr.net/gh/jshttp/mime-db@v1.47.0/db.json'), true);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 $new = [];
 foreach ($data as $mimeType => $mimeTypeInformation) {
     if (!array_key_exists('extensions', $mimeTypeInformation)) {

@@ -139,7 +139,11 @@ class DateTimeTest extends BrowserTestBase {
     $this->assertSession()->pageTextContains('Custom date format updated.');
 
     // Delete custom date format.
+<<<<<<< HEAD
     $this->clickLink('Delete');
+=======
+    $this->clickLink(t('Delete'));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->drupalGet('admin/config/regional/date-time/formats/manage/' . $date_format_id . '/delete');
     $this->submitForm([], 'Delete');
     // Verify that the user is redirected to the correct page.
@@ -263,7 +267,11 @@ class DateTimeTest extends BrowserTestBase {
     $edit['field_dt[0][value][day]'] = '29';
     $this->drupalGet('node/add/page_with_date');
     $this->submitForm($edit, 'Save');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('Selected combination of day and month is not valid.');
+=======
+    $this->assertNoText('Selected combination of day and month is not valid.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $this->drupalGet('node/1');
     $this->assertSession()->pageTextContains('Mon, 02/29/2016 - 01:30');

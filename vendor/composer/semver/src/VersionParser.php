@@ -51,7 +51,11 @@ class VersionParser
      */
     public static function parseStability($version)
     {
+<<<<<<< HEAD
         $version = (string) preg_replace('{#.+$}', '', (string) $version);
+=======
+        $version = (string) preg_replace('{#.+$}', '', $version);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
         if (strpos($version, 'dev-') === 0 || '-dev' === substr($version, -4)) {
             return 'dev';
@@ -254,7 +258,11 @@ class VersionParser
     {
         $prettyConstraint = (string) $constraints;
 
+<<<<<<< HEAD
         $orConstraints = preg_split('{\s*\|\|?\s*}', trim((string) $constraints));
+=======
+        $orConstraints = preg_split('{\s*\|\|?\s*}', trim($constraints));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         if (false === $orConstraints) {
             throw new \RuntimeException('Failed to preg_split string: '.$constraints);
         }

@@ -3,7 +3,10 @@
 namespace Drupal\Tests\Core\TempStore;
 
 use Drupal\Core\DependencyInjection\ContainerBuilder;
+<<<<<<< HEAD
 use Drupal\Core\Http\RequestStack;
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 use Drupal\Core\KeyValueStore\KeyValueExpirableFactoryInterface;
 use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\Core\TempStore\Lock;
@@ -13,6 +16,10 @@ use Drupal\Core\TempStore\SharedTempStore;
 use Drupal\Core\TempStore\TempStoreException;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Request;
+<<<<<<< HEAD
+=======
+use Symfony\Component\HttpFoundation\RequestStack;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 /**
@@ -423,6 +430,7 @@ class SharedTempStoreTest extends UnitTestCase {
     $this->assertSame(1000, $expire_property->getValue($store));
   }
 
+<<<<<<< HEAD
 }
 
 /**
@@ -437,4 +445,6 @@ class UnserializableRequest extends Request {
     throw new \LogicException('Oops!');
   }
 
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 }

@@ -22,13 +22,21 @@ class MoFileLoader extends FileLoader
      * Magic used for validating the format of an MO file as well as
      * detecting if the machine used to create that file was little endian.
      */
+<<<<<<< HEAD
     public const MO_LITTLE_ENDIAN_MAGIC = 0x950412DE;
+=======
+    public const MO_LITTLE_ENDIAN_MAGIC = 0x950412de;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     /**
      * Magic used for validating the format of an MO file as well as
      * detecting if the machine used to create that file was big endian.
      */
+<<<<<<< HEAD
     public const MO_BIG_ENDIAN_MAGIC = 0xDE120495;
+=======
+    public const MO_BIG_ENDIAN_MAGIC = 0xde120495;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     /**
      * The size of the header of an MO file in bytes.
@@ -89,7 +97,11 @@ class MoFileLoader extends FileLoader
             fseek($stream, $offset);
             $singularId = fread($stream, $length);
 
+<<<<<<< HEAD
             if (str_contains($singularId, "\000")) {
+=======
+            if (false !== strpos($singularId, "\000")) {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
                 [$singularId, $pluralId] = explode("\000", $singularId);
             }
 

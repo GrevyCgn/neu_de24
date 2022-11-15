@@ -1,11 +1,21 @@
 <?php
 
+<<<<<<< HEAD
+=======
+/**
+ * @see       https://github.com/laminas/laminas-feed for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-feed/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-feed/blob/master/LICENSE.md New BSD License
+ */
+
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 namespace Laminas\Feed\Writer\Extension\PodcastIndex;
 
 use Laminas\Feed\Writer;
 use Laminas\Stdlib\StringUtils;
 use Laminas\Stdlib\StringWrapper\StringWrapperInterface;
 
+<<<<<<< HEAD
 use function array_key_exists;
 use function ctype_alpha;
 use function is_string;
@@ -15,6 +25,8 @@ use function strlen;
 use function substr;
 use function ucfirst;
 
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 /**
  * Describes PodcastIndex data of a RSS Feed
  */
@@ -76,8 +88,12 @@ class Feed
                 'invalid parameter: "locked" must be an array containing keys "value" and "owner"'
             );
         }
+<<<<<<< HEAD
         if (
             ! is_string($value['value'])
+=======
+        if (! is_string($value['value'])
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
             || ! ctype_alpha($value['value']) && strlen($value['value']) > 0
         ) {
             throw new Writer\Exception\InvalidArgumentException(
@@ -113,8 +129,12 @@ class Feed
     public function __call(string $method, array $params)
     {
         $point = lcfirst(substr($method, 15));
+<<<<<<< HEAD
         if (
             ! method_exists($this, 'setPodcastIndex' . ucfirst($point))
+=======
+        if (! method_exists($this, 'setPodcastIndex' . ucfirst($point))
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
             && ! method_exists($this, 'addPodcastIndex' . ucfirst($point))
         ) {
             throw new Writer\Exception\BadMethodCallException(

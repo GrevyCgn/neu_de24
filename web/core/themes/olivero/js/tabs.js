@@ -37,7 +37,11 @@
 
   Drupal.behaviors.primaryTabs = {
     attach: function attach(context) {
+<<<<<<< HEAD
       once('olivero-tabs', '[data-drupal-nav-primary-tabs]', context).forEach(init);
+=======
+      once('olivero-tabs', '[data-drupal-nav-tabs]', context).forEach(init);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     }
   };
 })(Drupal, once);

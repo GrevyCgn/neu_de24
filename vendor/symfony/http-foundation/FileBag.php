@@ -79,9 +79,18 @@ class FileBag extends ParameterBag
         $keys = array_keys($file);
         sort($keys);
 
+<<<<<<< HEAD
         if (self::FILE_KEYS == $keys) {
             if (\UPLOAD_ERR_NO_FILE == $file['error']) {
                 $file = null;
+=======
+            if (self::FILE_KEYS == $keys) {
+                if (\UPLOAD_ERR_NO_FILE == $file['error']) {
+                    $file = null;
+                } else {
+                    $file = new UploadedFile($file['tmp_name'], $file['name'], $file['type'], $file['error'], false);
+                }
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
             } else {
                 $file = new UploadedFile($file['tmp_name'], $file['name'], $file['type'], $file['error'], false);
             }

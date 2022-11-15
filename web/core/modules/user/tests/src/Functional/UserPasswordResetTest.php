@@ -376,9 +376,14 @@ class UserPasswordResetTest extends BrowserTestBase {
     ];
     $this->drupalGet('user/login');
     $this->submitForm($edit, 'Log in');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains("Unrecognized username or password. Forgot your password?");
     $this->assertSession()->linkExists("Forgot your password?");
     $this->assertSession()->linkByHrefExists(Url::fromRoute('user.pass', [], ['query' => ['name' => $edit['name']]])->toString());
+=======
+    $this->assertRaw(t('Unrecognized username or password. <a href=":password">Forgot your password?</a>',
+      [':password' => Url::fromRoute('user.pass', [], ['query' => ['name' => $edit['name']]])->toString()]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     unset($edit['pass']);
     $this->drupalGet('user/password', ['query' => ['name' => $edit['name']]]);
     $this->assertSession()->fieldValueEquals('name', $edit['name']);
@@ -489,7 +494,11 @@ class UserPasswordResetTest extends BrowserTestBase {
    *
    * @internal
    */
+<<<<<<< HEAD
   public function assertValidPasswordReset(string $name): void {
+=======
+  public function assertValidPasswordReset($name) {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains("If $name is a valid account, an email will be sent with instructions to reset your password.");
     $this->assertMail('to', $this->account->getEmail(), 'Password e-mail sent to user.');
     $subject = 'Replacement login information for ' . $this->account->getAccountName() . ' at Drupal';
@@ -500,11 +509,16 @@ class UserPasswordResetTest extends BrowserTestBase {
    * Helper function to make assertions about an invalid password reset.
    *
    * @param string $name
+<<<<<<< HEAD
    *   The user name.
    *
    * @internal
    */
   public function assertNoValidPasswordReset(string $name): void {
+=======
+   */
+  public function assertNoValidPasswordReset($name) {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     // This message is the same as the valid reset for privacy reasons.
     $this->assertSession()->pageTextContains("If $name is a valid account, an email will be sent with instructions to reset your password.");
     // The difference is that no email is sent.
@@ -516,7 +530,11 @@ class UserPasswordResetTest extends BrowserTestBase {
    *
    * @internal
    */
+<<<<<<< HEAD
   public function assertPasswordIpFlood(): void {
+=======
+  public function assertPasswordIpFlood() {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains('Too many password recovery requests from your IP address. It is temporarily blocked. Try again later or contact the site administrator.');
   }
 

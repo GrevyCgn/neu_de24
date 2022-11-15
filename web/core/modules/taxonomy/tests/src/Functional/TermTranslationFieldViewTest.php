@@ -64,11 +64,19 @@ class TermTranslationFieldViewTest extends TaxonomyTestBase {
     $translation_path = $this->translateToLangcode . '/' . $path;
 
     $this->drupalGet($path);
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains($this->translatedTagName);
     $this->assertSession()->pageTextContains($this->baseTagName);
     $this->drupalGet($translation_path);
     $this->assertSession()->pageTextContains($this->translatedTagName);
     $this->assertSession()->pageTextNotContains($this->baseTagName);
+=======
+    $this->assertNoText($this->translatedTagName);
+    $this->assertSession()->pageTextContains($this->baseTagName);
+    $this->drupalGet($translation_path);
+    $this->assertSession()->pageTextContains($this->translatedTagName);
+    $this->assertNoText($this->baseTagName);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**

@@ -64,7 +64,11 @@ class AttachedAssetsTest extends KernelTestBase {
   public function testDefault() {
     $assets = new AttachedAssets();
     $this->assertEquals([], $this->assetResolver->getCssAssets($assets, FALSE), 'Default CSS is empty.');
+<<<<<<< HEAD
     [$js_assets_header, $js_assets_footer] = $this->assetResolver->getJsAssets($assets, FALSE);
+=======
+    list($js_assets_header, $js_assets_footer) = $this->assetResolver->getJsAssets($assets, FALSE);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertEquals([], $js_assets_header, 'Default header JavaScript is empty.');
     $this->assertEquals([], $js_assets_footer, 'Default footer JavaScript is empty.');
   }
@@ -181,7 +185,11 @@ class AttachedAssetsTest extends KernelTestBase {
 
     $this->assertCount(1, $this->assetResolver->getCssAssets($assets, TRUE), 'There is a sole aggregated CSS asset.');
 
+<<<<<<< HEAD
     [$header_js, $footer_js] = $this->assetResolver->getJsAssets($assets, TRUE);
+=======
+    list($header_js, $footer_js) = $this->assetResolver->getJsAssets($assets, TRUE);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertEquals([], \Drupal::service('asset.js.collection_renderer')->render($header_js), 'There are 0 JavaScript assets in the header.');
     $rendered_footer_js = \Drupal::service('asset.js.collection_renderer')->render($footer_js);
     $this->assertCount(2, $rendered_footer_js, 'There are 2 JavaScript assets in the footer.');

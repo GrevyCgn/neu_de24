@@ -48,6 +48,7 @@ class BlockLanguageTest extends BrowserTestBase {
 
     // Verify that language was added successfully.
     $this->assertSession()->pageTextContains('French');
+<<<<<<< HEAD
 
     // Set path prefixes for both languages.
     $this->config('language.negotiation')->set('url', [
@@ -60,6 +61,8 @@ class BlockLanguageTest extends BrowserTestBase {
 
     $this->drupalCreateContentType(['type' => 'page']);
     $this->drupalCreateNode();
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**
@@ -92,7 +95,10 @@ class BlockLanguageTest extends BrowserTestBase {
 
     // Check that a page has a block.
     $this->drupalGet('en');
+<<<<<<< HEAD
     $this->assertSession()->statusCodeEquals(200);
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains('Powered by Drupal');
 
     // Check that a page doesn't has a block for the current language anymore.
@@ -174,10 +180,16 @@ class BlockLanguageTest extends BrowserTestBase {
     $this->submitForm($edit, 'Save block');
 
     // Interface negotiation depends on request arguments.
+<<<<<<< HEAD
     $this->drupalGet('node/1', ['query' => ['language' => 'en']]);
     $this->assertSession()->statusCodeEquals(200);
     $this->assertSession()->pageTextNotContains('Powered by Drupal');
     $this->drupalGet('node/1', ['query' => ['language' => 'fr']]);
+=======
+    $this->drupalGet('node', ['query' => ['language' => 'en']]);
+    $this->assertNoText('Powered by Drupal');
+    $this->drupalGet('node', ['query' => ['language' => 'fr']]);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains('Powered by Drupal');
 
     // Log in again in order to clear the interface language stored in the

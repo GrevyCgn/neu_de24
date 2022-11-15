@@ -107,7 +107,12 @@
   }
 
 .block-search-narrow input[type="search"] {
+<<<<<<< HEAD
       height: 4.5rem
+=======
+      padding-top: 2.25rem;
+      padding-bottom: 2.25rem
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
     }
 
@@ -205,6 +210,7 @@
         border-top: solid 5px #2494db;
       }
 
+<<<<<<< HEAD
 @media (forced-colors: active) {
 
 .block-search-narrow .search-form__submit .icon--search {
@@ -218,6 +224,8 @@
     }
       }
 
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 .block-search-narrow .search-form__submit:focus {
       outline: solid 4px transparent;
       outline-offset: -4px;

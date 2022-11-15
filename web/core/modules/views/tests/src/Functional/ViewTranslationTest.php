@@ -31,8 +31,13 @@ class ViewTranslationTest extends ViewTestBase {
   /**
    * {@inheritdoc}
    */
+<<<<<<< HEAD
   public function setUp($import_test_views = TRUE, $modules = ['views_test_config']): void {
     parent::setUp($import_test_views, $modules);
+=======
+  public function setUp($import_test_views = TRUE): void {
+    parent::setUp($import_test_views);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $this->enableViewsTestModule();
     $this->drupalPlaceBlock('system_breadcrumb_block');

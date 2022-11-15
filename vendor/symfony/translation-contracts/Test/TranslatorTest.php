@@ -86,6 +86,8 @@ class TranslatorTest extends TestCase
     }
 
     /**
+     * @requires extension intl
+     *
      * @dataProvider getTransChoiceTests
      */
     public function testTransChoiceWithEnUsPosix($expected, $id, $number)

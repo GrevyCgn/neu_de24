@@ -135,6 +135,7 @@ define('DRUPAL_ROOT', dirname(__DIR__, 2));
 class_alias('Drupal\Core\Http\KernelEvent', 'Symfony\Component\HttpKernel\Event\KernelEvent', TRUE);
 
 /**
+<<<<<<< HEAD
  * Set up the Symfony Request factory for forward compatibility with Symfony 5.
  *
  * @todo Remove this when Symfony 4 is no longer supported.
@@ -152,6 +153,8 @@ Request::setFactory(
 );
 
 /**
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
  * Returns and optionally sets the filename for a system resource.
  *
  * The filename, whether provided, cached, or retrieved from the database, is

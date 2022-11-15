@@ -142,7 +142,11 @@ trait BookTestTrait {
     // Check printer friendly version.
     $this->drupalGet('book/export/html/' . $node->id());
     $this->assertSession()->pageTextContains($node->label());
+<<<<<<< HEAD
     $this->assertSession()->responseContains($node->body->processed);
+=======
+    $this->assertRaw($node->body->processed);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $number++;
   }

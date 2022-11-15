@@ -107,7 +107,11 @@ class UninstallTest extends BrowserTestBase {
     $edit['uninstall[module_test]'] = TRUE;
     $this->drupalGet('admin/modules/uninstall');
     $this->submitForm($edit, 'Uninstall');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('Configuration deletions');
+=======
+    $this->assertNoText('Configuration deletions');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains('Configuration updates');
     $this->assertSession()->pageTextContains($node_type->label());
     $this->submitForm([], 'Uninstall');
@@ -121,7 +125,11 @@ class UninstallTest extends BrowserTestBase {
     $this->drupalGet('admin/modules/uninstall');
     $this->submitForm($edit, 'Uninstall');
     $this->assertSession()->pageTextContains('Configuration deletions');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('Configuration updates');
+=======
+    $this->assertNoText('Configuration updates');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $entity_types = [];
     foreach ($node_dependencies as $entity) {
@@ -193,7 +201,11 @@ class UninstallTest extends BrowserTestBase {
     $this->submitForm($edit, 'Uninstall');
     $this->submitForm([], 'Uninstall');
     $this->assertSession()->pageTextContains('The selected modules have been uninstalled.');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('Module installer config test');
+=======
+    $this->assertNoText('Module installer config test');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
 }

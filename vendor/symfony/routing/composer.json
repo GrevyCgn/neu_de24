@@ -26,7 +26,11 @@
         "symfony/expression-language": "^3.4|^4.0|^5.0",
         "symfony/dependency-injection": "^3.4|^4.0|^5.0",
         "doctrine/annotations": "^1.10.4",
+<<<<<<< HEAD
         "psr/log": "^1|^2|^3"
+=======
+        "psr/log": "~1.0"
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     },
     "conflict": {
         "symfony/config": "<4.2",

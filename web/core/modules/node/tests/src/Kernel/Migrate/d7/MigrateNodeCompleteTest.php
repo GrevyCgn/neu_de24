@@ -136,6 +136,7 @@ class MigrateNodeCompleteTest extends MigrateDrupal7TestBase {
       $this->assertSame('Bob', $revision->field_user_reference[0]->entity->getAccountName());
     }
 
+<<<<<<< HEAD
     // Test the translated node reference in the latest revision of node 2. This
     // references the legacy site node 4 instead of node 2. The reference is
     // fixed by the followup migrations, 'd7_entity_reference_translation' and
@@ -145,6 +146,8 @@ class MigrateNodeCompleteTest extends MigrateDrupal7TestBase {
     $translation = $node->getTranslation('is');
     $this->assertSame('4', $translation->get('field_reference_2')->target_id);
 
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     // Test the order in multi-value fields.
     $revision = $this->nodeStorage->loadRevision(1);
     $this->assertSame([
@@ -195,7 +198,11 @@ class MigrateNodeCompleteTest extends MigrateDrupal7TestBase {
    *
    * @internal
    */
+<<<<<<< HEAD
   protected function assertRevision(array $revision, array $data): void {
+=======
+  protected function assertRevision(array $revision, array $data) {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     /** @var  \Drupal\node\NodeInterface $actual */
     $actual = $this->nodeStorage->loadRevision($revision['vid'])
       ->getTranslation($revision['langcode']);

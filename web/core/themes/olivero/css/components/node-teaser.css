@@ -64,6 +64,7 @@
     /* Ensure title does not wrap under image until necessary. */
   }
 
+<<<<<<< HEAD
 .node--view-mode-teaser .primary-image + .node__title {
       flex-basis: calc(100% - 5.0625rem)
     }
@@ -75,6 +76,8 @@
     }
       }
 
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 .node--view-mode-teaser .primary-image a {
       display: block;
     }

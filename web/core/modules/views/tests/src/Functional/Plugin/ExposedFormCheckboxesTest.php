@@ -109,7 +109,11 @@ class ExposedFormCheckboxesTest extends ViewTestBase {
     // checked.
     $this->clickLink('Page 2');
     $this->assertSession()->elementsCount('xpath', "//div[contains(@class, 'views-row')]", 1);
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('An illegal choice has been detected. Please contact the site administrator.');
+=======
+    $this->assertNoText('An illegal choice has been detected. Please contact the site administrator.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**
@@ -158,14 +162,22 @@ class ExposedFormCheckboxesTest extends ViewTestBase {
     // All rows are displayed by default on the first page when no options are
     // checked.
     $this->assertSession()->elementsCount('xpath', "//div[contains(@class, 'views-row')]", 8);
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('An illegal choice has been detected. Please contact the site administrator.');
+=======
+    $this->assertNoText('An illegal choice has been detected. Please contact the site administrator.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Select one option and ensure we still have results.
     $tid = $this->terms[0]->id();
     $this->submitForm(["tid[$tid]" => $tid], 'Apply');
     // Ensure only nodes tagged with $tid are displayed.
     $this->assertSession()->elementsCount('xpath', "//div[contains(@class, 'views-row')]", 2);
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('An illegal choice has been detected. Please contact the site administrator.');
+=======
+    $this->assertNoText('An illegal choice has been detected. Please contact the site administrator.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
 }

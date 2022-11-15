@@ -109,7 +109,11 @@ class CommentValidationTest extends EntityKernelTestBase {
     $violations = $comment->validate();
     $this->assertCount(1, $violations, 'Violation found when email is invalid');
     $this->assertEquals('mail.0.value', $violations[0]->getPropertyPath());
+<<<<<<< HEAD
     $this->assertEquals('This value is not a valid email address.', $violations[0]->getMessage());
+=======
+    $this->assertEquals(t('This value is not a valid email address.'), $violations[0]->getMessage());
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $comment->set('mail', NULL);
     $comment->set('homepage', 'http://example.com/' . $this->randomMachineName(237));
@@ -122,7 +126,11 @@ class CommentValidationTest extends EntityKernelTestBase {
 
     // @todo This message should be improved in
     //   https://www.drupal.org/node/2012690.
+<<<<<<< HEAD
     $this->assertEquals('This value should be of the correct primitive type.', $violations[0]->getMessage());
+=======
+    $this->assertEquals(t('This value should be of the correct primitive type.'), $violations[0]->getMessage());
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $comment->set('homepage', NULL);
     $comment->set('hostname', $this->randomString(129));
@@ -152,7 +160,11 @@ class CommentValidationTest extends EntityKernelTestBase {
     $violations = $comment->validate();
     $this->assertCount(1, $violations, 'Violation found when name is required, but empty and UID is anonymous.');
     $this->assertEquals('name', $violations[0]->getPropertyPath());
+<<<<<<< HEAD
     $this->assertEquals('You have to specify a valid author.', $violations[0]->getMessage());
+=======
+    $this->assertEquals(t('You have to specify a valid author.'), $violations[0]->getMessage());
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Test creating a default comment with a given user id works.
     $comment = $this->entityTypeManager->getStorage('comment')->create([
@@ -177,7 +189,11 @@ class CommentValidationTest extends EntityKernelTestBase {
     $violations = $comment->validate();
     $this->assertCount(1, $violations, 'Violation found when author name and comment author do not match.');
     $this->assertEquals('name', $violations[0]->getPropertyPath());
+<<<<<<< HEAD
     $this->assertEquals('The specified author name does not match the comment author.', $violations[0]->getMessage());
+=======
+    $this->assertEquals(t('The specified author name does not match the comment author.'), $violations[0]->getMessage());
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**

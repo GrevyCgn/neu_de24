@@ -330,7 +330,11 @@ class ToolbarAdminMenuTest extends BrowserTestBase {
     ];
     $this->drupalGet('admin/config/regional/translate');
     $this->submitForm($search, 'Filter');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('No strings available');
+=======
+    $this->assertNoText('No strings available');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     // Verify that search found the string as untranslated.
     $this->assertSession()->pageTextContains($name);
 

@@ -58,12 +58,15 @@ function admin_toolbar_links_access_filter_preprocess_menu(&$variables) {
  * Hides links from admin menu, if user doesn't have access rights.
  */
 function admin_toolbar_links_access_filter_filter_non_accessible_links(array &$items) {
+<<<<<<< HEAD
   if (Drupal::currentUser()->id() == 1) {
     // Admin can access everything.
     return;
   }
 
   $access_manager = \Drupal::accessManager();
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   foreach ($items as $menu_id => &$item) {
     $route_name = NULL;
     $route_params = [];
@@ -89,7 +92,12 @@ function admin_toolbar_links_access_filter_filter_non_accessible_links(array &$i
     }
 
     // Check, if user has access rights to the route.
+<<<<<<< HEAD
     if (!$access_manager->checkNamedRoute($route_name, $route_params)) {
+=======
+    if (!\Drupal::accessManager()
+      ->checkNamedRoute($route_name, $route_params)) {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       unset($items[$menu_id]);
     }
     else {
@@ -97,7 +105,12 @@ function admin_toolbar_links_access_filter_filter_non_accessible_links(array &$i
         // Recursively call this function for the child items.
         admin_toolbar_links_access_filter_filter_non_accessible_links($items[$menu_id]['below']);
       }
+<<<<<<< HEAD
       if (empty($items[$menu_id]['below'])) {
+=======
+      if (empty($items[$menu_id]['below']) && \Drupal::moduleHandler()
+        ->moduleExists('admin_toolbar')) {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
         // Every child item has been cleared out.
         // Now check, if the given route represents an overview page only,

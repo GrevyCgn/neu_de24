@@ -1,5 +1,6 @@
 # CHANGELOG
 
+<<<<<<< HEAD
 ## 1.5.2 - 2022-08-07
 
 ### Changed
@@ -28,6 +29,10 @@
 
 ### Fixed
 
+=======
+## 1.4.1 - 2021-02-18
+
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 - Fixed `each_limit` skipping promises and failing
 
 ## 1.4.0 - 2020-09-30

@@ -60,7 +60,11 @@ class InvalidUpdateHookTest extends BrowserTestBase {
     $this->drupalLogin($this->updateUser);
     $this->drupalGet($this->updateUrl);
     $this->updateRequirementsProblem();
+<<<<<<< HEAD
     $this->clickLink('Continue');
+=======
+    $this->clickLink(t('Continue'));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains('Some of the pending updates cannot be applied because their dependencies were not met.');
   }
 

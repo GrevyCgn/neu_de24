@@ -408,7 +408,11 @@ class MediaEmbedFilterTest extends MediaEmbedFilterTestBase {
     $this->setRawContent($result->getProcessedText());
     $this->assertCount($expected_verification_success ? 1 : 0, $this->cssSelect($verification_selector));
     $this->assertCount(1, $this->cssSelect('div[data-media-embed-test-view-mode="default"]'));
+<<<<<<< HEAD
     $this->assertEqualsCanonicalizing([
+=======
+    $this->assertSame([
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       '_media_test_embed_filter_access:media:1',
       '_media_test_embed_filter_access:user:2',
       'config:image.style.thumbnail',

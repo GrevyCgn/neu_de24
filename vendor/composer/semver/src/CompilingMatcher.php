@@ -24,12 +24,15 @@ class CompilingMatcher
      * @phpstan-var array<string, callable>
      */
     private static $compiledCheckerCache = array();
+<<<<<<< HEAD
     /**
      * @var array
      * @phpstan-var array<string, bool>
      */
     private static $resultCache = array();
 
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     /** @var bool */
     private static $enabled;
 

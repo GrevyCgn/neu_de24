@@ -1372,7 +1372,10 @@ final class MimeTypes implements MimeTypesInterface
         'image/jphc' => ['jhc'],
         'image/jpm' => ['jpm', 'jpgm'],
         'image/jpx' => ['jpx', 'jpf'],
+<<<<<<< HEAD
         'image/jxl' => ['jxl'],
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         'image/jxr' => ['jxr'],
         'image/jxra' => ['jxra'],
         'image/jxrs' => ['jxrs'],
@@ -1522,8 +1525,11 @@ final class MimeTypes implements MimeTypesInterface
         'model/mesh' => ['msh', 'mesh', 'silo'],
         'model/mtl' => ['mtl'],
         'model/obj' => ['obj'],
+<<<<<<< HEAD
         'model/step+zip' => ['stpz'],
         'model/step-xml+zip' => ['stpxz'],
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         'model/stl' => ['stl'],
         'model/vnd.collada+xml' => ['dae'],
         'model/vnd.dwf' => ['dwf'],
@@ -1548,7 +1554,10 @@ final class MimeTypes implements MimeTypesInterface
         'text/cache-manifest' => ['appcache', 'manifest'],
         'text/calendar' => ['ics', 'ifb', 'vcs'],
         'text/coffeescript' => ['coffee', 'litcoffee'],
+<<<<<<< HEAD
         'text/crystal' => ['cr'],
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         'text/css' => ['css'],
         'text/csv' => ['csv'],
         'text/csv-schema' => ['csvs'],
@@ -1566,7 +1575,10 @@ final class MimeTypes implements MimeTypesInterface
         'text/mathml' => ['mml'],
         'text/mdx' => ['mdx'],
         'text/n3' => ['n3'],
+<<<<<<< HEAD
         'text/org' => ['org'],
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         'text/plain' => ['txt', 'text', 'conf', 'def', 'list', 'log', 'in', 'ini', 'asc'],
         'text/prs.lines.tag' => ['dsc'],
         'text/rdf' => ['rdf', 'rdfs', 'owl'],
@@ -1618,7 +1630,10 @@ final class MimeTypes implements MimeTypesInterface
         'text/x-comma-separated-values' => ['csv'],
         'text/x-common-lisp' => ['asd', 'fasl', 'lisp', 'ros'],
         'text/x-component' => ['htc'],
+<<<<<<< HEAD
         'text/x-crystal' => ['cr'],
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         'text/x-csharp' => ['cs'],
         'text/x-csrc' => ['c'],
         'text/x-csv' => ['csv'],
@@ -2176,11 +2191,17 @@ final class MimeTypes implements MimeTypesInterface
         'etx' => ['text/x-setext'],
         'eva' => ['application/x-eva'],
         'evy' => ['application/x-envoy'],
+<<<<<<< HEAD
         'ex' => ['text/x-elixir'],
         'exe' => ['application/x-ms-dos-executable', 'application/x-msdos-program', 'application/x-msdownload'],
         'exi' => ['application/exi'],
         'exr' => ['image/aces', 'image/x-exr'],
         'exs' => ['text/x-elixir'],
+=======
+        'exe' => ['application/x-ms-dos-executable', 'application/x-msdos-program', 'application/x-msdownload'],
+        'exi' => ['application/exi'],
+        'exr' => ['image/aces', 'image/x-exr'],
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         'ext' => ['application/vnd.novadigm.ext'],
         'ez' => ['application/andrew-inset'],
         'ez2' => ['application/vnd.ezpix-album'],
@@ -2448,7 +2469,10 @@ final class MimeTypes implements MimeTypesInterface
         'jsonld' => ['application/ld+json'],
         'jsonml' => ['application/jsonml+json'],
         'jsx' => ['text/jsx'],
+<<<<<<< HEAD
         'jxl' => ['image/jxl'],
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         'jxr' => ['image/jxr'],
         'jxra' => ['image/jxra'],
         'jxrs' => ['image/jxrs'],
@@ -2763,7 +2787,11 @@ final class MimeTypes implements MimeTypesInterface
         'opus' => ['audio/ogg', 'audio/x-ogg', 'audio/x-opus+ogg'],
         'ora' => ['image/openraster'],
         'orf' => ['image/x-olympus-orf'],
+<<<<<<< HEAD
         'org' => ['application/vnd.lotus-organizer', 'text/org', 'text/x-org'],
+=======
+        'org' => ['application/vnd.lotus-organizer', 'text/x-org'],
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         'osf' => ['application/vnd.yamaha.openscoreformat'],
         'osfpvg' => ['application/vnd.yamaha.openscoreformat.osfpvg+xml'],
         'osm' => ['application/vnd.openstreetmap.data+xml'],

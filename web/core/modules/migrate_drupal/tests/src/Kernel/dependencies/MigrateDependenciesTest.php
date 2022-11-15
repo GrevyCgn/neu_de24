@@ -43,4 +43,20 @@ class MigrateDependenciesTest extends MigrateDrupal6TestBase {
     }
   }
 
+<<<<<<< HEAD
+=======
+  /**
+   * Tests dependencies on the migration of aggregator feeds & items.
+   */
+  public function testAggregatorMigrateDependencies() {
+    /** @var \Drupal\migrate\Plugin\Migration $migration */
+    $migration = $this->getMigration('d6_aggregator_item');
+    $executable = new MigrateExecutable($migration, $this);
+    $this->startCollectingMessages();
+    $executable->import();
+    $this->assertEquals([new FormattableMarkup('Migration @id did not meet the requirements. Missing migrations d6_aggregator_feed. requirements: d6_aggregator_feed.', ['@id' => $migration->id()])], $this->migrateMessages['error']);
+    $this->collectMessages = FALSE;
+  }
+
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 }

@@ -113,8 +113,14 @@ class ElementTest extends BrowserTestBase {
     // Verify that wrapper id is different from element id.
     foreach (['checkboxes', 'radios'] as $type) {
       // A single element id is found.
+<<<<<<< HEAD
       $this->assertSession()->elementsCount('xpath', "//div[@id='edit-{$type}']", 1);
       $this->assertSession()->elementsCount('xpath', "//fieldset[@id='edit-{$type}--wrapper']", 1);
+=======
+      $this->assertSession()->elementsCount('xpath', "//div[@id='edit-$type']", 1);
+      $wrapper_ids = $this->xpath('//fieldset[@id=:id]', [':id' => 'edit-' . $type . '--wrapper']);
+      $this->assertCount(1, $wrapper_ids, new FormattableMarkup('A single wrapper id found for type %type', ['%type' => $type]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     }
   }
 
@@ -142,7 +148,10 @@ class ElementTest extends BrowserTestBase {
     $this->assertSession()->elementsCount('xpath', '//div[@id="edit-container"]//div[@class="details-wrapper"]//label', 1);
     $this->drupalGet('form-test/group-fieldset');
     $this->assertSession()->elementsCount('xpath', '//fieldset[@id="edit-fieldset"]//div[@id="edit-meta"]//label', 1);
+<<<<<<< HEAD
     $this->assertSession()->elementTextEquals('xpath', '//fieldset[@id="edit-fieldset-zero"]//legend', '0');
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->drupalGet('form-test/group-vertical-tabs');
     $this->assertSession()->elementsCount('xpath', '//div[@data-vertical-tabs-panes]//details[@id="edit-meta"]//label', 1);
     $this->assertSession()->elementsCount('xpath', '//div[@data-vertical-tabs-panes]//details[@id="edit-meta-2"]//label', 1);

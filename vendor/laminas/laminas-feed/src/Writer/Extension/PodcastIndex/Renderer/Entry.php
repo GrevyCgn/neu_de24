@@ -1,13 +1,25 @@
 <?php
 
+<<<<<<< HEAD
+=======
+/**
+ * @see       https://github.com/laminas/laminas-feed for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-feed/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-feed/blob/master/LICENSE.md New BSD License
+ */
+
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 namespace Laminas\Feed\Writer\Extension\PodcastIndex\Renderer;
 
 use DOMDocument;
 use DOMElement;
 use Laminas\Feed\Writer\Extension;
 
+<<<<<<< HEAD
 use function array_key_exists;
 
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 /**
  * Renders PodcastIndex data of an entry in a RSS Feed
  */
@@ -38,9 +50,16 @@ class Entry extends Extension\AbstractRenderer
     /**
      * Append namespaces to entry root
      */
+<<<<<<< HEAD
     // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
     protected function _appendNamespaces(): void
     {
+=======
+    // @codingStandardsIgnoreStart
+    protected function _appendNamespaces(): void
+    {
+        // @codingStandardsIgnoreEnd
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         $this->getRootElement()->setAttribute(
             'xmlns:podcast',
             'https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md'

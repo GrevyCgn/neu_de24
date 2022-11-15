@@ -71,4 +71,17 @@ class ArgumentNodeRevisionIdTest extends ViewsKernelTestBase {
     $this->assertNotNull($vid);
   }
 
+  /**
+   * Tests the Vid argument deprecation.
+   *
+   * @group legacy
+   */
+  public function testVidDeprecatedParameter() {
+    $this->expectDeprecation('Passing the database service to Drupal\node\Plugin\views\argument\Vid::__construct() is deprecated in drupal:9.2.0 and will be removed before drupal:10.0.0. See https://www.drupal.org/node/3178412');
+    $database = $this->container->get('database');
+    $node_storage = $this->container->get('entity_type.manager')->getStorage('node');
+    $vid = new Vid([], 'test_plugin', [], $database, $node_storage);
+    $this->assertNotNull($vid);
+  }
+
 }

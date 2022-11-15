@@ -107,7 +107,11 @@ class LocaleContentTest extends BrowserTestBase {
     ];
     $this->drupalGet("admin/structure/types/manage/{$type2->id()}");
     $this->submitForm($edit, 'Save content type');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains("The content type {$type2->label()} has been updated.");
+=======
+    $this->assertRaw(t('The content type %type has been updated.', ['%type' => $type2->label()]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->drupalLogout();
     \Drupal::languageManager()->reset();
 
@@ -196,7 +200,11 @@ class LocaleContentTest extends BrowserTestBase {
     ];
     $this->drupalGet("admin/structure/types/manage/{$type->id()}");
     $this->submitForm($edit, 'Save content type');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains("The content type {$type->label()} has been updated.");
+=======
+    $this->assertRaw(t('The content type %type has been updated.', ['%type' => $type->label()]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->drupalLogout();
 
     // Log in as web user to add new node.

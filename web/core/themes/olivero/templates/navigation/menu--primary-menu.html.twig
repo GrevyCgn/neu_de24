@@ -33,8 +33,12 @@
 
 {% macro menu_links(items, attributes, menu_level, aria_id) %}
   {% set primary_nav_level = 'primary-nav__menu--level-' ~ (menu_level + 1) %}
+<<<<<<< HEAD
   {% set drupal_selector_primary_nav_level = menu_level <= 1 ? 'primary-nav-menu--level-' ~ (menu_level + 1) : false %}
   {% set is_top_level_menu = menu_level == 0 %}
+=======
+  {% set drupal_selector_primary_nav_level = 'primary-nav-menu--level-' ~ (menu_level + 1) %}
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   {% import _self as menus %}
   {% if items %}
 
@@ -76,7 +80,11 @@
           ]
         %}
 
+<<<<<<< HEAD
         <li{{ item.attributes.addClass(item_classes).setAttribute('data-drupal-selector', is_top_level_menu and item.below ? 'primary-nav-menu-item-has-children': false) }}>
+=======
+        <li{{ item.attributes.addClass(item_classes).setAttribute('data-drupal-selector', item.below ? 'primary-nav-menu-item-has-children' : false) }}>
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
           {#
             A unique HTML ID should be used, but that isn't available through
             Twig yet, so the |clean_id filter is used for now.
@@ -90,7 +98,11 @@
           {% if menu_item_type == 'link' or menu_item_type == 'nolink' %}
             {{ link(menu_item_type == 'link' ? link_title : item.title, item.url, {
               'class': link_classes,
+<<<<<<< HEAD
               'data-drupal-selector': is_top_level_menu ? 'primary-nav-menu-link-has-children' : false,
+=======
+              'data-drupal-selector': 'primary-nav-menu-link-has-children',
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
               })
             }}
 
@@ -100,14 +112,20 @@
                 but still visible in non-JS environments so that chevron can indicate presence of
                 drop menu).
               #}
+<<<<<<< HEAD
               {% if is_top_level_menu %}
                 {% set toggle_button_attributes = create_attribute({
+=======
+              {%
+                set toggle_button_attributes = create_attribute({
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
                   'class': 'primary-nav__button-toggle',
                   'data-drupal-selector': 'primary-nav-submenu-toggle-button',
                   'aria-controls': aria_id,
                   'aria-expanded': 'false',
                   'aria-hidden': 'true',
                   'tabindex': '-1',
+<<<<<<< HEAD
                 }) %}
 
                 <button{{ toggle_button_attributes }}>
@@ -115,6 +133,14 @@
                   <span class="icon--menu-toggle"></span>
                 </button>
               {% endif %}
+=======
+                })
+              %}
+              <button{{ toggle_button_attributes }}>
+                <span class="visually-hidden">{{ '@title sub-navigation'|t({'@title': item.title}) }}</span>
+                <span class="icon--menu-toggle"></span>
+              </button>
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
               {% set attributes = attributes.setAttribute('id', aria_id) %}
               {{ menus.menu_links(item.below, attributes, menu_level + 1, aria_id) }}
@@ -124,10 +150,18 @@
 
             {{ link(link_title, item.url, {
               'class': link_classes,
+<<<<<<< HEAD
               'aria-controls': is_top_level_menu and item.below ? aria_id : false,
               'aria-expanded': is_top_level_menu and item.below ? 'false' : false,
               'data-drupal-selector': is_top_level_menu and item.below ? 'primary-nav-submenu-toggle-button' : false,
             }) }}
+=======
+              'aria-controls': item.below ? aria_id : false,
+              'aria-expanded': item.below ? 'false' : false,
+              'data-drupal-selector': item.below ? 'primary-nav-submenu-toggle-button' : false,
+              })
+            }}
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
             {% set attributes = attributes.setAttribute('id', aria_id) %}
             {{ menus.menu_links(item.below, attributes, menu_level + 1, aria_id) }}

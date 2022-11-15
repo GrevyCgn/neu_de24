@@ -1,9 +1,12 @@
 <?php
 
+<<<<<<< HEAD
 // phpcs:ignoreFile Portions of this file are a direct copy of
 // \Behat\Mink\Element\DocumentElement which uses a different code style than
 // Drupal.
 
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 namespace Drupal\Tests;
 
 use Behat\Mink\Driver\BrowserKitDriver;

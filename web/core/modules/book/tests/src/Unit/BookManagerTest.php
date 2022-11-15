@@ -80,9 +80,13 @@ class BookManagerTest extends UnitTestCase {
     $this->renderer = $this->createMock('\Drupal\Core\Render\RendererInterface');
     $this->languageManager = $this->createMock('Drupal\Core\Language\LanguageManagerInterface');
     $this->entityRepository = $this->createMock('Drupal\Core\Entity\EntityRepositoryInterface');
+<<<<<<< HEAD
     // Used for both book manager cache services: backend chain and memory.
     $cache = $this->createMock(CacheBackendInterface::class);
     $this->bookManager = new BookManager($this->entityTypeManager, $this->translation, $this->configFactory, $this->bookOutlineStorage, $this->renderer, $this->languageManager, $this->entityRepository, $cache, $cache);
+=======
+    $this->bookManager = new BookManager($this->entityTypeManager, $this->translation, $this->configFactory, $this->bookOutlineStorage, $this->renderer, $this->languageManager, $this->entityRepository);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**

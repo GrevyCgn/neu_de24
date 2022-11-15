@@ -78,7 +78,11 @@ class LocalePathTest extends BrowserTestBase {
     // Check that the "xx" front page is readily available because path prefix
     // negotiation is pre-configured.
     $this->drupalGet($prefix);
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains('Welcome!');
+=======
+    $this->assertSession()->pageTextContains('Welcome to Drupal');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Create a node.
     $node = $this->drupalCreateNode(['type' => 'page']);

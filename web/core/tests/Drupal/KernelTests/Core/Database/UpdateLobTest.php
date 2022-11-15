@@ -29,6 +29,7 @@ class UpdateLobTest extends DatabaseTestBase {
 
     $r = $this->connection->query('SELECT * FROM {test_one_blob} WHERE [id] = :id', [':id' => $id])->fetchAssoc();
     $this->assertSame($data, $r['blob1'], new FormattableMarkup('Can update a blob: id @id, @data.', ['@id' => $id, '@data' => serialize($r)]));
+<<<<<<< HEAD
   }
 
   /**
@@ -47,6 +48,8 @@ class UpdateLobTest extends DatabaseTestBase {
       ->execute();
     $r = $this->connection->query('SELECT * FROM {test_one_blob} WHERE [id] = :id', [':id' => $id])->fetchAssoc();
     $this->assertNull($r['blob1']);
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**

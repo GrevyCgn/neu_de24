@@ -107,9 +107,15 @@ class UserAccessControlHandlerTest extends UnitTestCase {
     $this->emailViewer
       ->expects($this->any())
       ->method('hasPermission')
+<<<<<<< HEAD
       ->willReturnMap([
         ['view user email addresses', TRUE],
       ]);
+=======
+      ->will($this->returnValueMap([
+        ['view user email addresses', TRUE],
+      ]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->emailViewer
       ->expects($this->any())
       ->method('id')

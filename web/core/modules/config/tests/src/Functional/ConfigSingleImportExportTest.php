@@ -77,7 +77,11 @@ EOD;
     $edit['import'] = "id: first\n" . $edit['import'];
     $this->drupalGet('admin/config/development/configuration/single/import');
     $this->submitForm($edit, 'Import');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains('Are you sure you want to create a new first test configuration?');
+=======
+    $this->assertRaw(t('Are you sure you want to create a new %name @type?', ['%name' => 'first', '@type' => 'test configuration']));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->submitForm([], 'Confirm');
     $entity = $storage->load('first');
     $this->assertSame('First', $entity->label());
@@ -100,7 +104,11 @@ EOD;
     $edit['custom_entity_id'] = 'custom_id';
     $this->drupalGet('admin/config/development/configuration/single/import');
     $this->submitForm($edit, 'Import');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains('Are you sure you want to create a new custom_id test configuration?');
+=======
+    $this->assertRaw(t('Are you sure you want to create a new %name @type?', ['%name' => 'custom_id', '@type' => 'test configuration']));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->submitForm([], 'Confirm');
     $this->assertSession()->pageTextContains('The configuration was imported successfully.');
 
@@ -120,7 +128,11 @@ EOD;
     $edit['import'] .= "\nuuid: " . $second_uuid;
     $this->drupalGet('admin/config/development/configuration/single/import');
     $this->submitForm($edit, 'Import');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains('Are you sure you want to create a new second test configuration?');
+=======
+    $this->assertRaw(t('Are you sure you want to create a new %name @type?', ['%name' => 'second', '@type' => 'test configuration']));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->submitForm([], 'Confirm');
     $entity = $storage->load('second');
     $this->assertSession()->pageTextContains('The configuration was imported successfully.');
@@ -144,7 +156,11 @@ EOD;
     ];
     $this->drupalGet('admin/config/development/configuration/single/import');
     $this->submitForm($edit, 'Import');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains('Are you sure you want to update the second test configuration?');
+=======
+    $this->assertRaw(t('Are you sure you want to update the %name @type?', ['%name' => 'second', '@type' => 'test configuration']));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->submitForm([], 'Confirm');
     $entity = $storage->load('second');
     $this->assertSession()->pageTextContains('The configuration was imported successfully.');
@@ -168,7 +184,11 @@ EOD;
     ];
     $this->drupalGet('admin/config/development/configuration/single/import');
     $this->submitForm($edit, 'Import');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains('Configuration config_test.dynamic.second depends on the does_not_exist module that will not be installed after import.');
+=======
+    $this->assertRaw(t('Configuration %name depends on the %owner module that will not be installed after import.', ['%name' => 'config_test.dynamic.second', '%owner' => 'does_not_exist']));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Try to preform an update which would create a PHP object if Yaml parsing
     // not securely set up.
@@ -221,7 +241,11 @@ EOD;
     ];
     $this->drupalGet('admin/config/development/configuration/single/import');
     $this->submitForm($edit, 'Import');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains('Are you sure you want to update the ' . $config->getName() . ' simple configuration?');
+=======
+    $this->assertRaw(t('Are you sure you want to update the %name @type?', ['%name' => $config->getName(), '@type' => 'simple configuration']));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->submitForm([], 'Confirm');
     $this->drupalGet('');
     $this->assertSession()->pageTextContains('Test simple import');

@@ -8,6 +8,9 @@ admin_toolbar_tools.settings:
     hoverintent_functionality:
       type: boolean
       label: 'Enable or disable hoverintent functionality'
+<<<<<<< HEAD
     show_local_tasks:
       type: boolean
       label: 'Show local tasks in toolbar'
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b

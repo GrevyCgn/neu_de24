@@ -51,6 +51,7 @@
   height: 100%;
   padding-top: 0;
   padding-bottom: 1.125rem;
+<<<<<<< HEAD
   /**
    * Create room for the "close" button. We cannot use margin because The
    * mobile navigation needs to slide beneath the button, but we also cannot
@@ -58,6 +59,9 @@
    * viewport on short screens.
    */
   border-top: solid #fff 54px;
+=======
+  border-top: solid #fff 54px; /* Create room for the "close" button. */
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   background-color: #fff;
   box-shadow: 0 0 72px rgba(0, 0, 0, 0.1)
 }
@@ -261,6 +265,7 @@ body.is-always-mobile-nav .header-nav {
 [dir="rtl"] .header-nav.is-active {
   transform: translateX(100%);
 }
+<<<<<<< HEAD
 
 [dir="ltr"] .header-nav-overlay {
   left: 0
@@ -291,3 +296,5 @@ body.is-always-mobile-nav .header-nav {
 .is-overlay-active .header-nav-overlay {
     display: block
 }
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b

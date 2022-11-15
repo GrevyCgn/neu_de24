@@ -356,11 +356,19 @@
             </trans-unit>
             <trans-unit id="92">
                 <source>This value is not a valid timezone.</source>
+<<<<<<< HEAD
                 <target>Αυτή η τιμή θα δεν είναι έγκυρη ζώνη ώρας.</target>
             </trans-unit>
             <trans-unit id="93">
                 <source>This password has been leaked in a data breach, it must not be used. Please use another password.</source>
                 <target>Αυτός ο κωδικός πρόσβασης έχει διαρρεύσει σε παραβίαση δεδομένων. Παρακαλούμε να χρησιμοποιήσετε έναν άλλο κωδικό.</target>
+=======
+                <target>Αυτή η τιμή θα δέν είναι έγκυρη ζώνη ώρας.</target>
+            </trans-unit>
+            <trans-unit id="93">
+                <source>This password has been leaked in a data breach, it must not be used. Please use another password.</source>
+                <target>Αυτός ο κωδικός πρόσβασης έχει διερρεύσει σε παραβίαση δεδομένων. Παρακαλούμε να χρησιμοποιήσετε έναν άλλο κωδικό.</target>
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
             </trans-unit>
             <trans-unit id="94">
                 <source>This value should be between {{ min }} and {{ max }}.</source>
@@ -368,7 +376,11 @@
             </trans-unit>
             <trans-unit id="95">
                 <source>This value is not a valid hostname.</source>
+<<<<<<< HEAD
                 <target>Αυτή η τιμή δεν είναι έγκυρο όνομα υποδοχής.</target>
+=======
+                <target>Αυτή η τιμή δέν είναι έγκυρο όνομα υποδοχής.</target>
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
             </trans-unit>
             <trans-unit id="96">
                 <source>The number of elements in this collection should be a multiple of {{ compared_value }}.</source>
@@ -376,7 +388,11 @@
             </trans-unit>
             <trans-unit id="97">
                 <source>This value should satisfy at least one of the following constraints:</source>
+<<<<<<< HEAD
                 <target>Αυτή η τιμή θα πρέπει να ικανοποιεί τουλάχιστον έναν από τους παρακάτω περιορισμούς: </target>
+=======
+                <target>Αυτή η τιμή θα πρέπει να ικανοποιεί τουλάχιστον έναν απο τους παρακάτω περιορισμούς: </target>
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
             </trans-unit>
             <trans-unit id="98">
                 <source>Each element of this collection should satisfy its own set of constraints.</source>
@@ -384,6 +400,7 @@
             </trans-unit>
             <trans-unit id="99">
                 <source>This value is not a valid International Securities Identification Number (ISIN).</source>
+<<<<<<< HEAD
                 <target>Αυτή η τιμή δεν είναι έγκυρο International Securities Identification Number (ISIN).</target>
             </trans-unit>
             <trans-unit id="100">
@@ -401,6 +418,9 @@
             <trans-unit id="103">
                 <source>The value of the netmask should be between {{ min }} and {{ max }}.</source>
                 <target>Η τιμή του netmask πρέπει να είναι ανάμεσα σε {{ min }} και {{ max }}.</target>
+=======
+                <target>Αυτή η τιμή δέν είναι έγυρο International Securities Identification Number (ISIN).</target>
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
             </trans-unit>
         </body>
     </file>

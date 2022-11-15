@@ -110,6 +110,7 @@ class UpdatePathTestBaseFilledTest extends UpdatePathTestBaseTest {
     $this->assertSession()->pageTextContains('Test title');
     $this->assertSession()->pageTextContains('Test body');
     $this->assertSession()->checkboxChecked('edit-field-test-1-value');
+<<<<<<< HEAD
     $this->assertSession()->responseContains('2015-08-16');
     $this->assertSession()->responseContains('test@example.com');
     $this->assertSession()->responseContains('drupal.org');
@@ -124,6 +125,22 @@ class UpdatePathTestBaseFilledTest extends UpdatePathTestBaseTest {
     $this->assertSession()->pageTextContains('Test Article - New title');
     $this->assertSession()->pageTextContains('Test 1');
     $this->assertSession()->responseContains('0.01');
+=======
+    $this->assertRaw('2015-08-16');
+    $this->assertRaw('test@example.com');
+    $this->assertRaw('drupal.org');
+    $this->assertSession()->pageTextContains('0.1');
+    $this->assertSession()->pageTextContains('0.2');
+    $this->assertRaw('+31612345678');
+    $this->assertRaw('+31612345679');
+    $this->assertSession()->pageTextContains('Test Article - New title');
+    $this->assertSession()->pageTextContains('test.txt');
+    $this->assertSession()->pageTextContains('druplicon.small');
+    $this->assertRaw('General discussion');
+    $this->assertSession()->pageTextContains('Test Article - New title');
+    $this->assertSession()->pageTextContains('Test 1');
+    $this->assertRaw('0.01');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->drupalGet('node/8/edit');
     $this->submitForm([], 'Save (this translation)');
     $this->assertSession()->statusCodeEquals(200);
@@ -134,7 +151,11 @@ class UpdatePathTestBaseFilledTest extends UpdatePathTestBaseTest {
     // Make sure the user page is correct.
     $this->drupalGet('user/3');
     $this->assertSession()->pageTextContains('usuario_test');
+<<<<<<< HEAD
     $this->assertSession()->responseContains('druplicon.small');
+=======
+    $this->assertRaw('druplicon.small');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains('Test file field');
     $this->assertSession()->linkExists('test.txt');
 
@@ -155,7 +176,11 @@ class UpdatePathTestBaseFilledTest extends UpdatePathTestBaseTest {
     $this->clickLink('Test Article - New title');
     $this->assertSession()->pageTextContains('Body');
     $this->assertSession()->pageTextContains('Tags');
+<<<<<<< HEAD
     $this->assertSession()->responseContains('Text format');
+=======
+    $this->assertRaw('Text format');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Make sure that users still exist.
     $this->drupalGet('admin/people');
@@ -314,7 +339,11 @@ class UpdatePathTestBaseFilledTest extends UpdatePathTestBaseTest {
     $this->assertSession()->pageTextContains('Test action');
     $this->drupalGet('admin/config/system/actions/configure/test_action');
     $this->assertSession()->fieldValueEquals('id', 'test_action');
+<<<<<<< HEAD
     $this->assertSession()->responseContains('drupal.org');
+=======
+    $this->assertRaw('drupal.org');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Make sure our ban still exists.
     $this->drupalGet('admin/config/people/ban');
@@ -341,7 +370,11 @@ class UpdatePathTestBaseFilledTest extends UpdatePathTestBaseTest {
     $this->assertSession()->pageTextContains('Hello');
     $this->drupalGet('admin/structure/contact/manage/test_contact_form/translate/es/edit');
     $this->assertSession()->pageTextContains('Hola');
+<<<<<<< HEAD
     $this->assertSession()->responseContains('Test contact form Spanish');
+=======
+    $this->assertRaw('Test contact form Spanish');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Make sure our modules are still enabled.
     $expected_enabled_modules = [

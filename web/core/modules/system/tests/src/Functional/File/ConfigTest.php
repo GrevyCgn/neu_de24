@@ -57,7 +57,11 @@ class ConfigTest extends BrowserTestBase {
 
     $this->drupalGet('admin/config/media/file-system');
     $this->assertSession()->pageTextContains('Public local files served by the webserver.');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('Private local files served by Drupal.');
+=======
+    $this->assertNoText('Private local files served by Drupal.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
 }

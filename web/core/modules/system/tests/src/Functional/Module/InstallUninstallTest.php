@@ -116,13 +116,19 @@ class InstallUninstallTest extends ModuleTestBase {
       $this->submitForm($edit, 'Install');
 
       // Handle experimental modules, which require a confirmation screen.
+<<<<<<< HEAD
       if ($lifecycle === ExtensionLifecycle::EXPERIMENTAL) {
         $this->assertSession()->pageTextContains('Are you sure you wish to enable an experimental module?');
+=======
+      if ($package == 'Core (Experimental)') {
+        $this->assertSession()->pageTextContains('Are you sure you wish to enable experimental modules?');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         if (count($modules_to_install) > 1) {
           // When there are experimental modules, needed dependencies do not
           // result in the same page title, but there will be expected text
           // indicating they need to be enabled.
           $this->assertSession()->pageTextContains('You must enable');
+<<<<<<< HEAD
         }
         $this->submitForm([], 'Continue');
       }
@@ -134,6 +140,8 @@ class InstallUninstallTest extends ModuleTestBase {
           // result in the same page title, but there will be expected text
           // indicating they need to be enabled.
           $this->assertSession()->pageTextContains('You must enable');
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         }
         $this->submitForm([], 'Continue');
       }
@@ -237,6 +245,7 @@ class InstallUninstallTest extends ModuleTestBase {
     $this->drupalGet('admin/modules');
     $this->submitForm($edit, 'Install');
 
+<<<<<<< HEAD
     // If there are experimental and deprecated modules, click the confirm form.
     if ($count_experimental > 0 && $count_deprecated > 0) {
       $this->assertSession()->titleEquals('Are you sure you wish to enable experimental and deprecated modules? | Drupal');
@@ -266,6 +275,13 @@ class InstallUninstallTest extends ModuleTestBase {
       $this->assertSession()->titleEquals($page_title);
       $this->submitForm([], 'Continue');
     }
+=======
+    // If there are experimental modules, click the confirm form.
+    if ($experimental) {
+      $this->assertSession()->pageTextContains('Are you sure you wish to enable experimental modules?');
+      $this->submitForm([], 'Continue');
+    }
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains(count($all_modules) . ' modules have been enabled: ');
   }
 

@@ -84,10 +84,53 @@ class NodeRevisionsUiBypassAccessTest extends NodeTestBase {
 
     // Submit the form without changing the checkbox.
     $edit = [];
+<<<<<<< HEAD
     $this->drupalGet('node/' . $node->id() . '/edit');
     $this->submitForm($edit, 'Save');
 
     $this->assertSession()->addressEquals($node->toUrl());
+=======
+    $this->drupalGet('node/' . $node->id() . '/edit');
+    $this->submitForm($edit, 'Save');
+
+    $this->assertSession()->addressEquals($node->toUrl());
+    $this->assertSession()->linkExists('Revisions');
+
+    // Unset page revision setting 'create new revision'. This will mean new
+    // revisions are not created by default when the node is edited.
+    $type = NodeType::load('page');
+    $type->setNewRevision(FALSE);
+    $type->save();
+
+    // Create the node.
+    $node = $this->drupalCreateNode();
+
+    // Verify the checkbox is unchecked on the node edit form.
+    $this->drupalGet('node/' . $node->id() . '/edit');
+    $this->assertSession()->checkboxNotChecked('edit-revision');
+    // Submit the form without changing the checkbox.
+    $edit = [];
+    $this->drupalGet('node/' . $node->id() . '/edit');
+    $this->submitForm($edit, 'Save');
+
+    $this->assertSession()->addressEquals($node->toUrl());
+    // Verify that no link to revisions is displayed since the type
+    // has the 'create new revision' setting unset.
+    $this->assertSession()->linkNotExists('Revisions');
+
+    // Verify the checkbox is unchecked on the node edit form.
+    $this->drupalGet('node/' . $node->id() . '/edit');
+    $this->assertSession()->checkboxNotChecked('edit-revision');
+
+    // Check the 'create new revision' checkbox and save the node.
+    $edit = ['revision' => TRUE];
+    $this->drupalGet('node/' . $node->id() . '/edit');
+    $this->submitForm($edit, 'Save');
+
+    $this->assertSession()->addressEquals($node->toUrl());
+    // Verify that the link is displayed since a new revision is created and
+    // the 'create new revision' checkbox on the node is checked.
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->linkExists('Revisions');
   }
 

@@ -299,7 +299,11 @@ class BrowserTestBaseTest extends BrowserTestBase {
     $this->drupalGet('test-encoded');
     $dangerous = 'Bad html <script>alert(123);</script>';
     $sanitized = Html::escape($dangerous);
+<<<<<<< HEAD
     $this->assertSession()->responseNotContains($dangerous);
+=======
+    $this->assertNoText($dangerous);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->responseContains($sanitized);
   }
 
@@ -1000,7 +1004,11 @@ class BrowserTestBaseTest extends BrowserTestBase {
     // value. It should be sufficient to test just a couple of properties.
     $this->assertStringContainsString('<span class=sf-dump-note>', $body);
     $this->assertStringContainsString('  #<span class=sf-dump-protected title="Protected property">id</span>: "<span class=sf-dump-str title="9 characters">test_role</span>"', $body);
+<<<<<<< HEAD
     $this->assertStringContainsString('  #<span class=sf-dump-protected title="Protected property">label</span>: "<span class=sf-dump-str title="9 characters">Test role</span>"', $body);
+=======
+    $this->assertStringContainsString('  #<span class=sf-dump-protected title="Protected property">label</span>: <span class=sf-dump-const>null</span>', $body);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertStringContainsString('  #<span class=sf-dump-protected title="Protected property">permissions</span>: []', $body);
     $this->assertStringContainsString('  #<span class=sf-dump-protected title="Protected property">uuid</span>: "', $body);
     $this->assertStringContainsString('</samp>}', $body);

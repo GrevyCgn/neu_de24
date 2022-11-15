@@ -9,7 +9,11 @@ related:
 {% set taxonomy_permissions_link_text %}
   {% trans %}Administer vocabularies and terms{% endtrans %}
 {% endset %}
+<<<<<<< HEAD
 {% set taxonomy_permissions_link = render_var(help_route_link(taxonomy_permissions_link_text, 'user.admin_permissions.module', {'modules': 'taxonomy'})) %}
+=======
+{% set taxonomy_permissions_link = render_var(help_route_link(taxonomy_permissions_link_text, 'user.admin_permissions', {}, {'fragment': 'module-taxonomy'})) %}
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 {% set taxonomy_admin_link_text %}
   {% trans %}Taxonomy{% endtrans %}
 {% endset %}

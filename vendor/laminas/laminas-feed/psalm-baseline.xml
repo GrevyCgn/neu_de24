@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <files psalm-version="4.10.0@916b098b008f6de4543892b1e0651c1c3b92cbfa">
+=======
+<files psalm-version="4.4.1@9fd7a7d885b3a216cff8dec9d8c21a132f275224">
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   <file src="src/PubSubHubbub/AbstractCallback.php">
     <DocblockTypeContradiction occurrences="4">
       <code>! $httpResponse instanceof HttpResponse &amp;&amp; ! $httpResponse instanceof PhpResponse</code>
@@ -101,6 +105,12 @@
       <code>(string) $name</code>
       <code>(string) $value</code>
     </RedundantCastGivenDocblockType>
+<<<<<<< HEAD
+=======
+    <RedundantCondition occurrences="1">
+      <code>200 == $this-&gt;statusCode</code>
+    </RedundantCondition>
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   </file>
   <file src="src/PubSubHubbub/Model/AbstractModel.php">
     <NullArgument occurrences="1">
@@ -157,7 +167,11 @@
     </UndefinedInterfaceMethod>
   </file>
   <file src="src/PubSubHubbub/Publisher.php">
+<<<<<<< HEAD
     <DocblockTypeContradiction occurrences="10">
+=======
+    <DocblockTypeContradiction occurrences="11">
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       <code>! is_string($name)</code>
       <code>! is_string($name)</code>
       <code>! is_string($url)</code>
@@ -197,7 +211,11 @@
     </MixedOperand>
   </file>
   <file src="src/PubSubHubbub/Subscriber.php">
+<<<<<<< HEAD
     <DocblockTypeContradiction occurrences="13">
+=======
+    <DocblockTypeContradiction occurrences="14">
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       <code>! is_string($name)</code>
       <code>! is_string($name)</code>
       <code>! is_string($url)</code>
@@ -1306,6 +1324,39 @@
       <code>$this-&gt;data['owner']</code>
     </MixedReturnStatement>
   </file>
+  <file src="src/Reader/Extension/PodcastIndex/Entry.php">
+    <MismatchingDocblockReturnType occurrences="2">
+      <code>null|object{url: string, type: string, language: string, rel: string}</code>
+      <code>null|object{url: string, type: string}</code>
+    </MismatchingDocblockReturnType>
+    <MixedInferredReturnType occurrences="3">
+      <code>array&lt;int, object{title: string, startTime: string, duration: string}&gt;</code>
+      <code>null|object{url: string, type: string, language: string, rel: string}</code>
+      <code>null|object{url: string, type: string}</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="1">
+      <code>$this-&gt;data['soundbites']</code>
+    </MixedReturnStatement>
+  </file>
+  <file src="src/Reader/Extension/PodcastIndex/Feed.php">
+    <MismatchingDocblockReturnType occurrences="1">
+      <code>null|object{url: string, title: string}</code>
+    </MismatchingDocblockReturnType>
+    <MixedAssignment occurrences="2">
+      <code>$locked</code>
+      <code>$owner</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="3">
+      <code>?string</code>
+      <code>bool</code>
+      <code>null|object{url: string, title: string}</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="3">
+      <code>$this-&gt;data['locked']</code>
+      <code>$this-&gt;data['owner']</code>
+      <code>$this-&gt;data['owner']</code>
+    </MixedReturnStatement>
+  </file>
   <file src="src/Reader/Extension/Slash/Entry.php">
     <InvalidOperand occurrences="1">
       <code>$hit</code>
@@ -1902,7 +1953,12 @@
     </MixedAssignment>
     <NullableReturnStatement occurrences="1">
       <code>static::$extensionManager</code>
+<<<<<<< HEAD
     </NullableReturnStatement>
+=======
+      <code>static::$extensions</code>
+    </MixedReturnStatement>
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     <RedundantCastGivenDocblockType occurrences="3">
       <code>(int) $response-&gt;getStatusCode()</code>
       <code>(int) $response-&gt;getStatusCode()</code>
@@ -2073,7 +2129,12 @@
     </MixedReturnStatement>
   </file>
   <file src="src/Writer/Entry.php">
+<<<<<<< HEAD
     <DocblockTypeContradiction occurrences="12">
+=======
+    <DocblockTypeContradiction occurrences="13">
+      <code>! is_numeric($count)</code>
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       <code>! is_string($content)</code>
       <code>! is_string($copyright)</code>
       <code>! is_string($description)</code>
@@ -2155,6 +2216,14 @@
     <PropertyNotSetInConstructor occurrences="1">
       <code>$type</code>
     </PropertyNotSetInConstructor>
+<<<<<<< HEAD
+=======
+    <RedundantCastGivenDocblockType occurrences="3">
+      <code>(int) $count</code>
+      <code>(int) $count</code>
+      <code>(int) $count</code>
+    </RedundantCastGivenDocblockType>
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   </file>
   <file src="src/Writer/Extension/AbstractRenderer.php">
     <ImplementedReturnTypeMismatch occurrences="2">
@@ -3360,6 +3429,15 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Writer/Writer.php">
+<<<<<<< HEAD
+=======
+    <InvalidDocblock occurrences="1">
+      <code>public static function setExtensionManager(ExtensionManagerInterface $extensionManager)</code>
+    </InvalidDocblock>
+    <MissingReturnType occurrences="1">
+      <code>setExtensionManager</code>
+    </MissingReturnType>
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     <MixedArgument occurrences="4">
       <code>static::$extensions['entry']</code>
       <code>static::$extensions['entryRenderer']</code>
@@ -3515,6 +3593,32 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="test/Reader/Entry/AtomStandaloneEntryTest.php">
+<<<<<<< HEAD
+=======
+    <MissingPropertyType occurrences="3">
+      <code>$expectedCats</code>
+      <code>$expectedCatsDc</code>
+      <code>$feedSamplePath</code>
+    </MissingPropertyType>
+    <MixedOperand occurrences="16">
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+    </MixedOperand>
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     <RedundantCastGivenDocblockType occurrences="1">
       <code>(array) $entry-&gt;getAuthors()</code>
     </RedundantCastGivenDocblockType>
@@ -4406,6 +4510,71 @@
     </MixedMethodCall>
   </file>
   <file src="test/Reader/Feed/AtomTest.php">
+<<<<<<< HEAD
+=======
+    <MissingPropertyType occurrences="4">
+      <code>$expectedCats</code>
+      <code>$expectedCatsDc</code>
+      <code>$feedSamplePath</code>
+      <code>$options</code>
+    </MissingPropertyType>
+    <MixedOperand occurrences="54">
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+    </MixedOperand>
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     <RedundantCastGivenDocblockType occurrences="2">
       <code>(array) $feed-&gt;getAuthors()</code>
       <code>(array) $feed-&gt;getAuthors()</code>
@@ -4466,6 +4635,14 @@
       <code>getValues</code>
       <code>getValues</code>
     </InvalidMethodCall>
+<<<<<<< HEAD
+=======
+    <MissingPropertyType occurrences="3">
+      <code>$expectedCats</code>
+      <code>$expectedCatsAtom</code>
+      <code>$expectedCatsRdf</code>
+    </MissingPropertyType>
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     <RedundantCastGivenDocblockType occurrences="28">
       <code>(array) $feed-&gt;getAuthors()</code>
       <code>(array) $feed-&gt;getAuthors()</code>
@@ -4740,6 +4917,34 @@
       <code>getEncoding</code>
     </UndefinedInterfaceMethod>
   </file>
+  <file src="test/Reader/Integration/PodcastIndexRss2Test.php">
+    <MissingPropertyType occurrences="1">
+      <code>$feedSamplePath</code>
+    </MissingPropertyType>
+    <MixedArgument occurrences="6">
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="3">
+      <code>$entry</code>
+      <code>$entry</code>
+      <code>$entry</code>
+    </MixedAssignment>
+    <MixedMethodCall occurrences="3">
+      <code>getChapters</code>
+      <code>getSoundbites</code>
+      <code>getTranscript</code>
+    </MixedMethodCall>
+    <UndefinedInterfaceMethod occurrences="3">
+      <code>getFunding</code>
+      <code>getLockOwner</code>
+      <code>isLocked</code>
+    </UndefinedInterfaceMethod>
+  </file>
   <file src="test/Reader/Integration/PodcastRss2Test.php">
     <MixedAssignment occurrences="22">
       <code>$entry</code>
@@ -4911,6 +5116,24 @@
     <MixedMethodCall occurrences="1">
       <code>getEncoding</code>
     </MixedMethodCall>
+<<<<<<< HEAD
+=======
+    <MixedOperand occurrences="13">
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+      <code>$this-&gt;feedSamplePath</code>
+    </MixedOperand>
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     <UndefinedInterfaceMethod occurrences="1">
       <code>getEncoding</code>
     </UndefinedInterfaceMethod>
@@ -4959,6 +5182,13 @@
     </InvalidScalarArgument>
   </file>
   <file src="test/Writer/EntryTest.php">
+<<<<<<< HEAD
+=======
+    <DocblockTypeContradiction occurrences="2">
+      <code>assertNull</code>
+      <code>assertNull</code>
+    </DocblockTypeContradiction>
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     <InvalidArgument occurrences="20">
       <code>ExceptionInterface::class</code>
       <code>ExceptionInterface::class</code>
@@ -5084,6 +5314,39 @@
       <code>testSetItunesTypeMutatesTypeWithValidData</code>
       <code>testSetItunesTypeWithInvalidTypeRaisesException</code>
     </MissingReturnType>
+<<<<<<< HEAD
+=======
+    <MixedArgument occurrences="3">
+      <code>$errstr</code>
+      <code>$errstr</code>
+      <code>$errstr</code>
+    </MixedArgument>
+  </file>
+  <file src="test/Writer/Extension/PodcastIndex/EntryTest.php">
+    <InvalidArgument occurrences="8">
+      <code>ExceptionInterface::class</code>
+      <code>ExceptionInterface::class</code>
+      <code>ExceptionInterface::class</code>
+      <code>ExceptionInterface::class</code>
+      <code>ExceptionInterface::class</code>
+      <code>ExceptionInterface::class</code>
+      <code>ExceptionInterface::class</code>
+      <code>ExceptionInterface::class</code>
+    </InvalidArgument>
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+  </file>
+  <file src="test/Writer/Extension/PodcastIndex/FeedTest.php">
+    <InvalidArgument occurrences="3">
+      <code>ExceptionInterface::class</code>
+      <code>ExceptionInterface::class</code>
+      <code>ExceptionInterface::class</code>
+    </InvalidArgument>
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   </file>
   <file src="test/Writer/FeedFactoryTest.php">
     <InvalidArgument occurrences="1">
@@ -5143,6 +5406,24 @@
     <MixedArrayAssignment occurrences="1">
       <code>$notices-&gt;messages[]</code>
     </MixedArrayAssignment>
+<<<<<<< HEAD
+=======
+    <MixedAssignment occurrences="1">
+      <code>$return</code>
+    </MixedAssignment>
+    <MixedMethodCall occurrences="10">
+      <code>setDateModified</code>
+      <code>setDescription</code>
+      <code>setEncoding</code>
+      <code>setId</code>
+      <code>setImage</code>
+      <code>setLanguage</code>
+      <code>setLastBuildDate</code>
+      <code>setLink</code>
+      <code>setTitle</code>
+      <code>setType</code>
+    </MixedMethodCall>
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   </file>
   <file src="test/Writer/Renderer/Entry/AtomTest.php">
     <InvalidArgument occurrences="6">

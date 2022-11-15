@@ -36,11 +36,36 @@ class ToolkitGdTest extends KernelTestBase {
   protected $imageFactory;
 
   /**
+<<<<<<< HEAD
    * A directory where test image files can be saved to.
    *
    * @var string
    */
   protected $directory;
+=======
+   * Colors that are used in testing.
+   *
+   * @var array
+   */
+  protected $black       = [0, 0, 0, 0];
+  protected $red         = [255, 0, 0, 0];
+  protected $green       = [0, 255, 0, 0];
+  protected $blue        = [0, 0, 255, 0];
+  protected $yellow      = [255, 255, 0, 0];
+  protected $white       = [255, 255, 255, 0];
+  protected $transparent = [0, 0, 0, 127];
+
+  /**
+   * Used as rotate background colors.
+   *
+   * @var array
+   */
+  protected $fuchsia           = [255, 0, 255, 0];
+  protected $rotateTransparent = [255, 255, 255, 127];
+
+  protected $width = 40;
+  protected $height = 20;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
   /**
    * {@inheritdoc}
@@ -103,10 +128,51 @@ class ToolkitGdTest extends KernelTestBase {
   /**
    * Data provider for ::testManipulations().
    */
+<<<<<<< HEAD
   public function providerTestImageFiles(): array {
     // Typically the corner colors will be unchanged. These colors are in the
     // order of top-left, top-right, bottom-right, bottom-left.
     $default_corners = [static::RED, static::GREEN, static::BLUE, static::TRANSPARENT];
+=======
+  public function testManipulations() {
+
+    // Test that the image factory is set to use the GD toolkit.
+    $this->assertEquals('gd', $this->imageFactory->getToolkitId(), 'The image factory is set to use the \'gd\' image toolkit.');
+
+    // Test the list of supported extensions.
+    $expected_extensions = ['png', 'gif', 'jpeg', 'jpg', 'jpe', 'webp'];
+    $supported_extensions = $this->imageFactory->getSupportedExtensions();
+    $this->assertEquals($expected_extensions, array_intersect($expected_extensions, $supported_extensions));
+
+    // Test that the supported extensions map to correct internal GD image
+    // types.
+    $expected_image_types = [
+      'png' => IMAGETYPE_PNG,
+      'gif' => IMAGETYPE_GIF,
+      'jpeg' => IMAGETYPE_JPEG,
+      'jpg' => IMAGETYPE_JPEG,
+      'jpe' => IMAGETYPE_JPEG,
+      'webp' => IMAGETYPE_WEBP,
+    ];
+    $image = $this->imageFactory->get();
+    foreach ($expected_image_types as $extension => $expected_image_type) {
+      $image_type = $image->getToolkit()->extensionToImageType($extension);
+      $this->assertSame($expected_image_type, $image_type);
+    }
+
+    // Typically the corner colors will be unchanged. These colors are in the
+    // order of top-left, top-right, bottom-right, bottom-left.
+    $default_corners = [$this->red, $this->green, $this->blue, $this->transparent];
+
+    // A list of files that will be tested.
+    $files = [
+      'image-test.png',
+      'image-test.gif',
+      'image-test-no-transparency.gif',
+      'image-test.jpg',
+      'img-test.webp',
+    ];
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Setup a list of tests to perform on each type.
     $test_cases = [
@@ -181,7 +247,11 @@ class ToolkitGdTest extends KernelTestBase {
         'corners' => $default_corners,
       ],
       'convert_webp' => [
+<<<<<<< HEAD
         'operation' => 'convert',
+=======
+        'function' => 'convert',
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         'width' => 40,
         'height' => 20,
         'arguments' => ['extension' => 'webp'],
@@ -266,8 +336,21 @@ class ToolkitGdTest extends KernelTestBase {
       }
     }
 
+<<<<<<< HEAD
     return $ret;
   }
+=======
+    // Test creation of image from scratch, and saving to storage.
+    foreach ([IMAGETYPE_PNG, IMAGETYPE_GIF, IMAGETYPE_JPEG, IMAGETYPE_WEBP] as $type) {
+      $image = $this->imageFactory->get();
+      $image->createNew(50, 20, image_type_to_extension($type, FALSE), '#ffff00');
+      $file = 'from_null' . image_type_to_extension($type);
+      $file_path = $directory . '/' . $file;
+      $this->assertEquals(50, $image->getWidth(), new FormattableMarkup('Image file %file has the correct width.', ['%file' => $file]));
+      $this->assertEquals(20, $image->getHeight(), new FormattableMarkup('Image file %file has the correct height.', ['%file' => $file]));
+      $this->assertEquals(image_type_to_mime_type($type), $image->getMimeType(), new FormattableMarkup('Image file %file has the correct MIME type.', ['%file' => $file]));
+      $this->assertTrue($image->save($file_path), new FormattableMarkup('Image %file created anew from a null image was saved.', ['%file' => $file]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
   /**
    * Since PHP can't visually check that our images have been manipulated
@@ -346,11 +429,23 @@ class ToolkitGdTest extends KernelTestBase {
       if ($actual_color[3] === 0 && $expected_color[3] === 127) {
         continue;
       }
+<<<<<<< HEAD
 
       // JPEG has small differences in color after processing.
       $tolerance = $image_original_type === IMAGETYPE_JPEG ? 3 : 0;
 
       $this->assertColorsAreEqual($expected_color, $actual_color, $tolerance, "Image '$file_name' object after '$test_case' action has the correct color placement at corner '$key'");
+=======
+      $this->assertEquals(50, $image_reloaded->getWidth(), new FormattableMarkup('Image file %file has the correct width.', ['%file' => $file]));
+      $this->assertEquals(20, $image_reloaded->getHeight(), new FormattableMarkup('Image file %file has the correct height.', ['%file' => $file]));
+      $this->assertEquals(image_type_to_mime_type($type), $image_reloaded->getMimeType(), new FormattableMarkup('Image file %file has the correct MIME type.', ['%file' => $file]));
+      if ($image_reloaded->getToolkit()->getType() == IMAGETYPE_GIF) {
+        $this->assertEquals('#ffff00', $image_reloaded->getToolkit()->getTransparentColor(), new FormattableMarkup('Image file %file has the correct transparent color channel set.', ['%file' => $file]));
+      }
+      else {
+        $this->assertNull($image_reloaded->getToolkit()->getTransparentColor(), new FormattableMarkup('Image file %file has no color channel set.', ['%file' => $file]));
+      }
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     }
 
     // Check that saved image reloads without raising PHP errors.
@@ -501,7 +596,11 @@ class ToolkitGdTest extends KernelTestBase {
     $resource = $image->getToolkit()->getResource();
     $color_index = imagecolorat($resource, $image->getWidth() - 1, 0);
     $color = array_values(imagecolorsforindex($resource, $color_index));
+<<<<<<< HEAD
     $this->assertEquals(static::ROTATE_TRANSPARENT, $color, "Image {$file} after load has full transparent color at corner 1.");
+=======
+    $this->assertEquals($this->rotateTransparent, $color, "Image {$file} after load has full transparent color at corner 1.");
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Test deliberately creating a GIF image with no transparent color set.
     // Color at top-right pixel should be fully transparent while in memory,
@@ -514,7 +613,11 @@ class ToolkitGdTest extends KernelTestBase {
     $resource = $image->getToolkit()->getResource();
     $color_index = imagecolorat($resource, $image->getWidth() - 1, 0);
     $color = array_values(imagecolorsforindex($resource, $color_index));
+<<<<<<< HEAD
     $this->assertEquals(static::ROTATE_TRANSPARENT, $color, "New GIF image with no transparent color set after creation has full transparent color at corner 1.");
+=======
+    $this->assertEquals($this->rotateTransparent, $color, "New GIF image with no transparent color set after creation has full transparent color at corner 1.");
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     // Save image.
     $this->assertTrue($image->save($file_path), "New GIF image {$file} was saved.");
     // Reload image.
@@ -546,7 +649,18 @@ class ToolkitGdTest extends KernelTestBase {
   /**
    * Tests calling a missing image operation plugin.
    */
+<<<<<<< HEAD
   public function testMissingOperation(): void {
+=======
+  public function testMissingOperation() {
+
+    // Test that the image factory is set to use the GD toolkit.
+    $this->assertEquals('gd', $this->imageFactory->getToolkitId(), 'The image factory is set to use the \'gd\' image toolkit.');
+
+    // An image file that will be tested.
+    $file = 'image-test.png';
+
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     // Load up a fresh image.
     $image = $this->imageFactory->get('core/tests/fixtures/files/image-test.png');
     $this->assertTrue($image->isValid(), "Image 'image-test.png' after load should be valid, but it is not.");

@@ -53,7 +53,11 @@ class TermValidationTest extends EntityKernelTestBase {
     $violations = $term->validate();
     $this->assertCount(1, $violations, 'Violation found when name is NULL.');
     $this->assertEquals('name', $violations[0]->getPropertyPath());
+<<<<<<< HEAD
     $this->assertEquals('This value should not be null.', $violations[0]->getMessage());
+=======
+    $this->assertEquals(t('This value should not be null.'), $violations[0]->getMessage());
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $term->set('name', 'test');
 
     $term->set('parent', 9999);

@@ -4,7 +4,11 @@ namespace Drupal\Tests\migrate_drupal_ui\Functional\d7;
 
 use Drupal\Tests\migrate_drupal_ui\Functional\NoMultilingualReviewPageTestBase;
 
+<<<<<<< HEAD
 // cspell:ignore Filefield Multiupload Imagefield
+=======
+// cspell:ignore Multiupload Imagefield
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
 /**
  * Tests Drupal 7 upgrade without translations.
@@ -168,7 +172,10 @@ class NoMultilingualReviewPageTest extends NoMultilingualReviewPageTestBase {
       'Multilingual select',
       'Path translation',
       'Picture',
+<<<<<<< HEAD
       'RDF',
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       'References',
       'References UUID',
       'Translation redirect',

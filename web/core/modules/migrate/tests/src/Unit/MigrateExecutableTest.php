@@ -69,8 +69,13 @@ class MigrateExecutableTest extends MigrateTestCase {
     static::$idMapRecords = [];
     $this->migration = $this->getMigration();
     $this->message = $this->createMock('Drupal\migrate\MigrateMessageInterface');
+<<<<<<< HEAD
     $this->eventDispatcher = $this->createMock('Symfony\Contracts\EventDispatcher\EventDispatcherInterface');
     $this->executable = new TestMigrateExecutable($this->migration, $this->message, $this->eventDispatcher);
+=======
+    $event_dispatcher = $this->createMock('Symfony\Contracts\EventDispatcher\EventDispatcherInterface');
+    $this->executable = new TestMigrateExecutable($this->migration, $this->message, $event_dispatcher);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->executable->setStringTranslation($this->getStringTranslationStub());
   }
 

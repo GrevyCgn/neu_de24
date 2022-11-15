@@ -68,8 +68,11 @@ class MoveTest extends FileManagedUnitTestBase {
 
   /**
    * Tests renaming when moving onto a file that already exists.
+<<<<<<< HEAD
    *
    * @covers ::move
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    */
   public function testExistingRename() {
     // Setup a file to overwrite.
@@ -105,8 +108,11 @@ class MoveTest extends FileManagedUnitTestBase {
 
   /**
    * Tests replacement when moving onto a file that already exists.
+<<<<<<< HEAD
    *
    * @covers ::move
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    */
   public function testExistingReplace() {
     // Setup a file to overwrite.
@@ -139,8 +145,11 @@ class MoveTest extends FileManagedUnitTestBase {
 
   /**
    * Tests replacement when moving onto itself.
+<<<<<<< HEAD
    *
    * @covers ::move
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    */
   public function testExistingReplaceSelf() {
     // Setup a file to overwrite.
@@ -149,6 +158,7 @@ class MoveTest extends FileManagedUnitTestBase {
 
     // Copy the file over itself. Clone the object so we don't have to worry
     // about the function changing our reference copy.
+<<<<<<< HEAD
     try {
       $result = $this->fileRepository->move(clone $source, $source->getFileUri(), FileSystemInterface::EXISTS_ERROR);
       $this->fail('expected FileExistsException');
@@ -157,6 +167,10 @@ class MoveTest extends FileManagedUnitTestBase {
       // expected exception.
       $this->assertStringContainsString("could not be copied because a file by that name already exists in the destination directory", $e->getMessage());
     }
+=======
+    $result = file_move(clone $source, $source->getFileUri(), FileSystemInterface::EXISTS_REPLACE);
+    $this->assertFalse($result, 'File move failed.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertEquals($contents, file_get_contents($source->getFileUri()), 'Contents of file were not altered.');
 
     // Check that no hooks were called while failing.
@@ -169,8 +183,11 @@ class MoveTest extends FileManagedUnitTestBase {
 
   /**
    * Tests that moving onto an existing file fails when instructed to do so.
+<<<<<<< HEAD
    *
    * @covers ::move
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    */
   public function testExistingError() {
     $contents = $this->randomMachineName(10);

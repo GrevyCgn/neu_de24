@@ -199,6 +199,7 @@ function system_post_update_service_advisory_settings() {
   $config = \Drupal::configFactory()->getEditable('system.advisories');
   $config->set('interval_hours', 6)->set('enabled', TRUE)->save();
 }
+<<<<<<< HEAD
 
 /**
  * Remove obsolete system.authorize configuration.
@@ -260,3 +261,5 @@ function system_post_update_enable_provider_database_driver() {
     \Drupal::service('module_installer')->install(array_keys($modules_to_install));
   }
 }
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b

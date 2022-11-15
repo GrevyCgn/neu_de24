@@ -25,6 +25,9 @@ class LayoutDefault extends PluginBase implements LayoutInterface, PluginFormInt
    */
   protected $inPreview = FALSE;
 
+  use ContextAwarePluginAssignmentTrait;
+  use ContextAwarePluginTrait;
+
   /**
    * The layout definition.
    *

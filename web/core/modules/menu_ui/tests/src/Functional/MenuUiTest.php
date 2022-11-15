@@ -85,10 +85,13 @@ class MenuUiTest extends BrowserTestBase {
 
     $this->drupalPlaceBlock('page_title_block');
     $this->drupalPlaceBlock('system_menu_block:main');
+<<<<<<< HEAD
     $this->drupalPlaceBlock('local_actions_block', [
       'region' => 'content',
       'weight' => -100,
     ]);
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $this->drupalCreateContentType(['type' => 'article', 'name' => 'Article']);
 
@@ -731,7 +734,11 @@ class MenuUiTest extends BrowserTestBase {
       ];
       $this->drupalGet("admin/structure/menu/manage/{$this->menu->id()}/add");
       $this->submitForm($edit, 'Save');
+<<<<<<< HEAD
       $this->assertSession()->pageTextContains("The path '{$link_path}' is inaccessible.");
+=======
+      $this->assertRaw(t("The path '@link_path' is inaccessible.", ['@link_path' => $link_path]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     }
   }
 

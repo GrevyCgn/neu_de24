@@ -3,6 +3,10 @@
 namespace Drupal\Tests;
 
 use Behat\Mink\Driver\BrowserKitDriver;
+<<<<<<< HEAD
+=======
+use Behat\Mink\Driver\GoutteDriver;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 use Behat\Mink\Element\Element;
 use Behat\Mink\Mink;
 use Behat\Mink\Selector\SelectorsHandler;
@@ -219,6 +223,12 @@ abstract class BrowserTestBase extends TestCase {
    */
   protected function initMink() {
     $driver = $this->getDefaultDriverInstance();
+<<<<<<< HEAD
+=======
+    if ($driver instanceof GoutteDriver) {
+      @trigger_error('Using \Behat\Mink\Driver\GoutteDriver is deprecated in drupal:9.2.0 and is removed from drupal:10.0.0. The dependencies behat/mink-goutte-driver and fabpot/goutte will be removed. See https://www.drupal.org/node/3177235', E_USER_DEPRECATED);
+    }
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     if ($driver instanceof BrowserKitDriver) {
       // Turn off curl timeout. Having a timeout is not a problem in a normal

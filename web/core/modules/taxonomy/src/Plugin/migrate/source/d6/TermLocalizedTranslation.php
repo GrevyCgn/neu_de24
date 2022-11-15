@@ -5,7 +5,11 @@ namespace Drupal\taxonomy\Plugin\migrate\source\d6;
 use Drupal\migrate\Row;
 
 /**
+<<<<<<< HEAD
  * Drupal 6 i18n taxonomy terms source from database.
+=======
+ * Drupal 6 i18n taxonomy terms from source database.
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
  *
  * For available configuration keys, refer to the parent classes.
  *

@@ -37,7 +37,11 @@ class FileFieldValidateTest extends FileFieldTestBase {
     $edit['title[0][value]'] = $this->randomMachineName();
     $this->drupalGet('node/add/' . $type_name);
     $this->submitForm($edit, 'Save');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains("{$field->getLabel()} field is required.");
+=======
+    $this->assertRaw(t('@title field is required.', ['@title' => $field->getLabel()]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Create a new node with the uploaded file.
     $nid = $this->uploadNodeFile($test_file, $field_name, $type_name);
@@ -59,7 +63,11 @@ class FileFieldValidateTest extends FileFieldTestBase {
     $edit['title[0][value]'] = $this->randomMachineName();
     $this->drupalGet('node/add/' . $type_name);
     $this->submitForm($edit, 'Save');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains("{$field->getLabel()} field is required.");
+=======
+    $this->assertRaw(t('@title field is required.', ['@title' => $field->getLabel()]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Create a new node with the uploaded file into the multivalue field.
     $nid = $this->uploadNodeFile($test_file, $field_name, $type_name);
@@ -191,7 +199,11 @@ class FileFieldValidateTest extends FileFieldTestBase {
 
     // Check that the file can still be removed.
     $this->removeNodeFile($nid);
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('Only files with the following extensions are allowed: txt.');
+=======
+    $this->assertNoText('Only files with the following extensions are allowed: txt.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains('Article ' . $node->getTitle() . ' has been updated.');
   }
 

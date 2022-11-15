@@ -130,7 +130,11 @@ class NodeLanguageTest extends NodeTestBase {
     }
 
     // Test that the language field value is shown.
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('English');
+=======
+    $this->assertNoText('English');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains('French');
     $this->assertSession()->pageTextContains('Spanish');
 
@@ -151,8 +155,13 @@ class NodeLanguageTest extends NodeTestBase {
     $this->drupalGet('test-language/es');
     // This time, test just the language field.
     $message = 'Spanish argument page';
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('English');
     $this->assertSession()->pageTextNotContains('French');
+=======
+    $this->assertNoText('English');
+    $this->assertNoText('French');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains('Spanish');
 
     // Test the front page view filter. Only node titles in the current language
@@ -289,12 +298,21 @@ class NodeLanguageTest extends NodeTestBase {
     if ($native) {
       $this->assertSession()->pageTextContains('Français');
       $this->assertSession()->pageTextContains('Español');
+<<<<<<< HEAD
       $this->assertSession()->pageTextNotContains('French');
       $this->assertSession()->pageTextNotContains('Spanish');
     }
     else {
       $this->assertSession()->pageTextNotContains('Français');
       $this->assertSession()->pageTextNotContains('Español');
+=======
+      $this->assertNoText('French');
+      $this->assertNoText('Spanish');
+    }
+    else {
+      $this->assertNoText('Français');
+      $this->assertNoText('Español');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       $this->assertSession()->pageTextContains('French');
       $this->assertSession()->pageTextContains('Spanish');
     }

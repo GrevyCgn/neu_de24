@@ -41,15 +41,24 @@ interface ConditionAggregateInterface extends \Countable {
    * Queries for the existence of a field.
    *
    * @param string $field
+<<<<<<< HEAD
    *   The field to query for existence.
    * @param string $function
    *   The function.
+=======
+   * @param string $function
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    * @param string $langcode
    *   (optional) For which language the entity should be prepared, defaults to
    *   the current content language.
    *
    * @return \Drupal\Core\Entity\Query\ConditionInterface
    *
+<<<<<<< HEAD
+=======
+   * @return \Drupal\Core\Entity\Query\ConditionInterface
+   *
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    * @see \Drupal\Core\Entity\Query\QueryInterface::exists()
    */
   public function exists($field, $function, $langcode = NULL);
@@ -58,12 +67,17 @@ interface ConditionAggregateInterface extends \Countable {
    * Queries for the nonexistence of a field.
    *
    * @param string $field
+<<<<<<< HEAD
    *   The field to query for nonexistence.
    * @param string $function
    *   The function.
    * @param string $langcode
    *   (optional) For which language the entity should be prepared, defaults to
    *   the current content language.
+=======
+   * @param string $function
+   * @param string $langcode
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    *
    * @return \Drupal\Core\Entity\Query\ConditionInterface
    *

@@ -154,8 +154,13 @@ class VocabularyUiTest extends TaxonomyTestBase {
 
     // Delete the vocabulary.
     $this->drupalGet('admin/structure/taxonomy/manage/' . $vocabulary->id());
+<<<<<<< HEAD
     $this->clickLink('Delete');
     $this->assertSession()->pageTextContains("Are you sure you want to delete the vocabulary {$vocabulary->label()}?");
+=======
+    $this->clickLink(t('Delete'));
+    $this->assertRaw(t('Are you sure you want to delete the vocabulary %name?', ['%name' => $vocabulary->label()]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains('Deleting a vocabulary will delete all the terms in it. This action cannot be undone.');
 
     // Confirm deletion.

@@ -52,7 +52,11 @@ trait AssertViewsCacheTagsTrait {
 
     // Check render array cache tags.
     sort($expected_render_array_cache_tags);
+<<<<<<< HEAD
     $this->assertEqualsCanonicalizing($expected_render_array_cache_tags, $build['#cache']['tags']);
+=======
+    $this->assertEquals($expected_render_array_cache_tags, $build['#cache']['tags']);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     if ($views_caching_is_enabled) {
       // Check Views render cache item cache tags.
@@ -67,7 +71,12 @@ trait AssertViewsCacheTagsTrait {
       if (is_array($expected_results_cache)) {
         $this->assertNotEmpty($results_cache_item, 'Results cache item found.');
         if ($results_cache_item) {
+<<<<<<< HEAD
           $this->assertEqualsCanonicalizing($expected_results_cache, $results_cache_item->tags);
+=======
+          sort($expected_results_cache);
+          $this->assertEquals($expected_results_cache, $results_cache_item->tags);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         }
       }
       else {
@@ -82,7 +91,11 @@ trait AssertViewsCacheTagsTrait {
       if ($views_caching_is_enabled === TRUE) {
         $this->assertNotEmpty($render_cache_item, 'Render cache item found.');
         if ($render_cache_item) {
+<<<<<<< HEAD
           $this->assertEqualsCanonicalizing($expected_render_array_cache_tags, $render_cache_item['#cache']['tags']);
+=======
+          $this->assertEquals($expected_render_array_cache_tags, $render_cache_item['#cache']['tags']);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         }
       }
       else {
@@ -130,7 +143,12 @@ trait AssertViewsCacheTagsTrait {
     $renderer->renderRoot($build);
 
     // Check render array cache tags.
+<<<<<<< HEAD
     $this->assertEqualsCanonicalizing($expected_render_array_cache_tags, $build['#cache']['tags']);
+=======
+    sort($expected_render_array_cache_tags);
+    $this->assertEquals($expected_render_array_cache_tags, $build['#cache']['tags']);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Check Views render cache item cache tags.
     $original['#cache'] += ['contexts' => []];
@@ -140,7 +158,11 @@ trait AssertViewsCacheTagsTrait {
     if ($views_caching_is_enabled) {
       $this->assertNotEmpty($render_cache_item, 'Render cache item found.');
       if ($render_cache_item) {
+<<<<<<< HEAD
         $this->assertEqualsCanonicalizing($expected_render_array_cache_tags, $render_cache_item['#cache']['tags']);
+=======
+        $this->assertEquals($expected_render_array_cache_tags, $render_cache_item['#cache']['tags']);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       }
     }
     else {

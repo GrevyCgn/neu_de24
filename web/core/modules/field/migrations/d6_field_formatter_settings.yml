@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # cspell:ignore filefield imagelink nodelink spamspan
+=======
+# cspell:ignore imagelink
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 id: d6_field_formatter_settings
 label: Field formatter configuration
 migration_tags:

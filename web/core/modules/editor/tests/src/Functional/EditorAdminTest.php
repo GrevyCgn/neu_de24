@@ -71,7 +71,11 @@ class EditorAdminTest extends BrowserTestBase {
     $options = $select->findAll('css', 'option');
     $this->assertCount(1, $options);
     $this->assertSame('None', $options[0]->getText(), 'Option 1 in the Text Editor select is "None".');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains('This option is disabled because no modules that provide a text editor are currently enabled.');
+=======
+    $this->assertRaw('This option is disabled because no modules that provide a text editor are currently enabled.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**

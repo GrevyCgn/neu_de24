@@ -76,6 +76,7 @@ function views_post_update_remove_sorting_global_text_field() {
 function views_post_update_title_translations() {
   \Drupal::service('router.builder')->setRebuildNeeded();
 }
+<<<<<<< HEAD
 
 /**
  * Add the identifier option to all sort handler configurations.
@@ -105,3 +106,5 @@ function views_post_update_image_lazy_load(?array &$sandbox = NULL): void {
     return $view_config_updater->needsImageLazyLoadFieldUpdate($view);
   });
 }
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b

@@ -173,7 +173,11 @@ class ConfigTranslationOverviewTest extends BrowserTestBase {
     // Test that the original label on the listing page is intact.
     $this->drupalGet('admin/config/regional/config-translation/config_test');
     $this->assertSession()->pageTextContains($original_label);
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains($overridden_label);
+=======
+    $this->assertNoText($overridden_label);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**

@@ -1080,10 +1080,15 @@ class SchemaTest extends KernelTestBase {
    *   The beginning field specification.
    * @param array $new_spec
    *   The ending field specification.
+<<<<<<< HEAD
    * @param mixed $test_data
    *   (optional) A test value to insert and test, if specified.
    *
    * @internal
+=======
+   * @param $test_data
+   *   (optional) A test value to insert and test, if specified.
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    */
   protected function assertFieldChange(array $old_spec, array $new_spec, $test_data = NULL): void {
     $table_name = 'test_table_' . ($this->counter++);
@@ -1319,6 +1324,7 @@ class SchemaTest extends KernelTestBase {
       'test_2_table',
     ];
     $this->assertEquals($expected, $tables, 'Two tables were found.');
+<<<<<<< HEAD
 
     // Check '_' and '%' wildcards.
     $test_schema->createTable('test3table', $table_specification);
@@ -1374,6 +1380,8 @@ class SchemaTest extends KernelTestBase {
       'test4',
     ];
     $this->assertEquals($expected, $tables, 'All "/^test./" tables were found.');
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Go back to the initial connection.
     Database::setActiveConnection('default');

@@ -8,6 +8,7 @@ use Behat\Mink\Exception\ElementHtmlException;
 use Behat\Mink\Exception\ElementNotFoundException;
 use Behat\Mink\Exception\UnsupportedDriverActionException;
 use Drupal\Tests\WebAssert;
+<<<<<<< HEAD
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\Constraint\IsNull;
 use PHPUnit\Framework\Constraint\LogicalNot;
@@ -15,6 +16,9 @@ use WebDriver\Exception;
 use WebDriver\Exception\CurlExec;
 
 // cspell:ignore interactable
+=======
+use WebDriver\Exception\CurlExec;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
 /**
  * Defines a class with methods for asserting presence of elements during tests.
@@ -134,7 +138,11 @@ JS;
    *   (Optional) Timeout in milliseconds, defaults to 10000.
    *
    * @return bool
+<<<<<<< HEAD
    *   TRUE if found, FALSE if not found.
+=======
+   *   TRUE if not found, FALSE if found.
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    */
   public function waitForText($text, $timeout = 10000) {
     return (bool) $this->waitForHelper($timeout, function (Element $page) use ($text) {

@@ -20,7 +20,11 @@
   border: solid 2px var(--color--blue-20);
   border-radius: var(--border-radius);
   background-color: var(--color--white);
+<<<<<<< HEAD
   font-family: var(--font-sans);
+=======
+  font-family: inherit;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   font-size: var(--font-size-l);
   font-weight: 700;
   appearance: none;

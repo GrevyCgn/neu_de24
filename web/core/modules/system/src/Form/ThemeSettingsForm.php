@@ -316,7 +316,11 @@ class ThemeSettingsForm extends ConfigFormBase {
         }
 
         $element['#description'] = $this->t('Examples: <code>@implicit-public-file</code> (for a file in the public filesystem), <code>@explicit-file</code>, or <code>@local-file</code>.', [
+<<<<<<< HEAD
           '@implicit-public-file' => $friendly_path ?? $default,
+=======
+          '@implicit-public-file' => isset($friendly_path) ? $friendly_path : $default,
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
           '@explicit-file' => StreamWrapperManager::getScheme($original_path) !== FALSE ? $original_path : 'public://' . $default,
           '@local-file' => $local_file,
         ]);

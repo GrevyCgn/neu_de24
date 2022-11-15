@@ -626,6 +626,7 @@ function drupal_install_system($install_state) {
   // When the database driver is provided by a module, then install that module.
   // This module must be installed before any other module, as it must be able
   // to override any call to hook_schema() or any "backend_overridable" service.
+<<<<<<< HEAD
   // In edge cases, a driver module may extend from another driver module (for
   // instance, a module to provide backward compatibility with a database
   // version no longer supported by core). In order for the extended classes to
@@ -635,6 +636,12 @@ function drupal_install_system($install_state) {
     $autoload = $connection->getConnectionOptions()['autoload'] ?? '';
     if (($pos = strpos($autoload, 'src/Driver/Database/')) !== FALSE) {
       $kernel->getContainer()->get('module_installer')->install([$provider], TRUE);
+=======
+  if ($provider !== 'core') {
+    $autoload = $connection->getConnectionOptions()['autoload'] ?? '';
+    if (($pos = strpos($autoload, 'src/Driver/Database/')) !== FALSE) {
+      $kernel->getContainer()->get('module_installer')->install([$provider], FALSE);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     }
   }
 

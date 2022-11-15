@@ -68,7 +68,11 @@ class ImageAdminStylesTest extends ImageFieldTestBase {
     ];
     $this->drupalGet('admin/config/media/image-styles/add');
     $this->submitForm($edit, 'Create new style');
+<<<<<<< HEAD
     $this->assertSession()->statusMessageContains("Style {$style_label} was created.", 'status');
+=======
+    $this->assertRaw(t('Style %name was created.', ['%name' => $style_label]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $options = image_style_options();
     $this->assertArrayHasKey($style_name, $options);
   }
@@ -120,7 +124,11 @@ class ImageAdminStylesTest extends ImageFieldTestBase {
     ];
     $this->drupalGet($admin_path . '/add');
     $this->submitForm($edit, 'Create new style');
+<<<<<<< HEAD
     $this->assertSession()->statusMessageContains("Style {$style_label} was created.", 'status');
+=======
+    $this->assertRaw(t('Style %name was created.', ['%name' => $style_label]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Ensure that the expected entity operations are there.
     $this->drupalGet($admin_path);
@@ -359,7 +367,11 @@ class ImageAdminStylesTest extends ImageFieldTestBase {
     ];
     $this->drupalGet($style_path . $style_name);
     $this->submitForm($edit, 'Save');
+<<<<<<< HEAD
     $this->assertSession()->statusMessageContains('Changes to the style have been saved.', 'status');
+=======
+    $this->assertSession()->pageTextContains('Changes to the style have been saved.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->drupalGet('node/' . $nid);
 
     // Reload the image style using the new name.
@@ -372,7 +384,12 @@ class ImageAdminStylesTest extends ImageFieldTestBase {
     ];
     $this->drupalGet($style_path . $new_style_name . '/delete');
     $this->submitForm($edit, 'Delete');
+<<<<<<< HEAD
     $this->assertSession()->statusMessageContains("The image style {$new_style_label} has been deleted.", 'status');
+=======
+    $message = t('The image style %name has been deleted.', ['%name' => $new_style_label]);
+    $this->assertRaw($message);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $replacement_style = ImageStyle::load('thumbnail');
     $this->drupalGet('node/' . $nid);

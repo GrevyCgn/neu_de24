@@ -64,7 +64,11 @@ class ImportOpmlTest extends AggregatorTestBase {
     $edit = [];
     $this->drupalGet('admin/config/services/aggregator/add/opml');
     $this->submitForm($edit, 'Import');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains('Either upload a file or enter a URL.');
+=======
+    $this->assertRaw(t('<em>Either</em> upload a file or enter a URL.'));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $path = $this->getEmptyOpml();
     $edit = [
@@ -73,7 +77,11 @@ class ImportOpmlTest extends AggregatorTestBase {
     ];
     $this->drupalGet('admin/config/services/aggregator/add/opml');
     $this->submitForm($edit, 'Import');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains('Either upload a file or enter a URL.');
+=======
+    $this->assertRaw(t('<em>Either</em> upload a file or enter a URL.'));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Error if the URL is invalid.
     $edit = ['remote' => 'invalidUrl://empty'];
@@ -99,7 +107,11 @@ class ImportOpmlTest extends AggregatorTestBase {
     $this->assertSession()->pageTextContains('No new feed has been added.');
 
     // Attempting to load empty OPML from remote URL
+<<<<<<< HEAD
     $edit = ['remote' => \Drupal::service('file_url_generator')->generateAbsoluteString($this->getEmptyOpml())];
+=======
+    $edit = ['remote' => file_create_url($this->getEmptyOpml())];
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->drupalGet('admin/config/services/aggregator/add/opml');
     $this->submitForm($edit, 'Import');
     $this->assertSession()->pageTextContains('No new feed has been added.');

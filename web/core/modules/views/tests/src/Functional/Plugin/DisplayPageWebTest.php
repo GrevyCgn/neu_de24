@@ -96,7 +96,15 @@ class DisplayPageWebTest extends ViewTestBase {
     // Check local tasks.
     $this->drupalGet('test_page_display_menu');
     $this->assertSession()->statusCodeEquals(200);
+<<<<<<< HEAD
     $this->assertSession()->elementTextEquals('xpath', "//ul[contains(@class, 'tabs primary')]//a[contains(@class, 'is-active')]/child::text()", 'Test default tab');
+=======
+    $element = $this->xpath('//ul[contains(@class, :ul_class)]//a[contains(@class, :a_class)]/child::text()', [
+      ':ul_class' => 'tabs primary',
+      ':a_class' => 'is-active',
+    ]);
+    $this->assertEquals(t('Test default tab'), $element[0]->getText());
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->titleEquals('Test default page | Drupal');
 
     $this->drupalGet('test_page_display_menu/default');
@@ -104,7 +112,15 @@ class DisplayPageWebTest extends ViewTestBase {
 
     $this->drupalGet('test_page_display_menu/local');
     $this->assertSession()->statusCodeEquals(200);
+<<<<<<< HEAD
     $this->assertSession()->elementTextEquals('xpath', "//ul[contains(@class, 'tabs primary')]//a[contains(@class, 'is-active')]/child::text()", 'Test local tab');
+=======
+    $element = $this->xpath('//ul[contains(@class, :ul_class)]//a[contains(@class, :a_class)]/child::text()', [
+      ':ul_class' => 'tabs primary',
+      ':a_class' => 'is-active',
+    ]);
+    $this->assertEquals(t('Test local tab'), $element[0]->getText());
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->titleEquals('Test local page | Drupal');
 
     // Check an ordinary menu link.
@@ -115,7 +131,10 @@ class DisplayPageWebTest extends ViewTestBase {
 
     $menu_link = $this->cssSelect('nav.block-menu ul.menu a');
     $this->assertEquals('Test menu link', $menu_link[0]->getText());
+<<<<<<< HEAD
     $this->container->get('module_installer')->install(['menu_ui', 'menu_link_content']);
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Update the menu link.
     $this->drupalGet("admin/structure/menu/link/views_view:views.test_page_display_menu.page_3/edit");

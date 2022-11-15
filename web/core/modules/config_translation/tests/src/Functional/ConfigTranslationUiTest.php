@@ -171,7 +171,11 @@ class ConfigTranslationUiTest extends BrowserTestBase {
 
     $this->drupalGet("{$translation_base_url}/fr/add");
     $this->submitForm($edit, 'Save translation');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains('Successfully saved French translation.');
+=======
+    $this->assertRaw(t('Successfully saved @language translation.', ['@language' => 'French']));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Check for edit, delete links (and no 'add' link) for French language.
     $this->assertSession()->linkByHrefNotExists("$translation_base_url/fr/add");
@@ -216,18 +220,30 @@ class ConfigTranslationUiTest extends BrowserTestBase {
     // Ensure that the label is in French (and not in English).
     $this->drupalGet("fr/$translation_base_url/fr/edit");
     $this->assertSession()->pageTextContains($fr_site_name_label);
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains($site_name_label);
+=======
+    $this->assertNoText($site_name_label);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Ensure that the label is also in French (and not in English)
     // when editing another language with the interface in French.
     $this->drupalGet("fr/$translation_base_url/ta/edit");
     $this->assertSession()->pageTextContains($fr_site_name_label);
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains($site_name_label);
+=======
+    $this->assertNoText($site_name_label);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Ensure that the label is not translated when the interface is in English.
     $this->drupalGet("$translation_base_url/fr/edit");
     $this->assertSession()->pageTextContains($site_name_label);
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains($fr_site_name_label);
+=======
+    $this->assertNoText($fr_site_name_label);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**
@@ -627,7 +643,11 @@ class ConfigTranslationUiTest extends BrowserTestBase {
     ];
     $this->drupalGet("{$translation_base_url}/fr/add");
     $this->submitForm($edit, 'Save translation');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains('Successfully saved French translation.');
+=======
+    $this->assertRaw(t('Successfully saved @language translation.', ['@language' => 'French']));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Check for edit, delete links (and no 'add' link) for French language.
     $this->assertSession()->linkByHrefNotExists("$translation_base_url/fr/add");
@@ -877,7 +897,11 @@ class ConfigTranslationUiTest extends BrowserTestBase {
     // Delete French language
     $this->drupalGet('admin/config/regional/language/delete/fr');
     $this->submitForm([], 'Delete');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains('The French (fr) language has been removed.');
+=======
+    $this->assertRaw(t('The %language (%langcode) language has been removed.', ['%language' => 'French', '%langcode' => 'fr']));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Change default language to Tamil.
     $edit = [
@@ -885,12 +909,20 @@ class ConfigTranslationUiTest extends BrowserTestBase {
     ];
     $this->drupalGet('admin/config/regional/language');
     $this->submitForm($edit, 'Save configuration');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains('Configuration saved.');
+=======
+    $this->assertRaw(t('Configuration saved.'));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Delete English language
     $this->drupalGet('admin/config/regional/language/delete/en');
     $this->submitForm([], 'Delete');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains('The English (en) language has been removed.');
+=======
+    $this->assertRaw(t('The %language (%langcode) language has been removed.', ['%language' => 'English', '%langcode' => 'en']));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Visit account setting translation page, this should not
     // throw any notices.
@@ -910,8 +942,13 @@ class ConfigTranslationUiTest extends BrowserTestBase {
     // Check if the translation page does not have the altered out settings.
     $this->drupalGet('admin/config/people/accounts/translate/fr/add');
     $this->assertSession()->pageTextContains('Name');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('Account cancellation confirmation');
     $this->assertSession()->pageTextNotContains('Password recovery');
+=======
+    $this->assertNoText('Account cancellation confirmation');
+    $this->assertNoText('Password recovery');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**
@@ -1109,6 +1146,24 @@ class ConfigTranslationUiTest extends BrowserTestBase {
   }
 
   /**
+   * Test translation save confirmation message.
+   */
+  public function testMenuTranslationWithoutChange() {
+    $this->drupalLogin($this->adminUser);
+    $this->drupalGet('admin/structure/menu/manage/main/translate/tyv/add');
+    $this->submitForm([], 'Save translation');
+    $this->assertSession()->pageTextContains('Tuvan translation was not added. To add a translation, you must modify the configuration.');
+
+    $this->drupalGet('admin/structure/menu/manage/main/translate/tyv/add');
+    $edit = [
+      'translation[config_names][system.menu.main][label]' => 'Main navigation Translation',
+      'translation[config_names][system.menu.main][description]' => 'Site section links Translation',
+    ];
+    $this->submitForm($edit, 'Save translation');
+    $this->assertSession()->pageTextContains('Successfully saved Tuvan translation.');
+  }
+
+  /**
    * Gets translation from locale storage.
    *
    * @param $config_name
@@ -1157,7 +1212,11 @@ class ConfigTranslationUiTest extends BrowserTestBase {
     ];
     $this->drupalGet('admin/config/system/site-information');
     $this->submitForm($edit, 'Save configuration');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains('The configuration options have been saved.');
+=======
+    $this->assertRaw(t('The configuration options have been saved.'));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**

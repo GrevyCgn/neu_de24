@@ -41,7 +41,12 @@ abstract class UpdateSemverTestBase extends UpdateTestBase {
     parent::setUp();
     $admin_user = $this->drupalCreateUser([
       'administer site configuration',
+<<<<<<< HEAD
       'view update notifications',
+=======
+      'administer modules',
+      'administer themes',
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       ]);
     $this->drupalLogin($admin_user);
     $this->drupalPlaceBlock('local_actions_block');
@@ -92,11 +97,21 @@ abstract class UpdateSemverTestBase extends UpdateTestBase {
         $full_version = "8.$minor_version.1$extra_version";
         $this->refreshUpdateStatus([$this->updateProject => "$minor_version.1" . $extra_version]);
         $this->standardTests();
+<<<<<<< HEAD
+=======
+        $this->drupalGet('admin/reports/updates');
+        $this->clickLink('Check manually');
+        $this->checkForMetaRefresh();
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         $this->assertUpdateTableTextNotContains('Security update required!');
         // The XML test fixtures for this method all contain the '8.2.0' release
         // but because '8.2.0' is not in a supported branch it will not be in
         // the available updates.
+<<<<<<< HEAD
         $this->assertSession()->responseNotContains('8.2.0');
+=======
+        $this->assertNoRaw('8.2.0');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         switch ($minor_version) {
           case 0:
             // Both stable and unstable releases are available.
@@ -154,6 +169,12 @@ abstract class UpdateSemverTestBase extends UpdateTestBase {
           $this->setProjectInstalledVersion("8.$minor_version.$patch_version" . $extra_version);
           $this->refreshUpdateStatus([$this->updateProject => '9']);
           $this->standardTests();
+<<<<<<< HEAD
+=======
+          $this->drupalGet('admin/reports/updates');
+          $this->clickLink('Check manually');
+          $this->checkForMetaRefresh();
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
           $this->assertUpdateTableTextNotContains('Security update required!');
           $this->assertUpdateTableElementContains(Link::fromTextAndUrl('9.0.0', Url::fromUri("http://example.com/{$this->updateProject}-9-0-0-release"))->toString());
           $this->assertUpdateTableElementContains(Link::fromTextAndUrl('Download', Url::fromUri("http://example.com/{$this->updateProject}-9-0-0.tar.gz"))->toString());
@@ -201,7 +222,11 @@ abstract class UpdateSemverTestBase extends UpdateTestBase {
    *   - 8.0.2 Security update
    *   - 8.0.1 Insecure
    *   - 8.0.0 Insecure
+<<<<<<< HEAD
    * - [::$updateProject].sec.2.0-rc2.xml
+=======
+   * - [::$updateProject].sec.0.2-rc2.xml
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    *   - 8.2.0-rc2 Security update
    *   - 8.2.0-rc1 Insecure
    *   - 8.2.0-beta2 Insecure
@@ -234,7 +259,11 @@ abstract class UpdateSemverTestBase extends UpdateTestBase {
    *   'supported_branches' that does not contain '8.0.'. It is used to ensure
    *   that the "Security update required!" is displayed even if the currently
    *   installed version is in an unsupported branch.
+<<<<<<< HEAD
    * - [::$updateProject].sec.2.0-rc2-b.xml
+=======
+   * - [::$updateProject].sec.0.2-rc2-b.xml
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    *   - 8.2.0-rc2
    *   - 8.2.0-rc1
    *   - 8.2.0-beta2
@@ -265,7 +294,11 @@ abstract class UpdateSemverTestBase extends UpdateTestBase {
         'site_patch_version' => '0.2',
         'expected_security_release' => ['1.2', '2.0-rc2'],
         'expected_update_message_type' => static::UPDATE_AVAILABLE,
+<<<<<<< HEAD
         'fixture' => 'sec.2.0-rc2',
+=======
+        'fixture' => 'sec.0.2-rc2',
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       ],
       // Two security releases available for site minor release 0.
       // 0.1 security release marked as insecure.
@@ -290,7 +323,11 @@ abstract class UpdateSemverTestBase extends UpdateTestBase {
         'site_patch_version' => '0.0',
         'expected_security_releases' => ['0.2', '1.2', '2.0-rc2'],
         'expected_update_message_type' => static::SECURITY_UPDATE_REQUIRED,
+<<<<<<< HEAD
         'fixture' => 'sec.2.0-rc2',
+=======
+        'fixture' => 'sec.0.2-rc2',
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       ],
       // No newer security release for site minor 1.
       // Previous minor has security release.
@@ -298,7 +335,11 @@ abstract class UpdateSemverTestBase extends UpdateTestBase {
         'site_patch_version' => '1.2',
         'expected_security_releases' => [],
         'expected_update_message_type' => static::UPDATE_NONE,
+<<<<<<< HEAD
         'fixture' => 'sec.2.0-rc2',
+=======
+        'fixture' => 'sec.0.2-rc2',
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       ],
       // No security release available for site minor release 0.
       // Security release available for next minor.
@@ -336,7 +377,11 @@ abstract class UpdateSemverTestBase extends UpdateTestBase {
         'site_patch_version' => '2.0-rc2',
         'expected_security_releases' => [],
         'expected_update_message_type' => static::UPDATE_NONE,
+<<<<<<< HEAD
         'fixture' => 'sec.2.0-rc2',
+=======
+        'fixture' => 'sec.0.2-rc2',
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       ],
       // Ensure that 8.0.2 security release is not shown because it is earlier
       // version than 1.0.
@@ -344,7 +389,11 @@ abstract class UpdateSemverTestBase extends UpdateTestBase {
         'site_patch_version' => '1.0',
         'expected_security_releases' => ['1.2', '2.0-rc2'],
         'expected_update_message_type' => static::SECURITY_UPDATE_REQUIRED,
+<<<<<<< HEAD
         'fixture' => 'sec.2.0-rc2',
+=======
+        'fixture' => 'sec.0.2-rc2',
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       ],
     ];
     $pre_releases = [
@@ -364,7 +413,11 @@ abstract class UpdateSemverTestBase extends UpdateTestBase {
         'site_patch_version' => $pre_release,
         'expected_security_releases' => [],
         'expected_update_message_type' => $pre_release === '2.0-rc2' ? static::UPDATE_NONE : static::UPDATE_AVAILABLE,
+<<<<<<< HEAD
         'fixture' => 'sec.2.0-rc2-b',
+=======
+        'fixture' => 'sec.0.2-rc2-b',
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       ];
       // If the site is on an alpha/beta/RC of an upcoming minor and there is
       // an RC version with a security update, it should be recommended.
@@ -372,7 +425,11 @@ abstract class UpdateSemverTestBase extends UpdateTestBase {
         'site_patch_version' => $pre_release,
         'expected_security_releases' => $pre_release === '2.0-rc2' ? [] : ['2.0-rc2'],
         'expected_update_message_type' => $pre_release === '2.0-rc2' ? static::UPDATE_NONE : static::SECURITY_UPDATE_REQUIRED,
+<<<<<<< HEAD
         'fixture' => 'sec.2.0-rc2',
+=======
+        'fixture' => 'sec.0.2-rc2',
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       ];
     }
     return $test_cases;

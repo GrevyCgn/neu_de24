@@ -55,7 +55,11 @@ class SearchQueryAlterTest extends BrowserTestBase {
     $this->submitForm(['keys' => 'pizza'], 'Search');
     // The article should be there but not the page.
     $this->assertSession()->pageTextContains('article');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('page');
+=======
+    $this->assertNoText('page');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
 }

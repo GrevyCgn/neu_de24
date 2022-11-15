@@ -223,9 +223,13 @@ class ExposedFormTest extends ViewTestBase {
     // Assert that the only two occurrences of `$view->getTitle()` are the title
     // and h2 tags.
     $this->drupalGet('test_exposed_block');
+<<<<<<< HEAD
     $this->assertSession()->elementContains('css', 'title', $view->getTitle());
     $this->assertSession()->elementExists('xpath', '//h2[text()="' . $view->getTitle() . '"]');
     $this->assertSession()->pageTextMatchesCount(2, '/' . $view->getTitle() . '/');
+=======
+    $this->assertSession()->pageTextContains($view->getTitle());
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Set a custom label on the exposed filter form block.
     $block->getPlugin()->setConfigurationValue('views_label', '<strong>Custom</strong> title<script>alert("hacked!");</script>');
@@ -281,6 +285,7 @@ class ExposedFormTest extends ViewTestBase {
   }
 
   /**
+<<<<<<< HEAD
    * Data provider for testing different types of displays.
    *
    * @return array
@@ -294,6 +299,8 @@ class ExposedFormTest extends ViewTestBase {
   }
 
   /**
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    * Tests the input required exposed form type.
    */
   public function testInputRequired() {

@@ -77,7 +77,11 @@ class Response
     public const HTTP_PRECONDITION_REQUIRED = 428;                                       // RFC6585
     public const HTTP_TOO_MANY_REQUESTS = 429;                                           // RFC6585
     public const HTTP_REQUEST_HEADER_FIELDS_TOO_LARGE = 431;                             // RFC6585
+<<<<<<< HEAD
     public const HTTP_UNAVAILABLE_FOR_LEGAL_REASONS = 451;                               // RFC7725
+=======
+    public const HTTP_UNAVAILABLE_FOR_LEGAL_REASONS = 451;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     public const HTTP_INTERNAL_SERVER_ERROR = 500;
     public const HTTP_NOT_IMPLEMENTED = 501;
     public const HTTP_BAD_GATEWAY = 502;

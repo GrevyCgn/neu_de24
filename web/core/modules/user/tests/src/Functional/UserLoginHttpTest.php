@@ -359,7 +359,11 @@ class UserLoginHttpTest extends BrowserTestBase {
   }
 
   /**
+<<<<<<< HEAD
    * Tests the per-user login flood control for a given serialization format.
+=======
+   * Tests the per-user login flood control.
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    *
    * @see \Drupal\basic_auth\Authentication\Provider\BasicAuthTest::testPerUserLoginFloodControl
    * @see \Drupal\Tests\user\Functional\UserLoginTest::testPerUserLoginFloodControl
@@ -460,7 +464,11 @@ class UserLoginHttpTest extends BrowserTestBase {
   }
 
   /**
+<<<<<<< HEAD
    * Tests csrf protection of User Logout route for given serialization format.
+=======
+   * Tests csrf protection of User Logout route.
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    */
   public function doTestLogoutCsrfProtection(string $format): void {
     $client = \Drupal::httpClient();

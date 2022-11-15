@@ -72,7 +72,11 @@ class ValidationTest extends BrowserTestBase {
       ->setValue('invalid_token');
     $this->submitForm(['name' => 'validate'], 'Save');
     $this->assertSession()->fieldValueNotEquals('name', '#value changed by #validate');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('Name value: value changed by setValueForElement() in #validate');
+=======
+    $this->assertNoText('Name value: value changed by setValueForElement() in #validate');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains('The form has become outdated.');
   }
 
@@ -115,7 +119,11 @@ class ValidationTest extends BrowserTestBase {
     // is triggered.
     $this->drupalGet($path);
     $this->submitForm($edit, 'Partial validate');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('Title field is required.');
+=======
+    $this->assertNoText('Title field is required.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains('Test element is invalid');
 
     // Edge case of #limit_validation_errors containing numeric indexes: same
@@ -123,13 +131,21 @@ class ValidationTest extends BrowserTestBase {
     // 'test_numeric_index' field.
     $this->drupalGet($path);
     $this->submitForm($edit, 'Partial validate (numeric index)');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('Title field is required.');
+=======
+    $this->assertNoText('Title field is required.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains('Test (numeric index) element is invalid');
 
     // Ensure something like 'foobar' isn't considered "inside" 'foo'.
     $this->drupalGet($path);
     $this->submitForm($edit, 'Partial validate (substring)');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('Title field is required.');
+=======
+    $this->assertNoText('Title field is required.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains('Test (substring) foo element is invalid');
 
     // Ensure not validated values are not available to submit handlers.
@@ -163,9 +179,15 @@ class ValidationTest extends BrowserTestBase {
     ];
     $this->drupalGet('form-test/pattern');
     $this->submitForm($edit, 'Submit');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains($textfield_error);
     $this->assertSession()->pageTextNotContains($tel_error);
     $this->assertSession()->pageTextNotContains($password_error);
+=======
+    $this->assertRaw($textfield_error);
+    $this->assertNoRaw($tel_error);
+    $this->assertNoRaw($password_error);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Valid textfield, invalid tel, valid password.
     $edit = [
@@ -175,9 +197,15 @@ class ValidationTest extends BrowserTestBase {
     ];
     $this->drupalGet('form-test/pattern');
     $this->submitForm($edit, 'Submit');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains($textfield_error);
     $this->assertSession()->pageTextContains($tel_error);
     $this->assertSession()->pageTextNotContains($password_error);
+=======
+    $this->assertNoRaw($textfield_error);
+    $this->assertRaw($tel_error);
+    $this->assertNoRaw($password_error);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Non required fields are not validated if empty.
     $edit = [
@@ -186,9 +214,15 @@ class ValidationTest extends BrowserTestBase {
     ];
     $this->drupalGet('form-test/pattern');
     $this->submitForm($edit, 'Submit');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains($textfield_error);
     $this->assertSession()->pageTextNotContains($tel_error);
     $this->assertSession()->pageTextNotContains($password_error);
+=======
+    $this->assertNoRaw($textfield_error);
+    $this->assertNoRaw($tel_error);
+    $this->assertNoRaw($password_error);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Invalid password.
     $edit = [
@@ -196,9 +230,15 @@ class ValidationTest extends BrowserTestBase {
     ];
     $this->drupalGet('form-test/pattern');
     $this->submitForm($edit, 'Submit');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains($textfield_error);
     $this->assertSession()->pageTextNotContains($tel_error);
     $this->assertSession()->pageTextContains($password_error);
+=======
+    $this->assertNoRaw($textfield_error);
+    $this->assertNoRaw($tel_error);
+    $this->assertRaw($password_error);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // The pattern attribute overrides #pattern and is not validated on the
     // server side.
@@ -209,7 +249,11 @@ class ValidationTest extends BrowserTestBase {
     ];
     $this->drupalGet('form-test/pattern');
     $this->submitForm($edit, 'Submit');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('Client side validation field is not in the right format.');
+=======
+    $this->assertNoRaw(t('%name field is not in the right format.', ['%name' => 'Client side validation']));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**
@@ -227,11 +271,19 @@ class ValidationTest extends BrowserTestBase {
 
     foreach (Element::children($form) as $key) {
       if (isset($form[$key]['#required_error'])) {
+<<<<<<< HEAD
         $this->assertSession()->pageTextNotContains($form[$key]['#title'] . ' field is required.');
         $this->assertSession()->pageTextContains((string) $form[$key]['#required_error']);
       }
       elseif (isset($form[$key]['#form_test_required_error'])) {
         $this->assertSession()->pageTextNotContains($form[$key]['#title'] . ' field is required.');
+=======
+        $this->assertNoText($form[$key]['#title'] . ' field is required.');
+        $this->assertSession()->pageTextContains((string) $form[$key]['#required_error']);
+      }
+      elseif (isset($form[$key]['#form_test_required_error'])) {
+        $this->assertNoText($form[$key]['#title'] . ' field is required.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         $this->assertSession()->pageTextContains((string) $form[$key]['#form_test_required_error']);
       }
     }

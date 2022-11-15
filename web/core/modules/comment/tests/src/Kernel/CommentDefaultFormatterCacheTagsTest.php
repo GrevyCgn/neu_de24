@@ -92,7 +92,12 @@ class CommentDefaultFormatterCacheTagsTest extends EntityKernelTestBase {
       'config:field.storage.comment.comment_body',
       'config:user.settings',
     ];
+<<<<<<< HEAD
     $this->assertEqualsCanonicalizing($expected_cache_tags, $build['#cache']['tags']);
+=======
+    sort($expected_cache_tags);
+    $this->assertEquals($expected_cache_tags, $build['#cache']['tags']);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Create a comment on that entity. Comment loading requires that the uid
     // also exists in the {users} table.
@@ -139,7 +144,12 @@ class CommentDefaultFormatterCacheTagsTest extends EntityKernelTestBase {
       'config:field.storage.comment.comment_body',
       'config:user.settings',
     ];
+<<<<<<< HEAD
     $this->assertEqualsCanonicalizing($expected_cache_tags, $build['#cache']['tags']);
+=======
+    sort($expected_cache_tags);
+    $this->assertEquals($expected_cache_tags, $build['#cache']['tags']);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Build a render array with the entity in a sub-element so that lazy
     // builder elements bubble up outside of the entity and we can check that

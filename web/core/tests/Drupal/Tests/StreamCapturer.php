@@ -9,7 +9,10 @@ class StreamCapturer extends \php_user_filter {
 
   public static $cache = '';
 
+<<<<<<< HEAD
   #[\ReturnTypeWillChange]
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   public function filter($in, $out, &$consumed, $closing) {
     while ($bucket = stream_bucket_make_writeable($in)) {
       self::$cache .= $bucket->data;

@@ -74,13 +74,21 @@ class MenuUiContentModerationTest extends BrowserTestBase {
     // Publish the node with no changes.
     $this->drupalGet('node/' . $node->id() . '/edit');
     $this->submitForm([], 'Save');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains("Page {$node->label()} has been updated.");
+=======
+    $this->assertSession()->responseContains(t('Page %label has been updated.', ['%label' => $node->toLink($node->label())->toString()]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Create a pending revision with no changes.
     $edit = ['moderation_state[0][state]' => 'draft'];
     $this->drupalGet('node/' . $node->id() . '/edit');
     $this->submitForm($edit, 'Save');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains("Page {$node->label()} has been updated.");
+=======
+    $this->assertSession()->responseContains(t('Page %label has been updated.', ['%label' => $node->toLink($node->label())->toString()]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Add a menu link and save a new default (published) revision.
     $edit = [
@@ -138,7 +146,11 @@ class MenuUiContentModerationTest extends BrowserTestBase {
     ];
     $this->drupalGet('node/' . $node->id() . '/edit');
     $this->submitForm($edit, 'Save');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains("Page {$node->label()} has been updated.");
+=======
+    $this->assertSession()->responseContains(t('Page %label has been updated.', ['%label' => $node->toLink($node->label())->toString()]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Ensure the content was not immediately published.
     $this->assertSession()->linkExists('Test menu link');
@@ -164,7 +176,11 @@ class MenuUiContentModerationTest extends BrowserTestBase {
     $edit = ['moderation_state[0][state]' => 'published'];
     $this->drupalGet('node/' . $node->id() . '/edit');
     $this->submitForm($edit, 'Save');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains("Page {$node->label()} has been updated.");
+=======
+    $this->assertSession()->responseContains(t('Page %label has been updated.', ['%label' => $node->toLink($node->label())->toString()]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Add a menu link and save and create a new non-default (draft) revision
     // and ensure it's not immediately published.
@@ -175,7 +191,11 @@ class MenuUiContentModerationTest extends BrowserTestBase {
     ];
     $this->drupalGet('node/' . $node->id() . '/edit');
     $this->submitForm($edit, 'Save');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains("Page {$node->label()} has been updated.");
+=======
+    $this->assertSession()->responseContains(t('Page %label has been updated.', ['%label' => $node->toLink($node->label())->toString()]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->linkNotExists('Second test menu link');
 
     // Publish the content and ensure the new menu link shows up.
@@ -184,7 +204,11 @@ class MenuUiContentModerationTest extends BrowserTestBase {
     ];
     $this->drupalGet('node/' . $node->id() . '/edit');
     $this->submitForm($edit, 'Save');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains("Page {$node->label()} has been updated.");
+=======
+    $this->assertSession()->responseContains(t('Page %label has been updated.', ['%label' => $node->toLink($node->label())->toString()]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->linkExists('Second test menu link');
   }
 

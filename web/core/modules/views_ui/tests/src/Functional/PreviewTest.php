@@ -33,11 +33,15 @@ class PreviewTest extends UITestBase {
     $this->submitForm($edit = [], 'Update preview');
 
     // Verify that the contextual link to add a new field is shown.
+<<<<<<< HEAD
     $selector = $this->assertSession()->buildXPathQuery('//div[@id="views-live-preview"]//ul[contains(@class, :ul-class)]/li/a[contains(@href, :href)]', [
       ':ul-class' => 'contextual-links',
       ':href' => '/admin/structure/views/nojs/add-handler/test_preview/default/filter',
     ]);
     $this->assertSession()->elementsCount('xpath', $selector, 1);
+=======
+    $this->assertSession()->elementsCount('xpath', '//div[@id="views-live-preview"]//ul[contains(@class, "contextual-links")]/li[contains(@class, "filter-add")]', 1);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $this->submitForm(['view_args' => '100'], 'Update preview');
 
@@ -46,6 +50,7 @@ class PreviewTest extends UITestBase {
     $this->assertSession()->pageTextContains('Test header text');
     $this->assertSession()->pageTextContains('Test footer text');
     $this->assertSession()->pageTextContains('Test empty text');
+<<<<<<< HEAD
 
     $this->submitForm(['view_args' => '0'], 'Update preview');
 
@@ -54,6 +59,8 @@ class PreviewTest extends UITestBase {
     $this->assertSession()->pageTextContains('Test header text');
     $this->assertSession()->pageTextContains('Test footer text');
     $this->assertSession()->pageTextContains('Test empty text');
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**
@@ -65,6 +72,7 @@ class PreviewTest extends UITestBase {
 
     $this->submitForm($edit = [], 'Update preview');
 
+<<<<<<< HEAD
     $selector = '//div[@class = "views-row"]';
     $this->assertSession()->elementsCount('xpath', $selector, 5);
 
@@ -75,6 +83,17 @@ class PreviewTest extends UITestBase {
     // Filter for no results.
     $this->submitForm($edit = ['view_args' => '100'], 'Update preview');
     $this->assertSession()->elementNotExists('xpath', $selector);
+=======
+    $this->assertSession()->elementsCount('xpath', '//div[@class = "view-content"]/div[contains(@class, views-row)]', 5);
+
+    // Filter just the first result.
+    $this->submitForm($edit = ['view_args' => '1'], 'Update preview');
+    $this->assertSession()->elementsCount('xpath', '//div[@class = "view-content"]/div[contains(@class, views-row)]', 1);
+
+    // Filter for no results.
+    $this->submitForm($edit = ['view_args' => '100'], 'Update preview');
+    $this->assertSession()->elementNotExists('xpath', '//div[@class = "view-content"]/div[contains(@class, views-row)]');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Test that area text and exposed filters are present and rendered.
     $this->assertSession()->fieldExists('id');
@@ -93,7 +112,11 @@ class PreviewTest extends UITestBase {
     $view['page[feed_properties][path]'] = $this->randomMachineName(16);
     $this->drupalGet('admin/structure/views/add');
     $this->submitForm($view, 'Save and edit');
+<<<<<<< HEAD
     $this->clickLink('Feed');
+=======
+    $this->clickLink(t('Feed'));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->submitForm([], 'Update preview');
     $this->assertSession()->elementTextContains('xpath', '//div[@id="views-live-preview"]/pre', '<title>' . $view['page[title]'] . '</title>');
 
@@ -106,7 +129,11 @@ class PreviewTest extends UITestBase {
     $this->assertSession()->pageTextContains('Query build time');
     $this->assertSession()->pageTextContains('Query execute time');
     $this->assertSession()->pageTextContains('View render time');
+<<<<<<< HEAD
     $this->assertSession()->responseNotContains('<strong>Query</strong>');
+=======
+    $this->assertNoRaw('<strong>Query</strong>');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Statistics and query.
     $settings->set('ui.show.sql_query.enabled', TRUE)->save();
@@ -114,7 +141,11 @@ class PreviewTest extends UITestBase {
     $this->assertSession()->pageTextContains('Query build time');
     $this->assertSession()->pageTextContains('Query execute time');
     $this->assertSession()->pageTextContains('View render time');
+<<<<<<< HEAD
     $this->assertSession()->responseContains('<strong>Query</strong>');
+=======
+    $this->assertRaw('<strong>Query</strong>');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $query_string = <<<SQL
 SELECT "views_test_data"."name" AS "views_test_data_name"
 FROM

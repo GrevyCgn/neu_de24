@@ -18,6 +18,7 @@ use Drupal\Core\DependencyInjection\YamlFileLoader;
 use Drupal\Core\Extension\Extension;
 use Drupal\Core\Extension\ExtensionDiscovery;
 use Drupal\Core\File\MimeType\MimeTypeGuesser;
+use Drupal\Core\Http\InputBag;
 use Drupal\Core\Http\TrustedHostsRequestFactory;
 use Drupal\Core\Installer\InstallerKernel;
 use Drupal\Core\Installer\InstallerRedirectTrait;
@@ -34,6 +35,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
 use Symfony\Component\HttpKernel\TerminableInterface;
+use Symfony\Component\HttpFoundation\InputBag as SymfonyInputBag;
 use TYPO3\PharStreamWrapper\Manager as PharStreamWrapperManager;
 use TYPO3\PharStreamWrapper\Behavior as PharStreamWrapperBehavior;
 use TYPO3\PharStreamWrapper\PharStreamWrapper;
@@ -694,6 +696,14 @@ class DrupalKernel implements DrupalKernelInterface, TerminableInterface {
   public function handle(Request $request, $type = self::MASTER_REQUEST, $catch = TRUE): Response {
     // Ensure sane PHP environment variables.
     static::bootEnvironment();
+
+    // Replace ParameterBag with InputBag for compatibility with Symfony 5.
+    // @todo Remove this when Symfony 4 is no longer supported.
+    foreach (['request', 'query', 'cookies'] as $bag) {
+      if (!($bag instanceof SymfonyInputBag)) {
+        $request->$bag = new InputBag($request->$bag->all());
+      }
+    }
 
     try {
       $this->initializeSettings($request);

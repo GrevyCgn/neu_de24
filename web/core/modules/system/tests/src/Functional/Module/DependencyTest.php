@@ -215,6 +215,7 @@ class DependencyTest extends ModuleTestBase {
     // Enable the modules through the UI, verifying that the dependency chain
     // is correct.
     $edit = [];
+<<<<<<< HEAD
     $edit['modules[dblog][enable]'] = 'dblog';
     $this->drupalGet('admin/modules');
     $this->submitForm($edit, 'Install');
@@ -222,12 +223,25 @@ class DependencyTest extends ModuleTestBase {
     // Note that dependencies are sorted alphabetically in the confirmation
     // message.
     $this->assertSession()->pageTextContains('You must enable the Configuration Manager, Help modules to install Database Logging.');
+=======
+    $edit['modules[color][enable]'] = 'color';
+    $this->drupalGet('admin/modules');
+    $this->submitForm($edit, 'Install');
+    $this->assertModules(['color'], FALSE);
+    // Note that dependencies are sorted alphabetically in the confirmation
+    // message.
+    $this->assertSession()->pageTextContains('You must enable the Configuration Manager, Help modules to install Color.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $edit['modules[config][enable]'] = 'config';
     $edit['modules[help][enable]'] = 'help';
     $this->drupalGet('admin/modules');
     $this->submitForm($edit, 'Install');
+<<<<<<< HEAD
     $this->assertModules(['dblog', 'config', 'help'], TRUE);
+=======
+    $this->assertModules(['color', 'config', 'help'], TRUE);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Check the actual order which is saved by module_test_modules_enabled().
     $module_order = \Drupal::state()->get('module_test.install_order', []);

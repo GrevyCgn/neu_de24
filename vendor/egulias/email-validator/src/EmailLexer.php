@@ -7,6 +7,36 @@ use Doctrine\Common\Lexer\AbstractLexer;
 class EmailLexer extends AbstractLexer
 {
     //ASCII values
+<<<<<<< HEAD
+=======
+    const C_DEL              = 127;
+    const C_NUL              = 0;
+    const S_AT               = 64;
+    const S_BACKSLASH        = 92;
+    const S_DOT              = 46;
+    const S_DQUOTE           = 34;
+    const S_SQUOTE           = 39;
+    const S_BACKTICK         = 96;
+    const S_OPENPARENTHESIS  = 49;
+    const S_CLOSEPARENTHESIS = 261;
+    const S_OPENBRACKET      = 262;
+    const S_CLOSEBRACKET     = 263;
+    const S_HYPHEN           = 264;
+    const S_COLON            = 265;
+    const S_DOUBLECOLON      = 266;
+    const S_SP               = 267;
+    const S_HTAB             = 268;
+    const S_CR               = 269;
+    const S_LF               = 270;
+    const S_IPV6TAG          = 271;
+    const S_LOWERTHAN        = 272;
+    const S_GREATERTHAN      = 273;
+    const S_COMMA            = 274;
+    const S_SEMICOLON        = 275;
+    const S_OPENQBRACKET     = 276;
+    const S_CLOSEQBRACKET    = 277;
+    const S_SLASH            = 278;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     const S_EMPTY            = null;
     const C_NUL              = 0;
     const S_HTAB             = 9;

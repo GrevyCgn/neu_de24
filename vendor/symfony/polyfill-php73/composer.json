@@ -26,7 +26,11 @@
     "minimum-stability": "dev",
     "extra": {
         "branch-alias": {
+<<<<<<< HEAD
             "dev-main": "1.27-dev"
+=======
+            "dev-main": "1.23-dev"
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         },
         "thanks": {
             "name": "symfony/polyfill",

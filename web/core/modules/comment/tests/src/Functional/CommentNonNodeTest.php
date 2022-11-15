@@ -286,7 +286,12 @@ class CommentNonNodeTest extends BrowserTestBase {
 
     // Test breadcrumb on comment add page.
     $this->drupalGet('comment/reply/entity_test/' . $this->entity->id() . '/comment');
+<<<<<<< HEAD
     $this->assertSession()->elementTextEquals('xpath', '//nav[@aria-labelledby="system-breadcrumb"]/ol/li[last()]/a', $this->entity->label());
+=======
+    $xpath = '//nav[@class="breadcrumb"]/ol/li[last()]/a';
+    $this->assertEquals($this->entity->label(), current($this->xpath($xpath))->getText(), 'Last breadcrumb item is equal to node title on comment reply page.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Post a comment.
     /** @var \Drupal\comment\CommentInterface $comment1 */
@@ -295,6 +300,7 @@ class CommentNonNodeTest extends BrowserTestBase {
 
     // Test breadcrumb on comment reply page.
     $this->drupalGet('comment/reply/entity_test/' . $this->entity->id() . '/comment/' . $comment1->id());
+<<<<<<< HEAD
     $this->assertSession()->elementTextEquals('xpath', '//nav[@aria-labelledby="system-breadcrumb"]/ol/li[last()]/a', $comment1->getSubject());
 
     // Test breadcrumb on comment edit page.
@@ -304,6 +310,20 @@ class CommentNonNodeTest extends BrowserTestBase {
     // Test breadcrumb on comment delete page.
     $this->drupalGet('comment/' . $comment1->id() . '/delete');
     $this->assertSession()->elementTextEquals('xpath', '//nav[@aria-labelledby="system-breadcrumb"]/ol/li[last()]/a', $comment1->getSubject());
+=======
+    $xpath = '//nav[@class="breadcrumb"]/ol/li[last()]/a';
+    $this->assertEquals($comment1->getSubject(), current($this->xpath($xpath))->getText(), 'Last breadcrumb item is equal to comment title on comment reply page.');
+
+    // Test breadcrumb on comment edit page.
+    $this->drupalGet('comment/' . $comment1->id() . '/edit');
+    $xpath = '//nav[@class="breadcrumb"]/ol/li[last()]/a';
+    $this->assertEquals($comment1->getSubject(), current($this->xpath($xpath))->getText(), 'Last breadcrumb item is equal to comment subject on edit page.');
+
+    // Test breadcrumb on comment delete page.
+    $this->drupalGet('comment/' . $comment1->id() . '/delete');
+    $xpath = '//nav[@class="breadcrumb"]/ol/li[last()]/a';
+    $this->assertEquals($comment1->getSubject(), current($this->xpath($xpath))->getText(), 'Last breadcrumb item is equal to comment subject on delete confirm page.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Unpublish the comment.
     $this->performCommentOperation($comment1, 'unpublish');
@@ -496,7 +516,11 @@ class CommentNonNodeTest extends BrowserTestBase {
     // Attempt to add a comment-type referencing this entity-type.
     $this->drupalGet('admin/structure/comment/types/add');
     $this->assertSession()->optionNotExists('edit-target-entity-type-id', 'entity_test_string_id');
+<<<<<<< HEAD
     $this->assertSession()->responseNotContains('Test entity with string_id');
+=======
+    $this->assertSession()->responseNotContains(t('Test entity with string_id'));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Create a bundle for entity_test_no_id.
     entity_test_create_bundle('entity_test', 'Entity Test', 'entity_test_no_id');

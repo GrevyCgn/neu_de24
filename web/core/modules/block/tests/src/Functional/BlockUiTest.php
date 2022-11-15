@@ -92,8 +92,13 @@ class BlockUiTest extends BrowserTestBase {
   public function testBlockDemoUiPage() {
     $this->drupalPlaceBlock('help_block', ['region' => 'help']);
     $this->drupalGet('admin/structure/block');
+<<<<<<< HEAD
     $this->clickLink('Demonstrate block regions (Stark)');
     $this->assertSession()->elementExists('xpath', '//header[@role = "banner"]/div/div[contains(@class, "block-region") and contains(text(), "Header")]');
+=======
+    $this->clickLink(t('Demonstrate block regions (@theme)', ['@theme' => 'Classy']));
+    $this->assertSession()->elementExists('xpath', '//div[contains(@class, "region-highlighted")]/div[contains(@class, "block-region") and contains(text(), "Highlighted")]');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Ensure that other themes can use the block demo page.
     \Drupal::service('theme_installer')->install(['test_theme']);
@@ -193,7 +198,11 @@ class BlockUiTest extends BrowserTestBase {
     $this->drupalGet('admin/structure/block');
     $this->clickLink('Place block');
     // Verify that the context-aware test block does not appear.
+<<<<<<< HEAD
     $this->assertSession()->elementNotExists('xpath', '//tr[.//td/div[text()="Test context-aware unsatisfied block"] and .//td[text()="Block test"] and .//td//a[contains(@href, "admin/structure/block/add/test_context_aware_unsatisfied/stark")]]');
+=======
+    $this->assertSession()->elementNotExists('xpath', '//tr[.//td/div[text()="Test context-aware unsatisfied block"] and .//td[text()="Block test"] and .//td//a[contains(@href, "admin/structure/block/add/test_context_aware_unsatisfied/classy")]]');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $definition = \Drupal::service('plugin.manager.block')->getDefinition('test_context_aware_unsatisfied');
     $this->assertNotEmpty($definition, 'The context-aware test block does not exist.');
@@ -225,7 +234,11 @@ class BlockUiTest extends BrowserTestBase {
     $this->drupalGet('');
     $this->assertSession()->pageTextContains('Test context-aware block');
     $this->assertSession()->pageTextContains('User context found.');
+<<<<<<< HEAD
     $this->assertSession()->responseContains($expected_text);
+=======
+    $this->assertRaw($expected_text);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Test context mapping form element is not visible if there are no valid
     // context options for the block (the test_context_aware_no_valid_context_options
@@ -242,7 +255,11 @@ class BlockUiTest extends BrowserTestBase {
     $this->submitForm($edit, 'Save block');
     $this->drupalGet('');
     $this->assertSession()->pageTextContains('No context mapping selected.');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('User context found.');
+=======
+    $this->assertNoText('User context found.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Tests that conditions with missing context are not displayed.
     $this->drupalGet('admin/structure/block/manage/testcontextawareblock');
@@ -307,7 +324,11 @@ class BlockUiTest extends BrowserTestBase {
     // After adding a block, it will indicate which block was just added.
     $this->drupalGet('admin/structure/block/add/system_powered_by_block');
     $this->submitForm($block, 'Save block');
+<<<<<<< HEAD
     $this->assertSession()->addressEquals('admin/structure/block/list/stark?block-placement=' . Html::getClass($block['id']));
+=======
+    $this->assertSession()->addressEquals('admin/structure/block/list/classy?block-placement=' . Html::getClass($block['id']));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Resaving the block page will remove the block placement indicator.
     $this->submitForm([], 'Save blocks');
@@ -336,7 +357,11 @@ class BlockUiTest extends BrowserTestBase {
    * Tests if validation errors are passed plugin form to the parent form.
    */
   public function testBlockValidateErrors() {
+<<<<<<< HEAD
     $this->drupalGet('admin/structure/block/add/test_settings_validation/stark');
+=======
+    $this->drupalGet('admin/structure/block/add/test_settings_validation/classy');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->submitForm([
       'region' => 'content',
       'settings[digits]' => 'abc',

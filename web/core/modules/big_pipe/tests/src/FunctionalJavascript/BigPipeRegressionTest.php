@@ -39,6 +39,78 @@ class BigPipeRegressionTest extends WebDriverTestBase {
   }
 
   /**
+<<<<<<< HEAD
+=======
+   * Ensure comment form works with history and big_pipe modules.
+   *
+   * @see https://www.drupal.org/node/2698811
+   */
+  public function testCommentForm_2698811() {
+    $this->assertTrue($this->container->get('module_installer')->install(['comment', 'history', 'ckeditor'], TRUE), 'Installed modules.');
+
+    // Ensure an `article` node type exists.
+    $this->createContentType(['type' => 'article']);
+    $this->addDefaultCommentField('node', 'article');
+
+    // Enable CKEditor.
+    $format = $this->randomMachineName();
+    FilterFormat::create([
+      'format' => $format,
+      'name' => $this->randomString(),
+      'weight' => 1,
+      'filters' => [],
+    ])->save();
+    $settings['toolbar']['rows'] = [
+      [
+        [
+          'name' => 'Links',
+          'items' => [
+            'DrupalLink',
+            'DrupalUnlink',
+          ],
+        ],
+      ],
+    ];
+    $editor = Editor::create([
+      'format' => $format,
+      'editor' => 'ckeditor',
+    ]);
+    $editor->setSettings($settings);
+    $editor->save();
+
+    $admin_user = $this->drupalCreateUser([
+      'access comments',
+      'post comments',
+      'use text format ' . $format,
+    ]);
+    $this->drupalLogin($admin_user);
+
+    $node = $this->createNode([
+      'type' => 'article',
+      'comment' => CommentItemInterface::OPEN,
+    ]);
+    // Create some comments.
+    foreach (range(1, 5) as $i) {
+      $comment = Comment::create([
+        'status' => CommentInterface::PUBLISHED,
+        'field_name' => 'comment',
+        'entity_type' => 'node',
+        'entity_id' => $node->id(),
+      ]);
+      $comment->save();
+    }
+    $this->drupalGet($node->toUrl()->toString());
+    // Confirm that CKEditor loaded.
+    $javascript = <<<JS
+    (function(){
+      return Object.keys(CKEDITOR.instances).length > 0;
+    }())
+JS;
+    $this->assertJsCondition($javascript);
+  }
+
+  /**
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    * Ensure BigPipe works despite inline JS containing the string "</body>".
    *
    * @see https://www.drupal.org/node/2678662

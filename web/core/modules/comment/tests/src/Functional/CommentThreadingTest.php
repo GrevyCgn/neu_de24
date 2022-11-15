@@ -137,14 +137,24 @@ class CommentThreadingTest extends CommentTestBase {
   protected function assertParentLink(int $cid, int $pid): void {
     // This pattern matches a markup structure like:
     // @code
+<<<<<<< HEAD
     // <article id="comment-2">
     //   <p>
     //     In reply to
+=======
+    // <a id="comment-2"></a>
+    // <article>
+    //   <p class="parent">
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     //     <a href="...comment-1"></a>
     //   </p>
     // </article>
     // @endcode
+<<<<<<< HEAD
     $pattern = "//article[@id='comment-$cid']//p/a[contains(@href, 'comment-$pid')]";
+=======
+    $pattern = "//article[@id='comment-$cid']//p[contains(@class, 'parent')]//a[contains(@href, 'comment-$pid')]";
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $this->assertSession()->elementExists('xpath', $pattern);
 
@@ -163,10 +173,24 @@ class CommentThreadingTest extends CommentTestBase {
    *
    * @internal
    */
+<<<<<<< HEAD
   protected function assertNoParentLink(int $cid): void {
     $pattern = "//article[@id='comment-$cid']";
     // A parent link is always accompanied by the text "In reply to".
     $this->assertSession()->elementTextNotContains('xpath', $pattern, 'In reply to');
+=======
+  protected function assertNoParentLink($cid) {
+    // This pattern matches a markup structure like:
+    // @code
+    // <a id="comment-2"></a>
+    // <article>
+    //   <p class="parent"></p>
+    // </article>
+    // @endcode
+
+    $pattern = "//article[@id='comment-$cid']//p[contains(@class, 'parent')]";
+    $this->assertSession()->elementNotExists('xpath', $pattern);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
 }

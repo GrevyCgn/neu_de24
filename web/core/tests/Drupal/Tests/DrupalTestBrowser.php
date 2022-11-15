@@ -80,7 +80,11 @@ class DrupalTestBrowser extends AbstractBrowser {
   /**
    * {@inheritdoc}
    */
+<<<<<<< HEAD
   protected function doRequest($request): object {
+=======
+  protected function doRequest($request) {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $headers = [];
     foreach ($request->getServer() as $key => $val) {
       $key = strtolower(str_replace('_', '-', $key));

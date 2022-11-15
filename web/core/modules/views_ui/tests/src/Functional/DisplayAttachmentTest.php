@@ -45,8 +45,14 @@ class DisplayAttachmentTest extends UITestBase {
     $this->submitForm(['displays[page_1]' => 1], 'Apply');
     // Options summary should be escaped.
     $this->assertSession()->assertEscaped('<em>Page</em>');
+<<<<<<< HEAD
     $this->assertSession()->responseNotContains('<em>Page</em>');
     $this->assertSession()->elementAttributeContains('xpath', '//a[@id = "views-attachment-1-displays"]', 'title', 'Page');
+=======
+    $this->assertNoRaw('<em>Page</em>');
+    $result = $this->xpath('//a[@id = :id]', [':id' => 'views-attachment-1-displays']);
+    $this->assertEquals(t('Page'), $result[0]->getAttribute('title'));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->submitForm([], 'Save');
 
     $view = Views::getView('test_attachment_ui');
@@ -58,7 +64,12 @@ class DisplayAttachmentTest extends UITestBase {
       'displays[default]' => 1,
       'displays[page_1]' => 1,
     ], 'Apply');
+<<<<<<< HEAD
     $this->assertSession()->elementAttributeContains('xpath', '//a[@id = "views-attachment-1-displays"]', 'title', 'Multiple displays');
+=======
+    $result = $this->xpath('//a[@id = :id]', [':id' => 'views-attachment-1-displays']);
+    $this->assertEquals(t('Multiple displays'), $result[0]->getAttribute('title'));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->submitForm([], 'Save');
 
     $view = Views::getView('test_attachment_ui');

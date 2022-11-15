@@ -610,7 +610,11 @@ class NodeTest extends MigrateSqlSourceTestBase {
         'timestamp' => 1279051598,
         'body' => [
           [
+<<<<<<< HEAD
             'value' => 'Foo',
+=======
+            'value' => 'Foobaz',
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
             'summary' => '',
             'format' => 'filtered_html',
           ],

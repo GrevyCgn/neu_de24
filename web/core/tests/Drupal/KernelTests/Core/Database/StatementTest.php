@@ -41,6 +41,7 @@ class StatementTest extends DatabaseTestBase {
     $this->assertEquals($num_records_before + 2, $num_records_after);
     $this->assertSame('30', $this->connection->query('SELECT [age] FROM {test} WHERE [name] = :name', [':name' => 'Larry'])->fetchField());
     $this->assertSame('31', $this->connection->query('SELECT [age] FROM {test} WHERE [name] = :name', [':name' => 'Curly'])->fetchField());
+<<<<<<< HEAD
   }
 
   /**
@@ -67,6 +68,8 @@ class StatementTest extends DatabaseTestBase {
     $statement->allowRowCount = TRUE;
     $statement->execute([':age' => 12]);
     $this->assertEquals(4, $statement->rowCount());
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
 }

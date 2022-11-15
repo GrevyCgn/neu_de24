@@ -77,8 +77,13 @@ class NodeAccessPagerTest extends BrowserTestBase {
     $this->drupalGet('node/' . $node->id());
     $this->assertSession()->pageTextContains($node->label());
     $this->assertSession()->pageTextContains('Comments');
+<<<<<<< HEAD
     $this->assertSession()->responseContains('page=1');
     $this->assertSession()->responseNotContains('page=2');
+=======
+    $this->assertRaw('page=1');
+    $this->assertNoRaw('page=2');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**

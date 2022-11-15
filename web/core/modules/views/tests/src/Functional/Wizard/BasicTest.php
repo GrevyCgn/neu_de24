@@ -91,9 +91,15 @@ class BasicTest extends WizardTestBase {
     $this->assertEquals('2.0', $this->getSession()->getDriver()->getAttribute('//rss', 'version'));
     // The feed should have the same title and nodes as the page.
     $this->assertSession()->responseContains($view2['page[title]']);
+<<<<<<< HEAD
     $this->assertSession()->responseContains($node1->toUrl('canonical', ['absolute' => TRUE])->toString());
     $this->assertSession()->responseContains($node1->label());
     $this->assertSession()->responseContains($node2->toUrl('canonical', ['absolute' => TRUE])->toString());
+=======
+    $this->assertRaw($node1->toUrl('canonical', ['absolute' => TRUE])->toString());
+    $this->assertSession()->responseContains($node1->label());
+    $this->assertRaw($node2->toUrl('canonical', ['absolute' => TRUE])->toString());
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->responseContains($node2->label());
 
     // Go back to the views page and check if this view is there.
@@ -130,7 +136,11 @@ class BasicTest extends WizardTestBase {
     $this->assertSession()->addressEquals($view3['page[path]']);
     $this->assertSession()->pageTextContains($view3['page[title]']);
     $this->assertSession()->pageTextContains($node1->label());
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains($node2->label());
+=======
+    $this->assertNoText($node2->label());
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Go back to the views page and check if this view is there.
     $this->drupalGet('admin/structure/views');
@@ -153,7 +163,14 @@ class BasicTest extends WizardTestBase {
     // for the expected node title in the block.
     $this->drupalGet('user');
     $this->assertSession()->pageTextContains($node1->label());
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains($node2->label());
+=======
+    $this->assertNoText($node2->label());
+
+    // Make sure the listing page doesn't show disabled default views.
+    $this->assertNoText('tracker');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Create a view with only a REST export.
     $view4 = [];
@@ -166,7 +183,11 @@ class BasicTest extends WizardTestBase {
     $view4['rest_export[path]'] = $this->randomMachineName(16);
     $this->drupalGet('admin/structure/views/add');
     $this->submitForm($view4, 'Save and edit');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains("The view {$view4['label']} has been saved.");
+=======
+    $this->assertRaw(t('The view %view has been saved.', ['%view' => $view4['label']]));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Check that the REST export path works. JSON will work, as all core
     // formats will be allowed. JSON and XML by default.

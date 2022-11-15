@@ -1,12 +1,24 @@
 <?php
 
+<<<<<<< HEAD
+=======
+/**
+ * @see       https://github.com/laminas/laminas-feed for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-feed/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-feed/blob/master/LICENSE.md New BSD License
+ */
+
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 namespace Laminas\Feed\Reader\Extension\PodcastIndex;
 
 use Laminas\Feed\Reader\Extension;
 use stdClass;
 
+<<<<<<< HEAD
 use function array_key_exists;
 
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 /**
  * Describes PodcastIndex data of a RSS Feed
  */

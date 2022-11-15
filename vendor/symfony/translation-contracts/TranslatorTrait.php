@@ -142,7 +142,11 @@ EOF;
     {
         $number = abs($number);
 
+<<<<<<< HEAD
         switch ('pt_BR' !== $locale && 'en_US_POSIX' !== $locale && \strlen($locale) > 3 ? substr($locale, 0, strrpos($locale, '_')) : $locale) {
+=======
+        switch ('pt_BR' !== $locale && \strlen($locale) > 3 ? substr($locale, 0, strrpos($locale, '_')) : $locale) {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
             case 'af':
             case 'bn':
             case 'bg':

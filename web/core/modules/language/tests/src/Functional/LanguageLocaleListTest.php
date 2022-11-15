@@ -55,7 +55,11 @@ class LanguageLocaleListTest extends BrowserTestBase {
     ];
     $this->drupalGet('admin/config/regional/language/add');
     $this->submitForm($edit, 'Add language');
+<<<<<<< HEAD
     $this->assertSession()->statusMessageContains('The language French has been created and can now be used', 'status');
+=======
+    $this->assertSession()->pageTextContains('The language French has been created and can now be used');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->addressEquals(Url::fromRoute('entity.configurable_language.collection'));
     $this->rebuildContainer();
 

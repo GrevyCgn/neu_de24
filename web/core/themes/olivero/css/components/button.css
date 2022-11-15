@@ -42,7 +42,11 @@
   border: solid 2px #0d77b5;
   border-radius: 0.1875rem;
   background-color: #fff;
+<<<<<<< HEAD
   font-family: "metropolis", sans-serif;
+=======
+  font-family: inherit;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   font-size: 1.125rem;
   font-weight: 700;
   -webkit-appearance: none;

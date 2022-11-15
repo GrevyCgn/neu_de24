@@ -1,8 +1,12 @@
 {
     "extensions": [
         "tidy"
+<<<<<<< HEAD
     ],
     "ignore_php_platform_requirements": {
         "8.1": true
     }
+=======
+    ]
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 }

@@ -18,6 +18,7 @@ class UserStorage extends SqlContentEntityStorage implements UserStorageInterfac
    * {@inheritdoc}
    */
   protected function doSaveFieldItems(ContentEntityInterface $entity, array $names = []) {
+<<<<<<< HEAD
     // The anonymous user account is saved with the fixed user ID of 0. MySQL
     // does not support inserting an ID of 0 into serial field unless the SQL
     // mode is set to NO_AUTO_VALUE_ON_ZERO.
@@ -29,6 +30,13 @@ class UserStorage extends SqlContentEntityStorage implements UserStorageInterfac
         $sql_mode = $database->query("SELECT @@sql_mode;")->fetchField();
         $database->query("SET sql_mode = '$sql_mode,NO_AUTO_VALUE_ON_ZERO'");
       }
+=======
+    // The anonymous user account is saved with the fixed user ID of 0.
+    // Therefore we need to check for NULL explicitly.
+    if ($entity->id() === NULL) {
+      $entity->uid->value = $this->database->nextId($this->database->query('SELECT MAX([uid]) FROM {' . $this->getBaseTable() . '}')->fetchField());
+      $entity->enforceIsNew();
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     }
     parent::doSaveFieldItems($entity, $names);
 

@@ -149,7 +149,11 @@
         );
         const body = context.querySelector('body');
         const overlay = context.querySelector(
+<<<<<<< HEAD
           '[data-drupal-selector="header-nav-overlay"]',
+=======
+          '[data-drupal-selector="overlay"]',
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         );
 
         init({

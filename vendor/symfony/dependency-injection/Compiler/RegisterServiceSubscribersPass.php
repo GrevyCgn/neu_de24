@@ -91,7 +91,11 @@ class RegisterServiceSubscribersPass extends AbstractRecursivePass
             if ($name) {
                 if (false !== $i = strpos($name, '::get')) {
                     $name = lcfirst(substr($name, 5 + $i));
+<<<<<<< HEAD
                 } elseif (str_contains($name, '::')) {
+=======
+                } elseif (false !== strpos($name, '::')) {
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
                     $name = null;
                 }
             }

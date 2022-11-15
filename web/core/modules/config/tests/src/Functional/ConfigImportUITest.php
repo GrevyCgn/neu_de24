@@ -55,7 +55,11 @@ class ConfigImportUITest extends BrowserTestBase {
     $sync = $this->container->get('config.storage.sync');
 
     $this->drupalGet('admin/config/development/configuration');
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains('The staged configuration is identical to the active configuration.');
+=======
+    $this->assertSession()->pageTextContains('There are no configuration changes to import.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->buttonNotExists('Import all');
 
     // Create updated configuration object.
@@ -137,7 +141,11 @@ class ConfigImportUITest extends BrowserTestBase {
     $this->assertSession()->buttonNotExists('Import all');
 
     // Verify that there are no further changes to import.
+<<<<<<< HEAD
     $this->assertSession()->pageTextContains('The staged configuration is identical to the active configuration.');
+=======
+    $this->assertSession()->pageTextContains('There are no configuration changes to import.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     $this->rebuildContainer();
     // Verify site name has changed.
@@ -445,8 +453,13 @@ class ConfigImportUITest extends BrowserTestBase {
     $this->submitForm([], 'Import all');
     $this->assertSession()->pageTextContains('Deleted and replaced configuration entity "' . $name_secondary . '"');
     $this->assertSession()->pageTextContains('The configuration was imported with errors.');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains('The configuration was imported successfully.');
     $this->assertSession()->pageTextContains('The staged configuration is identical to the active configuration.');
+=======
+    $this->assertNoText('The configuration was imported successfully.');
+    $this->assertSession()->pageTextContains('There are no configuration changes to import.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**
@@ -473,8 +486,13 @@ class ConfigImportUITest extends BrowserTestBase {
     // and the node type, body field and entity displays are still scheduled for
     // removal.
     $this->submitForm([], 'Import all');
+<<<<<<< HEAD
     $validation_message = "Entities exist of type {$node->getEntityType()->getLabel()} and {$node->getEntityType()->getBundleLabel()} {$node_type->label()}. These entities need to be deleted before importing.";
     $this->assertSession()->pageTextContains($validation_message);
+=======
+    $validation_message = t('Entities exist of type %entity_type and %bundle_label %bundle. These entities need to be deleted before importing.', ['%entity_type' => $node->getEntityType()->getLabel(), '%bundle_label' => $node->getEntityType()->getBundleLabel(), '%bundle' => $node_type->label()]);
+    $this->assertRaw($validation_message);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertSession()->pageTextContains('node.type.' . $node_type->id());
     $this->assertSession()->pageTextContains('field.field.node.' . $node_type->id() . '.body');
     $this->assertSession()->pageTextContains('core.entity_view_display.node.' . $node_type->id() . '.teaser');
@@ -484,6 +502,7 @@ class ConfigImportUITest extends BrowserTestBase {
     // Delete the node and try to import again.
     $node->delete();
     $this->submitForm([], 'Import all');
+<<<<<<< HEAD
     $this->assertSession()->pageTextNotContains($validation_message);
     $this->assertSession()->pageTextContains('The staged configuration is identical to the active configuration.');
     $this->assertSession()->pageTextNotContains('node.type.' . $node_type->id());
@@ -491,6 +510,15 @@ class ConfigImportUITest extends BrowserTestBase {
     $this->assertSession()->pageTextNotContains('core.entity_view_display.node.' . $node_type->id() . '.teaser');
     $this->assertSession()->pageTextNotContains('core.entity_view_display.node.' . $node_type->id() . '.default');
     $this->assertSession()->pageTextNotContains('core.entity_form_display.node.' . $node_type->id() . '.default');
+=======
+    $this->assertNoRaw($validation_message);
+    $this->assertSession()->pageTextContains('There are no configuration changes to import.');
+    $this->assertNoText('node.type.' . $node_type->id());
+    $this->assertNoText('field.field.node.' . $node_type->id() . '.body');
+    $this->assertNoText('core.entity_view_display.node.' . $node_type->id() . '.teaser');
+    $this->assertNoText('core.entity_view_display.node.' . $node_type->id() . '.default');
+    $this->assertNoText('core.entity_form_display.node.' . $node_type->id() . '.default');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
   }
 
   /**

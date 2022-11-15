@@ -145,7 +145,11 @@ class ImageFieldDisplayTest extends ImageFieldTestBase {
     $this->assertSession()->responseHeaderNotContains('X-Drupal-Cache-Tags', 'image_style:');
     $this->assertSession()->responseContains($default_output);
     // Verify that the image can be downloaded.
+<<<<<<< HEAD
     $this->assertEquals(file_get_contents($test_image->uri), $this->drupalGet($file->createFileUrl(FALSE)), 'File was downloaded successfully.');
+=======
+    $this->assertEquals(file_get_contents($test_image->uri), $this->drupalGet(file_create_url($image_uri)), 'File was downloaded successfully.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     if ($scheme == 'private') {
       // Only verify HTTP headers when using private scheme and the headers are
       // sent by Drupal.
@@ -213,12 +217,20 @@ class ImageFieldDisplayTest extends ImageFieldTestBase {
       'type' => 'image_url',
       'settings' => ['image_style' => ''],
     ];
+<<<<<<< HEAD
     $expected_url = $file->createFileUrl();
+=======
+    $expected_url = file_url_transform_relative(file_create_url($image_uri));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertEquals($expected_url, $node->{$field_name}->view($display_options)[0]['#markup']);
 
     // Test the image URL formatter with an image style.
     $display_options['settings']['image_style'] = 'thumbnail';
+<<<<<<< HEAD
     $expected_url = \Drupal::service('file_url_generator')->transformRelative(ImageStyle::load('thumbnail')->buildUrl($image_uri));
+=======
+    $expected_url = file_url_transform_relative(ImageStyle::load('thumbnail')->buildUrl($image_uri));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $this->assertEquals($expected_url, $node->{$field_name}->view($display_options)[0]['#markup']);
   }
 
@@ -297,8 +309,13 @@ class ImageFieldDisplayTest extends ImageFieldTestBase {
     ];
     $this->drupalGet('node/' . $nid . '/edit');
     $this->submitForm($edit, 'Save');
+<<<<<<< HEAD
     $default_output = str_replace("\n", '', $renderer->renderRoot($image));
     $this->assertSession()->responseContains($default_output);
+=======
+    $default_output = str_replace("\n", NULL, $renderer->renderRoot($image));
+    $this->assertRaw($default_output);
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Verify that alt/title longer than allowed results in a validation error.
     $test_size = 2000;
@@ -330,7 +347,11 @@ class ImageFieldDisplayTest extends ImageFieldTestBase {
     $this->submitForm($edit, 'Save');
     // Add the required alt text.
     $this->submitForm([$field_name . '[1][alt]' => $alt], 'Save');
+<<<<<<< HEAD
     $this->assertSession()->statusMessageContains('Article ' . $node->getTitle() . ' has been updated.', 'status');
+=======
+    $this->assertSession()->pageTextContains('Article ' . $node->getTitle() . ' has been updated.');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     // Assert ImageWidget::process() calls FieldWidget::process().
     $this->drupalGet('node/' . $node->id() . '/edit');
@@ -343,6 +364,7 @@ class ImageFieldDisplayTest extends ImageFieldTestBase {
   }
 
   /**
+<<<<<<< HEAD
    * Tests for image loading attribute settings.
    */
   public function testImageLoadingAttribute(): void {
@@ -457,6 +479,8 @@ class ImageFieldDisplayTest extends ImageFieldTestBase {
   }
 
   /**
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    * Tests use of a default image with an image field.
    */
   public function testImageFieldDefaultImage() {

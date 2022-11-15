@@ -156,6 +156,10 @@ final class ImplicitlyIgnoredAnnotationNames
         'immutable' => true,
     ];
 
+    private const Phan = ['suppress' => true];
+
+    private const Rector = ['noRector' => true];
+
     public const LIST = self::Reserved
         + self::WidelyUsedNonStandard
         + self::PhpDocumentor1
@@ -168,9 +172,15 @@ final class ImplicitlyIgnoredAnnotationNames
         + self::Symfony
         + self::SlevomatCodingStandard
         + self::PhpCodeSniffer
+<<<<<<< HEAD
         + self::Phan
         + self::Rector
         + self::StaticAnalysis;
+=======
+        + self::PhpStan
+        + self::Phan
+        + self::Rector;
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
     private function __construct()
     {

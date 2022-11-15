@@ -394,7 +394,10 @@ class ViewEditForm extends ViewFormBase {
    * @param \Drupal\views_ui\ViewUI $view
    *   The ViewUI entity.
    * @param array $display
+<<<<<<< HEAD
    *   The display.
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    *
    * @return array
    *   A renderable page build array.

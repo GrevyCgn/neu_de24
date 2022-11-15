@@ -358,6 +358,13 @@
                 <source>This value is not a valid timezone.</source>
                 <target>Hierdie waarde is nie 'n geldige tydsone nie.</target>
             </trans-unit>
+<<<<<<< HEAD
+=======
+            <trans-unit id="93">
+                <source>This password has been leaked in a data breach, it must not be used. Please use another password.</source>
+                <target>This password has been leaked in a data breach, it must not be used. Please use another password.</target>
+            </trans-unit>
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
             <trans-unit id="94">
                 <source>This value should be between {{ min }} and {{ max }}.</source>
                 <target>Hierdie waarde moet tussen {{ min }} en {{ max }} wees.</target>
@@ -382,6 +389,7 @@
                 <source>This value is not a valid International Securities Identification Number (ISIN).</source>
                 <target>Hierdie waarde is nie 'n geldige Internasionale veiligheidsidentifikasienommer (ISIN) nie.</target>
             </trans-unit>
+<<<<<<< HEAD
             <trans-unit id="100">
                 <source>This value should be a valid expression.</source>
                 <target>Hierdie waarde moet 'n geldige uitdrukking wees.</target>
@@ -398,6 +406,8 @@
                 <source>The value of the netmask should be between {{ min }} and {{ max }}.</source>
                 <target>Die waarde van die netmasker moet tussen {{ min }} en {{ max }} wees.</target>
             </trans-unit>
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
         </body>
     </file>
 </xliff>

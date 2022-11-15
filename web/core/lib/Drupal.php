@@ -75,7 +75,11 @@ class Drupal {
   /**
    * The current system version.
    */
+<<<<<<< HEAD
   const VERSION = '9.4.8';
+=======
+  const VERSION = '9.2.1';
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
   /**
    * Core API compatibility.
@@ -131,7 +135,11 @@ class Drupal {
    * message, but Drupal can still be installed. Used for (e.g.) PHP versions
    * that have reached their EOL or will in the near future.
    */
+<<<<<<< HEAD
   const RECOMMENDED_PHP = '8.0';
+=======
+  const RECOMMENDED_PHP = '7.4';
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 
   /**
    * The currently active container object, or NULL if not initialized yet.

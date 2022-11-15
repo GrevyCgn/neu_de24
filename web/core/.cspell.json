@@ -11,7 +11,10 @@
       "lib/Drupal/Component/Transliteration/data/**",
       "lib/Drupal/Core/File/MimeType/ExtensionMimeTypeGuesser.php",
       "**/LICENSE.txt",
+<<<<<<< HEAD
       "../**/LICENSE.txt",
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
       "modules/**/Migrate*Test.php",
       "modules/aggregator/tests/fixtures/drupal6.php",
       "modules/aggregator/tests/fixtures/drupal7.php",
@@ -41,8 +44,12 @@
       "^msgstr .*",
       "!!binary .*",
       "%[0-9][0-9A-F]",
+<<<<<<< HEAD
       "\\Wi18n",
       "\\x{[0-9A-F]{4,5}}"
+=======
+      "\\Wi18n"
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     ],
     "dictionaries": ["drupal","companies", "fonts", "html", "php", "softwareTerms"],
     "dictionaryDefinitions": [

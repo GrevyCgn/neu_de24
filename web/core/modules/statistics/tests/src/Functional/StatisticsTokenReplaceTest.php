@@ -36,7 +36,11 @@ class StatisticsTokenReplaceTest extends StatisticsTestBase {
     $tests = [];
     $tests['[node:total-count]'] = 0;
     $tests['[node:day-count]'] = 0;
+<<<<<<< HEAD
     $tests['[node:last-view]'] = 'never';
+=======
+    $tests['[node:last-view]'] = t('never');
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $tests['[node:last-view:short]'] = $date_formatter->format($request_time, 'short');
 
     foreach ($tests as $input => $expected) {

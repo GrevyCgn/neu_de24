@@ -7,6 +7,10 @@
 
 use Drupal\Core\Config\Entity\ConfigEntityUpdater;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
 use Drupal\layout_builder\Entity\LayoutEntityDisplayInterface;
 
 /**
@@ -66,6 +70,7 @@ function layout_builder_post_update_section_storage_context_mapping(&$sandbox = 
 
   $config_entity_updater->update($sandbox, 'entity_view_display', $callback);
 }
+<<<<<<< HEAD
 
 /**
  * Clear caches due to adding a new route enhancer.
@@ -73,3 +78,5 @@ function layout_builder_post_update_section_storage_context_mapping(&$sandbox = 
 function layout_builder_post_update_tempstore_route_enhancer() {
   // Empty post-update hook.
 }
+=======
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b

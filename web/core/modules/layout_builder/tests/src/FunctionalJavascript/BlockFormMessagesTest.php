@@ -57,7 +57,11 @@ class BlockFormMessagesTest extends WebDriverTestBase {
     // Enable layout builder.
     $this->drupalGet($field_ui_prefix . '/display/default');
     $this->submitForm(['layout[enabled]' => TRUE], 'Save');
+<<<<<<< HEAD
     $page->findLink('Manage layout')->click();
+=======
+    $this->clickElementWhenClickable($page->findLink('Manage layout'));
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
     $assert_session->addressEquals($field_ui_prefix . '/display/default/layout');
     $page->findLink('Add block')->click();
     $this->assertNotEmpty($assert_session->waitForElementVisible('css', '#drupal-off-canvas .block-categories'));

@@ -42,6 +42,7 @@ class MigrateNodeTypeTest extends MigrateDrupal7TestBase {
    * @param string $help
    *   The expected help text.
    * @param bool $display_submitted
+<<<<<<< HEAD
    *   If submission information is displayed.
    * @param bool $new_revision
    *   If this is a new revision.
@@ -53,6 +54,12 @@ class MigrateNodeTypeTest extends MigrateDrupal7TestBase {
    *   (optional) The label for the body field.
    *
    * @internal
+=======
+   * @param bool $new_revision
+   * @param array $expected_available_menus
+   * @param string $expected_parent
+   * @param string|null $body_label
+>>>>>>> 09638ae8e251e46b3c73fc6d7a891f3f2bea958b
    */
   protected function assertEntity(string $id, string $label, string $description, string $help, bool $display_submitted, bool $new_revision, ?array $expected_available_menus, ?string $expected_parent, ?string $body_label = NULL): void {
     /** @var \Drupal\node\NodeTypeInterface $entity */
