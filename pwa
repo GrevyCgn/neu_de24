@@ -1,0 +1,54 @@
+[33mcommit 88ebaa869da7d0d2b5772dc21f6dbb9d23a340ed[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Merge: a617e8b1 09638ae8
+Author: GrevyCgn <schaefer@grevyorg.onmicrosoft.com>
+Date:   Tue Nov 15 18:05:49 2022 +0100
+
+    Drupal 9.4.8 übergabe live de24new
+
+[33mcommit a617e8b1c2c9ee4a8effd684adf086eb1cdea7d8[m
+Author: GrevyCgn <schaefer@grevyorg.onmicrosoft.com>
+Date:   Tue Nov 15 17:54:02 2022 +0100
+
+    zwei Testprodukte – für de24new
+
+[33mcommit 3834d4298ac10ea3e34563448c2e3f7f79f7605e[m
+Author: GrevyCgn <schaefer@grevyorg.onmicrosoft.com>
+Date:   Tue Nov 15 14:58:33 2022 +0100
+
+    Drupal 9.4.8 – für de24new
+
+[33mcommit f55450e9a0cb55285adb2fb93977a0c8af4a01ea[m
+Author: GrevyCgn <schaefer@grevyorg.onmicrosoft.com>
+Date:   Tue Nov 15 14:56:51 2022 +0100
+
+    Drupal 9.4.8 de24
+
+[33mcommit 09638ae8e251e46b3c73fc6d7a891f3f2bea958b[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: GrevyCgn <83210743+GrevyCgn@users.noreply.github.com>
+Date:   Wed Jul 21 14:36:07 2021 +0200
+
+    Drupal 9.2 de24
+
+[33mcommit 8af5c85619eb1347fb0be10206ff7e6519fadae4[m
+Author: GrevyCgn <83210743+GrevyCgn@users.noreply.github.com>
+Date:   Mon Jun 7 17:10:39 2021 +0200
+
+    update 9.1.10-4 ctool
+
+[33mcommit f334c18cdfb964b27c4c344032a652e06ca549ef[m
+Author: GrevyCgn <83210743+GrevyCgn@users.noreply.github.com>
+Date:   Mon Jun 7 16:51:04 2021 +0200
+
+    update 9.1.10-2
+
+[33mcommit 490815d47eb0b23b48b10262fa061ed29cfaeb03[m
+Author: GrevyCgn <83210743+GrevyCgn@users.noreply.github.com>
+Date:   Thu May 6 18:16:42 2021 +0200
+
+    erster Entwurf für de24
+
+[33mcommit 1cd53345cce5c7758f47ef993d335d2cbb8a3d54[m
+Author: GrevyCgn <83210743+GrevyCgn@users.noreply.github.com>
+Date:   Wed May 5 17:39:03 2021 +0200
+
+    first commit
