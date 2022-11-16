@@ -305,12 +305,12 @@
             ),
         ),
         'drupal/ctools' => array(
-            'pretty_version' => '3.11.0',
-            'version' => '3.11.0.0',
+            'pretty_version' => '3.12.0',
+            'version' => '3.12.0.0',
             'type' => 'drupal-module',
             'install_path' => __DIR__ . '/../../web/modules/contrib/ctools',
             'aliases' => array(),
-            'reference' => '8.x-3.11',
+            'reference' => '8.x-3.12',
             'dev_requirement' => false,
         ),
         'drupal/entity' => array(
