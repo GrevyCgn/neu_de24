@@ -1,0 +1,11 @@
+name: Entities Import
+description: It provides user interface to import data from excel or csv file.
+core: 8.x
+type: module
+core_version_requirement: ^8 || ^9
+configure: entity.entities_import_type.collection
+
+# Information added by Drupal.org packaging script on 2021-07-22
+version: '8.x-1.2'
+project: 'entities_import'
+datestamp: 1626982909
