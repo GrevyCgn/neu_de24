@@ -358,6 +358,15 @@
             'reference' => '8.x-1.10',
             'dev_requirement' => false,
         ),
+        'drupal/entity_reference_views' => array(
+            'pretty_version' => '1.0.0',
+            'version' => '1.0.0.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/entity_reference_views',
+            'aliases' => array(),
+            'reference' => '1.0.0',
+            'dev_requirement' => false,
+        ),
         'drupal/field_group' => array(
             'pretty_version' => '3.4.0',
             'version' => '3.4.0.0',
@@ -421,6 +430,15 @@
             'reference' => NULL,
             'dev_requirement' => false,
         ),
+        'drupal/select2' => array(
+            'pretty_version' => '1.14.0',
+            'version' => '1.14.0.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/select2',
+            'aliases' => array(),
+            'reference' => '8.x-1.14',
+            'dev_requirement' => false,
+        ),
         'drupal/taxonomy_manager' => array(
             'pretty_version' => '2.0.7',
             'version' => '2.0.7.0',
@@ -437,6 +455,15 @@
             'install_path' => __DIR__ . '/../../web/modules/contrib/token',
             'aliases' => array(),
             'reference' => '8.x-1.11',
+            'dev_requirement' => false,
+        ),
+        'drupal/viewsreference' => array(
+            'pretty_version' => '1.8.0',
+            'version' => '1.8.0.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/viewsreference',
+            'aliases' => array(),
+            'reference' => '8.x-1.8',
             'dev_requirement' => false,
         ),
         'egulias/email-validator' => array(
@@ -756,6 +783,15 @@
             'replaced' => array(
                 0 => '*',
             ),
+        ),
+        'squizlabs/php_codesniffer' => array(
+            'pretty_version' => '3.7.1',
+            'version' => '3.7.1.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../squizlabs/php_codesniffer',
+            'aliases' => array(),
+            'reference' => '1359e176e9307e906dc3d890bcc9603ff6d90619',
+            'dev_requirement' => false,
         ),
         'stack/builder' => array(
             'pretty_version' => 'v1.0.6',
